@@ -100,7 +100,7 @@
 .destacado_sale{
     position: absolute;
     right: -5px;
-    background: #77c720;
+    background: #FF0000;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
@@ -112,7 +112,7 @@
 .destacado_rental{
     position: absolute;
     right: -5px;
-    background: #77c720;
+    background: #FF0000;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
