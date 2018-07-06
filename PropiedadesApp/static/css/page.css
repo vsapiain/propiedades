@@ -1089,7 +1089,7 @@ background-image: url(http://houzez01.favethemes.com/wp-content/uploads/2016/03/
     }
 }
 .section-intro {
-    background: url(../img/property_a1.jpg) center center no-repeat;
+    background: url(../img/property_a4.jpg) center center no-repeat;
     background-size: cover;
     /* color: #fff; */
     position: relative;
@@ -6305,7 +6305,11 @@ figure .thumb-caption .cap-social {
 }
 
 .header-section-4 {
-    background-color: #fff
+    background-color: #fff;
+    background: white;
+    -webkit-box-shadow: 0 0 0 4px white, 0 6px 4px black;
+    -moz-box-shadow: 0 0 0 4px white, 0 6px 4px black;
+    box-shadow: 0 0 0 4px white, 0 6px 4px black;
 }
 
 .header-section-4 .logo {
@@ -6363,10 +6367,6 @@ figure .thumb-caption .cap-social {
 .header-section-4 .header-mobile .user a,
 .header-section-4 .mobile-nav .nav-trigger {
     color: #000
-}
-
-.header-section-4 .navi>ul>li {
-    font-weight: 400
 }
 
 .header-section-4 .navi>ul>li>a {
@@ -22756,6 +22756,12 @@ textarea.IDX-leadLoginTextInput {
     z-index: 1
 }
 
+.visible-scroll{
+    display:block;
+}
+.none-visible-scroll{
+    display:none;
+}
 
 /* control radio button */
 .control-group {
