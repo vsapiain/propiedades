@@ -319,7 +319,7 @@ var nice = !1;
         ee() > 991 ? (a = e(".advance-search-header"), t = e(".advance-search-header").outerHeight()) : (a = e(".advanced-search-mobile"), t = e(".advanced-search-mobile").outerHeight()), a.data("sticky") && (e(".splash-search")[0] ? (s = e(".splash-search").offset().top, s += 200) : s = ee() > 991 ? e(".advance-search-header").offset().top + 65 : e(".advanced-search-mobile").offset().top, 0 == s && (s = e("#header-section").height()), e(window).scroll(function() {
             var n = e(window).scrollTop(),
                 i = e("#wpadminbar").height() + "px";
-            "nullpx" == i && (i = "0px"), n >= s ? (a.addClass("advanced-search-sticky"), a.css("top", i), e("#section-body").css("padding-top", t)) : (a.removeClass("advanced-search-sticky"), a.removeAttr("style"), e("#section-body").css("padding-top", 0))
+            "nullpx" == i && (i = "0px"), n >= s ? (a.addClass("visible-scroll") ,a.addClass("advanced-search-sticky"), a.css("top", i), e("#section-body").css("padding-top", t)) : ( a.removeClass("visible-scroll"),a.addClass("none-visible-scroll"),a.removeClass("advanced-search-sticky"), a.removeAttr("style"), e("#section-body").css("padding-top", 0))
         }))
     }
 
