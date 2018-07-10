@@ -23,6 +23,7 @@
 		<link rel='stylesheet' href='{% static 'css/bootstrap.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
 	</head>
@@ -286,84 +287,84 @@
 		</div>
 		<!--start section header-->
 		<header id="header-section" class="houzez-header-main header-section-4 nav-left houzez-user-logout" data-sticky="0">
-		<div class="container">
-			<div class="header-left">
-				<div class="logo logo-desktop">
-					<a href="http://houzez01.favethemes.com/">
-					<img src='{% static 'img/logotipo_original_v4.jpg' %}' alt="logotipo">
-					</a>
+			<div class="container">
+				<div class="header-left">
+					<div class="logo logo-desktop">
+						<a href="http://houzez01.favethemes.com/">
+						<img src='{% static 'img/logotipo_original_v4.jpg' %}' alt="logotipo">
+						</a>
+					</div>
+					<nav class="navi main-nav">
+					<ul id="main-nav" class="">
+						<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="#">Proyectos destacados</a>
+							<!--
+							<ul class="sub-menu">
+							<li id="menu-item-1333" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1333"><a href="#">Map</a>
+							<ul class="sub-menu">
+								<li id="menu-item-954" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-194 current_page_item menu-item-954"><a href="http://houzez01.favethemes.com/">Map Standard</a></li>
+								<li id="menu-item-1260" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1260"><a href="http://houzez01.favethemes.com/?fullscreen=yes">Map Fullscreen</a></li>
+							</ul>
+							</li>
+							<li id="menu-item-1334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1334"><a href="#">Parallax</a>
+							<ul class="sub-menu">
+								<li id="menu-item-1013" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1013"><a href="http://houzez01.favethemes.com/homepage-with-image-2/">Parallax Standard</a></li>
+								<li id="menu-item-2988" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2988"><a href="http://houzez01.favethemes.com/homepage-with-image-fullscreen/">Parallax Fullscreen</a></li>
+							</ul>
+							</li>
+							<li id="menu-item-1335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1335"><a href="#">Video</a>
+							<ul class="sub-menu">
+								<li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-953"><a href="http://houzez01.favethemes.com/homepage-with-video-2/">Video Standard</a></li>
+								<li id="menu-item-1261" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1261"><a href="http://houzez01.favethemes.com/homepage-with-video-2/?fullscreen=yes">Video Fullscreen</a></li>
+							</ul>
+							</li>
+							<li id="menu-item-1336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1336"><a href="#">Sliders</a>
+							<ul class="sub-menu">
+								<li id="menu-item-1065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1065"><a href="http://houzez01.favethemes.com/homepage-with-revolution-slider/">Slider Revolution</a></li>
+								<li id="menu-item-1017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1017"><a href="http://houzez01.favethemes.com/homepage-with-properties-slider/">Properties Slider</a></li>
+							</ul>
+							</li>
+							<li id="menu-item-1338" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1338"><a href="#">Splash</a>
+							<ul class="sub-menu">
+								<li id="menu-item-1274" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1274"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=video">Video Fullscreen</a></li>
+								<li id="menu-item-1273" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1273"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=slider">Slider Fullscreen</a></li>
+								<li id="menu-item-1275" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1275"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=image">Image Fullscreen</a></li>
+							</ul>
+							</li>
+						</ul>
+							-->
+						</li>
+						<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
+							<ul class="sub-menu">
+							<li id="menu-item-1340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
+							<!--
+							<li id="menu-item-1341" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1341"><a href="#">Grid View</a>
+							<ul class="sub-menu">
+								<li id="menu-item-465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a href="http://houzez01.favethemes.com/simple-listing-grid-view/">Grid View Standard</a></li>
+								<li id="menu-item-337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-337"><a href="http://houzez01.favethemes.com/properties-grid-view-3-cols/">Grid View Fullwidth</a></li>
+							</ul>
+							</li>
+							-->
+							<li id="menu-item-1342" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a>
+							</li>
+						</ul>
+						</li>
+						<li id="menu-item-314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-314"><a href="#">Corredoras</a>
+							<ul class="sub-menu">
+							<li id="menu-item-346" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="http://houzez01.favethemes.com/property/luxury-apartment-bay-view/?s_top=v1">Corredoras Destacadas</a></li>
+							<li id="menu-item-347" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-347"><a href="http://houzez01.favethemes.com/property/luxury-apartment-bay-view/?s_top=v2&#038;agent_form=yes">Publicar</a></li>
+						</ul>
+						</li>
+					</ul>
+					</nav>
 				</div>
-				<nav class="navi main-nav">
-				<ul id="main-nav" class="">
-					<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="#">Proyectos destacados</a>
-						<!--
-						<ul class="sub-menu">
-						<li id="menu-item-1333" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1333"><a href="#">Map</a>
-						<ul class="sub-menu">
-							<li id="menu-item-954" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-194 current_page_item menu-item-954"><a href="http://houzez01.favethemes.com/">Map Standard</a></li>
-							<li id="menu-item-1260" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1260"><a href="http://houzez01.favethemes.com/?fullscreen=yes">Map Fullscreen</a></li>
-						</ul>
-						</li>
-						<li id="menu-item-1334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1334"><a href="#">Parallax</a>
-						<ul class="sub-menu">
-							<li id="menu-item-1013" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1013"><a href="http://houzez01.favethemes.com/homepage-with-image-2/">Parallax Standard</a></li>
-							<li id="menu-item-2988" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2988"><a href="http://houzez01.favethemes.com/homepage-with-image-fullscreen/">Parallax Fullscreen</a></li>
-						</ul>
-						</li>
-						<li id="menu-item-1335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1335"><a href="#">Video</a>
-						<ul class="sub-menu">
-							<li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-953"><a href="http://houzez01.favethemes.com/homepage-with-video-2/">Video Standard</a></li>
-							<li id="menu-item-1261" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1261"><a href="http://houzez01.favethemes.com/homepage-with-video-2/?fullscreen=yes">Video Fullscreen</a></li>
-						</ul>
-						</li>
-						<li id="menu-item-1336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1336"><a href="#">Sliders</a>
-						<ul class="sub-menu">
-							<li id="menu-item-1065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1065"><a href="http://houzez01.favethemes.com/homepage-with-revolution-slider/">Slider Revolution</a></li>
-							<li id="menu-item-1017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1017"><a href="http://houzez01.favethemes.com/homepage-with-properties-slider/">Properties Slider</a></li>
-						</ul>
-						</li>
-						<li id="menu-item-1338" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1338"><a href="#">Splash</a>
-						<ul class="sub-menu">
-							<li id="menu-item-1274" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1274"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=video">Video Fullscreen</a></li>
-							<li id="menu-item-1273" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1273"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=slider">Slider Fullscreen</a></li>
-							<li id="menu-item-1275" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1275"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=image">Image Fullscreen</a></li>
-						</ul>
-						</li>
-					</ul>
-						-->
-					</li>
-					<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
-						<ul class="sub-menu">
-						<li id="menu-item-1340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
-						<!--
-						<li id="menu-item-1341" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1341"><a href="#">Grid View</a>
-						<ul class="sub-menu">
-							<li id="menu-item-465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a href="http://houzez01.favethemes.com/simple-listing-grid-view/">Grid View Standard</a></li>
-							<li id="menu-item-337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-337"><a href="http://houzez01.favethemes.com/properties-grid-view-3-cols/">Grid View Fullwidth</a></li>
-						</ul>
-						</li>
-						-->
-						<li id="menu-item-1342" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a>
-						</li>
-					</ul>
-					</li>
-					<li id="menu-item-314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-314"><a href="#">Corredoras</a>
-						<ul class="sub-menu">
-						<li id="menu-item-346" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="http://houzez01.favethemes.com/property/luxury-apartment-bay-view/?s_top=v1">Corredoras Destacadas</a></li>
-						<li id="menu-item-347" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-347"><a href="http://houzez01.favethemes.com/property/luxury-apartment-bay-view/?s_top=v2&#038;agent_form=yes">Publicar</a></li>
-					</ul>
-					</li>
-				</ul>
-				</nav>
-			</div>
-			<div class="header-right">
-				<div class="user">
-					<a href="#" id="user-inicio"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Inicia sesión</span></a>
-					<a href="#" id="user-registro"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Regístrate</span></a>
-					<a href="http://houzez01.favethemes.com/add-new-property/" style="color:#ffffff;" class="btn-md btn-secundary">Publica gratis</a>
+				<div class="header-right">
+					<div class="user">
+						<a href="#" id="user-inicio"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Inicia sesión</span></a>
+						<a href="#" id="user-registro"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Regístrate</span></a>
+						<a href="http://houzez01.favethemes.com/add-new-property/" style="color:#ffffff;" class="btn-md btn-secundary">Publica gratis</a>
+					</div>
 				</div>
 			</div>
-		</div>
 		</header>
 		<!--end section header-->
 		<div class="header-mobile houzez-header-mobile " data-sticky="0">
@@ -412,9 +413,9 @@
 							<div class="form-group search-long">
 								<div class="search">
 								 	<select   id = "mode" name="mode" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
-										<option value="1">Venta</option>
-										<option value="2" selected> Arriendo</option>
-										<option value="3"> Arriendo por temporada</option>
+										<option value="1">Comprar</option>
+										<option value="2" selected>Busco arriendo</option>
+										<option value="3">Busco arriendo por temporada</option>
 									</select>
 									<select id = "type" name="type" class="selectpicker" data-live-search="false" data-live-search-style="begins">
 										<option value="1" selected>Departamento</option>
