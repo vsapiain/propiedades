@@ -100,7 +100,7 @@
 .destacado_sale{
     position: absolute;
     right: -5px;
-    background: #FF0000;
+    background: #86C436;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
@@ -112,7 +112,7 @@
 .destacado_rental{
     position: absolute;
     right: -5px;
-    background: #FF0000;
+    background: #86C436;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
@@ -123,3 +123,44 @@
 }
 
 /*Fin Destacados etiqueta*/
+
+.search-form {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 15px 5px;
+    min-height : 230px;
+}
+.vertical-align-form{
+    margin-top:3%;
+}
+.horizontal-align-center-form{
+    text-align:center;
+}
+.margin-left-form{
+    margin-left:5px;
+}
+.margin-right-form{
+    margin-right:5px;
+}
+.headline-span {
+    display: inline-block;
+    font-family: 'Dosis', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: rgba(221, 72, 20, 0.7);
+    padding: 3px 10px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.headline-span-small {
+    display: inline-block;
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: rgba(221, 72, 20, 0.7);
+    padding: 3px 10px;
+    color: #fff;
+    margin-bottom: 10px;
+}
