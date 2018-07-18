@@ -89,18 +89,7 @@
 .destacado_sale{
     position: absolute;
     right: -5px;
-    background: #0ba;
-    color: #fff;
-    text-transform: uppercase;
-    padding: 3px 15px;
-    font-weight: 600;
-    top: 18px;
-    z-index:900;
-}
-.destacado_sale{
-    position: absolute;
-    right: -5px;
-    background: #86C436;
+    background: #FE2B00;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
@@ -112,7 +101,7 @@
 .destacado_rental{
     position: absolute;
     right: -5px;
-    background: #86C436;
+    background: #FE2B00;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
@@ -129,6 +118,13 @@
     border-radius: 5px;
     padding: 15px 5px;
     min-height : 230px;
+
+}
+.range-form {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 2px;
+    padding: 15px 5px;
+    min-height : 100px;
 }
 .vertical-align-form{
     margin-top:3%;
@@ -141,6 +137,9 @@
 }
 .margin-right-form{
     margin-right:5px;
+}
+.margin-top-form{
+    margin-top:5px;
 }
 .headline-span {
     display: inline-block;
@@ -163,4 +162,13 @@
     padding: 3px 10px;
     color: #fff;
     margin-bottom: 10px;
+}
+.box_range_form{
+    background-color: #ffffff;
+    color: #556D70;
+    width: 100%;
+    border-color: #cccccc;
+    text-align: left;
+    font-size:15px;
+    border-radius:4px;
 }

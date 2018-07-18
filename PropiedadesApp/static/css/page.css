@@ -22848,3 +22848,11 @@ textarea.IDX-leadLoginTextInput {
 }
 /* fin control radio button */
 
+.customsuccess div.ui-pnotify-container {
+    background-image: none;
+    background-color: #CC0000;
+    color:#ffffff;
+    font-weight : normal;
+}
+
+
