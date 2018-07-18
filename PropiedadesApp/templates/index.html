@@ -8,20 +8,16 @@
                 <div class="container">
                     <div class='animatedParent' data-sequence='500' >
                     <div class="col-md-12 horizontal-align-center-form vertical-align-form">
-                        <h1 class='animated fadeInLeft slower headline-span'  data-id='1'>Vive una nueva experiencia</h1>
+                        <h1 class='animated fadeInLeft slower headline-span'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">No busques más, confía en los que saben</h1>
                     </div>
                     <div class="col-md-12 horizontal-align-center-form">
-                        <h1 class='animated fadeInRight slower headline-span-small'  data-id='1'>Anuncia tu propiedad gratis</h1>
+                        <h1 class='animated fadeInRight slower headline-span-small'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInRight;">Encuentra sólo lo que buscas y al mejor precio</h1>
                     </div>
                     <div class="col-md-5">
 
                     </div>
                     <div class="col-md-7">
                         <div class="vertical-align-form">
-
-                            <!--<div class='buttons-inline animated bounceInLeft slower'   data-id='3'><a class="btn btn-primary" href="index.php">Comienza ahora 30 días grátis</a>&nbsp;&nbsp;<a class='btn btn-default' href='https://github.com/Jack-McCourt/css3-animate-it/archive/master.zip'>Más Información</a></div>-->
-
-
                             <form action="/ofertas/" method="get"  >
                             <div class="search-form animated pulse" data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;">
                                     <div class="col-md-6">
@@ -50,35 +46,89 @@
                                     </div>
                                     <div class="col-md-6">
                                           <div class="form-group">
-                                            <select class="form-control" id="cmb_tipo_propiedad_portada">
+                                            <select class="form-control" name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" data-live-search="true"  >
                                                 <option>Ubicación(cualquiera)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                          <div class="form-group">
-                                            <select class="form-control" id="cmb_tipo_propiedad_portada">
-                                                <option>Precio(cualquiera)</option>
-                                            </select>
+                                        <div class="form-group">
+                                            <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_price" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Precio(cualquiera)
+                                            </button>
+                                            <div id="ddl_mnu_price" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <button type="button" class="close margin-right-form" >&times;</button>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        Precio en Pesos
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                      <div class="col-md-4">
+                                                          <i class="fa fa-usd" aria-hidden="true"></i> Mín.
+                                                      </div>
+                                                      <div class="col-md-8">
+                                                          <input type="text" class="form-control" value="" name="min-price" id="min-price" placeholder="" onkeypress="return validate_numeric(event)" maxlength="10">
+                                                      </div>
+                                                      <div class="col-md-4">
+                                                          <i class="fa fa-usd" aria-hidden="true"></i> Máx.
+                                                      </div>
+                                                      <div class="col-md-8">
+                                                          <input type="text" class="form-control" value="" name="max-price" id="max-price" placeholder="" onkeypress="return validate_numeric(event)" maxlength="10">
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button id="btn_any_price" type="button" class="btn btn-primary margin-top-form">Cualquier precio</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                          <div class="form-group">
-                                            <select class="form-control" id="cmb_tipo_propiedad_portada">
-                                                <option>Tamaño(cualquiera)</option>
-                                            </select>
+                                        <div class="form-group">
+                                            <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_size" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Tamaño(cualquiera)
+                                            </button>
+                                            <div id="ddl_mnu_size" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                              <button type="button" class="close margin-right-form" >&times;</button>
+                                              <div class="form-group">
+                                                  <div class="col-md-12">
+                                                       Tamaño m²
+                                                  </div>
+                                                  <div class="col-md-12">
+                                                      <div class="col-md-4">
+                                                          Mín. m²
+                                                      </div>
+                                                      <div class="col-md-8">
+                                                          <input type="text" class="form-control" value="" name="min-size" id="min-size" placeholder="" onkeypress="return validate_numeric(event)" maxlength="4">
+                                                      </div>
+                                                      <div class="col-md-4">
+                                                          Máx. m²
+                                                      </div>
+                                                      <div class="col-md-8">
+                                                          <input type="text" class="form-control" value="" name="max-size" id="max-size" placeholder="" onkeypress="return validate_numeric(event)" maxlength="4">
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                      </div>
+                                                      <div class="col-md-6">
+                                                          <button id="btn_any_size" type="button" class="btn btn-primary margin-top-form">Cualquier tamaño</button>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                          <div class="form-group">
-                                            <select class="form-control" id="cmb_tipo_propiedad_portada">
+                                        <div class="form-group">
+                                            <select class="form-control" id="xx1">
                                                 <option>Preferencia(cualquiera)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button id="btn_buscar" type="submit" class="btn btn-primary col-md-1 margin-right-form" ><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
-                                        <button id="btn_buscar_map" type="submit" class="btn btn-primary col-md-1 "  ><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></button>
+                                        <button id="btn_buscar" type="submit" class="btn btn-primary col-md-3 margin-right-form" >Buscar propiedad <i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+                                        <button id="btn_buscar_map" type="submit" class="btn btn-primary col-md-3 "  >Ver mapa <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></button>
                                     </div>
 
                             </div>
@@ -1992,4 +2042,117 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block content_script %}
+<script>
+    $(document).ready(function(){
+        add_location_form();
+        $("#cmb_ubicacion_portada").val($("#cmb_ubicacion_portada option:first").val()).change();
+		$('.bs-searchbox input').attr('placeholder','Busqueda');
+        $("#ddl_price").click(function(){
+            $("#min-price").focus();
+        });
+        $("#ddl_size").click(function(){
+            $("#min-size").focus();
+        });
+        $("#btn_any_price").click(function(){
+            $("#min-price").val("");
+            $("#max-price").val("");
+            $("#ddl_price").text("Precio(cualquiera)");
+        });
+        $("#btn_any_size").click(function(){
+            $("#min-size").val("");
+            $("#max-size").val("");
+            $("#ddl_size").text("Tamaño(cualquiera)");
+        });
+        $("#min-price").focusout(function(){
+            set_max_price();
+        });
+        $("#max-price").focusout(function(){
+            set_max_price();
+        });
+        $("#min-size").focusout(function(){
+            set_max_size();
+        });
+        $("#max-size").focusout(function(){
+            set_max_size();
+        });
+        /*
+        $("#ddl_mnu_price").blur(function(){
+            if (!prop_price_validate()){
+                error_msg("Error","Precio máximo debe ser menor a precio mínimo",2500);
+            }
+        });
+        $("#ddl_mnu_size").blur(function(){
+            if (!prop_size_validate()){
+                error_msg("Error","Tamaño máximo debe ser menor a tamaño mínimo",2500);
+            }
+        });
+        */
+    });
+    function set_max_price(){
+        if($("#min-price").val().trim()!="" && $("#max-price").val().trim()!="" && $("#min-price").val().trim()!="0"){
+            if (prop_price_validate()){
+                $("#ddl_price").text( "$"+ $("#min-price").val().trim() + " - " +  "$"+ $("#max-price").val().trim());
+            }
+            else{
+                error_msg("Rango precio incorrecto","Precio máximo debe ser menor a precio mínimo",2500);
+                $("#ddl_price").text( "Precio(cualquiera)");
+                window.setTimeout( clear_price_form, 700 );
+            }
+        }else if ($("#min-price").val().trim()=="" && $("#max-price").val().trim()!="" || $("#min-price").val().trim()=="0" && $("#max-price").val().trim()!="" && $("#max-price").val().trim()!="0" ){
+            $("#ddl_price").text( "Hasta " + "$"+ $("#max-price").val().trim());
+        }else{
+            $("#ddl_price").text( "Precio(cualquiera)");
+        }
+    }
+    function set_max_size(){
+        if($("#min-size").val().trim()!="" && $("#max-size").val().trim()!="" && $("#min-size").val().trim()!="0"){
+            if (prop_size_validate()){
+                $("#ddl_size").text( $("#min-size").val().trim() + " m²" + " - " +  $("#max-size").val().trim() + " m²  ");
+            }
+            else{
+                error_msg("Rango tamaño incorrecto","Tamaño máximo debe ser menor a tamaño mínimo",2500);
+                $("#ddl_size").text( "Tamaño(cualquiera)");
+                window.setTimeout( clear_size_form, 700 );
+            }
+        }else if ($("#min-size").val().trim()=="" && $("#max-size").val().trim()!="" || $("#min-size").val().trim()=="0" && $("#max-size").val().trim()!="" && $("#max-size").val().trim()!="0" ){
+            $("#ddl_size").text( "Hasta " + $("#max-size").val().trim() + " m²");
+        }else{
+            $("#ddl_size").text( "Tamaño(cualquiera)");
+        }
+    }
+    function clear_size_form(){
+        $("#min-size").val("");
+        $("#max-size").val("");
+    }
+    function clear_price_form(){
+        $("#min-price").val("");
+        $("#max-price").val("");
+    }
+    function prop_price_validate(){
+        var resp = false;
+        var min_price = parseInt($("#min-price").val().trim());
+        var max_price = parseInt($("#max-price").val().trim());
+        if (min_price<=max_price)
+            resp = true;
+        return resp;
+    }
+    function prop_size_validate(){
+        var resp = false;
+        var min_size = parseInt($("#min-size").val().trim());
+        var max_size = parseInt($("#max-size").val().trim());
+        if (min_size<=max_size)
+            resp = true;
+        return resp;
+    }
+    function add_location_form(){
+        for (var i=0;i<ciudades.length;i++){
+            var newitemnum=ciudades[i];
+            var newitemdesc = ciudades[i];
+            $("#cmb_ubicacion_portada").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
+        }
+        $("#cmb_ubicacion_portada").selectpicker("refresh");
+    }
+</script>
 {% endblock %}
