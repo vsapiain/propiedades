@@ -4,23 +4,6 @@
     border-color: #EB5300;
 }
 
-@media (min-width: 1200px){
-    .container {
-        width: 1300px;
-    }
-}
-
-@media (min-width: 768px) {
-    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
-        margin-left: 25%;
-    }
-}
-@media (min-width: 768px) {
-    .omb_login .omb_forgotPwd {
-        text-align: right;
-		margin-top:10px;
- 	}
-}
 .omb_login .omb_authTitle {
     text-align: center;
 	line-height: 300%;
@@ -89,7 +72,7 @@
 .destacado_sale{
     position: absolute;
     right: -5px;
-    background: #FE2B00;
+    background: #EB5300;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
@@ -97,11 +80,20 @@
     top: 18px;
     z-index:900;
     font-size: 12px;
+}
+.destacado_sale:before{
+   font-family: FontAwesome;
+   display: inline-block;
+   padding-right: 6px;
+   vertical-align: middle;
+}
+.destacado_sale:before {
+   content: "\f005";
 }
 .destacado_rental{
     position: absolute;
     right: -5px;
-    background: #FE2B00;
+    background: #EB5300;
     color: #fff;
     text-transform: uppercase;
     padding: 3px 15px;
@@ -110,7 +102,15 @@
     z-index:900;
     font-size: 12px;
 }
-
+.destacado_rental:before{
+   font-family: FontAwesome;
+   display: inline-block;
+   padding-right: 6px;
+   vertical-align: middle;
+}
+.destacado_rental:before {
+   content: "\f005";
+}
 /*Fin Destacados etiqueta*/
 
 .search-form {
@@ -165,10 +165,11 @@
 }
 .box_range_form{
     background-color: #ffffff;
-    color: #556D70;
+    color: #95A2C1;
     width: 100%;
     border-color: #cccccc;
     text-align: left;
     font-size:15px;
     border-radius:4px;
+    height: 40px;
 }
