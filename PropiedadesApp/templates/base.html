@@ -27,6 +27,7 @@
 		<link rel='stylesheet' href='{% static 'css/pnotify.custom.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/principal_responsive.css' %}' type='text/css' media='all'/>
 	</head>
 	<body>
 		<div class="modal" id="pop-login" tabindex="-1" role="dialog">
@@ -383,9 +384,11 @@
 						<img src='{% static 'img/logotipo_original_v4.jpg' %}' alt="www.citypro.cl">
 					</a>
 				</div>
-
 				<div class="header-user">
 					<ul class="account-action">
+						<li>
+							<span class="publish-icon"> <i class="fa fa-pencil" aria-hidden="true"></i></span><span class="publish-label"> publica </span>
+						</li>
 						<li>
 						<span class="user-icon"><i class="fa fa-user"></i></span>
 						<div class="account-dropdown">
@@ -427,7 +430,6 @@
 										<option value="6">Estacionamiento</option>
 										<option value="7">Bodega</option>
 									</select>
-
 									<select class="form-control" id="location" name="location"  data-live-search="true"  >
 										<option value="-1">Todas las ubicaciones</option>
 									</select>
@@ -739,7 +741,7 @@
 											</div>
 										</div>
 										<div class="table-cell">
-											<button type="submit" class="btn btn-primary">Submit</button>
+											<button type="submit" class="btn btn-primary">Enviar</button>
 										</div>
 									</div>
 									<p>
