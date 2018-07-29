@@ -2,6 +2,9 @@
     .container {
         width: 1300px;
     }
+    .advanced-search-sticky{
+        display: block!important;
+    }
 }
 @media only screen and (max-width:991px) {
     .header-mobile {
@@ -28,7 +31,7 @@
     }
     .publish-icon {
         font-size: 14px;
-        color:#EB5300;
+        color:#004272;
     }
     .publish-label {
         font-size: 11px;
@@ -41,7 +44,7 @@
         color:#EB5300;
     }
     .fa-user {
-        color:#EB5300;
+        color:#004272;
     }
     .header-section,
     .header-section-4 {
@@ -50,12 +53,6 @@
     .container {
         padding-right: 15px;
         padding-left: 15px;
-    }
-    #font_title1{
-        font-size:12px;
-    }
-    #font_title2{
-        font-size:10px;
     }
     .header-mobile .header-logo {
         text-align: left;
@@ -66,6 +63,40 @@
     .houzez-module .module-title-nav .module-nav {
         width: 100%
     }
+    /*
+    .advanced-search{
+        display : none;
+    }*/
+    .advanced-search-sticky{
+        display: none;
+    }
+    /*
+    .advanced-search-mobile{
+        display : block;
+    }*/
+    .section-body{
+        padding-top:0px;
+    }
+
+    #font_title1{
+        font-size:12px;
+    }
+    #font_title2{
+        font-size:10px;
+    }
+    #lbl_srch_prop{
+        display: none;
+    }
+    #lbl_srch_map{
+        display: none;
+    }
+    #dv_ico_mobil{
+        max-height: 25px;
+    }
+    #btn_Buscar_mob{
+        width:100%;
+    }
+
 }
 @media (min-width:992px) and (max-width:1199px) {
     .header-section-4 .header-right {

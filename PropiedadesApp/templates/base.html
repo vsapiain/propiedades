@@ -4,6 +4,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{% block title %}{% endblock %}</title>
+		<link href="{% static 'img/ico/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+		<link rel='stylesheet' href='{% static 'css/bootstrap.min.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/pnotify.custom.min.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{% static 'css/principal_responsive.css' %}' type='text/css' media='all'/>
 		<script>
 			/* You can add more configuration options to webfontloader by previously defining the WebFontConfig with your options */
 			if ( typeof WebFontConfig === "undefined" ) {
@@ -19,15 +28,6 @@
 				s.parentNode.insertBefore( wf, s );
 			})();
 		</script>
-		<link href="{% static 'img/ico/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
-		<link rel='stylesheet' href='{% static 'css/bootstrap.min.css' %}' type='text/css' media='all'/>
-		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
-		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
-		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
-		<link rel='stylesheet' href='{% static 'css/pnotify.custom.min.css' %}' type='text/css' media='all'/>
-		<link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
-		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
-		<link rel='stylesheet' href='{% static 'css/principal_responsive.css' %}' type='text/css' media='all'/>
 	</head>
 	<body>
 		<div class="modal" id="pop-login" tabindex="-1" role="dialog">
@@ -387,16 +387,21 @@
 				<div class="header-user">
 					<ul class="account-action">
 						<li>
-							<span class="publish-icon"> <i class="fa fa-pencil" aria-hidden="true"></i></span><span class="publish-label"> publica </span>
+							<span class="publish-icon"> <i class="fa fa-pencil" aria-hidden="true"></i></span><span class="publish-label"> </span>
+							<div class="account-dropdown">
+								<ul>
+									<li><a href="http://houzez01.favethemes.com/add-new-property/"><i class="fa fa-pencil-square" aria-hidden="true"></i>Publica gratis</a></li>
+								</ul>
+							</div>
 						</li>
 						<li>
-						<span class="user-icon"><i class="fa fa-user"></i></span>
-						<div class="account-dropdown">
-							<ul>
-								<li><a href="http://houzez01.favethemes.com/add-new-property/"><i class="fa fa-plus-circle"></i>Create Listing</a></li>
-								<li><a href="#" data-toggle="modal" data-target="#pop-login"><i class="fa fa-user"></i>Sign In / Register</a></li>
-							</ul>
-						</div>
+							<span class="user-icon"><i class="fa fa-user"></i></span>
+							<div class="account-dropdown">
+								<ul>
+									<li><a href="http://houzez01.favethemes.com/add-new-property/"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar sesión</a></li>
+									<li><a href="#" data-toggle="modal" data-target="#pop-login"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Regístrate</a></li>
+								</ul>
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -407,10 +412,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-1">
-						<div id="dv_ico" style="display:none;">
-							<img src='{% static 'img/logo_ico.png' %}' alt="www.citypro.cl">
-						</div>
-
+						<img id="dv_ico" src='{% static 'img/logo_ico.png' %}' alt="www.citypro.cl">
 					</div>
 					<div class="col-sm-11">
 						<form method="get" autocomplete="off" action="">
@@ -541,132 +543,119 @@
 					<div class="col-sm-12">
 						<form autocomplete="off" method="get" action="http://houzez01.favethemes.com/advanced-search/">
 							<div class="single-search-wrap">
-								<div class="single-search-inner advance-btn">
-									<button class="table-cell text-left" type="button"><i class="fa fa-gear"></i></button>
+								<div class="single-search-inner single-seach-btn">
+									<!--<img id="dv_ico_mobil" src="/static/img/logo_ico.png" alt="www.citypro.cl"   style="display: inline;">-->
+									<button class="table-cell text-right" type="button"><img id="dv_ico_mobil" src="/static/img/logo_ico.png" alt="www.citypro.cl"   style="display: inline;"></button>
 								</div>
 								<div class="single-search-inner single-search">
-									<input type="text" class="form-control" value="" name="keyword" placeholder="Enter keyword...">
-									<div id="auto_complete_ajax" class="auto-complete">
-									</div>
+									<input type="text" class="form-control autocomplete " value="" name="keyword" id="keyword" placeholder="Ej: valparaiso,providencia..">
 								</div>
 								<div class="single-search-inner single-seach-btn">
 									<button class="table-cell text-right" type="submit"><i class="fa fa-search"></i></button>
 								</div>
+								<div class="single-search-inner advance-btn">
+									<button class="table-cell text-left" type="button"><i class="fa fa-filter"></i></button>
+								</div>
+
 							</div>
 							<div class="advance-fields">
 								<div class="row">
 									<div class="col-sm-3 col-xs-6">
 										<div class="form-group">
-											<select name="location_movil" class="selectpicker" data-live-search="false" data-live-search-style="begins">
-												<option value="">All Cities</option>
-												<option data-parentstate="chicago" value="chicago"> Chicago</option>
-												<option data-parentstate="california" value="los-angeles"> Los Angeles</option>
-												<option data-parentstate="florida" value="miami"> Miami</option>
-												<option data-parentstate="new-york" value="new-york"> New York</option>
+											<select   id = "mode_mob" name="mode_mob" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
+												<option value="1">Comprar</option>
+												<option value="2" selected>Busco arriendo</option>
+												<option value="3">Busco arriendo por temporada</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-sm-3 col-xs-6">
 										<div class="form-group">
-											<select name="area" class="selectpicker" data-live-search="false" data-live-search-style="begins">
-												<option value="">All Areas</option>
-												<option data-parentcity="new-york" value="theater-district"> Theater District</option>
-												<option data-parentcity="new-york" value="upper-manhattan"> Upper Manhattan</option>
-												<option data-parentcity="new-york" value="west-village"> West Village</option>
-												<option data-parentcity="los-angeles" value="westwood"> Westwood</option>
-												<option data-parentcity="miami" value="wynwood"> Wynwood</option>
+											 <select id = "type_mob" name="type_mob" class="selectpicker" data-live-search="false" data-live-search-style="begins">
+												<option value="1" selected>Departamento</option>
+												<option value="2">Casa</option>
+												<option value="3">Oficina</option>
+												<option value="4">Local comercial</option>
+												<option value="5">Sitio</option>
+												<option value="6">Estacionamiento</option>
+												<option value="7">Bodega</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-sm-3 col-xs-6">
+										<div class="form-group">
+											<select name="bedrooms_mob" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
+												<option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i>Dormitorio" > </option>
+												<option value="1">1 dormitorio</option>
+												<option value="2">2 dormitorios</option>
+												<option value="3">3 dormitorios</option>
+												<option value="4">4 dormitorios</option>
+												<option value="4">5 dormitorios</option>
+												<option value="5_mas">+5 dormitorios</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-sm-3 col-xs-6">
 										<div class="form-group">
-											<select class="selectpicker" id="selected_status_mobile" name="status" data-live-search="false" data-live-search-style="begins">
-												<option value="">All Status</option>
-												<option value="for-rent"> For Rent</option>
-												<option value="for-sale"> For Sale</option>
-												<option value="foreclosures"> Foreclosures</option>
-												<option value="new-costruction"> New Costruction</option>
-												<option value="new-listing"> New Listing</option>
-												<option value="open-house"> Open House</option>
-												<option value="reduced-price"> Reduced Price</option>
-												<option value="resale"> Resale</option>
+											<select name="bed_mob" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
+												<option value="" disabled selected style="display:none;" data-content="<i class='fa fa-filter' aria-hidden='true'></i>Cama"></option>
+												<option value="1">1 cama</option>
+												<option value="2">2 camas</option>
+												<option value="3">3 camas</option>
+												<option value="4">4 camas</option>
+												<option value="4_mas">+4 camas</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-sm-3 col-xs-6">
 										<div class="form-group">
-											<select class="selectpicker" name="type" data-live-search="false" data-live-search-style="begins">
-												<option value="">All Types</option>
-												<option value="apartment"> Apartment</option>
-												<option value="condo"> Condo</option>
-												<option value="farm"> Farm</option>
-												<option value="loft"> Loft</option>
-												<option value="lot"> Lot</option>
-												<option value="multi-family-home"> Multi Family Home</option>
-												<option value="single-family-home"> Single Family Home</option>
-												<option value="townhouse"> Townhouse</option>
-												<option value="villa"> Villa</option>
+											<select name="bathrooms_mob" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
+												<option value="" disabled selected style="display:none;" data-content="<i class='fa fa-filter' aria-hidden='true'></i>Baño"></option>
+												<option value="1">1 baño</option>
+												<option value="2">2 baños</option>
+												<option value="3">3 baños</option>
+												<option value="4">4 baños</option>
+												<option value="4_mas">+4 baños</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-sm-3 col-xs-6">
 										<div class="form-group">
-											<select name="bedrooms" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-												<option value="">Beds</option>
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-												<option value="any">Any</option>
+											<select name="parking_mob" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
+												<option value="" disabled selected style="display:none;" data-content="<i class='fa fa-filter' aria-hidden='true'></i>Estacionamiento"></option>
+												<option value="1">1 estacionamiento</option>
+												<option value="2">2 estacionamientos</option>
+												<option value="2_mas">+2 estacionamientos</option>
 											</select>
 										</div>
 									</div>
+
 									<div class="col-sm-3 col-xs-6">
 										<div class="form-group">
-											<select name="bathrooms" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-												<option value="">Baths</option>
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-												<option value="any">Any</option>
-											</select>
+											<input type="text" class="form-control" value="" name="min-area_mob" placeholder="Mín. m²">
 										</div>
 									</div>
 									<div class="col-sm-3 col-xs-6">
 										<div class="form-group">
-											<input type="text" class="form-control" value="" name="min-area" placeholder="Min Area (sqft)">
+											<input type="text" class="form-control" value="" name="max-area_mob" placeholder="Máx. m²">
 										</div>
 									</div>
-									<div class="col-sm-3 col-xs-6">
-										<div class="form-group">
-											<input type="text" class="form-control" value="" name="max-area" placeholder="Max Area (sqft)">
+									<div class="features-list">
+										<div class="col-sm-12 col-xs-12 ">
+											<label class="advance-trigger"><i class="fa fa-plus-square"></i> OTRAS CARACTERÍSTICAS </label>
 										</div>
-									</div>
-									<div class="col-sm-12 col-xs-12">
-										<label class="advance-trigger"><i class="fa fa-plus-square"></i> Other Features </label>
-									</div>
-									<div class="col-sm-12 col-xs-12">
-										<div class="features-list field-expand">
-											<div class="clearfix">
+										<div class="col-sm-12 col-xs-12">
+											<div class=" field-expand">
+												<div class="clearfix">
+												</div>
+												<label class="checkbox-inline"><input  name="feature[]" type="checkbox" value="air-conditioning">Aire acondicionado</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="Barbeque">Parrilla</label><label class="checkbox-inline"><input   name="feature[]" type="checkbox" value="Dryer">Secadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="gym">Gimnasio</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="laundry">Lavandería</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="lawn">Cesped</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="microwave">Microonda</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="shower">Ducha</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerador</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="sauna">Sauna</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="washer">Lavadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="wifi">WiFi</label>
 											</div>
-											<label class="checkbox-inline"><input name="feature[]" type="checkbox" value="air-conditioning">Air Conditioning</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="barbeque">Barbeque</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="dryer">Dryer</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="gym">Gym</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="laundry">Laundry</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="lawn">Lawn</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="microwave">Microwave</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="outdoor-shower">Outdoor Shower</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerator</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="sauna">Sauna</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="swimming-pool">Swimming Pool</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="washer">Washer</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="wifi">WiFi</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="window-coverings">Window Coverings</label>
 										</div>
 									</div>
-									<div class="col-sm-12 col-xs-12">
-										<button type="submit" class="btn btn-secondary btn-block"><i class="fa fa-search pull-left"></i> Enviar</button>
+
+									<div class="col-sm-3 col-xs-12">
+										<button id="btn_Buscar_mob" class="btn-md btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
 									</div>
 								</div>
 							</div>
@@ -809,6 +798,7 @@
 				$(".owl-nav").hide();
 				add_location();
 				verifFilterAdv();
+				load_keyword();
 				$("#dv_persona").show();
 				$("#titl_persona").html("Datos registro persona");
 				$('#tipo_reg').val($('input:radio').parent().text());
@@ -816,6 +806,7 @@
 				$("#dv_inmobiliaria").hide();
 				//$("#btn_publicacion").hide();
 				$("#mode").prop('title', 'Seleccionar todos');
+				$("#mode_mob").prop('title', 'Seleccionar todos');
 				$("#type").prop('title', 'Seleccionar todos');
 				$("#btnOcultar").click(function(){
 					$(".advance-fields").toggle('hide');
@@ -863,6 +854,9 @@
 				$("#mode").change(function() {
 					verifFilterAdv();
 				});
+				$("#mode_mob").change(function() {
+					verifFilterAdvMob();
+				});
 				$('input:radio').change(function() {
 				   	$("#tipo_reg").val($(this).parent().text());
 				   	if ($(this).val() == 1){
@@ -905,6 +899,8 @@
 				  "Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine",
 				  "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "TilVl", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor","Santiago"
 				];
+			var tipo_propiedad = ["Departamento","Casa","Oficina","Local comercial","Sitio","Estacionamiento","Bodega"];
+			var modo_propiedad = ["Comprar","Busco arriendo","Busco arriendo por temporada"];
 			function ActivTab(id){
 				$("#"+id).trigger('click');
 			};
@@ -920,6 +916,16 @@
 						//		$(this).hide();
 						//}
 					}else if ($(mode).val()==3){
+						$(".features-list").show();
+					}
+				});
+
+			}
+			function verifFilterAdvMob(){
+				$(".field-expand input").each(function(){
+					if ($(mode_mob).val()==1 || $(mode_mob).val()==2){
+						$(".features-list").hide();
+					}else if ($(mode_mob).val()==3){
 						$(".features-list").show();
 					}
 				});
@@ -975,6 +981,11 @@
                     delay: _time,
                     styling: 'fontawesome'
                 });
+			}
+			function load_keyword(){
+				 $(".autocomplete").autocomplete({
+					source: ciudades
+				  });
 			}
 		</script>
 		{% block content_script %}

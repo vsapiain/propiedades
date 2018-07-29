@@ -4,14 +4,14 @@
 <div id="section-body" class="">
     <div class="header-media-wrap">
         <div class="header-media">
-            <section id="intro" class="section-intro">
+            <section id="intro" class="section-intro" style="padding-top: 0px;">
                 <div class="container">
                     <div class='animatedParent' data-sequence='500' >
                     <div class="col-md-12 horizontal-align-center-form vertical-align-form">
                         <h1 id="font_title1" class='animated fadeInLeft slower headline-span'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">No busques más, confía en los que saben</h1>
                     </div>
                     <div class="col-md-12 horizontal-align-center-form">
-                        <h1 id="font_title2" class='animated fadeInRight slower headline-span-small'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInRight;">Encuentra sólo lo que buscas y al mejor precio</h1>
+                        <h1 id="font_title2" class='animated fadeInRight slower headline-span-small'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInRight;">cientos de propiedades en tan solo unos pocos clicks</h1>
                     </div>
                     <div class="col-md-5">
 
@@ -22,25 +22,15 @@
                             <div class="search-form animated pulse" data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <select class="form-control selectpicker" id="cmb_modo_portada">
+                                            <select class="form-control" name = "cmb_modo_portada" id="cmb_modo_portada">
                                                 <option>Modo(cualquiera)</option>
-                                                <option>Comprar</option>
-                                                <option>Busco arriendo</option>
-                                                <option>Busco arriendo por temporada</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <select class="form-control selectpicker" id="cmb_tipo_propiedad_portada">
+                                            <select class="form-control" name = "cmb_tipo_propiedad_portada"  id="cmb_tipo_propiedad_portada">
                                                 <option>Tipo propiedad(cualquiera)</option>
-                                                <option>Departamento</option>
-                                                <option>Casa</option>
-                                                <option>Oficina</option>
-                                                <option>Local comercial</option>
-                                                <option>Sitio</option>
-                                                <option>Estacionamiento</option>
-                                                <option>Bodega</option>
                                             </select>
                                         </div>
                                     </div>
@@ -121,14 +111,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <select class="form-control selectpicker" id="xx1">
+                                            <select class="form-control" name = "cmb_preferencia_propiedad_portada" id="cmb_preferencia_propiedad_portada">
                                                 <option>Preferencia(cualquiera)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button id="btn_buscar" type="submit" class="btn btn-primary col-md-3 margin-right-form" >Buscar propiedad <i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
-                                        <button id="btn_buscar_map" type="submit" class="btn btn-primary col-md-3 "  >Ver mapa <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></button>
+                                        <button id="btn_buscar" type="submit" class="btn btn-primary col-md-3 margin-right-form"><span id="lbl_srch_prop">Buscar propiedad</span>  <i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+                                        <button id="btn_buscar_map" type="submit" class="btn btn-primary col-md-3 " ><span id="lbl_srch_map"> Ver mapa </span><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></button>
                                     </div>
 
                             </div>
@@ -142,7 +132,6 @@
         </div>
     </div>
     <div class="container">
-
         <div class="row row-fluid">
             <div class="col-sm-12">
                 <div class="vc_column-inner ">
@@ -214,7 +203,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <a href="http://houzez01.favethemes.com/agencies/all-american-real-estate/">Constructora AAA</a>
+                                                        <a href="http://houzez01.favethemes.com/agencies/all-american-real-estate/">CONSTRUCTORA AAA</a>
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -277,7 +266,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <a href="http://houzez01.favethemes.com/agencies/modern-house-real-estate/">Constructora AAA</a>
+                                                        <a href="http://houzez01.favethemes.com/agencies/modern-house-real-estate/">CONSTRUCTORA AAA</a>
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -340,7 +329,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <a href="http://houzez01.favethemes.com/agencies/luxury-house-real-estate/">Constructora AAA</a>
+                                                        <a href="http://houzez01.favethemes.com/agencies/luxury-house-real-estate/">CONSTRUCTORA AAA</a>
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -799,7 +788,7 @@
                                         <div id="ID-451" class="item-wrap">
                                             <div class="property-item item-grid">
                                                 <div class="figure-block">
-                                                    <span class="destacado_rental">En Arriendo</span>
+                                                    <span class="destacado_rental">para arriendo</span>
                                                     <figure class="item-thumb">
                                                     <div class="price hide-on-list">
                                                         <span class="item-price">$2,500&#47;mo</span>
@@ -848,7 +837,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <i class="fa fa-user"></i><a href="http://houzez01.favethemes.com/agencies/all-american-real-estate/">All American Real Estate</a>
+                                                        Publicación
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -864,7 +853,7 @@
                                             <div class="property-item item-grid">
                                                 <div class="figure-block">
                                                     <figure class="item-thumb">
-                                                    <span class="destacado_rental">En Arriendo</span>
+                                                    <span class="destacado_rental">para arriendo</span>
                                                     <div class="price hide-on-list">
                                                         <span class="item-price">$1,900&#47;mo</span>
                                                     </div>
@@ -912,7 +901,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <i class="fa fa-user"></i><a href="http://houzez01.favethemes.com/agencies/all-american-real-estate/">All American Real Estate</a>
+                                                        Publicación
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -928,7 +917,7 @@
                                             <div class="property-item item-grid">
                                                 <div class="figure-block">
                                                     <figure class="item-thumb">
-                                                    <span class="destacado_sale">En venta</span>
+                                                    <span class="destacado_sale">Para venta</span>
                                                     <div class="price hide-on-list">
                                                         <span class="item-price">$2,200&#47;mo</span>
                                                     </div>
@@ -976,7 +965,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <i class="fa fa-user"></i><a href="http://houzez01.favethemes.com/agencies/modern-house-real-estate/">Modern House Real Estate</a>
+                                                        Publicación
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -1046,7 +1035,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <i class="fa fa-user"></i><a href="http://houzez01.favethemes.com/agencies/modern-house-real-estate/">Modern House Real Estate</a>
+                                                        Publicación
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -1418,7 +1407,7 @@
                                         <div id="ID-451" class="item-wrap">
                                             <div class="property-item item-grid">
                                                 <div class="figure-block">
-                                                    <figure class="item-thumb"><span class="destacado_sale">En venta</span>
+                                                    <figure class="item-thumb"><span class="destacado_sale">Para venta</span>
                                                     <a class="hover-effect" href="http://houzez01.favethemes.com/property/ample-penthouse/">
                                                     <img width="385" height="258" src="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-1-385x258.jpg" class="attachment-houzez-property-thumb-image size-houzez-property-thumb-image wp-post-image" alt=""/></a>
                                                     <ul class="actions">
@@ -1462,7 +1451,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <i class="fa fa-user"></i><a href="http://houzez01.favethemes.com/agencies/all-american-real-estate/">All American Real Estate</a>
+                                                        Publicación
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -1478,7 +1467,7 @@
                                             <div class="property-item item-grid">
                                                 <div class="figure-block">
                                                     <figure class="item-thumb">
-                                                    <span class="destacado_rental">En Arriendo</span>
+                                                    <span class="destacado_rental">para arriendo</span>
                                                     <div class="price hide-on-list">
                                                         <span class="item-price">$1,900&#47;mo</span>
                                                     </div>
@@ -1526,7 +1515,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <i class="fa fa-user"></i><a href="http://houzez01.favethemes.com/agencies/all-american-real-estate/">All American Real Estate</a>
+                                                        Publicación
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -1542,7 +1531,7 @@
                                             <div class="property-item item-grid">
                                                 <div class="figure-block">
                                                     <figure class="item-thumb">
-                                                    <span class="destacado_sale">En venta</span>
+                                                    <span class="destacado_sale">Para venta</span>
                                                     <div class="price hide-on-list">
                                                         <span class="item-price">$2,200&#47;mo</span>
                                                     </div>
@@ -1590,7 +1579,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <i class="fa fa-user"></i><a href="http://houzez01.favethemes.com/agencies/modern-house-real-estate/">Modern House Real Estate</a>
+                                                        Publicación
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -1660,7 +1649,7 @@
                                             <div class="item-foot date hide-on-list">
                                                 <div class="item-foot-left">
                                                     <p class="prop-user-agent">
-                                                        <i class="fa fa-user"></i><a href="http://houzez01.favethemes.com/agencies/modern-house-real-estate/">Modern House Real Estate</a>
+                                                        Publicación
                                                     </p>
                                                 </div>
                                                 <div class="item-foot-right">
@@ -2047,7 +2036,11 @@
 <script>
     $(document).ready(function(){
         add_location_form();
+        add_type_form();
+        add_mod_form();
         $("#cmb_ubicacion_portada").val($("#cmb_ubicacion_portada option:first").val()).change();
+        $("#cmb_tipo_propiedad_portada").val($("#cmb_tipo_propiedad_portada option:first").val()).change();
+        $("#cmb_modo_portada").val($("#cmb_modo_portada option:first").val()).change();
 		$('.bs-searchbox input').attr('placeholder','Busqueda');
         $("#ddl_price").click(function(){
             $("#min-price").focus();
@@ -2153,6 +2146,22 @@
             $("#cmb_ubicacion_portada").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
         }
         $("#cmb_ubicacion_portada").selectpicker("refresh");
+    }
+    function add_type_form(){
+        for (var i=0;i<tipo_propiedad.length;i++){
+            var newitemnum=tipo_propiedad[i];
+            var newitemdesc = tipo_propiedad[i];
+            $("#cmb_tipo_propiedad_portada").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
+        }
+        $("#cmb_tipo_propiedad_portada").selectpicker("refresh");
+    }
+    function add_mod_form(){
+        for (var i=0;i<modo_propiedad.length;i++){
+            var newitemnum=modo_propiedad[i];
+            var newitemdesc = modo_propiedad[i];
+            $("#cmb_modo_portada").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
+        }
+        $("#cmb_modo_portada").selectpicker("refresh");
     }
 </script>
 {% endblock %}

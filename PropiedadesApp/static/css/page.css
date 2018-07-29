@@ -581,7 +581,7 @@ a:active,
     background-color: #ffffff;
 }
 .header-mobile .nav-dropdown > ul {
-    background-color: rgba(255,255,255,0.95);
+    background-color: #004276;
 }
 .mobile-nav .nav-trigger,
 .header-mobile .user a,
@@ -626,10 +626,10 @@ a:active,
     border-bottom-color: #FFFFFF;
 }
 .account-dropdown > ul > li > a {
-    color: #2e3e49 !important;
+    /*color: #2e3e49 !important;*/
 }
 .account-dropdown > ul > li > a:hover, .account-dropdown > ul > li.active > a, .account-dropdown > ul > li.active > a:hover {
-    color: #2e3e49 !important;
+    /*color: #2e3e49 !important;*/
     background-color: rgba(204,204,204,0.15);
 }
 .account-dropdown > ul > li {
@@ -2271,7 +2271,7 @@ blockquote p {
 .modal-header {
     padding: 0;
     height: 60px;
-    background-color: #393939
+    background-color: #004272;
 }
 
 .modal-header .close {
@@ -4207,7 +4207,7 @@ figure .thumb-caption .cap-social {
 }
 
 .header-mobile .header-logo img {
-    max-height: 25px
+    max-height: 20px;
 }
 
 .header-mobile .header-user {
@@ -4332,7 +4332,7 @@ figure .thumb-caption .cap-social {
     position: absolute;
     right: 0;
     top: 0;
-    color: #959595;
+    color: #ffffff;
     display: block;
     width: 100%;
     line-height: 46px;
@@ -4356,7 +4356,7 @@ figure .thumb-caption .cap-social {
 }
 
 .nav-dropdown a {
-    color: #959595;
+    color: #ffffff;
     display: inline-block;
     padding: 14px 18px;
     width: 100%
@@ -4622,7 +4622,7 @@ figure .thumb-caption .cap-social {
     list-style: none;
     margin: 0;
     box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
-    background-color: #00365E;
+    background-color: #004276;
     position: relative
 }
 
@@ -4635,7 +4635,7 @@ figure .thumb-caption .cap-social {
     right: 40px;
     width: 0;
     border-width: 8px;
-    border-bottom-color: #00365E
+    border-bottom-color: #004276
 }
 
 .account-dropdown>ul>li {
@@ -4657,8 +4657,8 @@ figure .thumb-caption .cap-social {
 }
 
 .account-dropdown>ul>li a:hover {
-    color: #00aeef;
-    background-color: #004274
+    color: #ffffff;
+    background-color: #00aeef
 }
 
 .account-dropdown>ul .sub-menu>li a,
@@ -5999,7 +5999,7 @@ figure .thumb-caption .cap-social {
 }
 
 .advanced-search-sticky {
-    display: block!important;
+   /* display: block!important;*/
     position: fixed!important;
     top: 0;
     width: 100%!important;
@@ -6244,14 +6244,6 @@ figure .thumb-caption .cap-social {
 .advanced-search-mobile .single-search-inner .form-control::-moz-placeholder {
     color: #000!important;
     opacity: 1
-}
-
-.advanced-search-mobile .single-search-inner .form-control:-ms-input-placeholder {
-    color: #000!important
-}
-
-.advanced-search-mobile .single-search-inner .form-control::-webkit-input-placeholder {
-    color: #000!important
 }
 
 .advanced-search-mobile .single-search {
