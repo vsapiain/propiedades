@@ -21,7 +21,6 @@
 .omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
 .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
 
-
 .omb_login .omb_loginOr {
 	position: relative;
 	font-size: 1.5em;
@@ -55,11 +54,6 @@
     color: red;
 }
 
-/*
-.panel-default>.panel-heading {
-    background-color: #808080;
-    color:#ffffff;
-}*/
 .panel-body{
     background-color: #FCFCFC;
 }
@@ -141,6 +135,9 @@
 .margin-top-form{
     margin-top:5px;
 }
+.margin-top-form-2{
+    margin-top:20px;
+}
 .headline-span {
     display: inline-block;
     font-family: 'Dosis', sans-serif;
@@ -175,4 +172,16 @@
 }
 #keyword{
     color:#ffffff;
+}
+.img_tipo_persona_responsive{
+    display: block;
+    max-width: 100%;
+    min-height: 350px;
+}
+
+.login-tabs .fa-user-circle-o{
+    color: #004175;
+}
+.login-tabs .fa-pencil{
+    color: #004175;
 }

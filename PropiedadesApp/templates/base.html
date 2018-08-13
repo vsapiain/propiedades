@@ -1,5 +1,5 @@
 {% load static %} <!DOCTYPE html>
-<html lang="en-es">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,7 +77,7 @@
 													</div>
 												</div>
 												<div class="row">
-													<div class="col-md-3 pull-right">
+													<div class="col-md-4 pull-right">
 														<button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-user" aria-hidden="true"></i> Iniciar sesión</button>
 													</div>
 												</div>
@@ -89,170 +89,168 @@
 											<label class="pull-right">(*) Datos obligatorios</label>
 										</div>
 									</div>
-									<!--
-									<div class="row omb_loginOr">
-										<div class=" col-md-12">
-											<hr class="omb_hrOr">
-											<span class="omb_spanOr">ó</span>
-										</div>
-									</div>
-								 	<div class="row omb_socialButtons">
-										<div class="col-md-6">
-											<a href="#" class="btn btn-lg btn-block omb_btn-facebook">
-												<i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>&nbsp;
-												<span class="hidden-xs">Ingresa con Facebook</span>
-											</a>
-										</div>
-										<div class="col-sm-6">
-											<a href="#" class="btn btn-lg btn-block omb_btn-twitter">
-												<i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>&nbsp;
-												<span class="hidden-xs">Ingresa con Twitter</span>
-											</a>
-										</div>
-									</div>
-									-->
 								</div>
 						</div>
 						<div class="tab-pane fade">
 							<div class="row">
-								<div class="panel panel-default">
-									<div class="panel-body">
-										<div class="col-md-12">
-
-											<div class="row">
-												<div class="col-md-12">
-													<label class="destacado_lbl">Datos registro inicio sesión</label>
-												</div>
-												<div class="col-md-12"><label>Darme de alta como</label></div>
-												<div class="col-md-12">
-
-													<label class="col-md-4 control control--radio">Particular
-														<input type="radio" id="rd_opcion_tipo1" name="rd_opcion_tipo_persona" value="1" checked="checked"/>
-														<div class="control__indicator"></div>
-													</label>
-													<label class="col-md-4 control control--radio">Corredor
-														<input type="radio" id="rd_opcion_tipo2" name="rd_opcion_tipo_persona" value="2"/>
-														<div class="control__indicator"></div>
-													</label>
-													<label class="col-md-4 control control--radio">Inmobiliaria
-														<input type="radio" id="rd_opcion_tipo3" name="rd_opcion_tipo_persona" value="3"/>
-														<div class="control__indicator"></div>
-													</label>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label>(*)Correo electrónico</label>
-														<input id="username_reg" name="username_reg" type="text" class="form-control">
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label>(*)Clave</label>
-														<input id="password_reg" name="password_reg" type="password" class="form-control">
-													</div>
-												</div>
-											</div>
-											<div id="dv_persona">
-												<label class="destacado_lbl"><span id="titl_persona"></span></label>
-												<div class="row">
-													 <div class="col-md-6">
-														<div class="input-group">
-														  <label>Nombre</label>
-														  <input id="nombre_persona" name="nombre_persona" type="text" class="form-control" placeholder=" ">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="input-group">
-														  <label>Apellido</label>
-														  <input id="apellido_persona" name="apellido_persona" type="text" class="form-control" placeholder=" " >
-														</div>
-													</div>
-												</div>
-											</div>
-							  			</div>
-										<div class="col-md-12">
-											<div id="dv_corredor">
-												<label class="destacado_lbl"><span id="titl_corredor"></span></label>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label>(*)Rut</label>
-															<input id="rut_corredor" name="rut_corredor" type="text" class="form-control">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<label>(*)Nombre/Razón social</label>
-															<input id="nombre_corredor" name="nombre_corredor" type="text" class="form-control">
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label>Nombre Contacto</label>
-															<input id="contacto_corredor" name="contacto_corredor" type="text" class="form-control">
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<label>Teléfono contacto</label>
-															<input id="fono_contacto_corredor" name="fono_contacto_corredor" type="text" class="form-control">
-														</div>
-													</div>
+								<div class="col-md-12">
+									<div class="row">
+										<div class="panel panel-default">
+											<div class="panel-body">
+												<div class="col-md-5">
+													<img id="img_persona" class="img_tipo_persona_responsive" src='{% static 'img/img_arr_persona.jpg' %}' alt="Accceso personas">
+													<img id="img_corredor" class="img_tipo_persona_responsive" src='{% static 'img/img_corredor.jpg' %}' alt="Accceso personas">
+													<img id="img_inmobiliaria" class="img_tipo_persona_responsive" src='{% static 'img/img_inmobiliaria.jpg' %}' alt="Accceso personas">
 
 												</div>
-											</div>
-											<div id="dv_inmobiliaria">
-												<label class="destacado_lbl"><span id="titl_inmobiliaria"></span></label>
-												<div class="row">
+												<div class="col-md-7">
+
+													<div class="col-md-12">
+														<label class="destacado_lbl">Darme de alta como</label>
+														<hr>
+													</div>
+													<div class="col-md-12">
+														<div id="dv_tipo_persona">
+															<label class="col-md-4 control control--radio">Particular
+																<input type="radio" id="rd_opcion_tipo1" name="rd_opcion_tipo_persona" value="1" checked="checked"/>
+																<div class="control__indicator"></div>
+															</label>
+															<label class="col-md-4 control control--radio">Corredor
+																<input type="radio" id="rd_opcion_tipo2" name="rd_opcion_tipo_persona" value="2"/>
+																<div class="control__indicator"></div>
+															</label>
+															<label class="col-md-4 control control--radio">Inmobiliaria
+																<input type="radio" id="rd_opcion_tipo3" name="rd_opcion_tipo_persona" value="3"/>
+																<div class="control__indicator"></div>
+															</label>
+														</div>
+														<div id="dv_tipo_persona_mob">
+															<label class="col-md-4 control control--radio">Particular
+																<input type="radio" id="rd_opcion_tipo1_mob" name="rd_opcion_tipo_persona_mob" value="1" checked="checked"/>
+																<div class="control__indicator"></div>
+															</label>
+															<label class="col-md-4 control control--radio">Corredor
+																<input type="radio" id="rd_opcion_tipo2_mob" name="rd_opcion_tipo_persona_mob" value="2"/>
+																<div class="control__indicator"></div>
+															</label>
+															<label class="col-md-4 control control--radio">Inmobiliaria
+																<input type="radio" id="rd_opcion_tipo3_mob" name="rd_opcion_tipo_persona_mob" value="3"/>
+																<div class="control__indicator"></div>
+															</label>
+														</div>
+
+													</div>
+													<div class="col-md-12">
+														<label class="destacado_lbl">Datos registro inicio sesión</label>
+														<hr>
+													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<label>(*)Rut</label>
-															<input id="rut_inmobiliaria" name="rut_inmobiliaria" type="text" class="form-control">
+															<label>(*)Correo electrónico</label>
+															<input id="username_reg" name="username_reg" type="text" class="form-control">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<label>(*)Nombre/Razón social</label>
-															<input id="nombre_inmobiliaria" name="nombre_inmobiliaria" type="text" class="form-control">
+															<label>(*)Clave</label>
+															<input id="password_reg" name="password_reg" type="password" class="form-control">
 														</div>
 													</div>
-												</div>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label>Nombre Contacto</label>
-															<input id="contacto_inmobiliaria" name="contacto_inmobiliaria" type="text" class="form-control">
+													<div id="dv_persona">
+														<div class="col-md-12">
+															<label class="destacado_lbl"><span id="titl_persona"></span></label>
+															<hr>
+														</div>
+														<div class="col-md-6">
+															<div class="input-group">
+															  <label>Nombre</label>
+															  <input id="nombre_persona" name="nombre_persona" type="text" class="form-control" placeholder=" ">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="input-group">
+															  <label>Apellido</label>
+															  <input id="apellido_persona" name="apellido_persona" type="text" class="form-control" placeholder=" " >
+															</div>
 														</div>
 													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<label>Teléfono contacto</label>
-															<input id="fono_contacto_inmobiliaria" name="fono_contacto_inmobiliaria" type="text" class="form-control">
+													<div id="dv_corredor">
+														<div class="col-md-12">
+															<label class="destacado_lbl"><span id="titl_corredor"></span></label>
+															<hr>
 														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>(*)Rut</label>
+																<input id="rut_corredor" name="rut_corredor" type="text" class="form-control">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>(*)Nombre/Razón social</label>
+																<input id="nombre_corredor" name="nombre_corredor" type="text" class="form-control">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Nombre Contacto</label>
+																<input id="contacto_corredor" name="contacto_corredor" type="text" class="form-control">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Teléfono contacto</label>
+																<input id="fono_contacto_corredor" name="fono_contacto_corredor" type="text" class="form-control">
+															</div>
+														</div>
+													</div>
+													<div id="dv_inmobiliaria">
+														<div class="col-md-12">
+															<label class="destacado_lbl"><span id="titl_inmobiliaria"></span></label>
+															<hr>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>(*)Rut</label>
+																<input id="rut_inmobiliaria" name="rut_inmobiliaria" type="text" class="form-control">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>(*)Nombre/Razón social</label>
+																<input id="nombre_inmobiliaria" name="nombre_inmobiliaria" type="text" class="form-control">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Nombre Contacto</label>
+																<input id="contacto_inmobiliaria" name="contacto_inmobiliaria" type="text" class="form-control">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Teléfono contacto</label>
+																<input id="fono_contacto_inmobiliaria" name="fono_contacto_inmobiliaria" type="text" class="form-control">
+															</div>
+														</div>
+													</div>
+
+													<div class="margin-top-form-2 col-md-6 pull-right">
+														<button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Crear cuenta</button>
+													</div>
+													<div class="col-md-12">
+														<label class="pull-right">(*) Datos obligatorios</label>
 													</div>
 
 												</div>
 											</div>
-
 										</div>
-									</div>
-								</div>
 
-								<div class="row">
-									<div class="col-md-3 pull-right">
-										<button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Crear cuenta</button>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<label class="pull-right">(*) Datos obligatorios</label>
 									</div>
 								</div>
 							</div>
+
+
 						</div>
 					</div>
 				</div>
@@ -398,8 +396,8 @@
 							<span class="user-icon"><i class="fa fa-user"></i></span>
 							<div class="account-dropdown">
 								<ul>
-									<li><a href="http://houzez01.favethemes.com/add-new-property/"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar sesión</a></li>
-									<li><a href="#" data-toggle="modal" data-target="#pop-login"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Regístrate</a></li>
+									<li><a id="user-inicio-mob" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i>Iniciar sesión</a></li>
+									<li><a id="user-registro-mob" href="#" data-toggle="modal" data-target="#pop-login"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Regístrate</a></li>
 								</ul>
 							</div>
 						</li>
@@ -800,10 +798,13 @@
 				verifFilterAdv();
 				load_keyword();
 				$("#dv_persona").show();
+				$("#img_persona").show();
 				$("#titl_persona").html("Datos registro persona");
-				$('#tipo_reg').val($('input:radio').parent().text());
+				$('#tipo_reg').val($('input[name=rd_opcion_tipo_persona]').parent().text());
 				$("#dv_corredor").hide();
+				$("#img_corredor").hide();
 				$("#dv_inmobiliaria").hide();
+				$("#img_inmobiliaria").hide();
 				//$("#btn_publicacion").hide();
 				$("#mode").prop('title', 'Seleccionar todos');
 				$("#mode_mob").prop('title', 'Seleccionar todos');
@@ -828,7 +829,10 @@
 					clear_form_login();
 				});
 				*/
-				$("#user-inicio").click(function (event) {
+				$("#rd_opcion_tipo1,#rd_opcion_tipo2,#rd_opcion_tipo3").click(function(){
+					$("#username_reg").focus();
+				});
+				$("#user-inicio,#user-inicio-mob").click(function (event) {
 					$("#tab-inicio").show();
 					$("#tab-registro").hide();
 					$('#pop-login').modal('show');
@@ -841,14 +845,14 @@
 					$("#pop-login.modal-dialog").removeClass("modal-lg");
 					$("#pop-login.modal-dialog").addClass("modal-dialog");
 				});
-				$("#user-registro").click(function (event) {
+				$("#user-registro,#user-inicio-mob").click(function (event) {
 					$("#tab-registro").show();
 					$("#tab-inicio").hide();
 					$("#pop-login").modal('show');
 					//$("#tab-inicio").removeClass("active");
     				//$("#tab-registro").addClass("active");
     				ActivTab("tab-registro");
-					$("#username").focus();
+					$("#username_reg").focus();
 					clear_form_login();
 				});
 				$("#mode").change(function() {
@@ -857,12 +861,44 @@
 				$("#mode_mob").change(function() {
 					verifFilterAdvMob();
 				});
-				$('input:radio').change(function() {
+				$('input[name=rd_opcion_tipo_persona]').change(function() {
 				   	$("#tipo_reg").val($(this).parent().text());
 				   	if ($(this).val() == 1){
 				   		$("#titl_persona").html("Datos registro persona");
 						$("#dv_corredor").hide();
+						$("#img_corredor").hide();
 						$("#dv_inmobiliaria").hide();
+						$("#img_inmobiliaria").hide();
+						$("#dv_persona").show();
+						$("#img_persona").show();
+					}
+					else if ($(this).val() == 2){
+						$("#titl_corredor").html("Datos registro corredor");
+						$("#dv_corredor").show();
+						$("#img_corredor").show();
+						$("#dv_inmobiliaria").hide();
+						$("#img_inmobiliaria").hide();
+						$("#dv_persona").hide();
+						$("#img_persona").hide();
+					}
+					else if ($(this).val() == 3){
+						$("#titl_inmobiliaria").html("Datos registro inmobiliaria");
+						$("#dv_corredor").hide();
+						$("#img_corredor").hide();
+						$("#dv_inmobiliaria").show();
+						$("#img_inmobiliaria").show();
+						$("#dv_persona").hide();
+						$("#img_persona").hide();
+					}
+				});
+				$('input[name=rd_opcion_tipo_persona_mob]').change(function() {
+				   	$("#tipo_reg").val($(this).parent().text());
+				   	if ($(this).val() == 1){
+				   		$("#titl_persona").html("Datos registro persona");
+						$("#dv_corredor").hide();
+						$("#img_corredor").hide();
+						$("#dv_inmobiliaria").hide();
+						$("#img_inmobiliaria").hide();
 						$("#dv_persona").show();
 					}
 					else if ($(this).val() == 2){
@@ -877,7 +913,6 @@
 						$("#dv_inmobiliaria").show();
 						$("#dv_persona").hide();
 					}
-
 				});
 				$("#location").val($("#location option:first").val()).change();
 				$('.bs-searchbox input').attr('placeholder','Busqueda');
@@ -945,7 +980,7 @@
 				$("#username_reg").val("");
 				$("#password_reg").val("");
 				$("#rd_opcion_tipo1").trigger('click');
-				$("#tipo_reg").val($('input:radio').parent().text());
+				$("#tipo_reg").val($('input[name=rd_opcion_tipo_persona]').parent().text());
 			}
 			function validate_numeric(e){
 				tecla = (document.all) ? e.keyCode : e.which;

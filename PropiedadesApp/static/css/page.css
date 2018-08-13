@@ -531,10 +531,12 @@ a:active,
     background-color: rgba(255,255,255,0.95);
 }
 .navi.main-nav > ul ul a {
-    color: #2e3e49!important;
+    color: #ffffff;
+    background-color:#004272;
 }
 .navi.main-nav > ul ul a:hover {
-    color: #00aeef!important;
+    color: #ffffff;
+    background-color:#00AEEF;
 }
 .navi.main-nav > ul ul li {
     border-color: #e6e6e6;
@@ -5607,11 +5609,12 @@ figure .thumb-caption .cap-social {
     color: rgba(0, 0, 0, .4)
 }
 
+/*
 .login-block hr {
     margin-top: 25px;
     margin-bottom: 25px
 }
-
+*/
 .login-block .form-group,
 .login-block p {
     margin-bottom: 20px
@@ -18175,11 +18178,12 @@ textarea.IDX-leadLoginTextInput {
 }
 .control__indicator {
   position: absolute;
-  top: 2px;
+  top: 1px;
   left: 0;
   height: 20px;
   width: 20px;
   background: #e6e6e6;
+  border: 2px solid #cccccc;
 }
 .control--radio .control__indicator {
   border-radius: 50%;
@@ -18223,7 +18227,7 @@ textarea.IDX-leadLoginTextInput {
 .control--radio .control__indicator:after {
   left: 7px;
   top: 7px;
-  height: 6px;
+  /*height: 6px;  efecto centro*/
   width: 6px;
   border-radius: 50%;
   background: #fff;
@@ -18239,5 +18243,11 @@ textarea.IDX-leadLoginTextInput {
     color:#ffffff;
     font-weight : normal;
 }
-
-
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+hr {
+    margin-top:2px;
+}
