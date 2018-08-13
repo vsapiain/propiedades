@@ -5,6 +5,9 @@
     .advanced-search-sticky{
         display: block!important;
     }
+    #dv_tipo_persona_mob{
+        display: none;
+    }
 }
 @media only screen and (max-width:991px) {
     .header-mobile {
@@ -63,17 +66,9 @@
     .houzez-module .module-title-nav .module-nav {
         width: 100%
     }
-    /*
-    .advanced-search{
-        display : none;
-    }*/
     .advanced-search-sticky{
         display: none;
     }
-    /*
-    .advanced-search-mobile{
-        display : block;
-    }*/
     .section-body{
         padding-top:0px;
     }
@@ -96,7 +91,21 @@
     #btn_Buscar_mob{
         width:100%;
     }
-
+    #img_persona{
+        display:none;
+    }
+    #img_corredor{
+        display:none;
+    }
+    #img_inmobiliaria{
+        display:none;
+    }
+    #dv_tipo_persona{
+        display: none;
+    }
+    #dv_tipo_persona_mob{
+        display:block;
+    }
 }
 @media (min-width:992px) and (max-width:1199px) {
     .header-section-4 .header-right {
@@ -104,5 +113,8 @@
     }
     .header-section-4 .header-left {
         width: 70%
+    }
+    #dv_tipo_persona_mob{
+        display:none;
     }
 }
