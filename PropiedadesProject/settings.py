@@ -74,10 +74,21 @@ WSGI_APPLICATION = 'PropiedadesProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'NAME': 'citypro',
+        #'ENGINE': 'com.microsoft.sqlserver.jdbc.SQLServerDriver',
+        'HOST': '186.64.123.187',
+        'USER': 'sa',
+        'PASSWORD': 'admin.2013',
     }
 }
 
