@@ -46,7 +46,7 @@
 							<div class="omb_login">
 									<div class="row">
 										<div class="col-md-12">
-											<form class="omb_loginForm" action="" autocomplete="off" method="POST">
+											<form class="omb_loginForm" action="/login" method="post">
 												<div class="panel panel-default">
 													<!--<div class="panel-heading">Datos inicio sesión</div>-->
 													<div class="panel-body">
@@ -78,7 +78,7 @@
 												</div>
 												<div class="row">
 													<div class="col-md-4 pull-right">
-														<button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-user" aria-hidden="true"></i> Iniciar sesión</button>
+														<button id="btn_autenticar" class="btn btn-lg btn-primary btn-block" type="button"><i class="fa fa-user" aria-hidden="true"></i> Iniciar sesión</button>
 													</div>
 												</div>
 											</form>
@@ -766,12 +766,10 @@
 		<!--end footer section-->
 
 		<script type='text/javascript' src='{% static 'js/jquery-min.js' %}'></script>
-		<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?libraries=places&#038;language=en_US&#038;key=AIzaSyCBnyL9MhOZlec1Mz1_qImukxi-VFqQKJw'></script>
-		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-content/themes/houzez/js/infobox.min.js'></script>
   		<script type='text/javascript' src='{% static 'js/jquery-ui.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/bootstrap.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/css3-animate-it.js' %}'></script>
-		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-content/themes/houzez/js/plugins.js'></script>
+		<script type='text/javascript' src='{% static 'js/plugins.js' %}'></script>
 		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-includes/js/jquery/ui/datepicker.min.js'></script>
 		<script type='text/javascript'>
 			/* <![CDATA[ */
@@ -823,13 +821,22 @@
 						$("#btn_publicacion").hide();
 					}
 				});
-				/*
-				$(".user").find('a').click(function (event) {
-					$('#pop-login').modal('show');
-					$("#username").focus();
-					clear_form_login();
+				$("#btn_autenticar").click(function(){
+					var form = $('.omb_loginForm');
+					$.ajax({
+						url: '/login',
+						data: form.serialize(),
+						success: function (data) {
+							if (!data.is_authenticated){
+								error_msg('Autenticación',data.msg,2500);
+								$("#username").val("");
+								$("#password").val("");
+								$("#username").focus();
+							}
+						}
+					});
+					return false;
 				});
-				*/
 				$("#rd_opcion_tipo1,#rd_opcion_tipo2,#rd_opcion_tipo3").click(function(){
 					$("#username_reg").focus();
 				});
