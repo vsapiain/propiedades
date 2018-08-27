@@ -8,7 +8,7 @@ db_engine = 'mssql+pymssql://sa:admin.2013@186.64.123.187/citypro'
 engine = create_engine(db_engine)
 session = scoped_session(sessionmaker(autocommit=False, bind=engine))
 
-class db_base:
+class db_base(object):
     def save(self):
         session.add(self)
         self._flush()
