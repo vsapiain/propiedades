@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{% block title %}{% endblock %}</title>
 		<link href="{% static 'img/ico/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
-		<link rel='stylesheet' href='{% static 'css/bootstrap.min.css' %}' type='text/css' media='all'/>
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
@@ -414,7 +414,7 @@
 						<img id="dv_ico" src='{% static 'img/logo_ico.png' %}' alt="www.citypro.cl">
 					</div>
 					<div class="col-sm-11">
-						<form method="get" autocomplete="off" action="">
+						<form method="post" action="/propiedades">
 							<div class="form-group search-long">
 								<div class="search">
 								 	<select   id = "mode" name="mode" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
@@ -526,7 +526,8 @@
 										<div class="clearfix">
 										</div>
 										<div class="field-expand">
-											<label class="checkbox-inline"><input  name="feature[]" type="checkbox" value="air-conditioning">Aire acondicionado</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="Barbeque">Parrilla</label><label class="checkbox-inline"><input   name="feature[]" type="checkbox" value="Dryer">Secadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="gym">Gimnasio</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="laundry">Lavandería</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="lawn">Cesped</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="microwave">Microonda</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="shower">Ducha</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerador</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="sauna">Sauna</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="washer">Lavadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="wifi">WiFi</label>
+											<label class="checkbox-inline"><input  name="feature[]" type="checkbox" value="air-conditioning">Aire acondicionado</label>
+											<label class="checkbox-inline"><input name="feature[]" type="checkbox" value="Barbeque">Parrilla</label><label class="checkbox-inline"><input   name="feature[]" type="checkbox" value="Dryer">Secadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="gym">Gimnasio</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="laundry">Lavandería</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="lawn">Cesped</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="microwave">Microonda</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="shower">Ducha</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerador</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="sauna">Sauna</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="washer">Lavadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="wifi">WiFi</label>
 										</div>
 									</div>
 								</div>
@@ -827,11 +828,13 @@
 						url: '/login',
 						data: form.serialize(),
 						success: function (data) {
-							if (!data.is_authenticated){
+							if (!data.is_authenticated && data.msg.trim()!=''){
 								error_msg('Autenticación',data.msg,2500);
 								$("#username").val("");
 								$("#password").val("");
 								$("#username").focus();
+							}else{
+								$('#pop-login').modal('hide');
 							}
 						}
 					});

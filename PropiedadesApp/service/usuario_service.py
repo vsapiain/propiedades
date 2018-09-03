@@ -7,7 +7,7 @@ class usuario_service:
             proxy  = usuario_proxy()
             obj_usuario = proxy.get_by_email(_email)
             if obj_usuario == None:
-                return usuario_proxy(),'Correo electrónico no registrado.'
+                return usuario_proxy(),'Correo electronico no registrado.'
             else:
                 if obj_usuario.Clave != _clave:
                     return usuario_proxy(),'Clave de acceso incorrecta.'
@@ -16,6 +16,3 @@ class usuario_service:
                     return obj_usuario, ''
         except:
             pass
-
-    def __init__(self):
-        pass
