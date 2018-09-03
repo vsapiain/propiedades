@@ -1071,7 +1071,7 @@ background-image: url(http://houzez01.favethemes.com/wp-content/uploads/2016/03/
 }
 
 .section-intro {
-    background: url(../img/property_a4.jpg) center center no-repeat;
+    background: url(../img/property_opt.jpg) center center no-repeat;
     background-size: cover;
     /* color: #fff; */
     position: relative;
@@ -2686,19 +2686,15 @@ label.success {
 .label-status {
     background-color: #bcbcbc
 }
-
 .btn .fa.fa-left {
-    margin-right: 8px
+    width: 20px
 }
-
 .btn .fa.fa-right {
-    margin-left: 8px
+    width: 20px
 }
-
 .btn .fa.pull-left {
-    line-height: 20px
+    width: 20px
 }
-
 .breadcrumb,
 .breadcrumb li {
     line-height: 12px
@@ -18251,3 +18247,4 @@ textarea.IDX-leadLoginTextInput {
 hr {
     margin-top:2px;
 }
+
