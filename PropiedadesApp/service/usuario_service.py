@@ -16,6 +16,3 @@ class usuario_service:
                     return obj_usuario, ''
         except:
             pass
-
-    def __init__(self):
-        pass
