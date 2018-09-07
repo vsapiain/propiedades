@@ -6,41 +6,52 @@
         <div class="col-md-3">
             <div class="border filtersContainer" id="filtersContainer">
                 <div class="filterContainer filtro p-4 bg-white">
-                    <div class="destacado_lbl">
-                        <i class="fa fa-filter" aria-hidden="true"></i>
-                        Filtros
+                    <div >
+                        <div class="panel_filter">
+                            <i class="fa fa-navicon fa-lg margin-top-form-3 margin-left-form-2" aria-hidden="true"></i>
+                            &nbsp;&nbsp;
+                            <label class="destacado_lbl margin-top-form-3">Filtros</label>
+                        </div>
                     </div>
-                    <hr class="margin-top-form">
+
                 </div>
                 <div class="filterContainer filtro bg-white">
                     <h5>Situación comercial</h5>
                      <div class="form-group">
-                        <select class="form-control" name = "cmb_modo_portada" id="cmb_modo_portada">
-                            <option>Modo(cualquiera)</option>
+                        <select  name = "cmb_modo_portada" id="cmb_modo_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
+                            <option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i> cualquiera" > </option>
+                            <option value="1">opcion1</option>
+                            <option value="2">opcion2</option>
                         </select>
                      </div>
                 </div>
                 <div class="filterContainer filtro bg-white">
                     <h5>Tipo de vivienda</h5>
                      <div class="form-group">
-                        <select class="form-control" name = "cmb_tipo_propiedad_portada"  id="cmb_tipo_propiedad_portada">
-                            <option>Tipo propiedad(cualquiera)</option>
+                        <select  name = "cmb_tipo_propiedad_portada" id="cmb_tipo_propiedad_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
+                            <option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i> cualquiera" > </option>
+                            <option value="1">opcion1</option>
+                            <option value="2">opcion2</option>
                         </select>
                     </div>
                 </div>
                 <div class="filterContainer filtro bg-white" id="provinciaFilter">
                     <h5>Ubicación</h5>
                      <div class="form-group">
-                        <select class="form-control" name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" data-live-search="true"  >
-                            <option>Ubicación(cualquiera)</option>
+                        <select  name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
+                            <option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i> cualquiera" > </option>
+                            <option value="1">opcion1</option>
+                            <option value="2">opcion2</option>
                         </select>
                     </div>
                 </div>
                 <div class="filterContainer filtro bg-white">
                     <h5>Estado de la vivienda</h5>
                     <div class="form-group">
-                        <select class="form-control" name = "cmb_estado" id="cmb_estado" data-live-search="true"  >
-                            <option>cualquiera</option>
+                        <select  name = "cmb_estado" id="cmb_estado" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
+                            <option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i> cualquiera" > </option>
+                            <option value="1">opcion1</option>
+                            <option value="2">opcion2</option>
                         </select>
                     </div>
                 </div>
@@ -48,33 +59,62 @@
                     <h5>Otras características</h5>
                     <div class="form-group">
                         <div class="col-mod-12">
-                            <label class="col-md-6 checkbox-inline"><input  name="feature[]" type="checkbox" value="air-conditioning">Aire acond.</label>
-                            <label class="col-md-5 checkbox-inline"><input name="feature[]" type="checkbox" value="Barbeque">Parrilla</label>
+                            <label class="col-md-6 control control--checkbox"><input  name="feature[]" type="checkbox" value="air-conditioning">Aire acond.
+                                <div class="control__indicator"></div>
+                            </label>
+
+                            <label class="col-md-5 control control--checkbox"><input  name="feature[]" type="checkbox" value="Barbeque">Parrilla
+                                 <div class="control__indicator"></div>
+                            </label>
                         </div>
                         <div class="col-mod-12">
-                            <label class="col-md-6 checkbox-inline"><input   name="feature[]" type="checkbox" value="Dryer">Secadora</label>
-                            <label class="col-md-5 checkbox-inline"><input name="feature[]" type="checkbox" value="gym">Gimnasio</label>
+                            <label class="col-md-6 control control--checkbox"><input   name="feature[]" type="checkbox" value="Dryer">Secadora
+                                <div class="control__indicator"></div>
+                            </label>
+                            <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="gym">Gimnasio
+                                <div class="control__indicator"></div>
+                            </label>
                         </div>
                         <div class="col-mod-12">
-                            <label class="col-md-6 checkbox-inline"><input name="feature[]" type="checkbox" value="laundry">Lavandería</label>
-                            <label class="col-md-5 checkbox-inline"><input name="feature[]" type="checkbox" value="lawn">Cesped</label>
+                            <label class="col-md-6 control control--checkbox"><input name="feature[]" type="checkbox" value="laundry">Lavandería
+                                <div class="control__indicator"></div>
+                            </label>
+                            <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="lawn">Cesped
+                                <div class="control__indicator"></div>
+                            </label>
 
                         </div>
                         <div class="col-mod-12">
-                            <label class="col-md-6 checkbox-inline"><input name="feature[]" type="checkbox" value="microwave">Microonda</label>
-                            <label class="col-md-5 checkbox-inline"><input name="feature[]" type="checkbox" value="shower">Ducha</label>
+                            <label class="col-md-6 control control--checkbox"><input name="feature[]" type="checkbox" value="microwave">Microonda
+                                <div class="control__indicator"></div>
+                            </label>
+                            <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="shower">Ducha
+                                <div class="control__indicator"></div>
+                            </label>
                         </div>
                         <div class="col-mod-12">
-                            <label class="col-md-6 checkbox-inline"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerador</label>
-                            <label class="col-md-5 checkbox-inline"><input name="feature[]" type="checkbox" value="sauna">Sauna</label>
+                            <label class="col-md-6 control control--checkbox"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerador
+                                <div class="control__indicator"></div>
+                            </label>
+                            <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="sauna">Sauna
+                                <div class="control__indicator"></div>
+                            </label>
                         </div>
                         <div class="col-mod-12">
-                            <label class="col-md-6 checkbox-inline"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina</label>
-                            <label class="col-md-5 checkbox-inline"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable</label>
+                            <label class="col-md-6 control control--checkbox"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina
+                                <div class="control__indicator"></div>
+                            </label>
+                            <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable
+                                <div class="control__indicator"></div>
+                            </label>
                         </div>
                         <div class="col-mod-12">
-                            <label class="col-md-6 checkbox-inline"><input name="feature[]" type="checkbox" value="washer">Lavadora</label>
-                            <label class="col-md-5 checkbox-inline"><input name="feature[]" type="checkbox" value="wifi">WiFi</label>
+                            <label class="col-md-6 control control--checkbox"><input name="feature[]" type="checkbox" value="washer">Lavadora
+                                <div class="control__indicator"></div>
+                            </label>
+                            <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="wifi">WiFi
+                                <div class="control__indicator"></div>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -89,7 +129,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="col-md-2 margin-top-form">
-                        Oden por
+                        Orden por
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
@@ -135,45 +175,109 @@
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <span class="label label-success">Inmobiliaria</span> Siena
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-9 text-left">
-                                            <label class="place_list">Martín de Zamora 4909, Las Condes, Región Metropolitana</label>
+                            <div class="margin-top-form">
+                                <span class="label label-primary">Inmobiliaria</span> Siena
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-9 text-left">
+                                                <label class="place_list">Martín de Zamora 4909, Las Condes, Región Metropolitana</label>
+                                            </div>
+                                            <div class="col-md-3 text-right">
+                                                <label class="date_list">01/09/2018</label>
+                                            </div>
                                         </div>
-                                        <div class="col-md-3 text-right">
-                                            <label class="date_list">01/09/2018</label>
-                                        </div>
+
                                     </div>
-
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-9 text-left">
+                                                <label class="price_list">$ 320.000</label>
+                                            </div>
+                                            <div class="col-md-3 text-right">
+                                                 <span class="label label-danger">En Venta</span>
+                                            </div>
+                                        </div>
 
-
-                            <div class="title_list">
-                                Departamento 4D 2B Villa Creo 1 piso.
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="text-right">
-                                        <button type="button" class="btn btn-primary">Contactar</button>
+                                    </div>
+                                </div>
+                                <div class="info-row amenities">
+                                   <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                </div>
+                                <div class="title_list">
+                                    Magnífico chalet esquinero de 370 metros cuadrados en venta en Cabrils, Barcelona. El inmueble se encuentra distribuido en tres plantas....
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text-right">
+                                            <button type="button" class="btn btn-primary"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_contacto" ><i class="fa fa-envelope"></i> Contactar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
+</div>
+<div class="modal" id="modal_contacto" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <ul class="login-tabs">
+                    <li id="tab-inicio" class="active"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Contactar al anunciante</li>
+                </ul>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="modal-body login-block">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active">
+                        <div class="row">
+                            <div class = "col-md-12">
+                                <div class="form-group">
+                                   <label>(*)Nombre y Apellido</label>
+                                    <input id="nombre_contact" name="nombre_contact" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class = "col-md-6">
+                                <div class="form-group">
+                                    <label>(*)Correo electrónico</label>
+                                    <input id="correo_contact" name="correo_contact" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class = "col-md-6">
+                                <div class="form-group">
+                                    <label>Teléfono contacto</label>
+                                    <input id="fono_contact" name="fono_contact" type="text" class="form-control">
+                                </div>
+                            </div>
+                             <div class = "col-md-12">
+                                <div class="form-group">
+                                    <label>(*)Mensaje</label>
+                                    <textarea class="form-control" rows="5" id="message_contact" name="message_contact" placeholder=""></textarea>
+                                </div>
+                            </div>
+                            <div class="margin-top-form-2 col-md-5 pull-right">
+                                <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar</button>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="pull-right">(*) Datos obligatorios</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block content_script %}
 <script>
     $('.carousel').carousel()
-
 </script>
 {% endblock %}
