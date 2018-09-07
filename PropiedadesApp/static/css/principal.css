@@ -58,7 +58,6 @@
     background-color: #FCFCFC;
 }
 .destacado_lbl{
-    font-weight: 500;
     font-size:18px;
 }
 
@@ -129,6 +128,9 @@
 .margin-left-form{
     margin-left:5px;
 }
+.margin-left-form-2{
+    margin-left:10px;
+}
 .margin-right-form{
     margin-right:5px;
 }
@@ -140,6 +142,9 @@
 }
 .margin-top-form-2{
     margin-top:20px;
+}
+.margin-top-form-3{
+    margin-top:15px;
 }
 .headline-span {
     display: inline-block;
@@ -207,6 +212,11 @@
 .filtersContainer  .filtro{
     margin:5px;
 }
+.panel_filter{
+    background-color:#004171;
+    color:#fff;
+    height: 50px;
+}
 /* Item de lista */
 .margin_list{
     margin-left:-30px;
@@ -216,6 +226,10 @@
 }
 .detail_list{
 
+}
+.price_list{
+    font-size: 22px;
+    font-weight: 500;
 }
 .date_list , .place_list {
     font-family: "Open Sans", Verdana, sans-serif;
