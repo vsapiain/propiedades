@@ -151,6 +151,9 @@
 .margin-top-form-3{
     margin-top:15px;
 }
+.margin-top-form-4{
+    margin-top:5px;
+}
 .margin-list{
     margin:10px;
 }
@@ -191,9 +194,11 @@
     border-radius:4px;
     height: 40px;
 }
+/*
 #keyword{
     color:#ffffff;
 }
+*/
 .img_tipo_persona_responsive{
     display: block;
     max-width: 100%;
@@ -216,8 +221,8 @@
     font-size:small;
 }
 .img_list_principal{
-    width:70%;
-    margin-left:-30px;
+    width:80%;
+    margin-left:-15px;
 }
 
 /* Listado Propiedades*/
@@ -251,7 +256,7 @@
 .date_list_principal , .place_list_principal , .place_list , .date_list {
     font-family: "Open Sans", Verdana, sans-serif;
     font-size: 11px;
-    color: #C0C0C0;
+    color: #A0A0A0;
     margin-top: 10px;
 }
 /* Fin Listado Propiedades*/
@@ -298,3 +303,23 @@
 
 /* fin iconos redes sociales */
 
+/* marco tipo card */
+.card {
+    margin: 10px;
+    border: none;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.24);
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: .2857142857rem;
+}
+.card-block {
+    padding: 1.4285714286rem 1.1428571429rem;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.1428571429rem;
+}

@@ -2058,7 +2058,7 @@ blockquote p {
     text-align: center;
     height: 43px;
     width: 40px;
-    line-height: 43px;
+    line-height: 33px;
     position: absolute;
     left: 0;
     top: 0;
@@ -2094,7 +2094,8 @@ blockquote p {
 }
 
 .input-search:before {
-    content: "\f002"
+    content: "\f002";
+    font-size: 18px;
 }
 
 .input-calendar:before {
@@ -2697,7 +2698,7 @@ label.success {
 }
 .breadcrumb,
 .breadcrumb li {
-    line-height: 12px
+    line-height: 14px
 }
 
 .btn-long {
@@ -2725,7 +2726,7 @@ label.success {
 }
 
 .breadcrumb li {
-    font-size: 12px;
+    font-size: 14px;
     margin: 0
 }
 
@@ -4894,7 +4895,7 @@ figure .thumb-caption .cap-social {
     background: white;
     -webkit-box-shadow: 0 0 0 4px white, 0 6px 4px black;
     -moz-box-shadow: 0 0 0 4px white, 0 6px 4px black;
-    box-shadow: 0 0 0 4px white, 0 6px 4px black;
+    box-shadow: 0 0 0 4px white, 0 4px 10px black;
 }
 
 .header-section-4 .logo {

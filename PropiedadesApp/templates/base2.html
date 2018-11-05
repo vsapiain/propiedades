@@ -407,136 +407,6 @@
 			</div>
 		</div>
 		<!--start advanced search section-->
-		<div class="advanced-search advance-search-header houzez-adv-price-range none-visible-scroll" data-sticky='1'>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-1">
-						<img id="dv_ico" src='{% static 'img/logo_ico.png' %}' alt="www.citypro.cl">
-					</div>
-					<div class="col-sm-11">
-						<form method="post" action="/propiedades">
-							<div class="form-group search-long">
-								<div class="search">
-								 	<select   id = "mode" name="mode" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
-										<option value="1">Comprar</option>
-										<option value="2" selected>Busco arriendo</option>
-										<option value="3">Busco arriendo por temporada</option>
-									</select>
-									<select id = "type" name="type" class="selectpicker" data-live-search="false" data-live-search-style="begins">
-										<option value="1" selected>Departamento</option>
-										<option value="2">Casa</option>
-										<option value="3">Oficina</option>
-										<option value="4">Local comercial</option>
-										<option value="5">Sitio</option>
-										<option value="6">Estacionamiento</option>
-										<option value="7">Bodega</option>
-									</select>
-									<select class="form-control" id="location" name="location"  data-live-search="true"  >
-										<option value="-1">Todas las ubicaciones</option>
-									</select>
-								</div>
-								<div  id="dv_busqueda" class="search-btn">
-									<button id="btn_Buscar" class="btn-md btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
-								</div>
-								<div class="advance-btn-holder">
-									<button class="advance-btn"  type="button"><i class="fa fa-filter"></i> Más filtros</button>
-								</div>
-								<div id="dv_publicacion" class="search-btn" >
-									<button id="btn_publicacion" style="display:none;" class="btn-md btn-secundary">Publica gratis</button>
-								</div>
-							</div>
-							<div class="advance-fields">
-								<div class="row">
-									<div class="col-sm-2 col-xs-6">
-										<div class="form-group">
-											<select name="bedrooms" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-												<option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i>Dormitorio" > </option>
-												<option value="1">1 dormitorio</option>
-												<option value="2">2 dormitorios</option>
-												<option value="3">3 dormitorios</option>
-												<option value="4">4 dormitorios</option>
-												<option value="4">5 dormitorios</option>
-												<option value="5_mas">+5 dormitorios</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-2 col-xs-6">
-										<div class="form-group">
-											<select name="bed" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-												<option value="" disabled selected style="display:none;" data-content="<i class='fa fa-filter' aria-hidden='true'></i>Cama"></option>
-												<option value="1">1 cama</option>
-												<option value="2">2 camas</option>
-												<option value="3">3 camas</option>
-												<option value="4">4 camas</option>
-												<option value="4_mas">+4 camas</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-2 col-xs-6">
-										<div class="form-group">
-											<select name="bathrooms" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-												<option value="" disabled selected style="display:none;" data-content="<i class='fa fa-filter' aria-hidden='true'></i>Baño"></option>
-												<option value="1">1 baño</option>
-												<option value="2">2 baños</option>
-												<option value="3">3 baños</option>
-												<option value="4">4 baños</option>
-												<option value="4_mas">+4 baños</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-2 col-xs-6">
-										<div class="form-group">
-											<select name="parking" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-												<option value="" disabled selected style="display:none;" data-content="<i class='fa fa-filter' aria-hidden='true'></i>Estacionamiento"></option>
-												<option value="1">1 estacionamiento</option>
-												<option value="2">2 estacionamientos</option>
-												<option value="2_mas">+2 estacionamientos</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-1 col-xs-6">
-										<div class="form-group">
-											<input type="text" class="form-control" value="" name="min-area" placeholder="Mín. m²">
-										</div>
-									</div>
-									<div class="col-sm-1 col-xs-6">
-										<div class="form-group">
-											<input type="text" class="form-control" value="" name="max-area" placeholder="Máx. m²">
-										</div>
-									</div>
-									<div class="col-sm-2 col-xs-6">
-										<button id="btnOcultar" class="btn-md btn-primary" type="button"><i class="fa fa-gear"></i> Ocultar filtros</button>
-									</div>
-									<!--
-									<div class="col-sm-12 col-xs-12 features-list">
-										<div class="range-advanced-main">
-                                            <div class="range-text">
-                                                <input type="hidden" name="min-price" class="min-price-range-hidden range-input" readonly="" value="$1,000">
-                                                <input type="hidden" name="max-price" class="max-price-range-hidden range-input" readonly="" value="$4,500,000">
-                                                <p><span class="range-title">Price Range:</span> From <span class="min-price-range">$1,000</span> to <span class="max-price-range">$4,500,000</span></p>
-                                            </div>
-                                            <div class="range-wrap">
-                                                <div class="price-range-advanced ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span></div>
-                                            </div>
-                                        </div>
-									</div>
-									-->
-									<div class="col-sm-12 col-xs-12 features-list">
-										<label class="advance-trigger text-uppercase title"><i class="fa fa-plus-square"></i> Otras características </label>
-										<div class="clearfix">
-										</div>
-										<div class="field-expand">
-											<label class="checkbox-inline"><input  name="feature[]" type="checkbox" value="air-conditioning">Aire acondicionado</label>
-											<label class="checkbox-inline"><input name="feature[]" type="checkbox" value="Barbeque">Parrilla</label><label class="checkbox-inline"><input   name="feature[]" type="checkbox" value="Dryer">Secadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="gym">Gimnasio</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="laundry">Lavandería</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="lawn">Cesped</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="microwave">Microonda</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="shower">Ducha</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerador</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="sauna">Sauna</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="washer">Lavadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="wifi">WiFi</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="advanced-search-mobile houzez-adv-price-range" data-sticky='0'>
 			<div class="container">
 				<div class="row">
@@ -796,7 +666,6 @@
 			$(document).ready(function(){
 				$(".owl-nav").hide();
 				add_location();
-				verifFilterAdv();
 				load_keyword();
 				$("#dv_persona").show();
 				$("#img_persona").show();
@@ -867,12 +736,7 @@
 					$("#username_reg").focus();
 					clear_form_login();
 				});
-				$("#mode").change(function() {
-					verifFilterAdv();
-				});
-				$("#mode_mob").change(function() {
-					verifFilterAdvMob();
-				});
+
 				$('input[name=rd_opcion_tipo_persona]').change(function() {
 				   	$("#tipo_reg").val($(this).parent().text());
 				   	if ($(this).val() == 1){
@@ -951,33 +815,6 @@
 			function ActivTab(id){
 				$("#"+id).trigger('click');
 			};
-			function verifFilterAdv(){
-				$(".field-expand input").each(function(){
-					if ($(mode).val()==1 || $(mode).val()==2){
-						$(".features-list").hide();
-						//if($(this).val()=="air-conditioning" || $(this).val()=="Barbeque" || $(this).val()=="Dryer")
-						//	$(this).parent().hide();
-
-						//if ($(this).prop('checked')){
-						//	if($(this).val()=="air-conditioning" || $(this).val()=="Barbeque" )
-						//		$(this).hide();
-						//}
-					}else if ($(mode).val()==3){
-						$(".features-list").show();
-					}
-				});
-
-			}
-			function verifFilterAdvMob(){
-				$(".field-expand input").each(function(){
-					if ($(mode_mob).val()==1 || $(mode_mob).val()==2){
-						$(".features-list").hide();
-					}else if ($(mode_mob).val()==3){
-						$(".features-list").show();
-					}
-				});
-
-			}
 			function add_location(){
 				for (var i=0;i<ciudades.length;i++){
 					var newitemnum=ciudades[i];
