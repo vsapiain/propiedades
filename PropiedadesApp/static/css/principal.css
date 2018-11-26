@@ -59,6 +59,7 @@
 }
 .destacado_lbl{
     font-size:18px;
+    font-weight: 500;
 }
 
 /*Destacados etiqueta*/
@@ -299,8 +300,6 @@
    border-radius: 5px;
 }
 
-
-
 /* fin iconos redes sociales */
 
 /* marco tipo card */
@@ -322,4 +321,9 @@
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 1.1428571429rem;
+}
+/* fin marco tipo card */
+
+.important{
+    font-weight:500
 }

@@ -48,7 +48,18 @@ def propiedades(request):
     t = loader.get_template('propiedades.html')
     context = {'list_var': ''}
     if request.method == "POST":
-        pass
+        filter_modo = request.POST.get("cmb_modo_portada")
+        filte_tipo = request.POST.get("cmb_tipo_propiedad_portada")
+        filter_ubicacion = request.POST.get("cmb_ubicacion_portada")
+        filter_precio_min = request.POST.get("min-price")
+        filter_precio_max = request.POST.get("max-price")
+        filter_size_min = request.POST.get("min-size")
+        filter_size_max = request.POST.get("max-size")
+        filter_dormitorio = request.POST.get("n_dormitorios_otros")
+        filter_bano = request.POST.get("n_banos_otros")
+        filter_estacionamientos = request.POST.get("n_estacionamientos_otros")
+
+    context = {'list_var': ''}
     return HttpResponse(t.render(context))
 
 def login(request):
