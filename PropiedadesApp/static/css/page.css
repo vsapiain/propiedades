@@ -2,7 +2,6 @@ iframe,
 img {
     max-width: 100%
 }
-
 .btn-secundary{
     color: #fff;
     background-color: #EB5300;
@@ -2594,9 +2593,6 @@ blockquote p {
     text-decoration: none
 }
 
-label {
-    font-weight: 400
-}
 
 .label,
 b,
@@ -18236,10 +18232,15 @@ textarea.IDX-leadLoginTextInput {
 
 .customsuccess div.ui-pnotify-container {
     background-image: none;
-    background-color: #CC0000;
-    color:#ffffff;
-    font-weight : normal;
+    background-color: #DBCECE;
+    color:#934339;
+    font-weight : 200;
 }
+.ui-pnotify-title {
+    color:#934339;
+    font-weight : 200;
+}
+
 .img-responsive{
     display: block;
     max-width: 100%;
@@ -18259,3 +18260,17 @@ hr {
 .marco {
     border: 1px solid #cccccc;
 }
+/*paginacion */
+.page {
+  display: none;
+}
+.page-active {
+  display: block;
+}
+/*
+.position-fixed{
+    position: fixed;
+    min-height: 120px;
+    min-width: 300px;
+}
+*/

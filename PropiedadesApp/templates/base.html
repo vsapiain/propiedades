@@ -5,7 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{% block title %}{% endblock %}</title>
 		<link href="{% static 'img/ico/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
-		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
@@ -13,21 +14,8 @@
 		<link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal_responsive.css' %}' type='text/css' media='all'/>
-		<script>
-			/* You can add more configuration options to webfontloader by previously defining the WebFontConfig with your options */
-			if ( typeof WebFontConfig === "undefined" ) {
-				WebFontConfig = new Object();
-			}
-			WebFontConfig['google'] = {families: ['Roboto:400,500']};
-			(function() {
-				var wf = document.createElement( 'script' );
-				wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js';
-				wf.type = 'text/javascript';
-				wf.async = 'true';
-				var s = document.getElementsByTagName( 'script' )[0];
-				s.parentNode.insertBefore( wf, s );
-			})();
-		</script>
+
+
 	</head>
 	<body>
 		<div class="modal" id="pop-login" tabindex="-1" role="dialog">
@@ -462,18 +450,6 @@
 									</div>
 									<div class="col-sm-2 col-xs-6">
 										<div class="form-group">
-											<select name="bed" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-												<option value="" disabled selected style="display:none;" data-content="<i class='fa fa-filter' aria-hidden='true'></i>Cama"></option>
-												<option value="1">1 cama</option>
-												<option value="2">2 camas</option>
-												<option value="3">3 camas</option>
-												<option value="4">4 camas</option>
-												<option value="4_mas">+4 camas</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-sm-2 col-xs-6">
-										<div class="form-group">
 											<select name="bathrooms" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
 												<option value="" disabled selected style="display:none;" data-content="<i class='fa fa-filter' aria-hidden='true'></i>Baño"></option>
 												<option value="1">1 baño</option>
@@ -492,6 +468,16 @@
 												<option value="2">2 estacionamientos</option>
 												<option value="2_mas">+2 estacionamientos</option>
 											</select>
+										</div>
+									</div>
+									<div class="col-sm-1 col-xs-6">
+										<div class="form-group">
+											<input type="text" class="form-control" value="" name="min-precio" placeholder="$ Mín.">
+										</div>
+									</div>
+									<div class="col-sm-1 col-xs-6">
+										<div class="form-group">
+											<input type="text" class="form-control" value="" name="max-precio" placeholder="$ Máx.">
 										</div>
 									</div>
 									<div class="col-sm-1 col-xs-6">
@@ -782,6 +768,7 @@
 		<script type='text/javascript' src='{% static 'js/property-carousels-v2.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/pnotify.custom.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/search-card.js' %}'></script>
+		<script src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
 		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e444e40ec0","applicationID":"66134438","transactionName":"MQQAYxBUV0pXAUxQWghOI1QWXFZXGRZdVEUKABZST11WVFMSWV5Q","queueTime":0,"applicationTime":2009,"atts":"HUMDFVhOREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 		<script type='text/javascript'>
 			$(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
@@ -830,7 +817,7 @@
 						data: form.serialize(),
 						success: function (data) {
 							if (!data.is_authenticated && data.msg.trim()!=''){
-								error_msg('Autenticación',data.msg,2500);
+								error_msg('Inicio sesión',data.msg,2500);
 								$("#username").val("");
 								$("#password").val("");
 								$("#username").focus();
@@ -1012,11 +999,14 @@
 					title: _title,
 					text: _msg,
 					delay: _time,
+					type: 'error',
 					addclass: 'customsuccess',
-					icon: 'fa fa-exclamation-circle fa-2x fa-lg',
+					icon: 'fa fa-exclamation-circle fa-2x fa-lg'
+					/*,
 					nonblock: {
 						nonblock: true
 					}
+					*/
 				});
 
 			}
