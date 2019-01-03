@@ -19,7 +19,8 @@ from PropiedadesApp import views
 
 urlpatterns = [
     url(r'^$', views.index, name='home'),
-    url(r'^propiedades/', views.propiedades, name='propiedades'),
-    url(r'^login/', views.login, name='login'),
-    url(r'^admin/', admin.site.urls),
+    url(r'^propiedades/$', views.propiedades, name='propiedades'),
+    url(r'^propiedades/detalle/(?P<propiedad_codigo>\w+)', views.detalle, name='detalle')
+    #url(r'^login/', views.login, name='login'),
+    #url(r'^admin/', admin.site.urls),
 ]

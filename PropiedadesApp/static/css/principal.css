@@ -61,7 +61,29 @@
     font-size:18px;
     font-weight: 500;
 }
-
+.destacado_lbl2{
+    font-size:16px;
+    font-weight: 500;
+}
+.destacado_precio{
+    font-weight: bold;
+    font-size: x-large;
+}
+.destacado_item{
+    font-weight: bolder;
+    font-size: medium;
+}
+.contenido{
+    font-size : medium;
+}
+.orange_label{
+    background-color:#FB6A19;
+    color:#ffffff;
+}
+.light_blue_label{
+    background-color:#00AEEF;
+    color:#ffffff;
+}
 /*Destacados etiqueta*/
 .destacado_sale{
     position: absolute;
@@ -163,6 +185,10 @@
 .width_btn{
     min-width:100px;
 }
+.width_btn_2
+{
+    width:100%;
+}
 .headline-span {
     display: inline-block;
     font-family: 'Dosis', sans-serif;
@@ -195,11 +221,6 @@
     border-radius:4px;
     height: 40px;
 }
-/*
-#keyword{
-    color:#ffffff;
-}
-*/
 .img_tipo_persona_responsive{
     display: block;
     max-width: 100%;
@@ -260,6 +281,15 @@
     color: #A0A0A0;
     margin-top: 10px;
 }
+.place_list_principal_2{
+    font-family: "Open Sans", Verdana, sans-serif;
+    font-size: 14px;
+    color: #A0A0A0;
+}
+.sort_list{
+    color:#A0A0A0;
+    font-size: 13px;
+}
 /* Fin Listado Propiedades*/
 
 /* iconos redes sociales */
@@ -305,6 +335,18 @@
 /* marco tipo card */
 .card {
     margin: 10px;
+    border: none;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.24);
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: .2857142857rem;
+}
+.card2 {
     border: none;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.24);
     position: relative;

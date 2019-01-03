@@ -2696,15 +2696,16 @@ label.success {
 .breadcrumb li {
     line-height: 14px
 }
-
 .btn-long {
     padding: 10px 55px
 }
-
 .btn-md {
-    padding: 8px 15px
+    padding: 11px 15px;
 }
-
+.radius-btn-md{
+    padding: 11px 15px;
+    border-radius: 4px;
+}
 .blog-article b,
 .blog-article strong,
 .detail-block b,
@@ -18266,6 +18267,13 @@ hr {
 }
 .page-active {
   display: block;
+}
+.form-group-ext {
+    display: flex;
+    align-items: center;
+}
+.img-thumbnail{
+    max-width:80%;
 }
 /*
 .position-fixed{
