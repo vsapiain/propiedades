@@ -62,6 +62,11 @@ def propiedades(request):
     context = {'list_var': ''}
     return HttpResponse(t.render(context))
 
+def detalle(request,propiedad_codigo=None):
+    t = loader.get_template('detalle.html')
+    context = {'list_var': ''}
+    return HttpResponse(t.render(context))
+
 def login(request):
     t = loader.get_template('index.html')
     usuario = request.GET['username']

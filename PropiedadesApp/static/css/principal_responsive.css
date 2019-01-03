@@ -8,7 +8,7 @@
     #dv_tipo_persona_mob{
         display: none;
     }
-    #dv_persona_tipo_img{
+    #dv_persona_plan{
         display:block;
     }
 }
@@ -101,7 +101,7 @@
     #dv_tipo_persona_mob{
         display:block;
     }
-    #dv_persona_tipo_img{
+    #dv_persona_plan{
         display:none;
     }
 }
@@ -115,7 +115,7 @@
     #dv_tipo_persona_mob{
         display:none;
     }
-    #dv_persona_tipo_img{
+    #dv_persona_plan{
         display:block;
     }
 }
