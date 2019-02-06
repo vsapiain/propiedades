@@ -8,67 +8,72 @@
                 <div class="container">
                     <div class='animatedParent' data-sequence='500' >
                     <div class="col-md-12 horizontal-align-center-form vertical-align-form">
-                        <h1 id="font_title1" class='animated fadeInLeft slower headline-span'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">No busques más, confía en los que saben</h1>
+                        <!--<h1 id="font_title1" class='animated fadeInLeft slower headline-span'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">No busques más, confía en los que saben</h1>-->
+                        <h1 id="font_title1" class='animated fadeInLeft slower headline-span'  data-id='1' class='animated fadeInLeft slower headline-span'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">No busques más, confía en los que saben</h1>
                     </div>
                     <div class="col-md-12 horizontal-align-center-form">
+                        <!--<h1 id="font_title2" class='animated fadeInRight slower headline-span-small'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInRight;">cientos de propiedades en tan solo un click</h1>-->
                         <h1 id="font_title2" class='animated fadeInRight slower headline-span-small'  data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInRight;">cientos de propiedades en tan solo un click</h1>
                     </div>
                     <div class="col-md-7 col-md-offset-5">
                         <div class="vertical-align-form">
                             <form action="/propiedades/" method="post">
-                            <div class="search-form animated pulse" data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;">
+                            <!--<div class="search-form animated pulse" data-id='1' style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;">-->
+                            <div class="search-form animated pulse" data-id='1'>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <select class="form-control" name = "cmb_modo_portada" id="cmb_modo_portada">
-                                                <option value = -1>Modo(cualquiera)</option>
+                                            <select  name = "cmb_modo_portada" id="cmb_modo_portada" data-live-search="false" multiple="multiple">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <select class="form-control" name = "cmb_tipo_propiedad_portada"  id="cmb_tipo_propiedad_portada">
-                                                <option>Tipo propiedad(cualquiera)</option>
+                                            <select  name = "cmb_tipo_propiedad_portada"  id="cmb_tipo_propiedad_portada"  data-live-search="false"  multiple="multiple" >
+                                                <!--<option>Tipo propiedad(cualquiera)</option>-->
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <select class="form-control" name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" data-live-search="true"  >
+                                        <div>
+                                            <select class="show-menu-arrow " name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" data-live-search="true"  >
                                                 <option>Ubicación(cualquiera)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="dropdown form-group">
                                             <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_price" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Precio(cualquiera)
                                             </button>
-                                            <div id="ddl_mnu_price" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                            <div id="ddl_mnu_price" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
                                                 <button type="button" class="close margin-right-form" >&times;</button>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
-                                                        Precio en Pesos
+                                                       <div class="col-md-4" >
+                                                            <label class="margin-top-form-4" id="lbl_precio" style="color:#000;">Peso</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label class="switch">
+                                                              <input id="chk_precio" type="checkbox">
+                                                              <span class="slider round"></span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                      <div class="col-md-4">
-                                                          <i class="fa fa-usd" aria-hidden="true"></i> Mín.
-                                                      </div>
-                                                      <div class="col-md-8">
+                                                      <div class="col-md-9">
                                                           <div class="input-group input-group-sm">
-                                                            <input type="text" class="form-control" value="" name="min-price" id="min-price" placeholder="" onkeypress="return validate_numeric(event)" maxlength="10">
+                                                            <input type="text" class="form-control" value="" name="min-price" id="min-price" placeholder="$ mín." onkeypress="return validate_numeric(event)" maxlength="10">
                                                           </div>
                                                       </div>
-                                                      <div class="col-md-4">
-                                                          <i class="fa fa-usd" aria-hidden="true"></i> Máx.
-                                                      </div>
-                                                      <div class="col-md-8">
+                                                      <div class="col-md-9">
                                                           <div class="input-group input-group-sm">
-                                                            <input type="text" class="form-control" value="" name="max-price" id="max-price" placeholder="" onkeypress="return validate_numeric(event)" maxlength="10">
+                                                            <input type="text" class="form-control" value="" name="max-price" id="max-price" placeholder="$ máx." onkeypress="return validate_numeric(event)" maxlength="10">
                                                           </div>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6 col-md-offset-6">
-                                                        <button id="btn_any_price" type="button" class="btn btn-primary margin-top-form">Cualquier precio</button>
+                                                        <button id="btn_ok_price" type="button" class="btn btn-primary margin-top-form"><i class="fa fa-check" aria-hidden="true"></i> Aceptar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,9 +82,9 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_size" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Tamaño(cualquiera)
+                                                 Tamaño(cualquiera)
                                             </button>
-                                            <div id="ddl_mnu_size" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <div id="ddl_mnu_size" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
                                               <button type="button" class="close margin-right-form" >&times;</button>
                                               <div class="form-group">
                                                   <div class="col-md-12">
@@ -103,7 +108,7 @@
                                                           </div>
                                                       </div>
                                                       <div class="col-md-6 col-md-offset-6">
-                                                        <button id="btn_any_size" type="button" class="btn btn-primary margin-top-form"><i class="fa fa-refresh" aria-hidden="true"></i> Cualquier tamaño</button>
+                                                          <button id="btn_ok_size" type="button" class="btn btn-primary margin-top-form"><i class="fa fa-check" aria-hidden="true"></i> Aceptar</button>
                                                       </div>
                                                   </div>
                                               </div>
@@ -156,7 +161,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <button id="btn_buscar" type="submit" class="btn btn-primary col-md-3 margin-right-form"><i class="fa fa-search fa-lg" aria-hidden="true"></i> <span id="lbl_srch_prop">Buscar propiedad</span>  </button>
-                                        <!--<button id="btn_buscar_map" type="submit" class="btn btn-primary col-md-3 " ><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i><span id="lbl_srch_map"> Ver mapa </span></button>-->
+                                        <!--<button id="btn_buscar_map" type="submit" class="btn btn-primary col-md-3 " ><i class="fa fa-cube-marker fa-lg" aria-hidden="true"></i><span id="lbl_srch_map"> Ver mapa </span></button>-->
                                     </div>
                             </div>
                             </form>
@@ -192,16 +197,19 @@
                                             <div class="property-item item-grid marco">
                                                 <div class="figure-block">
                                                     <figure class="item-thumb">
-                                                    <a class="hover-effect" href="http://houzez01.favethemes.com/property/luxury-family-home-4/">
-                                                    <img width="385" height="258" src="http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06-385x258.jpg" class="attachment-houzez-property-thumb-image size-houzez-property-thumb-image wp-post-image" alt="" srcset="http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06-385x258.jpg 385w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06-300x202.jpg 300w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06-768x516.jpg 768w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06-1024x688.jpg 1024w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06-150x101.jpg 150w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06-350x235.jpg 350w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06-715x480.jpg 715w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/chicago-06.jpg 1170w" sizes="(max-width: 385px) 100vw, 385px"/></a>
-                                                    <ul class="actions">
-                                                        <li>
-                                                        <span data-toggle="tooltip" data-placement="top" title="(10) Fotos">
-                                                        <i class="fa fa-camera"></i>
-                                                        </span>
-                                                        </li>
+                                                        <div class="price hide-on-list">
+                                                            <span class="item-price">Desde 2.500 UF</span>
+                                                        </div>
+                                                        <a class="hover-effect" href="https://img3.idealista.com/blur/WEB_DETAIL_TOP-XL-L/0/id.pro.es.image.master/da/25/45/605818417.jpg">
+                                                        <img width="385" style="min-height:190px;" src="https://img3.idealista.com/blur/WEB_DETAIL_TOP-XL-L/0/id.pro.es.image.master/da/25/45/605818417.jpg" sizes="(max-width: 385px) 100vw, 385px"/></a>
+                                                        <ul class="actions">
+                                                            <li>
+                                                            <span data-toggle="tooltip" data-placement="top" title="(10) Fotos">
+                                                            <i class="fa fa-camera"></i>
+                                                            </span>
+                                                            </li>
 
-                                                    </ul>
+                                                        </ul>
                                                     </figure>
                                                 </div>
                                                 <div class="item-body">
@@ -214,10 +222,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
-                                                                    </p>
-                                                                    <p>
-                                                                        Single Family Home
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -235,11 +240,6 @@
                                                                         <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202757712575/437123-20170517180018.jpg/100x52/">
                                                                     </p>
                                                                 </div>
-                                                                <div class="col-md-4">
-                                                                    <p class="prop-date">
-                                                                        <i class="fa fa-calendar"></i>26/06/2018
-                                                                    </p>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -253,16 +253,19 @@
                                             <div class="property-item item-grid marco">
                                                 <div class="figure-block">
                                                     <figure class="item-thumb">
-                                                    <a class="hover-effect" href="http://houzez01.favethemes.com/property/luxury-apartment-ocean-view-3/">
-                                                    <img width="385" height="258" src="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-14-385x258.jpg" class="attachment-houzez-property-thumb-image size-houzez-property-thumb-image wp-post-image" alt="" srcset="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-14-385x258.jpg 385w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-14-300x202.jpg 300w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-14-768x516.jpg 768w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-14-1024x688.jpg 1024w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-14-150x101.jpg 150w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-14-350x235.jpg 350w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-14.jpg 1170w" sizes="(max-width: 385px) 100vw, 385px"/></a>
-                                                    <ul class="actions">
-                                                        <li>
-                                                        <span data-toggle="tooltip" data-placement="top" title="(7) Fotos">
-                                                        <i class="fa fa-camera"></i>
-                                                        </span>
-                                                        </li>
+                                                        <div class="price hide-on-list">
+                                                            <span class="item-price">Desde 1.500 UF</span>
+                                                        </div>
+                                                        <a class="hover-effect" href="https://img3.idealista.com/blur/WEB_DETAIL_TOP-XL-L/0/id.pro.es.image.master/c9/74/04/589419663.jpg">
+                                                        <img width="385" style="min-height:190px;" src="https://img3.idealista.com/blur/WEB_DETAIL_TOP-XL-L/0/id.pro.es.image.master/c9/74/04/589419663.jpg" sizes="(max-width: 385px) 100vw, 385px"/></a>
+                                                        <ul class="actions">
+                                                            <li>
+                                                            <span data-toggle="tooltip" data-placement="top" title="(7) Fotos">
+                                                            <i class="fa fa-camera"></i>
+                                                            </span>
+                                                            </li>
 
-                                                    </ul>
+                                                        </ul>
                                                     </figure>
                                                 </div>
                                                 <div class="item-body">
@@ -275,10 +278,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
-                                                                    </p>
-                                                                    <p>
-                                                                        Apartment
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -295,11 +295,7 @@
                                                                         <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202761383997/460661-20180806143521.jpg/100x52/">
                                                                     </p>
                                                                 </div>
-                                                                <div class="col-md-4">
-                                                                    <p class="prop-date">
-                                                                        <i class="fa fa-calendar"></i>26/06/2018
-                                                                    </p>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -368,7 +364,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                       <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                       <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Apartment
@@ -403,7 +399,7 @@
                                                     <figure class="item-thumb">
                                                     <span class="destacado_rental">para arriendo</span>
                                                     <div class="price hide-on-list">
-                                                        <span class="item-price">$1,900&#47;mo</span>
+                                                        <span class="item-price">$200.000</span>
                                                     </div>
                                                     <a class="hover-effect" href="http://houzez01.favethemes.com/property/ample-apartment/">
                                                     <img width="385" height="258" src="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-15-385x258.jpg" class="attachment-houzez-property-thumb-image size-houzez-property-thumb-image wp-post-image" alt="" srcset="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-15-385x258.jpg 385w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-15-300x202.jpg 300w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-15-768x516.jpg 768w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-15-1024x688.jpg 1024w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-15-150x101.jpg 150w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-15-350x235.jpg 350w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-15.jpg 1170w" sizes="(max-width: 385px) 100vw, 385px"/></a>
@@ -430,7 +426,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Apartment
@@ -465,7 +461,7 @@
                                                     <figure class="item-thumb">
                                                     <span class="destacado_sale">Para venta</span>
                                                     <div class="price hide-on-list">
-                                                        <span class="item-price">$2,200&#47;mo</span>
+                                                        <span class="item-price">$350.000</span>
                                                     </div>
                                                     <a class="hover-effect" href="http://houzez01.favethemes.com/property/amazing-family-home/">
                                                     <img width="385" height="258" src="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-385x258.jpg" class="attachment-houzez-property-thumb-image size-houzez-property-thumb-image wp-post-image" alt="" srcset="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-385x258.jpg 385w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-300x202.jpg 300w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-768x516.jpg 768w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-1024x688.jpg 1024w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-150x101.jpg 150w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-350x235.jpg 350w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13.jpg 1170w" sizes="(max-width: 385px) 100vw, 385px"/></a>
@@ -492,7 +488,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Apartment
@@ -526,7 +522,7 @@
                                                     <figure class="item-thumb">
                                                     <span class="destacado_sale">Para venta</span>
                                                     <div class="price hide-on-list">
-                                                        <span class="item-price">$2,200&#47;mo</span>
+                                                        <span class="item-price">$300.000</span>
                                                     </div>
                                                     <a class="hover-effect" href="http://houzez01.favethemes.com/property/amazing-family-home/">
                                                     <img width="385" height="258" src="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-385x258.jpg" class="attachment-houzez-property-thumb-image size-houzez-property-thumb-image wp-post-image" alt="" srcset="http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-385x258.jpg 385w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-300x202.jpg 300w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-768x516.jpg 768w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-1024x688.jpg 1024w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-150x101.jpg 150w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13-350x235.jpg 350w, http://houzez01.favethemes.com/wp-content/uploads/2016/03/los-angeles-13.jpg 1170w" sizes="(max-width: 385px) 100vw, 385px"/></a>
@@ -553,7 +549,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Apartment
@@ -620,7 +616,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Apartment
@@ -691,7 +687,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Apartment
@@ -762,7 +758,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Apartment
@@ -832,7 +828,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Single Family Home
@@ -902,7 +898,7 @@
                                                             <div class="cell">
                                                                 <div class="info-row amenities">
                                                                     <p>
-                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                                        <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                                     </p>
                                                                     <p>
                                                                         Apartment
@@ -945,7 +941,7 @@
             <div class="col-sd-12">
                 <div class="margin-list">
                     <div class="clearfix">
-                        <div class="row">
+                        <div class="row ">
                             <div class="col-md-2">
                                 <h2 class="title_h2">Últimos anuncios</h2>
                             </div>
@@ -993,12 +989,17 @@
                                         </div>
                                         <div class="col-md-7">
                                             <div class="margin-top-form search-key">
-                                                <span class="label label-success">INMOBILIARIA SIENA</span>
+                                                <div style="width:80px;">
+                                                    <div class="prop-user-agent box_list">
+                                                        <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202757712575/437123-20170517180018.jpg/100x52/">
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-9 text-left">
-                                                                <label class="place_list_principal">Las Heras, Las Condes, Región Metropolitana</label>
+                                                                <div class="contenido">Casa en condominio</div>
+                                                                <div class="place_list_principal">Las Heras, Las Condes, Región Metropolitana</div>
                                                             </div>
                                                             <div class="col-md-3 text-right">
                                                                 <label class="date_list_principal">01/09/2018</label>
@@ -1022,15 +1023,15 @@
                                                 <div class="row">
                                                     <div class="col-md-7">
                                                         <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                         </div>
                                                         <div class="detail_list_principal">
                                                             La Reina Depto. 1 Ambiente, Estacionamiento.
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn " ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn margin-right-form"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1059,12 +1060,13 @@
                                         </div>
                                         <div class="col-md-7">
                                             <div class="margin-top-form search-key">
-                                                <span class="label label-success">INMOBILIARIA SIENA</span>
+                                                <span class="label label-success">INMOBILIARIA SIN LOGO</span>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-9 text-left">
-                                                                <label class="place_list_principal">Lastarria 104, Santiago, Región Metropolitana</label>
+                                                                <div class="contenido">Departamento</div>
+                                                                <div class="place_list_principal">Lastarria 104, Santiago, Región Metropolitana</div>
                                                             </div>
                                                             <div class="col-md-3 text-right">
                                                                 <label class="date_list_principal">01/09/2018</label>
@@ -1088,15 +1090,15 @@
                                                 <div class="row">
                                                     <div class="col-md-7">
                                                         <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                         </div>
                                                         <div class="detail_list_principal">
                                                             La Reina Depto. 1 Ambiente, Estacionamiento.
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn " ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn margin-right-form"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1126,11 +1128,17 @@
                                         </div>
                                         <div class="col-md-7">
                                             <div class="margin-top-form search-key">
+                                                <div style="width:80px;">
+                                                    <div class="prop-user-agent box_list">
+                                                        <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202761383997/460661-20180806143521.jpg/100x52/">
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-9 text-left">
-                                                                <label class="place_list_principal">Martín de Zamora 4909, Las Condes, Región Metropolitana</label>
+                                                                <div class="contenido">Casa en condominio</div>
+                                                                <div class="place_list_principal">Martín de Zamora 4909, Las Condes, Región Metropolitana</div>
                                                             </div>
                                                             <div class="col-md-3 text-right">
                                                                 <label class="date_list_principal">01/09/2018</label>
@@ -1154,15 +1162,15 @@
                                                 <div class="row">
                                                     <div class="col-md-7">
                                                         <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                         </div>
                                                         <div class="detail_list_principal">
                                                             La Reina Depto. 1 Ambiente, Estacionamiento.
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn " ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn margin-right-form"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1192,11 +1200,13 @@
                                         </div>
                                         <div class="col-md-7">
                                             <div class="margin-top-form search-key">
+                                                <span class="label label-success">DIRECTO DUEÑO</span>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-9 text-left">
-                                                                <label class="place_list_principal">Torre 212, Vitacura, Región Metropolitana</label>
+                                                                <div class="conenido">Departamento</div>
+                                                                <div class="place_list_principal">Torre 212, Vitacura, Región Metropolitana</div>
                                                             </div>
                                                             <div class="col-md-3 text-right">
                                                                 <label class="date_list_principal">01/09/2018</label>
@@ -1220,15 +1230,15 @@
                                                 <div class="row">
                                                     <div class="col-md-7">
                                                         <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                         </div>
                                                         <div class="detail_list_principal">
                                                             La Reina Depto. 1 Ambiente, Estacionamiento.
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn " ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn margin-right-form"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1264,7 +1274,8 @@
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-9 text-left">
-                                                                <label class="place_list_principal">Las Heras, Las Condes, Región Metropolitana</label>
+                                                                <div class="contenido">Casa</div>
+                                                                <div class="place_list_principal">Las Heras, Las Condes, Región Metropolitana</div>
                                                             </div>
                                                             <div class="col-md-3 text-right">
                                                                 <label class="date_list_principal">01/09/2018</label>
@@ -1288,15 +1299,15 @@
                                                 <div class="row">
                                                     <div class="col-md-7">
                                                         <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 4  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 4  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                         </div>
                                                         <div class="detail_list_principal">
                                                             La Reina Depto. 2 Ambiente, Estacionamiento.
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn " ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn margin-right-form"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1332,7 +1343,8 @@
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-9 text-left">
-                                                                <label class="place_list_principal">Lastarria 104, Santiago, Región Metropolitana</label>
+                                                                <div class="contenido">Departamento</div>
+                                                                <div class="place_list_principal">Lastarria 104, Santiago, Región Metropolitana</div>
                                                             </div>
                                                             <div class="col-md-3 text-right">
                                                                 <label class="date_list_principal">01/09/2018</label>
@@ -1356,15 +1368,15 @@
                                                 <div class="row">
                                                     <div class="col-md-7">
                                                         <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                         </div>
                                                         <div class="detail_list_principal">
                                                             La Reina Depto. 1 Ambiente, Estacionamiento.
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn " ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn margin-right-form"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1398,7 +1410,8 @@
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-9 text-left">
-                                                                <label class="place_list_principal">Martín de Zamora 4909, Las Condes, Región Metropolitana</label>
+                                                                <div class="contenido">Casa</div>
+                                                                <div class="place_list_principal">Martín de Zamora 4909, Las Condes, Región Metropolitana</div>
                                                             </div>
                                                             <div class="col-md-3 text-right">
                                                                 <label class="date_list_principal">01/09/2018</label>
@@ -1422,15 +1435,15 @@
                                                 <div class="row">
                                                     <div class="col-md-7">
                                                         <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                         </div>
                                                         <div class="detail_list_principal">
                                                             La Reina Depto. 1 Ambiente, Estacionamiento.
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn " ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn margin-right-form"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1464,7 +1477,8 @@
                                                     <div class="col-md-12">
                                                         <div class="row">
                                                             <div class="col-md-9 text-left">
-                                                                <label class="place_list_principal">Torre 212, Vitacura, Región Metropolitana</label>
+                                                                <div class="contenido">Condominio</div>
+                                                                <div class="place_list_principal">Torre 212, Vitacura, Región Metropolitana</div>
                                                             </div>
                                                             <div class="col-md-3 text-right">
                                                                 <label class="date_list_principal">01/09/2018</label>
@@ -1488,15 +1502,15 @@
                                                 <div class="row">
                                                     <div class="col-md-7">
                                                         <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                                         </div>
                                                         <div class="detail_list_principal">
                                                             La Reina Depto. 1 Ambiente, Estacionamiento.
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn " ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
-                                                        <button type="button" class="btn btn-primary   pull-right width_btn margin-right-form"><i class="fa fa-search-plus"></i> Ver detalle</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1566,14 +1580,59 @@
 {% block content_script %}
 <script>
     $(document).ready(function(){
+        $('#cmb_modo_portada').multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText: 'Operación(cualquiera)',
+            nSelectedText: 'Elementos seleccionados',
+            selectAllText: ' Seleccionar todo',
+            allSelectedText: 'Elementos seleccionados',
+            buttonWidth: '100%'
+        });
+        $('#cmb_tipo_propiedad_portada').multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText: 'Tipo propiedad(cualquiera)',
+            nSelectedText: 'Elementos seleccionados',
+            selectAllText: ' Seleccionar todo',
+            allSelectedText: 'Elementos seleccionados',
+            buttonWidth: '100%'
+        });
+
         add_location_form();
         add_type_form();
         add_mod_form();
         $("#spn_orden").text("Orden por fecha pubicación mayor a menor");
         $("#cmb_ubicacion_portada").val($("#cmb_ubicacion_portada option:first").val()).change();
-        $("#cmb_tipo_propiedad_portada").val($("#cmb_tipo_propiedad_portada option:first").val()).change();
-        $("#cmb_modo_portada").val($("#cmb_modo_portada option:first").val()).change();
+        //$("#cmb_tipo_propiedad_portada").val($("#cmb_tipo_propiedad_portada option:first").val()).change();
+        //$("#cmb_modo_portada").val($("#cmb_modo_portada option:first").val()).change();
 		$('.bs-searchbox input').attr('placeholder','Busqueda');
+		$("#btn_ok_price").click(function(){
+		    set_max_price($("#min-price"),$("#max-price"),$("#ddl_price"));
+		    var value = $("#chk_precio_filter").is(':checked') ? 1 : 0;
+            if ($("#min-price").val().trim()!="" &&  $("#min-price").val().trim()!=""){
+                if (value == 0){
+                    $("#ddl_price").text( "$"+  $("#min-price").val().trim() + " - " +  "$"+  $("#max-price").val().trim());
+                }else{
+                    $("#ddl_price").text( "UF "+  $("#min-price").val().trim() + " - " +  "UF "+  $("#max-price").val().trim());
+                }
+            }
+		});
+		$("#btn_ok_size").click(function(){
+		    set_max_size($("#min-size"),$("#max-size"),$("#ddl_size"));
+		});
+		$('#chk_precio').click(function(){
+            var value = $(this).is(':checked') ? 1 : 0;
+            if (value == 0){
+                $('#lbl_precio').html("Peso");
+                $('#min-price').attr("placeholder","$ min.");
+                $('#max-price').attr("placeholder","$ máx.");
+            }
+            else{
+                $('#lbl_precio').html("U.F.");
+                $('#min-price').attr("placeholder","UF min.");
+                $('#max-price').attr("placeholder","UF máx.");
+            }
+             $("#min-price").focus();
+        });
         $("#ddl_price").click(function(){
             $("#min-price").focus();
         });
@@ -1588,11 +1647,13 @@
             $("#max-price").val("");
             $("#ddl_price").text("Precio(cualquiera)");
         });
+        /*
         $("#btn_any_size").click(function(){
             $("#min-size").val("");
             $("#max-size").val("");
             $("#ddl_size").text("Tamaño(cualquiera)");
         });
+        */
         $("#btn_sn_filtro_otros").click(function(){
             $("#n_dormitorios_otros").text("");
             $("#n_banos_otros").text("");
@@ -1602,18 +1663,23 @@
         $("#n_dormitorios_otros,#n_banos_otros,#n_estacionamientos_otros").focusout(function(){
             set_filter_otros();
         });
-        $("#min-price").focusout(function(){
-            set_max_price();
+
+        /*
+        $("#min-price").focusout(function(s){
+            set_max_price($("#min-price"),$("#max-price"),$("#ddl_price"));
         });
         $("#max-price").focusout(function(){
-            set_max_price();
+            set_max_price($("#min-price"),$("#max-price"),$("#ddl_size"));
         });
+
         $("#min-size").focusout(function(){
             set_max_size();
         });
         $("#max-size").focusout(function(){
             set_max_size();
         });
+        */
+
         $("#cmb_orden").change(function(){
             set_msg_order();
         });
@@ -1664,63 +1730,6 @@
         }
         $("#spn_orden").text(text_order);
     }
-
-    function set_max_price(){
-        if($("#min-price").val().trim()!="" && $("#max-price").val().trim()!="" && $("#min-price").val().trim()!="0"){
-            if (prop_price_validate()){
-                $("#ddl_price").text( "$"+ $("#min-price").val().trim() + " - " +  "$"+ $("#max-price").val().trim());
-            }
-            else{
-                error_msg("Rango precio incorrecto","Precio máximo debe ser menor a precio mínimo",2500);
-                $("#ddl_price").text( "Precio(cualquiera)");
-                window.setTimeout( clear_price_form, 700 );
-            }
-        }else if ($("#min-price").val().trim()=="" && $("#max-price").val().trim()!="" || $("#min-price").val().trim()=="0" && $("#max-price").val().trim()!="" && $("#max-price").val().trim()!="0" ){
-            $("#ddl_price").text( "Hasta " + "$"+ $("#max-price").val().trim());
-        }else{
-            $("#ddl_price").text( "Precio(cualquiera)");
-        }
-    }
-    function set_max_size(){
-        if($("#min-size").val().trim()!="" && $("#max-size").val().trim()!="" && $("#min-size").val().trim()!="0"){
-            if (prop_size_validate()){
-                $("#ddl_size").text( $("#min-size").val().trim() + " m²" + " - " +  $("#max-size").val().trim() + " m²  ");
-            }
-            else{
-                error_msg("Rango tamaño incorrecto","Tamaño máximo debe ser menor a tamaño mínimo",2500);
-                $("#ddl_size").text( "Tamaño(cualquiera)");
-                window.setTimeout( clear_size_form, 700 );
-            }
-        }else if ($("#min-size").val().trim()=="" && $("#max-size").val().trim()!="" || $("#min-size").val().trim()=="0" && $("#max-size").val().trim()!="" && $("#max-size").val().trim()!="0" ){
-            $("#ddl_size").text( "Hasta " + $("#max-size").val().trim() + " m²");
-        }else{
-            $("#ddl_size").text( "Tamaño(cualquiera)");
-        }
-    }
-    function clear_size_form(){
-        $("#min-size").val("");
-        $("#max-size").val("");
-    }
-    function clear_price_form(){
-        $("#min-price").val("");
-        $("#max-price").val("");
-    }
-    function prop_price_validate(){
-        var resp = false;
-        var min_price = parseInt($("#min-price").val().trim());
-        var max_price = parseInt($("#max-price").val().trim());
-        if (min_price<=max_price)
-            resp = true;
-        return resp;
-    }
-    function prop_size_validate(){
-        var resp = false;
-        var min_size = parseInt($("#min-size").val().trim());
-        var max_size = parseInt($("#max-size").val().trim());
-        if (min_size<=max_size)
-            resp = true;
-        return resp;
-    }
     function add_location_form(){
         for (var i=0;i<ciudades.length;i++){
             var newitemnum=i+1;
@@ -1733,17 +1742,20 @@
         for (var i=0;i<tipo_propiedad.length;i++){
             var newitemnum=i+1;
             var newitemdesc = tipo_propiedad[i];
-            $("#cmb_tipo_propiedad_portada").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
+            $("#cmb_tipo_propiedad_portada").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
         }
-        $("#cmb_tipo_propiedad_portada").selectpicker("refresh");
+         $('#cmb_tipo_propiedad_portada').multiselect('rebuild');
     }
     function add_mod_form(){
         for (var i=0;i<modo_propiedad.length;i++){
             var newitemnum=i+1;
             var newitemdesc = modo_propiedad[i];
-            $("#cmb_modo_portada").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
+            $("#cmb_modo_portada").append('<option value="'+newitemnum+'">'+newitemdesc+'</option>');
         }
-        $("#cmb_modo_portada").selectpicker("refresh");
+        //$("#cmb_modo_portada").selectpicker("refresh");
+        //$("#cmb_modo_portada2").selectpicker("refresh");
+         //$('#cmb_modo_portada2').multiselect('rebuild');
+         $('#cmb_modo_portada').multiselect('rebuild');
     }
     function set_filter_otros(){
         $("#ddl_otro").text("");
