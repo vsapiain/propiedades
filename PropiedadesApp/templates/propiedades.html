@@ -13,20 +13,18 @@
 <div class="container">
     <div class="row margin-top-form-2">
         <div class="col-md-3">
-            <div class="position-fixed border filtersContainer" id="filtersContainer">
-                <!--
+            <div class="sticky border filtersContainer" id="filtersContainer">
                 <div class="filterContainer filtro p-4 bg-white">
                     <div class="panel_filter">
                         &nbsp;&nbsp;
-                        <label class="destacado_lbl margin-top-form-3">Filtros</label>
+                        <label class="destacado_lbl margin-top-form-3">Filtrar por</label>
                     </div>
                 </div>
-                -->
                 <div class="filterContainer filtro bg-white">
-                    <h5>Situación comercial</h5>
+                    <h5>Operación</h5>
                      <div class="form-group">
                         <select  name = "cmb_modo_portada" id="cmb_modo_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-                            <option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i> cualquiera" > </option>
+                            <option value="-1">cualquiera</option>
                             <option value="1">opcion1</option>
                             <option value="2">opcion2</option>
                         </select>
@@ -36,7 +34,7 @@
                     <h5>Tipo de vivienda</h5>
                      <div class="form-group">
                         <select  name = "cmb_tipo_propiedad_portada" id="cmb_tipo_propiedad_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-                            <option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i> cualquiera" > </option>
+                            <option value="-1">cualquiera</option>
                             <option value="1">opcion1</option>
                             <option value="2">opcion2</option>
                         </select>
@@ -46,7 +44,7 @@
                     <h5>Ubicación</h5>
                      <div class="form-group">
                         <select  name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-                            <option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i> cualquiera" > </option>
+                            <option value="-1">cualquiera</option>
                             <option value="1">opcion1</option>
                             <option value="2">opcion2</option>
                         </select>
@@ -56,7 +54,7 @@
                     <h5>Estado de la vivienda</h5>
                     <div class="form-group">
                         <select  name = "cmb_estado" id="cmb_estado" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-                            <option value="-1" disabled selected style="display:none;"  data-content="<i class='fa fa-filter' aria-hidden='true'></i> cualquiera" > </option>
+                            <option value="-1">cualquiera</option>
                             <option value="1">opcion1</option>
                             <option value="2">opcion2</option>
                         </select>
@@ -128,7 +126,7 @@
                 </div>
                 <div class=" filterContainer filtro bg-white row">
                     <div class="col-12">
-                        <button id="btn_filtro_buscar" type="button" class="btn btn-primary col-md-12" ><span id="lbl_srch_map"> Buscar </span></button>
+                        <button id="btn_filtro_buscar" type="button" class="btn btn-primary col-md-12" ><i class="fa fa-search " aria-hidden="true"></i><span id="lbl_srch_map"> Buscar </span></button>
                     </div>
                 </div>
             </div>
@@ -160,6 +158,8 @@
                 </div>
                 <div class="col-md-12">
                     <label class="pull-right"><span class="sort_list" id="spn_orden"></span></label>
+                    <!--<span class="label label-info pull-right"><span class="sort_list" id="spn_orden"></span></span>-->
+
                 </div>
             </div>
 
@@ -202,7 +202,11 @@
                                         <div class="margin-top-form search-key">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <span class="label label-success">Inmobiliaria Siena</span>
+                                                    <div style="width:80px;">
+                                                        <div class="prop-user-agent box_list">
+                                                            <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202761383997/460661-20180806143521.jpg/100x52/">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-8 text-right">
                                                     <div class="shared-panel pull-right">
@@ -217,7 +221,8 @@
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         <div class="col-md-9 text-left">
-                                                            <label class="place_list">Jose Victorino Lastarria, Santiago, Región Metropolitana</label>
+                                                            <div class="contenido">Departamanento</div>
+                                                            <div class="place_list">Jose Victorino Lastarria, Santiago, Región Metropolitana</div>
                                                         </div>
                                                         <div class="col-md-3 text-right">
                                                             <label class="date_list">01/09/2018</label>
@@ -240,7 +245,7 @@
                                                 </div>
                                             </div>
                                             <div class="additional_principal">
-                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 2  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 2 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 2  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 2 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                             </div>
                                             <div class="detail_list">
                                                 La Reina Depto. 2 Ambiente, Estacionamiento.
@@ -248,9 +253,8 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="text-right margin-button-form">
-                                                        <button type="button" class="btn btn-primary  width_btn"><i class="fa fa-search-plus"></i> Ver detalle</button>
-                                                        <!--<button type="button" class="btn btn-primary btn-sm width_btn" data-toggle="modal" data-target="#modal_contacto" ><i class="fa fa-envelope"></i> Contactar</button>-->
-                                                        <button type="button" class="btn btn-primary  width_btn" ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -296,7 +300,11 @@
                                     <div class="margin-top-form search-key">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <span class="label label-success">Inmobiliaria Alerce</span>
+                                                <div style="width:80px;">
+                                                    <div class="prop-user-agent box_list">
+                                                        <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202761383997/460661-20180806143521.jpg/100x52/">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col-md-8 text-right">
                                                 <div class="shared-panel pull-right">
@@ -311,13 +319,13 @@
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-9 text-left">
-                                                        <label class="place_list">Los aromos, Vitacura, Región Metropolitana</label>
+                                                        <div class="contenido">Departamento</div>
+                                                        <div class="place_list">Los aromos, Vitacura, Región Metropolitana</div>
                                                     </div>
                                                     <div class="col-md-3 text-right">
                                                         <label class="date_list">11/09/2018</label>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="row">
@@ -330,11 +338,10 @@
                                                          <span class="label label-danger">En Arriendo</span>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="additional_principal">
-                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                         </div>
                                         <div class="detail_list">
                                             La Reina Depto. 1 Ambiente, Estacionamiento.
@@ -342,9 +349,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="text-right margin-button-form">
-                                                    <button type="button" class="btn btn-primary  width_btn"><i class="fa fa-search-plus"></i> Ver detalle</button>
-                                                    <!--<button type="button" class="btn btn-primary btn-sm width_btn" data-toggle="modal" data-target="#modal_contacto" ><i class="fa fa-envelope"></i> Contactar</button>-->
-                                                    <button type="button" class="btn btn-primary  width_btn" ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                                                    <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -390,7 +396,11 @@
                                     <div class="margin-top-form search-key">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <span class="label label-success">Inmobiliaria Siena</span>
+                                                <div style="width:80px;">
+                                                    <div class="prop-user-agent box_list">
+                                                        <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202761383997/460661-20180806143521.jpg/100x52/">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col-md-8 text-right">
                                                 <div class="shared-panel pull-right">
@@ -405,7 +415,8 @@
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-9 text-left">
-                                                        <label class="place_list">Martín de Zamora 4909, Las Condes, Región Metropolitana</label>
+                                                        <div class="contenido">Condominio</div>
+                                                        <div class="place_list">Martín de Zamora 4909, Las Condes, Región Metropolitana</div>
                                                     </div>
                                                     <div class="col-md-3 text-right">
                                                         <label class="date_list">01/09/2018</label>
@@ -428,7 +439,7 @@
                                             </div>
                                         </div>
                                         <div class="additional_principal">
-                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                         </div>
                                         <div class="detail_list">
                                             La Reina Depto. 1 Ambiente, Estacionamiento.
@@ -436,9 +447,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="text-right margin-button-form">
-                                                    <button type="button" class="btn btn-primary  width_btn"><i class="fa fa-search-plus"></i> Ver detalle</button>
-                                                    <!--<button type="button" class="btn btn-primary btn-sm width_btn" data-toggle="modal" data-target="#modal_contacto" ><i class="fa fa-envelope"></i> Contactar</button>-->
-                                                    <button type="button" class="btn btn-primary  width_btn" ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                                                    <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                    <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -504,7 +514,8 @@
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         <div class="col-md-9 text-left">
-                                                            <label class="place_list">Jose Victorino Lastarria, Santiago, Región Metropolitana</label>
+                                                            <div class="contenido">Departemento</div>
+                                                            <div class="place_list">Jose Victorino Lastarria, Santiago, Región Metropolitana</div>
                                                         </div>
                                                         <div class="col-md-3 text-right">
                                                             <label class="date_list">01/09/2018</label>
@@ -527,7 +538,7 @@
                                                 </div>
                                             </div>
                                             <div class="additional_principal">
-                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 2  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 2 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 2  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 2 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                             </div>
                                             <div class="detail_list">
                                                 La Reina Depto. 2 Ambiente, Estacionamiento.
@@ -535,9 +546,8 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="text-right margin-button-form">
-                                                        <button type="button" class="btn btn-primary  width_btn"><i class="fa fa-search-plus"></i> Ver detalle</button>
-                                                        <!--<button type="button" class="btn btn-primary btn-sm width_btn" data-toggle="modal" data-target="#modal_contacto" ><i class="fa fa-envelope"></i> Contactar</button>-->
-                                                        <button type="button" class="btn btn-primary  width_btn" ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -598,7 +608,8 @@
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-9 text-left">
-                                                        <label class="place_list">Los aromos, Vitacura, Región Metropolitana</label>
+                                                        <div class="contenido">Condominio</div>
+                                                        <div class="place_list">Los aromos, Vitacura, Región Metropolitana</div>
                                                     </div>
                                                     <div class="col-md-3 text-right">
                                                         <label class="date_list">11/09/2018</label>
@@ -621,7 +632,7 @@
                                             </div>
                                         </div>
                                         <div class="additional_principal">
-                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                         </div>
                                         <div class="detail_list">
                                             La Reina Depto. 1 Ambiente, Estacionamiento.
@@ -629,9 +640,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="text-right margin-button-form">
-                                                    <button type="button" class="btn btn-primary  width_btn"><i class="fa fa-search-plus"></i> Ver detalle</button>
-                                                    <!--<button type="button" class="btn btn-primary btn-sm width_btn" data-toggle="modal" data-target="#modal_contacto" ><i class="fa fa-envelope"></i> Contactar</button>-->
-                                                    <button type="button" class="btn btn-primary  width_btn" ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                                                    <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                    <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -691,7 +701,8 @@
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-9 text-left">
-                                                        <label class="place_list">Martín de Zamora 4909, Las Condes, Región Metropolitana</label>
+                                                        <div class="contenido">Departamento</div>
+                                                        <div class="place_list">Martín de Zamora 4909, Las Condes, Región Metropolitana</div>
                                                     </div>
                                                     <div class="col-md-3 text-right">
                                                         <label class="date_list">01/09/2018</label>
@@ -713,7 +724,7 @@
                                             </div>
                                         </div>
                                         <div class="additional_principal">
-                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-map-o" aria-hidden="true"></i> m2: 2450
+                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habitaciones: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
                                         </div>
                                         <div class="detail_list">
                                             La Reina Depto. 1 Ambiente, Estacionamiento.
@@ -721,9 +732,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="text-right margin-button-form">
-                                                    <button type="button" class="btn btn-primary  width_btn"><i class="fa fa-search-plus"></i> Ver detalle</button>
-                                                    <!--<button type="button" class="btn btn-primary btn-sm width_btn" data-toggle="modal" data-target="#modal_contacto" ><i class="fa fa-envelope"></i> Contactar</button>-->
-                                                    <button type="button" class="btn btn-primary  width_btn" ><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+                                                    <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                    <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -740,73 +750,31 @@
         </div>
     </div>
 </div>
-<div class="modal" id="modal_contacto" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <ul class="login-tabs">
-                    <li id="tab-inicio" class="active"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i> Contactar al anunciante</li>
-                </ul>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i></button>
-            </div>
-            <div class="modal-body login-block">
-                <div class="tab-content">
-                    <div class="tab-pane fade in active">
-                        <div class="row">
-                            <div class = "col-md-12">
-                                <div class="form-group">
-                                   <label>(*)Nombre y Apellido</label>
-                                    <input id="nombre_contact" name="nombre_contact" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class = "col-md-6">
-                                <div class="form-group">
-                                    <label>(*)Correo electrónico</label>
-                                    <input id="correo_contact" name="correo_contact" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class = "col-md-6">
-                                <div class="form-group">
-                                    <label>Teléfono contacto</label>
-                                    <input id="fono_contact" name="fono_contact" type="text" class="form-control">
-                                </div>
-                            </div>
-                             <div class = "col-md-12">
-                                <div class="form-group">
-                                    <label>(*)Mensaje</label>
-                                    <textarea class="form-control" rows="5" id="message_contact" name="message_contact" placeholder=""></textarea>
-                                </div>
-                            </div>
-                            <div class="margin-top-form-2 col-md-5 pull-right">
-                                <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar</button>
-                            </div>
-                            <div class="col-md-12">
-                                <label class="pull-right">(*) Datos obligatorios</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal" id="modal_view" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i></button>
-            </div>
-            <div class="modal-body login-block">
-                 xxx
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
+
 {% endblock %}
 {% block content_script %}
 <script>
     var posicionActual, posicionNueva = 0;
     $(document).ready(function(){
+        if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
+            var stickyTop = $('.sticky').offset().top; // returns number
+            $(window).scroll(function() { // scroll event
+                var windowTop = $(window).scrollTop(); // returns number
+                if (stickyTop < windowTop) {
+                    $('.sticky').css({
+                        position: 'fixed',
+                        top: 0,
+                        minWidth: '295px',
+                        zIndex : 1
+                    });
+                } else {
+                    $('.sticky').css('position', 'static');
+                }
+            });
+        }
         $("#spn_orden").text("Orden por fecha pubicación mayor a menor");
         $('.carousel').each(function(e){
             $(this).carousel({

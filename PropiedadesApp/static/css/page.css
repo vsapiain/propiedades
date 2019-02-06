@@ -1817,9 +1817,10 @@ blockquote p {
 
 .bootstrap-select .btn {
     border: 1px solid #ccc;
-    color: #959595;
-    height: 42px;
+    color: #353535;
+    /*height: 42px;*/
     background-color: #fff
+    font-weight:500;
 }
 
 
@@ -6039,7 +6040,7 @@ figure .thumb-caption .cap-social {
 
 .advanced-search .form-control {
     box-shadow: none;
-    height: 42px
+    /*height: 42px*/
 }
 
 .advanced-search .advance-btn {
@@ -18275,10 +18276,22 @@ hr {
 .img-thumbnail{
     max-width:80%;
 }
-/*
-.position-fixed{
-    position: fixed;
-    min-height: 120px;
-    min-width: 300px;
+#footer-section {
+    z-index: 4;
 }
-*/
+.fa-filter{
+    color:#40C2F3;
+}
+.multiselect  {
+  text-align: left;
+}
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('../img/loaderhouse_2.gif') 50% 50% no-repeat rgb(249,249,249);
+    opacity: 1;
+}

@@ -1,0 +1,128 @@
+{% extends "base2.html" %}
+{% block title %}Arriendos y ventas de propiedades{% endblock %}
+{% block content %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Planes</li>
+      </ol>
+    </nav>
+</div>
+<section id="pricing-table">
+<div class="container">
+    <h2 class="title_h2 row">
+       Planes
+    </h2>
+    <div class="row col-md-6 margin-left-form">
+        <label class="col-md-3 destacado_lbl pull-left control control--radio" >Persona
+            <input type="radio"  name="rd_opcion_tipo_persona_login" value="1" checked="checked"/>
+            <div class="control__indicator"></div>
+        </label>
+        <label class="col-md-3 destacado_lbl pull-left control control--radio" > Corredor
+            <input type="radio"  name="rd_opcion_tipo_persona_login" value="2" />
+            <div class="control__indicator"></div>
+        </label>
+        <label class="col-md-3 destacado_lbl pull-left control control--radio" > Inmobiliaria
+            <input type="radio"  name="rd_opcion_tipo_persona_login" value="3" />
+            <div class="control__indicator"></div>
+        </label>
+    </div>
+	<div class="row col-md-12">
+		<div class="pricing">
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="pricing-table">
+					<div class="pricing-header">
+						<p class="pricing-title">
+							GRATIS
+						</p>
+						<p class="pricing-rate">
+							<sup>$</sup> 0 <span>/Mo.</span>
+						</p>
+						<a href="#" class="btn btn-custom">Acceder</a>
+					</div>
+					<div class="pricing-list">
+						<ul>
+							<li><i class="fa fa-envelope"></i>1,000 messages</li>
+							<li><i class="fa fa-signal"></i><span>limited</span> data</li>
+							<li><i class="fa fa-user"></i><span>limited</span> users</li>
+							<li><i class="fa fa-smile-o"></i>first 10 day free</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="pricing-table">
+					<div class="pricing-header">
+						<p class="pricing-title">
+							PLAN PLATA
+						</p>
+						<p class="pricing-rate">
+							<sup>$</sup> 0 <span>/Mo.</span>
+						</p>
+						<a href="#" class="btn btn-custom">Acceder</a>
+					</div>
+					<div class="pricing-list">
+						<ul>
+							<li><i class="fa fa-envelope"></i>1,000 messages</li>
+							<li><i class="fa fa-signal"></i><span>limited</span> data</li>
+							<li><i class="fa fa-user"></i><span>limited</span> users</li>
+							<li><i class="fa fa-smile-o"></i>first 10 day free</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="pricing-table">
+					<div class="pricing-header">
+						<p class="pricing-title">
+							PLAN ORO
+						</p>
+						<p class="pricing-rate">
+							<sup>$</sup> 20 <span>/Mo.</span>
+						</p>
+						<a href="#" class="btn btn-custom">Acceder</a>
+					</div>
+					<div class="pricing-list">
+						<ul>
+							<li><i class="fa fa-envelope"></i>10,000 messages</li>
+							<li><i class="fa fa-signal"></i><span>unlimited</span> data</li>
+							<li><i class="fa fa-user"></i><span>unlimited</span> users</li>
+							<li><i class="fa fa-smile-o"></i>first 10 day free</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="pricing-table">
+					<div class="pricing-header">
+						<p class="pricing-title">
+							Extended Plan
+						</p>
+						<p class="pricing-rate">
+							<sup>$</sup> 80 <span>/Mo.</span>
+						</p>
+						<a href="#" class="btn btn-custom">Acceder</a>
+					</div>
+					<div class="pricing-list">
+						<ul>
+							<li><i class="fa fa-envelope"></i>10,0000 messages</li>
+							<li><i class="fa fa-signal"></i><span>unlimited</span> data</li>
+							<li><i class="fa fa-user"></i><span>unlimited</span> users</li>
+							<li><i class="fa fa-smile-o"></i>first 10 day free</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+ {% endblock %}
+{% block content_script %}
+<script>
+     $(document).ready(function(){
+        $('.carousel').carousel();
+     });
+</script>
+{% endblock %}

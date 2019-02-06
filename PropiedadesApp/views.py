@@ -48,7 +48,7 @@ def propiedades(request):
     t = loader.get_template('propiedades.html')
     context = {'list_var': ''}
     if request.method == "POST":
-        filter_modo = request.POST.get("cmb_modo_portada")
+        filter_modo = request.POST.get("cmb_operacion_portada")
         filte_tipo = request.POST.get("cmb_tipo_propiedad_portada")
         filter_ubicacion = request.POST.get("cmb_ubicacion_portada")
         filter_precio_min = request.POST.get("min-price")
@@ -76,3 +76,7 @@ def login(request):
     data = {'is_authenticated': resultado.authenticated, 'msg': msg}
     return JsonResponse(data)
 
+def planes(request):
+    t = loader.get_template('planes.html')
+    context = {'list_var': ''}
+    return HttpResponse(t.render(context))

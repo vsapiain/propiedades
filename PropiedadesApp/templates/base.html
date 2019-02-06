@@ -7,6 +7,7 @@
 		<link href="{% static 'img/ico/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel='stylesheet' href='{% static 'css/bootstrap-multiselect.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
@@ -14,10 +15,10 @@
 		<link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal_responsive.css' %}' type='text/css' media='all'/>
-
-
+        {% block content_css %}{% endblock %}
 	</head>
 	<body>
+        <div class="loader"></div>
 		<div class="modal" id="pop-login" tabindex="-1" role="dialog">
 		  <div id="modal_login" class="modal-dialog modal-lg" role="document">
 		  	<div class="modal-content">
@@ -61,7 +62,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row margin-top-form-4">
-                                                                    <div class="col-md-12">
+                                                                    <div id="dv_tipo" class="col-md-12">
                                                                         <label class="col-md-3 pull-left control control--radio" >Persona
                                                                             <input type="radio"  name="rd_opcion_tipo_persona_login" value="1" checked="checked"/>
                                                                             <div class="control__indicator"></div>
@@ -121,7 +122,7 @@
                                                                 </div>
                                                                 <div>
 																	<div class="col-md-12 destacado_lbl2 light_blue_label">
-																		Base Gratis
+																		BASE GRATIS
 																	</div>
                                                                     <div class="col-md-12">
 																		<ul>
@@ -139,7 +140,7 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                        Plata $11.900 IVA incluido
+                                                                        PLATA $11.900 IVA INCLUIDO
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <ul>
@@ -159,7 +160,7 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                        Oro 25.000 IVA incluido
+                                                                        ORO 25.000 IVA INCLUIDO
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <ul>
@@ -186,7 +187,7 @@
                                                                 </div>
                                                                 <div>
 																	<div class="col-md-12 destacado_lbl2 light_blue_label">
-																		Base Gratis
+																		BASE GRATIS
 																	</div>
                                                                     <div class="col-md-12">
 																		<ul>
@@ -202,11 +203,10 @@
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                     </div>
-
                                                                 </div>
 																<div>
                                                                     <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                        Plata $25.000 IVA incluido
+                                                                        PLATA $25.000 IVA INCLUIDO
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <ul>
@@ -220,14 +220,14 @@
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                          <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan plata
-                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="1" />
+                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="2" />
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                     </div>
                                                                 </div>
 																<div>
                                                                     <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                        Oro 32.000 IVA incluido
+                                                                        ORO 32.000 IVA INCLUIDO
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <ul>
@@ -241,14 +241,14 @@
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan oro
-                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="1"/>
+                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="3"/>
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                     </div>
                                                                 </div>
 																<div>
                                                                     <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                        Platinum 48.000 IVA incluido
+                                                                        PLATINUM 48.000 IVA INCLUIDO
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <ul>
@@ -262,7 +262,7 @@
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan platinum
-                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="1"/>
+                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="4"/>
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                     </div>
@@ -270,12 +270,12 @@
                                                             </div>
                                                             <div id="dv_inmobiliaria_plan">
                                                                 <div class="col-md-12">
-                                                                    <label class="destacado_lbl">Planes inmobiliaria </label>
+                                                                    <label class="destacado_lbl">PLANES INMOBILIARIA </label>
                                                                     <hr>
                                                                 </div>
                                                                 <div>
 																	<div class="col-md-12 destacado_lbl2 light_blue_label">
-																		Base Gratis
+																		BASE GRATIS
 																	</div>
                                                                     <div class="col-md-12">
 																		<ul>
@@ -319,6 +319,7 @@
                                                                         <div class="control__indicator"></div>
                                                                     </label>
                                                                 </div>
+                                                                <!--
                                                                 <div id="dv_tipo_persona_mob">
                                                                     <label class="col-md-4 control control--radio">Particular
                                                                         <input type="radio" id="rd_opcion_tipo1_mob" name="rd_opcion_tipo_persona_mob" value="1" checked="checked"/>
@@ -333,7 +334,7 @@
                                                                         <div class="control__indicator"></div>
                                                                     </label>
                                                                 </div>
-
+                                                                -->
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <label class="destacado_lbl">Plan seleccionado</label>
@@ -351,6 +352,7 @@
 																		<option value="1">Plan Base (Gratis)</option>
 																		<option value="2">Plan Plata (25.000 IVA incluido) </option>
 																		<option value="3">Plan Oro (32.000 IVA incluido) </option>
+                                                                        <option value="4">Plan Platinum (48.000 IVA incluido) </option>
 																	</select>
 																 	<select  name = "cmb_plan_inmobiliaria" id="cmb_plan_inmobiliaria" class="form-control" data-live-search="false" >
 																		<option value="1">Plan Base (Gratis)</option>
@@ -504,7 +506,7 @@
 		<!--start section header-->
 		<header id="header-section" class="houzez-header-main header-section-4 nav-left houzez-user-logout" data-sticky="0">
 			<div class="container">
-				<div class="header-left">
+				<divr class="header-left">
 					<div class="logo logo-desktop">
 						<a href="http://houzez01.favethemes.com/">
 						<img src='{% static 'img/logotipo_original_v4.jpg' %}' alt="logotipo">
@@ -512,7 +514,7 @@
 					</div>
 					<nav class="navi main-nav">
 					<ul id="main-nav" class="">
-						<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="#">Proyectos destacados</a>
+						<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="/planes">Planes</a>
 							<!--
 							<ul class="sub-menu">
 							<li id="menu-item-1333" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1333"><a href="#">Map</a>
@@ -551,33 +553,25 @@
 						</li>
 						<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
 							<ul class="sub-menu">
-							<li id="menu-item-1340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
-							<!--
-							<li id="menu-item-1341" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1341"><a href="#">Grid View</a>
-							<ul class="sub-menu">
-								<li id="menu-item-465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a href="http://houzez01.favethemes.com/simple-listing-grid-view/">Grid View Standard</a></li>
-								<li id="menu-item-337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-337"><a href="http://houzez01.favethemes.com/properties-grid-view-3-cols/">Grid View Fullwidth</a></li>
-							</ul>
-							</li>
-							-->
-							<li id="menu-item-1342" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a>
-							</li>
-						</ul>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a id="inicio-inmobiliaria" href="#">Iniciar sesión</a></li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a></li>
+						    </ul>
 						</li>
 						<li id="menu-item-314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-314"><a href="#">Corredoras</a>
 							<ul class="sub-menu">
-							<li id="menu-item-346" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="http://houzez01.favethemes.com/property/luxury-apartment-bay-view/?s_top=v1">Corredoras Destacadas</a></li>
-							<li id="menu-item-347" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-347"><a href="http://houzez01.favethemes.com/property/luxury-apartment-bay-view/?s_top=v2&#038;agent_form=yes">Publicar</a></li>
-						</ul>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a id="inicio-corredora" href="#">Iniciar sesión</a></li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="#">Corredoras Destacadas</a></li>
+						    </ul>
 						</li>
 					</ul>
 					</nav>
-				</div>
+				</divr>
 				<div class="header-right">
 					<div class="user">
 						<a href="#" id="user-inicio"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Inicia sesión</span></a>
 						<a href="#" id="user-registro"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Regístrate</span></a>
-						<a href="http://houzez01.favethemes.com/add-new-property/" style="color:#ffffff;" class="radius-btn-md btn-secundary">Publica gratis</a>
+                     	<a href="#" style="color:#ffffff;" class="radius-btn-md btn-secundary" >Publica gratis</a>
 					</div>
 				</div>
 			</div>
@@ -633,12 +627,14 @@
 							<div class="form-group search-long">
 								<div class="search">
 								 	<select   id = "mode" name="mode" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
+                                        <option value="-1" selected>Operación(cualquiera)</option>
 										<option value="1">Comprar</option>
-										<option value="2" selected>Busco arriendo</option>
+										<option value="2" >Busco arriendo</option>
 										<option value="3">Busco arriendo por temporada</option>
 									</select>
 									<select id = "type" name="type" class="selectpicker" data-live-search="false" data-live-search-style="begins">
-										<option value="1" selected>Departamento</option>
+                                         <option value="-1" selected>Tipo propiedad(cualquiera)</option>
+										<option value="1" >Departamento</option>
 										<option value="2">Casa</option>
 										<option value="3">Oficina</option>
 										<option value="4">Local comercial</option>
@@ -647,7 +643,7 @@
 										<option value="7">Bodega</option>
 									</select>
 									<select class="form-control" id="location" name="location"  data-live-search="true"  >
-										<option value="-1">Todas las ubicaciones</option>
+										<option value="-1">Ubicación(cualquiera)</option>
 									</select>
 								</div>
 								<div  id="dv_busqueda" class="search-btn">
@@ -697,28 +693,69 @@
 											</select>
 										</div>
 									</div>
-									<div class="col-sm-1 col-xs-6">
-										<div class="form-group">
-											<input type="text" class="form-control" value="" name="min-precio" placeholder="$ Mín.">
+									<div class="col-md-2">
+										<div class="dropdown form-group">
+									        <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_price_filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class='fa fa-filter' aria-hidden='true'></i> Precio(cualquiera)
+                                            </button>
+                                            <div id="ddl_mnu_price" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
+                                                <button type="button" class="close margin-right-form" >&times;</button>
+                                                <div class="form-group">
+
+                                                    <div class="col-md-9">
+                                                        <div class="col-md-4" >
+                                                            <label class="margin-top-form-4" id="lbl_precio_filter" style="color:#000;">Peso</label>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label class="switch">
+                                                              <input id="chk_precio_filter" type="checkbox">
+                                                              <span class="slider round"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                      <div class="col-md-12">
+                                                          <input class="form-control " name="min-price-filter" id="min-price-filter" type="text" placeholder="$ min.">
+                                                      </div>
+                                                      <div class="col-md-12">
+                                                          <input class="form-control " name="max-price-filter" id="max-price-filter" type="text" placeholder="$ máx.">
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <button id="btn_ok_price_filter" type="button" class="btn btn-primary btn-sm margin-top-form">Aceptar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
 										</div>
 									</div>
-									<div class="col-sm-1 col-xs-6">
-										<div class="form-group">
-											<input type="text" class="form-control" value="" name="max-precio" placeholder="$ Máx.">
-										</div>
+									<div class="col-md-2">
+                                        <div class="dropdown form-group">
+                                            <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_area_filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class='fa fa-filter' aria-hidden='true'></i> Tamaño(cualquiera)
+                                            </button>
+                                            <div id="ddl_mnu_tamano" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
+                                                    <button type="button" class="close margin-right-form" >&times;</button>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                          <div class="col-md-12">
+                                                              <div class="col-md-12">
+                                                                    <input type="text" class="form-control" value="" name="min-size-filter" id="min-size-filter" placeholder="Mín. m²" onkeypress="return validate_numeric(event)" maxlength="10">
+                                                              </div>
+                                                              <div class="col-md-12">
+                                                                    <input type="text" class="form-control" value="" name="max-size-filter" id="max-size-filter" placeholder="Máx. m²" onkeypress="return validate_numeric(event)" maxlength="10">
+                                                              </div>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <button id="btn_size_filter" type="button" class="btn btn-primary btn-sm margin-top-form">Aceptar</button>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
 									</div>
-									<div class="col-sm-1 col-xs-6">
-										<div class="form-group">
-											<input type="text" class="form-control" value="" name="min-area" placeholder="Mín. m²">
-										</div>
-									</div>
-									<div class="col-sm-1 col-xs-6">
-										<div class="form-group">
-											<input type="text" class="form-control" value="" name="max-area" placeholder="Máx. m²">
-										</div>
-									</div>
+
 									<div class="col-sm-2 col-xs-6">
-										<button id="btnOcultar" class="btn-md btn-primary" type="button"><i class="fa fa-gear"></i> Ocultar filtros</button>
+										<button id="btnOcultar" class="btn-sm btn-primary" type="button"><i class="fa fa-gear"></i> Ocultar filtros</button>
 									</div>
 									<!--
 									<div class="col-sm-12 col-xs-12 features-list">
@@ -734,6 +771,7 @@
                                         </div>
 									</div>
 									-->
+                                    <!--
 									<div class="col-sm-12 col-xs-12 features-list">
 										<label class="advance-trigger text-uppercase title"><i class="fa fa-plus-square"></i> Otras características </label>
 										<div class="clearfix">
@@ -743,6 +781,7 @@
 											<label class="checkbox-inline"><input name="feature[]" type="checkbox" value="Barbeque">Parrilla</label><label class="checkbox-inline"><input   name="feature[]" type="checkbox" value="Dryer">Secadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="gym">Gimnasio</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="laundry">Lavandería</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="lawn">Cesped</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="microwave">Microonda</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="shower">Ducha</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerador</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="sauna">Sauna</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="washer">Lavadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="wifi">WiFi</label>
 										</div>
 									</div>
+									-->
 								</div>
 							</div>
 						</form>
@@ -777,8 +816,8 @@
 										<div class="form-group">
 											<select   id = "mode_mob" name="mode_mob" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
 												<option value="1">Comprar</option>
-												<option value="2" selected>Busco arriendo</option>
-												<option value="3">Busco arriendo por temporada</option>
+												<option value="2" selected>Arrendar</option>
+												<option value="3">Arrendar por temporada</option>
 											</select>
 										</div>
 									</div>
@@ -982,6 +1021,7 @@
 		<script type='text/javascript' src='{% static 'js/jquery-min.js' %}'></script>
   		<script type='text/javascript' src='{% static 'js/jquery-ui.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/bootstrap.min.js' %}'></script>
+		<script type='text/javascript' src='{% static 'js/bootstrap-multiselect.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/css3-animate-it.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/plugins.js' %}'></script>
 		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-includes/js/jquery/ui/datepicker.min.js'></script>
@@ -1007,6 +1047,9 @@
 			/* ]]> */
 		</script>
 		<script>
+		    $(window).load(function() {
+                $(".loader").fadeOut("slow");
+            });
 			$(document).ready(function(){
 				add_location();
 				verifFilterAdv();
@@ -1026,7 +1069,27 @@
 				$("#mode").prop('title', 'Seleccionar todos');
 				$("#mode_mob").prop('title', 'Seleccionar todos');
 				$("#type").prop('title', 'Seleccionar todos');
-				$("#btnOcultar").click(function(){
+				$('#chk_precio_filter').click(function(){
+				    var value = $(this).is(':checked') ? 1 : 0;
+				    if (value == 0){
+				        $('#lbl_precio_filter').html("Peso");
+				        $('#min-price-filter').attr("placeholder","$ min.");
+				        $('#max-price-filter').attr("placeholder","$ máx.");
+				    }
+				    else{
+				        $('#lbl_precio_filter').html("U.F.");
+				        $('#min-price-filter').attr("placeholder","UF min.");
+				        $('#max-price-filter').attr("placeholder","UF máx.");
+				    }
+				     $("#min-price-filter").focus();
+				});
+				$('.close').click(function(){
+				    $(this).parents('.dropdown').find('button.dropdown-toggle').dropdown('toggle');
+				});
+				$("#ddl_price_filter").click(function(){
+				    $("#min-price-filter").focus();
+				});
+            	$("#btnOcultar").click(function(){
 					$(".advance-fields").toggle('hide');
 					$(".advance-btn").removeClass("active");
 				});
@@ -1060,6 +1123,44 @@
 				$("#rd_opcion_tipo1,#rd_opcion_tipo2,#rd_opcion_tipo3").click(function(){
 					$("#username_reg").focus();
 				});
+				$("#inicio-inmobiliaria").click(function (event) {
+				    var img_source = $(".img_sesion source");
+					var img_ctl = $(".img_sesion img");
+					$("#tab-inicio").show();
+					$("#tab-registro").hide();
+					$('#pop-login').modal('show');
+					ActivTab("tab-inicio");
+					$("#username").focus();
+					$('input:radio[name=rd_opcion_tipo_persona_login]')[2].checked = true;
+					$("#dv_tipo").hide();
+					$("#lbl_login_tipo").text("Usuario");
+                    lbl_tipo = "Usuario";
+                    img_source.attr("srcset","/static/img/img_inmobiliaria.jpg");
+                    img_ctl.attr("src","/static/img/img_inmobiliaria.jpg");
+                    login_tipo = "inmobiliaria";
+                    $("#login_tipo").text(login_tipo);
+					$("#lbl_login_tipo").text(lbl_tipo);
+				});
+                $("#inicio-corredora").click(function (event) {
+                    var img_source = $(".img_sesion source");
+					var img_ctl = $(".img_sesion img");
+              		$("#tab-inicio").show();
+					$("#tab-registro").hide();
+					$('#pop-login').modal('show');
+					ActivTab("tab-inicio");
+					$("#username").focus();
+					$('input:radio[name=rd_opcion_tipo_persona_login]')[1].checked = true;
+
+					$("#dv_tipo").hide();
+                    $("#lbl_login_tipo").text("Usuario");
+                    login_tipo = "corredor";
+                    lbl_tipo = "Usuario";
+					img_source.attr("srcset","/static/img/img_corredor.jpg");
+                    img_ctl.attr("src","/static/img/img_corredor.jpg");
+                    login_tipo = "corredora";
+                    $("#login_tipo").text(login_tipo);
+					$("#lbl_login_tipo").text(lbl_tipo);
+			    });
 				$("#user-inicio,#user-inicio-mob").click(function (event) {
 					$("#tab-inicio").show();
 					$("#tab-registro").hide();
@@ -1089,7 +1190,7 @@
 					var img_source = $(".img_sesion source");
 					var img_ctl = $(".img_sesion img");
 					if ($(this).val() == 1){
-						login_tipo = "persona";
+					  	login_tipo = "persona";
 						lbl_tipo = "Correo electrónico";
 						img_source.attr("srcset","/static/img/img_arr_persona.jpg");
                         img_ctl.attr("src","/static/img/img_arr_persona.jpg");
@@ -1099,7 +1200,7 @@
 						img_source.attr("srcset","/static/img/img_corredor.jpg");
                         img_ctl.attr("src","/static/img/img_corredor.jpg");
 					}else if ($(this).val() == 3){
-						login_tipo = "inmobiliaria";
+            			login_tipo = "inmobiliaria";
 						lbl_tipo = "Usuario";
 						img_source.attr("srcset","/static/img/img_inmobiliaria.jpg");
                         img_ctl.attr("src","/static/img/img_inmobiliaria.jpg");
@@ -1113,10 +1214,19 @@
 				$('input[name=rd_opcion_plan_persona]').change(function() {
 					select_opt_persona($(this).val());
 				});
+				$('input[name=rd_opcion_plan_corredor]').change(function() {
+					select_opt_corredor($(this).val());
+				});
+				$('input[name=rd_opcion_plan_inmobiliaria]').change(function() {
+					select_opt_inmobiliaria($(this).val());
+				});
 				$('input[name=rd_opcion_tipo_persona]').change(function() {
 				   	$("#tipo_reg").val($(this).parent().text());
 				   	if ($(this).val() == 1){
 				   		$("#titl_persona").html("Datos registro persona");
+				   		$("#cmb_plan_persona").show();
+                        $("#cmb_plan_corredor").hide();
+                        $("#cmb_plan_inmobiliaria").hide();
 						$("#dv_corredor").hide();
 						$("#dv_corredor_plan").hide();
 						$("#dv_inmobiliaria").hide();
@@ -1126,6 +1236,9 @@
 					}
 					else if ($(this).val() == 2){
 						$("#titl_corredor").html("Datos registro corredor");
+						$("#cmb_plan_persona").hide();
+                        $("#cmb_plan_corredor").show();
+                        $("#cmb_plan_inmobiliaria").hide();
 						$("#dv_corredor").show();
 						$("#dv_corredor_plan").show();
 						$("#dv_inmobiliaria").hide();
@@ -1135,6 +1248,9 @@
 					}
 					else if ($(this).val() == 3){
 						$("#titl_inmobiliaria").html("Datos registro inmobiliaria");
+						$("#cmb_plan_persona").hide();
+                        $("#cmb_plan_corredor").hide();
+                        $("#cmb_plan_inmobiliaria").show();
 						$("#dv_corredor").hide();
 						$("#dv_corredor_plan").hide();
 						$("#dv_inmobiliaria").show();
@@ -1170,6 +1286,29 @@
 					var op = $(this).val();
 					$('input:radio[name=rd_opcion_plan_persona]')[op-1].checked = true;
 				});
+				$('#cmb_plan_corredor').change(function() {
+					var op = $(this).val();
+					$('input:radio[name=rd_opcion_plan_corredor]')[op-1].checked = true;
+				});
+				$('#cmb_plan_inmobiliaria').change(function() {
+					var op = $(this).val();
+					$('input:radio[name=rd_opcion_plan_inmobiliaria]')[op-1].checked = true;
+				});
+				$("#btn_ok_price_filter").click(function(){
+				    set_max_price($("#min-price-filter"),$("#max-price-filter"),$("#ddl_price_filter"),1);
+				    var value = $("#chk_precio_filter").is(':checked') ? 1 : 0;
+				    if ($("#min-price-filter").val().trim()!="" &&  $("#min-price-filter").val().trim()!=""){
+                        if (value == 0){
+                            $("#ddl_price_filter").text( "$"+  $("#min-price-filter").val().trim() + " - " +  "$"+  $("#max-price-filter").val().trim());
+                        }else{
+                            $("#ddl_price_filter").text( "UF "+  $("#min-price-filter").val().trim() + " - " +  "UF "+  $("#max-price-filter").val().trim());
+                        }
+				    }
+				});
+				$("#btn_size_filter").click(function(){
+				    set_max_size($("#min-size-filter"),$("#max-size-filter"),$("#ddl_area_filter"),1);
+				});
+
 				$("#location").val($("#location option:first").val()).change();
 				$('.bs-searchbox input').attr('placeholder','Busqueda');
 			})
@@ -1191,7 +1330,72 @@
 				  "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "TilVl", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor","Santiago"
 				];
 			var tipo_propiedad = ["Departamento","Casa","Oficina","Local comercial","Sitio","Estacionamiento","Bodega"];
-			var modo_propiedad = ["Comprar","Busco arriendo","Busco arriendo por temporada"];
+			var modo_propiedad = ["Comprar","Arrendar","Arriendo por temporada"];
+			function set_max_price(min,max,ctl,icon=0){
+                if(min.val().trim()!="" && max.val().trim()!="" && min.val().trim()!="0"){
+                    if (prop_price_validate(min,max)){
+                        ctl.text( "$"+ min.val().trim() + " - " +  "$"+ max.val().trim());
+                        ok_msg("Mensaje","Filtro aplicado correctamente",1500);
+                    }
+                    else{
+                        error_msg("Rango precio incorrecto","Precio máximo debe ser menor a precio mínimo",2500);
+                        ctl.text( "Precio(cualquiera)");
+                        window.setTimeout( clear_price_form(min,max), 700 );
+                    }
+                }else if (min.val().trim()=="" && max.val().trim()!="" || min.val().trim()=="0" && max.val().trim()!="" && max.val().trim()!="0" ){
+                    ctl.text( "Hasta " + "$"+ max.val().trim());
+                    ok_msg("Mensaje","Filtro aplicado correctamente",1500);
+                }else{
+                    ctl.text( " Precio(cualquiera)");
+                    if (icon == 1)
+                        ctl.prepend("<i class='fa fa-filter' aria-hidden='true'></i>");
+                    //$('.close').click();
+                }
+            }
+            function set_max_size(min,max,ctl,icon=0){
+                if(min.val().trim()!="" && max.val().trim()!="" && min.val().trim()!="0"){
+                    if (prop_size_validate(min,max)){
+                        ctl.text( min.val().trim() + " m²" + " - " +  max.val().trim() + " m²  ");
+                        ok_msg("Mensaje","Filtro aplicado correctamente",1500);
+                    }
+                    else{
+                        error_msg("Rango tamaño incorrecto","Tamaño máximo debe ser menor a tamaño mínimo",2500);
+                        ctl.text( "Tamaño(cualquiera)");
+                        window.setTimeout( clear_size_form(min,max), 700 );
+                    }
+                }else if (min.val().trim()=="" && max.val().trim()!="" || min.val().trim()=="0" && max.val().trim()!="" && max.val().trim()!="0" ){
+                    ctl.text( "Hasta " + max.val().trim() + " m²");
+                    ok_msg("Mensaje","Filtro aplicado correctamente",1500);
+                }else{
+                    ctl.text( " Tamaño(cualquiera)");
+                    if (icon == 1)
+                        ctl.prepend("<i class='fa fa-filter' aria-hidden='true'></i>");
+                }
+            }
+            function prop_price_validate(min,max){
+                var resp = false;
+                var min_price = parseInt(min.val().trim());
+                var max_price = parseInt(max.val().trim());
+                if (min_price<=max_price)
+                    resp = true;
+                return resp;
+            }
+            function prop_size_validate(min,max){
+                var resp = false;
+                var min_size = parseInt(min.val().trim());
+                var max_size = parseInt(max.val().trim());
+                if (min_size<=max_size)
+                    resp = true;
+                return resp;
+            }
+            function clear_price_form(min,max){
+                min.val("");
+                max.val("");
+            }
+            function clear_size_form(min,max){
+                min.val("");
+                max.val("");
+            }
 			function ActivTab(id){
 				$("#"+id).trigger('click');
 			};
@@ -1199,18 +1403,10 @@
 				$(".field-expand input").each(function(){
 					if ($(mode).val()==1 || $(mode).val()==2){
 						$(".features-list").hide();
-						//if($(this).val()=="air-conditioning" || $(this).val()=="Barbeque" || $(this).val()=="Dryer")
-						//	$(this).parent().hide();
-
-						//if ($(this).prop('checked')){
-						//	if($(this).val()=="air-conditioning" || $(this).val()=="Barbeque" )
-						//		$(this).hide();
-						//}
 					}else if ($(mode).val()==3){
 						$(".features-list").show();
 					}
 				});
-
 			}
 			function verifFilterAdvMob(){
 				$(".field-expand input").each(function(){
@@ -1243,6 +1439,7 @@
                 var img_ctl = $(".img_sesion img");
 				img_source.attr("srcset","/static/img/img_arr_persona.jpg");
                 img_ctl.attr("src","/static/img/img_arr_persona.jpg");
+                $("#dv_tipo").show();
 			}
 			function validate_numeric(e){
 				tecla = (document.all) ? e.keyCode : e.which;
@@ -1291,7 +1488,7 @@
 				$("#cmb_plan_persona").val(op);
 			}
 			function select_opt_corredor(op){
-				$("#cmb_plan_corredo").val(op);
+			 	$("#cmb_plan_corredor").val(op);
 			}
 			function select_opt_inmobiliaria(op){
 				$("#cmb_plan_inmobiliaria").val(op);
