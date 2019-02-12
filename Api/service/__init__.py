@@ -1,0 +1,1 @@
+from Api.service.usuario_service import usuario_service

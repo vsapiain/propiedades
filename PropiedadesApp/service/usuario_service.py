@@ -1,4 +1,4 @@
-from PropiedadesApp.models.usuario_model import Usuario
+from PropiedadesApp.models import Usuario
 from PropiedadesApp.proxy.usuario_proxy import usuario_proxy
 
 class usuario_service:
@@ -9,10 +9,18 @@ class usuario_service:
             if obj_usuario == None:
                 return usuario_proxy(),'Correo electronico no registrado.'
             else:
-                if obj_usuario.Clave != _clave:
+                if obj_usuario.clave != _clave:
                     return usuario_proxy(),'Clave de acceso incorrecta.'
                 else:
                     proxy.authenticated = True
                     return obj_usuario, ''
-        except:
-            pass
+        except ValueError:
+            print ("Error..." + ValueError)
+
+    def list_users(self):
+        try:
+            proxy = usuario_proxy()
+            list_usuarios = proxy.get_all()
+            return list_usuarios
+        except ValueError:
+            print("Error..." + ValueError)

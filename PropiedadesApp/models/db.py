@@ -8,6 +8,7 @@ db_engine = 'mssql+pymssql://sa:admin.2013@186.64.123.187/citypro'
 engine = create_engine(db_engine)
 session = scoped_session(sessionmaker(autocommit=False, bind=engine))
 
+
 class db_base(object):
     def save(self):
         session.add(self)
@@ -43,16 +44,15 @@ class db_base(object):
             session.rollback()
             raise
 
-    '''
     def db_connect(self):
-        engine = create_engine(self.db_engine)
+        engine = create_engine(db_engine)
         Session = sessionmaker(bind=engine)
         session = Session()
         return session
-    '''
 
-metadata = declarative_base(cls=db_base)
-metadata.query = session.query_property()
+
+#metadata = declarative_base(cls=db_base)
+#metadata.query = session.query_property()
 
 
 
