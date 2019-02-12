@@ -1,16 +1,25 @@
-'''
-from PropiedadesApp.models.usuario import Usuario
-from sqlalchemy.orm import sessionmaker
-#from django.conf import settings
-
-
-engine =  usuario.db_connect
-usuario.create_deals_table()
-
-Session = sessionmaker(bind=engine)
-'''
-
-
-
-
-
+from PropiedadesApp.models.Region import Region
+from PropiedadesApp.models.Usuario import Usuario
+from PropiedadesApp.models.cliente import Cliente
+from PropiedadesApp.models.cliente_plan_contrato import ClientePlanContrato
+from PropiedadesApp.models.comuna import Comuna
+from PropiedadesApp.models.corredora import Corredora
+from PropiedadesApp.models.cuenta_acceso import CuentaAcceso
+from PropiedadesApp.models.direccion import Direccion
+from PropiedadesApp.models.estado_propiedad import EstadoPropiedad
+from PropiedadesApp.models.factura import Factura
+from PropiedadesApp.models.inmobiliaria import Inmobiliaria
+from PropiedadesApp.models.linea_factura import LineaFactura
+from PropiedadesApp.models.linea_orden_compra import LineaOrdenCompra
+from PropiedadesApp.models.operacion import Operacion
+from PropiedadesApp.models.orden_compra import OrdenCompra
+from PropiedadesApp.models.particular import Particular
+from PropiedadesApp.models.plan import Plan
+from PropiedadesApp.models.propiedad import Propiedad
+from PropiedadesApp.models.provincia import Provincia
+from PropiedadesApp.models.proyecto import Proyecto
+from PropiedadesApp.models.publicacion import Publicacion
+from PropiedadesApp.models.telefono import Telefono
+from PropiedadesApp.models.tipo_cliente import TipoCliente
+from PropiedadesApp.models.tipo_operacion import TipoOperacion
+from PropiedadesApp.models.tipo_propiedad import TipoPropiedad

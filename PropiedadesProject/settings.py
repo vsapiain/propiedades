@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'PropiedadesApp'
+    'rest_framework',
+    'inspectdb_refactor',
+    'PropiedadesApp',
+    'Api'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -74,24 +77,15 @@ WSGI_APPLICATION = 'PropiedadesProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-'''
 DATABASES = {
     'default': {
         'NAME': 'citypro',
-        #'ENGINE': 'com.microsoft.sqlserver.jdbc.SQLServerDriver',
+        'ENGINE': 'sql_server.pyodbc',
         'HOST': '186.64.123.187',
         'USER': 'sa',
-        'PASSWORD': 'admin.2013',
+        'PASSWORD': 'admin.2013'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators

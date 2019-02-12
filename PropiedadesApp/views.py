@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.template import Context, loader
 from django.http import JsonResponse
 
-from PropiedadesApp.models.usuario_model import Usuario
+#from PropiedadesApp.models.usuario_model import Usuario
 from PropiedadesApp.proxy.usuario_proxy import  usuario_proxy
 from PropiedadesApp.service.usuario_service import  usuario_service
 
