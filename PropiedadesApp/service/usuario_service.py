@@ -1,26 +1,18 @@
-from PropiedadesApp.models import Usuario
-from PropiedadesApp.proxy.usuario_proxy import usuario_proxy
+from PropiedadesApp.models import  cuenta_acceso
+from PropiedadesApp.proxy import cuenta_acceso_proxy
 
 class usuario_service:
-    def is_authenticated(self,_email,_clave):
+    def is_authenticated_persona(self, email, clave):
         try:
-            proxy  = usuario_proxy()
-            obj_usuario = proxy.get_by_email(_email)
-            if obj_usuario == None:
-                return usuario_proxy(),'Correo electronico no registrado.'
-            else:
-                if obj_usuario.clave != _clave:
-                    return usuario_proxy(),'Clave de acceso incorrecta.'
-                else:
-                    proxy.authenticated = True
-                    return obj_usuario, ''
+            pass
         except ValueError:
-            print ("Error..." + ValueError)
+            print("Error..." + ValueError)
+
+    def is_authenticated_empresa(self,nombre_usuario, clave):
+        pass
 
     def list_users(self):
         try:
-            proxy = usuario_proxy()
-            list_usuarios = proxy.get_all()
-            return list_usuarios
+            pass
         except ValueError:
             print("Error..." + ValueError)

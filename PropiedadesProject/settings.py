@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'inspectdb_refactor',
     'PropiedadesApp',
-    'Api'
+    'Api',
+    'corsheaders',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -51,7 +52,23 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+)
 
 ROOT_URLCONF = 'PropiedadesProject.urls'
 
@@ -83,9 +100,14 @@ DATABASES = {
         'ENGINE': 'sql_server.pyodbc',
         'HOST': '186.64.123.187',
         'USER': 'sa',
-        'PASSWORD': 'admin.2013'
+        'PASSWORD': 'admin.2013',
+        'PORT' : '1433',
+        'OPTIONS': {
+            'host_is_server': True
+        },
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators

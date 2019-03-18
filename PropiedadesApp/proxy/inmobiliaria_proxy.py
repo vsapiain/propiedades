@@ -1,8 +1,6 @@
-from PropiedadesApp.models.usuario_model import Usuario
-from PropiedadesApp.manager.inmobiliaria_manager import inmobiliaria_manager
+from PropiedadesApp.models import Usuario
 
 class inmobiliaria_proxy(Usuario):
-    objects = inmobiliaria_manager()
 
     class Meta:
         proxy = True

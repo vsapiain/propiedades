@@ -1,5 +1,5 @@
 from PropiedadesApp.models.Region import Region
-from PropiedadesApp.models.Usuario import Usuario
+#from PropiedadesApp.models.Usuario import Usuario
 from PropiedadesApp.models.cliente import Cliente
 from PropiedadesApp.models.cliente_plan_contrato import ClientePlanContrato
 from PropiedadesApp.models.comuna import Comuna

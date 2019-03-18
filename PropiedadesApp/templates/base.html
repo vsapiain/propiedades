@@ -35,7 +35,7 @@
 							<div class="omb_login">
 									<div class="row">
 										<div class="col-md-12">
-											<form class="omb_loginForm" action="/login" method="post">
+											<form  class="omb_loginForm" action="" method="post">
 												<div class="panel panel-default">
 													<div class="panel-body">
 														<div class="row">
@@ -84,7 +84,7 @@
                                                                         </p>
                                                                     </div>
                                                                     <div class="col-md-12">
-                                                                        <button id="btn_autenticar" class="btn btn-lg btn-primary btn-block" type="button"><i class="fa fa-user" aria-hidden="true"></i> Iniciar sesión</button>
+                                                                        <button id="btn_autenticar" class="btn btn-lg btn-primary btn-block" ><i class="fa fa-user" aria-hidden="true"></i> Iniciar sesión</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -111,11 +111,6 @@
                                                     <div class="card departure-card">
                                                         <div class="card-block">
 													        <div id="dv_persona_plan">
-                                                                <!--
-                                                                <img id="img_persona" class="img_tipo_persona_responsive" src='{% static 'img/img_arr_persona.jpg' %}' alt="Accceso personas">
-                                                                <img id="img_corredor" class="img_tipo_persona_responsive" src='{% static 'img/img_corredor.jpg' %}' alt="Accceso personas">
-                                                                <img id="img_inmobiliaria" class="img_tipo_persona_responsive" src='{% static 'img/img_inmobiliaria.jpg' %}' alt="Accceso personas">
-                                                                -->
                                                                 <div class="col-md-12">
                                                                     <label class="destacado_lbl">Planes particular</label>
                                                                     <hr>
@@ -319,22 +314,7 @@
                                                                         <div class="control__indicator"></div>
                                                                     </label>
                                                                 </div>
-                                                                <!--
-                                                                <div id="dv_tipo_persona_mob">
-                                                                    <label class="col-md-4 control control--radio">Particular
-                                                                        <input type="radio" id="rd_opcion_tipo1_mob" name="rd_opcion_tipo_persona_mob" value="1" checked="checked"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                    <label class="col-md-4 control control--radio">Corredor
-                                                                        <input type="radio" id="rd_opcion_tipo2_mob" name="rd_opcion_tipo_persona_mob" value="2"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                    <label class="col-md-4 control control--radio">Inmobiliaria
-                                                                        <input type="radio" id="rd_opcion_tipo3_mob" name="rd_opcion_tipo_persona_mob" value="3"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                </div>
-                                                                -->
+
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <label class="destacado_lbl">Plan seleccionado</label>
@@ -515,41 +495,6 @@
 					<nav class="navi main-nav">
 					<ul id="main-nav" class="">
 						<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="/planes">Planes</a>
-							<!--
-							<ul class="sub-menu">
-							<li id="menu-item-1333" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1333"><a href="#">Map</a>
-							<ul class="sub-menu">
-								<li id="menu-item-954" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-194 current_page_item menu-item-954"><a href="http://houzez01.favethemes.com/">Map Standard</a></li>
-								<li id="menu-item-1260" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1260"><a href="http://houzez01.favethemes.com/?fullscreen=yes">Map Fullscreen</a></li>
-							</ul>
-							</li>
-							<li id="menu-item-1334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1334"><a href="#">Parallax</a>
-							<ul class="sub-menu">
-								<li id="menu-item-1013" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1013"><a href="http://houzez01.favethemes.com/homepage-with-image-2/">Parallax Standard</a></li>
-								<li id="menu-item-2988" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2988"><a href="http://houzez01.favethemes.com/homepage-with-image-fullscreen/">Parallax Fullscreen</a></li>
-							</ul>
-							</li>
-							<li id="menu-item-1335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1335"><a href="#">Video</a>
-							<ul class="sub-menu">
-								<li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-953"><a href="http://houzez01.favethemes.com/homepage-with-video-2/">Video Standard</a></li>
-								<li id="menu-item-1261" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1261"><a href="http://houzez01.favethemes.com/homepage-with-video-2/?fullscreen=yes">Video Fullscreen</a></li>
-							</ul>
-							</li>
-							<li id="menu-item-1336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1336"><a href="#">Sliders</a>
-							<ul class="sub-menu">
-								<li id="menu-item-1065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1065"><a href="http://houzez01.favethemes.com/homepage-with-revolution-slider/">Slider Revolution</a></li>
-								<li id="menu-item-1017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1017"><a href="http://houzez01.favethemes.com/homepage-with-properties-slider/">Properties Slider</a></li>
-							</ul>
-							</li>
-							<li id="menu-item-1338" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1338"><a href="#">Splash</a>
-							<ul class="sub-menu">
-								<li id="menu-item-1274" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1274"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=video">Video Fullscreen</a></li>
-								<li id="menu-item-1273" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1273"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=slider">Slider Fullscreen</a></li>
-								<li id="menu-item-1275" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1275"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=image">Image Fullscreen</a></li>
-							</ul>
-							</li>
-						</ul>
-							-->
 						</li>
 						<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
 							<ul class="sub-menu">
@@ -757,31 +702,6 @@
 									<div class="col-sm-2 col-xs-6">
 										<button id="btnOcultar" class="btn-sm btn-primary" type="button"><i class="fa fa-gear"></i> Ocultar filtros</button>
 									</div>
-									<!--
-									<div class="col-sm-12 col-xs-12 features-list">
-										<div class="range-advanced-main">
-                                            <div class="range-text">
-                                                <input type="hidden" name="min-price" class="min-price-range-hidden range-input" readonly="" value="$1,000">
-                                                <input type="hidden" name="max-price" class="max-price-range-hidden range-input" readonly="" value="$4,500,000">
-                                                <p><span class="range-title">Price Range:</span> From <span class="min-price-range">$1,000</span> to <span class="max-price-range">$4,500,000</span></p>
-                                            </div>
-                                            <div class="range-wrap">
-                                                <div class="price-range-advanced ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span></div>
-                                            </div>
-                                        </div>
-									</div>
-									-->
-                                    <!--
-									<div class="col-sm-12 col-xs-12 features-list">
-										<label class="advance-trigger text-uppercase title"><i class="fa fa-plus-square"></i> Otras características </label>
-										<div class="clearfix">
-										</div>
-										<div class="field-expand">
-											<label class="checkbox-inline"><input  name="feature[]" type="checkbox" value="air-conditioning">Aire acondicionado</label>
-											<label class="checkbox-inline"><input name="feature[]" type="checkbox" value="Barbeque">Parrilla</label><label class="checkbox-inline"><input   name="feature[]" type="checkbox" value="Dryer">Secadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="gym">Gimnasio</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="laundry">Lavandería</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="lawn">Cesped</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="microwave">Microonda</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="shower">Ducha</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="refrigerator">Refrigerador</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="sauna">Sauna</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="tv-cable">TV Cable</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="washer">Lavadora</label><label class="checkbox-inline"><input name="feature[]" type="checkbox" value="wifi">WiFi</label>
-										</div>
-									</div>
-									-->
 								</div>
 							</div>
 						</form>
@@ -1048,6 +968,19 @@
 		</script>
 		<script>
 		    $(window).load(function() {
+		        $.ajax
+                ({
+                  type: "GET",
+                  url: "api/verify_token/",
+                  dataType: 'json',
+                  beforeSend : function(req) {
+                        req.setRequestHeader('Authorization', localStorage.token);
+                  },
+                  success: function (data){
+                    if (data.err == 1)
+                        a  = 1;
+                  }
+                });
                 $(".loader").fadeOut("slow");
             });
 			$(document).ready(function(){
@@ -1103,23 +1036,22 @@
 					}
 				});
 				$("#btn_autenticar").click(function(){
-					var form = $('.omb_loginForm');
-					$.ajax({
-						url: '/login',
-						data: form.serialize(),
-						success: function (data) {
-							if (!data.is_authenticated && data.msg.trim()!=''){
-								error_msg('Inicio sesión',data.msg,2500);
-								$("#username").val("");
-								$("#password").val("");
-								$("#username").focus();
-							}else{
-								$('#pop-login').modal('hide');
-							}
-						}
-					});
-					return false;
+				    event.preventDefault();
+				  	var form = $('.omb_loginForm');
+					$.post('/login/', {'data': form.serializeArray(), 'csrfmiddlewaretoken': '{{ csrf_token }}'}, function(data) {
+					    if (data.token == '' && data.msg.trim()!=''){
+                            error_msg('Inicio sesión',data.msg,2500);
+                            $("#username").val("");
+                            $("#password").val("");
+                            $("#username").focus();
+                        }else{
+                            localStorage.username = data.username;
+                            localStorage.token = data.token;
+                            $('#pop-login').modal('hide');
+                        }
+                    });
 				});
+
 				$("#rd_opcion_tipo1,#rd_opcion_tipo2,#rd_opcion_tipo3").click(function(){
 					$("#username_reg").focus();
 				});
