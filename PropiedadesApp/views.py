@@ -1,14 +1,8 @@
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from django.shortcuts import render_to_response
-from django.shortcuts import render
 from django.template import Context, loader
 from django.http import JsonResponse
-
-#from PropiedadesApp.models.usuario_model import Usuario
-from PropiedadesApp.proxy.usuario_proxy import  usuario_proxy
-from PropiedadesApp.service.usuario_service import  usuario_service
-
-
+from Api.service import usuario_service
+import requests,json
 
 
 # Create your views here.
@@ -25,21 +19,8 @@ def index(request):
     user_obj.update(Email='email_prueba');
     '''
 
-    '''
-    user_ = Usuario()
-    user_obj = user_.get(22)
-    user_obj.delete()
-    '''
-
-    '''
-    proxy_  = usuario_proxy.usuario_proxy()
-    usuario_1 = proxy_.get(23)
-    usuario_2 = proxy_.get_by_email('admin@gmail.com')
-    '''
-
     #service = usuario_service()
     #resultado = service.is_authenticated('admin@gmail.co',12)
-
     t = loader.get_template('index.html')
     context = {'list_var': ''}
     return HttpResponse(t.render(context))
@@ -69,11 +50,18 @@ def detalle(request,propiedad_codigo=None):
 
 def login(request):
     t = loader.get_template('index.html')
-    usuario = request.GET['username']
-    clave = request.GET['password']
-    service = usuario_service()
-    resultado,msg = service.is_authenticated(usuario,clave)
-    data = {'is_authenticated': resultado.authenticated, 'msg': msg}
+    msg = ""
+    data = {"token": "", "msg": "", "username": ""}
+    if request.method == 'POST':
+        usuario = request.POST.get("data[0][value]")
+        clave = request.POST.get("data[1][value]")
+        tipo_usuario = request.POST.get("data[2][value]")
+        service = usuario_service()
+        data = {"tipo": tipo_usuario,"password": clave,"usuario": usuario}
+        baseurl = request.get_host()
+        request_service = requests.post(url = "http://" + baseurl +"/api/authenticate_user/", data = data )
+        data_service = request_service.json()
+        data = {"token": data_service["token"], "msg": data_service["msg"], "username" :data_service["username"] }
     return JsonResponse(data)
 
 def planes(request):

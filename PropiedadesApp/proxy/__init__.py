@@ -1,1 +1,2 @@
-from PropiedadesApp.proxy.usuario_proxy import usuario_proxy
+#from PropiedadesApp.proxy.usuario_proxy import usuario_proxy
+from PropiedadesApp.proxy.cuenta_acceso_proxy import cuenta_acceso_proxy
