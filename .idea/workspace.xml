@@ -2,40 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f90a770-11db-4824-bf46-8048416b8046" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/Region.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/Usuario.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/cliente.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/cliente_plan_contrato.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/comuna.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/corredora.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/cuenta_acceso.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/db.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/direccion.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/estado_propiedad.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/factura.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/inmobiliaria.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/linea_factura.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/linea_orden_compra.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/operacion.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/orden_compra.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/particular.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/plan.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/propiedad.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/provincia.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/proyecto.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/publicacion.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/telefono.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/tipo_cliente.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/tipo_operacion.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/models/tipo_propiedad.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/proxy/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/proxy/cuenta_acceso_proxy.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/proxy/inmobiliaria_proxy.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Api/proxy/usuario_proxy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Api/service/usuario_service.py" afterPath="$PROJECT_DIR$/Api/service/usuario_service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Api/views.py" afterPath="$PROJECT_DIR$/Api/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/service/__init__.py" afterPath="$PROJECT_DIR$/PropiedadesApp/service/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/service/usuario_service.py" afterPath="$PROJECT_DIR$/PropiedadesApp/service/usuario_service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/views.py" afterPath="$PROJECT_DIR$/PropiedadesApp/views.py" />
     </list>
     <ignored path="PropiedadesDjango.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+            <state relative-caret-position="153">
+              <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
               <folding>
                 <element signature="e#0#71#0" expanded="true" />
               </folding>
@@ -68,26 +37,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usuario_service.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Api/service/usuario_service.py">
+      <file leaf-file-name="usuario_service.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/service/usuario_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+            <state relative-caret-position="170">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
-                <element signature="e#54#96#0" expanded="true" />
+                <element signature="e#0#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Api/views.py">
+      <file leaf-file-name="usuario_service.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Api/service/usuario_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+            <state relative-caret-position="85">
+              <caret line="11" column="24" selection-start-line="9" selection-start-column="11" selection-end-line="11" selection-end-column="24" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#458#782#1" expanded="false" />
+                <element signature="e#54#96#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,7 +86,6 @@
         <option value="$PROJECT_DIR$/PropiedadesApp/ModelManager/UsuarioManager.py" />
         <option value="$PROJECT_DIR$/models_gen.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/models/usuario.py" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/service/__init__.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/__init__.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/prueba/prueba1.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/js/plugins.js" />
@@ -153,11 +120,9 @@
         <option value="$PROJECT_DIR$/Api/serializers.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/models/__init__.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/proxy/__init__.py" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/service/usuario_service.py" />
         <option value="$PROJECT_DIR$/Api/service/__init__.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/models/cuenta_acceso.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/proxy/cuenta_acceso_proxy.py" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/views.py" />
         <option value="$PROJECT_DIR$/Api/urls.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/templates/base.html" />
         <option value="$PROJECT_DIR$/Api/models/__init__.py" />
@@ -165,6 +130,9 @@
         <option value="$PROJECT_DIR$/Api/service/usuario_service.py" />
         <option value="$PROJECT_DIR$/Api/proxy/cuenta_acceso_proxy.py" />
         <option value="$PROJECT_DIR$/Api/proxy/__init__.py" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/service/__init__.py" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/views.py" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/service/usuario_service.py" />
       </list>
     </option>
   </component>
@@ -242,6 +210,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="PropiedadesApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PropiedadesDjango" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PropiedadesDjango" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -260,7 +246,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="proxy" />
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -555,6 +541,16 @@
           <url>file://$PROJECT_DIR$/PropiedadesApp/proxy/inmobiliaria_proxy.py</url>
           <option name="timeStamp" value="138" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/PropiedadesApp/views.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/PropiedadesApp/service/usuario_service.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -563,12 +559,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="186" />
+      <option name="time" value="189" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PropiedadesApp/models/config_db.py" />
     <entry file="file://$PROJECT_DIR$/citypro_bd/forms/cliente_plan_contrato_form.py" />
     <entry file="file://$PROJECT_DIR$/citypro_bd/models/cliente.py" />
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/models/usuario_model.py" />
@@ -644,32 +639,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PropiedadesApp/service/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/models/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-146">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PropiedadesApp/service/usuario_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/service/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -730,14 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="243" column="49" selection-start-line="243" selection-start-column="49" selection-end-line="243" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -830,17 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#458#782#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/proxy/cuenta_acceso_proxy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -856,16 +811,6 @@
         <state relative-caret-position="198">
           <caret line="975" column="24" selection-start-line="975" selection-start-column="24" selection-end-line="975" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -887,12 +832,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Api/service/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#458#782#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/service/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="182" column="58" selection-start-line="182" selection-start-column="58" selection-end-line="182" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Api/service/usuario_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+        <state relative-caret-position="85">
+          <caret line="11" column="24" selection-start-line="9" selection-start-column="11" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="e#54#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/service/usuario_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
           </folding>
         </state>
       </provider>
