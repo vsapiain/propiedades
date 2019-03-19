@@ -1,0 +1,1 @@
+from PropiedadesApp.service.usuario_service import usuario_service

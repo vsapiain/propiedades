@@ -1,7 +1,8 @@
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.template import Context, loader
 from django.http import JsonResponse
-from Api.service import usuario_service
+#from Api.service import usuario_service
+from PropiedadesApp.service import usuario_service
 import requests,json
 
 
@@ -57,12 +58,23 @@ def login(request):
         clave = request.POST.get("data[1][value]")
         tipo_usuario = request.POST.get("data[2][value]")
         service = usuario_service()
+        data = {"tipo": tipo_usuario, "password": clave, "usuario": usuario}
+        data_service = service.authenticate_user(tipo_usuario,clave,usuario)
+        data = {"token": data_service["token"], "msg": data_service["msg"], "username": data_service["username"]}
+    return JsonResponse(data)
+    '''
+    if request.method == 'POST':
+        usuario = request.POST.get("data[0][value]")
+        clave = request.POST.get("data[1][value]")
+        tipo_usuario = request.POST.get("data[2][value]")
+        service = usuario_service()
         data = {"tipo": tipo_usuario,"password": clave,"usuario": usuario}
         baseurl = request.get_host()
         request_service = requests.post(url = "http://" + baseurl +"/api/authenticate_user/", data = data )
         data_service = request_service.json()
         data = {"token": data_service["token"], "msg": data_service["msg"], "username" :data_service["username"] }
     return JsonResponse(data)
+    '''
 
 def planes(request):
     t = loader.get_template('planes.html')
