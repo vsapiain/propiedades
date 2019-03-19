@@ -1,4 +1,5 @@
-from PropiedadesApp.proxy import cuenta_acceso_proxy
+#from PropiedadesApp.proxy import cuenta_acceso_proxy
+from Api.proxy import  cuenta_acceso_proxy
 import jwt
 import datetime
 

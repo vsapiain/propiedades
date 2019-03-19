@@ -2,12 +2,12 @@ from rest_framework import permissions,status
 from rest_framework.decorators import api_view,permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from rest_framework.views import APIView
+#from rest_framework.views import APIView
 from Api.service import usuario_service
-from PropiedadesApp.proxy import  cuenta_acceso_proxy
+#from PropiedadesApp.proxy import  cuenta_acceso_proxy
 #from .serializers import UsuarioSerializer
-from rest_framework_jwt.settings import api_settings
-import jwt,json
+#from rest_framework_jwt.settings import api_settings
+#import jwt,json
 
 '''
 @api_view (['GET'])
@@ -55,8 +55,6 @@ def verify_token(request):
             service = usuario_service()
             token_data = service.decode_token(token)
             return Response(token_data)
-
-
     except ValueError:
         pass
 
