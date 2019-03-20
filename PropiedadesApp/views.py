@@ -1,10 +1,10 @@
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.template import Context, loader
 from django.http import JsonResponse
-#from Api.service import usuario_service
-from PropiedadesApp.service import usuario_service
+from Api.service import usuario_service
+#from PropiedadesApp.service import usuario_service
 import requests,json
-
+from PropiedadesApp.models import CuentaAcceso
 
 # Create your views here.
 def index(request):
@@ -53,16 +53,7 @@ def login(request):
     t = loader.get_template('index.html')
     msg = ""
     data = {"token": "", "msg": "", "username": ""}
-    if request.method == 'POST':
-        usuario = request.POST.get("data[0][value]")
-        clave = request.POST.get("data[1][value]")
-        tipo_usuario = request.POST.get("data[2][value]")
-        service = usuario_service()
-        data = {"tipo": tipo_usuario, "password": clave, "usuario": usuario}
-        data_service = service.authenticate_user(tipo_usuario,clave,usuario)
-        data = {"token": data_service["token"], "msg": data_service["msg"], "username": data_service["username"]}
-    return JsonResponse(data)
-    '''
+
     if request.method == 'POST':
         usuario = request.POST.get("data[0][value]")
         clave = request.POST.get("data[1][value]")
@@ -74,8 +65,18 @@ def login(request):
         data_service = request_service.json()
         data = {"token": data_service["token"], "msg": data_service["msg"], "username" :data_service["username"] }
     return JsonResponse(data)
-    '''
 
+    '''
+     if request.method == 'POST':
+        usuario = request.POST.get("data[0][value]")
+        clave = request.POST.get("data[1][value]")
+        tipo_usuario = request.POST.get("data[2][value]")
+        service = usuario_service()
+        data = {"tipo": tipo_usuario, "password": clave, "usuario": usuario}
+        data_service = service.authenticate_user(tipo_usuario,clave,usuario)
+        data = {"token": data_service["token"], "msg": data_service["msg"], "username": data_service["username"]}
+    return JsonResponse(data)
+    '''
 def planes(request):
     t = loader.get_template('planes.html')
     context = {'list_var': ''}
