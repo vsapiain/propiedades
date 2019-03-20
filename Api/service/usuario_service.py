@@ -10,17 +10,18 @@ class usuario_service:
             token = ""
             msg = ""
             usuario = ""
-            obj_cuenta = cuenta_acceso_proxy.objects.filter(semail_cuenta_acceso=email).first()
-            if obj_cuenta == None:
-                msg = "Usuario no autorizado"
-            else:
-                if obj_cuenta.sclave_cuenta_acceso == clave:
-                    payload = {'usuario': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente), 'tipo' : '1' }
+            obj_cuenta = cuenta_acceso_proxy.objects.filter(semail_cuenta_acceso=email)
+            if obj_cuenta is not None:
+                if obj_cuenta.filter(sclave_cuenta_acceso = clave):
+                    payload = {'usuario': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente), 'tipo': '1'}
                     usuario = obj_cuenta.semail_cuenta_acceso
                     token = self.encode_token(payload)
                 else:
-                    usuario=""
+                    usuario = ""
                     msg = "Clave de acceso incorrecta"
+            else:
+                msg = "Usuario no autorizado"
+
             user_details = {}
             user_details['username'] = usuario
             user_details['token'] = token

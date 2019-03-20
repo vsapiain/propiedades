@@ -1,4 +1,5 @@
 from PropiedadesApp.models import  cuenta_acceso
+from PropiedadesApp.models.cuenta_acceso import CuentaAcceso
 from PropiedadesApp.proxy import cuenta_acceso_proxy
 import jwt
 import datetime
@@ -6,12 +7,9 @@ class usuario_service:
     def authenticate_user(self,tipo_usuario,password,usuario):
         token = ""
         msg = ""
-        usuario = ""
-        obj_cuenta = cuenta_acceso_proxy.objects.filter(semail_cuenta_acceso=usuario).first()
-        if obj_cuenta == None:
-            msg = "Usuario no autorizado"
-        else:
-            if obj_cuenta.sclave_cuenta_acceso == password:
+        try:
+            obj_cuenta = cuenta_acceso_proxy.objects.filter(semail_cuenta_acceso=usuario)
+            if obj_cuenta.get(sclave_cuenta_acceso=password):
                 payload = {'usuario': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente),
                            'tipo': '1'}
                 usuario = obj_cuenta.semail_cuenta_acceso
@@ -27,6 +25,8 @@ class usuario_service:
             else:
                 usuario = ""
                 msg = "Clave de acceso incorrecta"
+        except cuenta_acceso_proxy.DoesNotExist:
+            msg = "Usuario no autorizado"
         user_details = {}
         user_details['username'] = usuario
         user_details['token'] = token
