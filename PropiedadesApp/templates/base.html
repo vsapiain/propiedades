@@ -15,6 +15,7 @@
 		<link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal_responsive.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/waitMe.min.css' %}' type='text/css' media='all'/>
         {% block content_css %}{% endblock %}
 	</head>
 	<body>
@@ -35,7 +36,7 @@
 							<div class="omb_login">
 									<div class="row">
 										<div class="col-md-12">
-											<form  class="omb_loginForm" action="" method="post">
+                                           <form  class="omb_loginForm" action="" method="post">
 												<div class="panel panel-default">
 													<div class="panel-body">
 														<div class="row">
@@ -956,6 +957,7 @@
 		<script type='text/javascript' src='{% static 'js/pnotify.custom.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/search-card.js' %}'></script>
 		<script src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
+        <script type='text/javascript' src='{% static 'js/waitMe.min.js' %}'></script>
 		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e444e40ec0","applicationID":"66134438","transactionName":"MQQAYxBUV0pXAUxQWghOI1QWXFZXGRZdVEUKABZST11WVFMSWV5Q","queueTime":0,"applicationTime":2009,"atts":"HUMDFVhOREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 		<script type='text/javascript'>
 			$(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
@@ -1038,6 +1040,7 @@
 				$("#btn_autenticar").click(function(){
 				    event.preventDefault();
 				  	var form = $('.omb_loginForm');
+				  	run_waitMe($(".omb_loginForm"), 2, 'facebook');
 					$.post('/login/', {'data': form.serializeArray(), 'csrfmiddlewaretoken': '{{ csrf_token }}'}, function(data) {
 					    if (data.token == '' && data.msg.trim()!=''){
                             error_msg('Inicio sesión',data.msg,2500);
@@ -1049,6 +1052,7 @@
                             localStorage.token = data.token;
                             $('#pop-login').modal('hide');
                         }
+                        $('.omb_loginForm').waitMe('hide');
                     });
 				});
 
@@ -1263,6 +1267,38 @@
 				];
 			var tipo_propiedad = ["Departamento","Casa","Oficina","Local comercial","Sitio","Estacionamiento","Bodega"];
 			var modo_propiedad = ["Comprar","Arrendar","Arriendo por temporada"];
+			function run_waitMe(el, num, effect){
+                text = 'Please wait...';
+                fontSize = '';
+                switch (num) {
+                    case 1:
+                    maxSize = '';
+                    textPos = 'vertical';
+                    break;
+                    case 2:
+                    text = '';
+                    maxSize = 30;
+                    textPos = 'vertical';
+                    break;
+                    case 3:
+                    maxSize = 30;
+                    textPos = 'horizontal';
+                    fontSize = '18px';
+                    break;
+                }
+                el.waitMe({
+                    effect: effect,
+                    text: text,
+                    bg: 'rgba(255,255,255,0.7)',
+                    color: '#000',
+                    maxSize: maxSize,
+                    waitTime: -1,
+                    source: 'img.svg',
+                    textPos: textPos,
+                    fontSize: fontSize,
+                    onClose: function(el) {}
+                });
+            }
 			function set_max_price(min,max,ctl,icon=0){
                 if(min.val().trim()!="" && max.val().trim()!="" && min.val().trim()!="0"){
                     if (prop_price_validate(min,max)){

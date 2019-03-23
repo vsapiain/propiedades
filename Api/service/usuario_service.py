@@ -4,15 +4,13 @@ import jwt
 import datetime
 
 class usuario_service:
-
     def is_authenticated_particular(self, email, clave):
         try:
             token = ""
             msg = ""
             usuario = ""
-            obj_cuenta_temp = cuenta_acceso_proxy.objects.filter(semail_cuenta_acceso=email)
-            obj_cuenta = obj_cuenta_temp.first()
-            if obj_cuenta is not None:
+            try:
+                obj_cuenta = cuenta_acceso_proxy.objects.get(semail_cuenta_acceso=email)
                 if obj_cuenta.sclave_cuenta_acceso == clave:
                     payload = {'usuario': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente), 'tipo': '1'}
                     usuario = obj_cuenta.semail_cuenta_acceso
@@ -20,9 +18,8 @@ class usuario_service:
                 else:
                     usuario = ""
                     msg = "Clave de acceso incorrecta"
-            else:
+            except cuenta_acceso_proxy.DoesNotExist:
                 msg = "Usuario no autorizado"
-
             user_details = {}
             user_details['username'] = usuario
             user_details['token'] = token
