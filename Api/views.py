@@ -33,29 +33,26 @@ def authenticate_user(request):
         usuario = request.data['usuario']
         if tipo_usuario == "1":
             data = service.is_authenticated_particular(usuario,password)
-            if data["token"]!="":
-                return Response(data, status=status.HTTP_200_OK)
-            else:
-                return Response(data, status=status.HTTP_401_UNAUTHORIZED)
         else:
-            if tipo_usuario == 2:
-                #cliente_empresa = service.get_user_corredora(password, usuario)
-                pass
+            if tipo_usuario == "2":
+                data = service.is_authenticated_corredora(usuario,password)
             else:
-                #cliente_empresa = service.get_user_inmobiliaria(password, usuario)
-                pass
+                data = service.is_authenticated_inmobiliaria(usuario, password)
+        if data["token"] != "":
+            return Response(data, status=status.HTTP_200_OK)
+        else:
+            return Response(data, status=status.HTTP_401_UNAUTHORIZED)
 
 
-@api_view (['GET'])
+@api_view (['GET','POST'])
 @permission_classes([AllowAny, ])
 def verify_token(request):
     try:
-        if request.method == 'GET':
-            token = request.META['HTTP_AUTHORIZATION']
-            service = usuario_service()
-            token_data = service.decode_token(token)
-            return Response(token_data)
+        token = request.META['HTTP_AUTHORIZATION']
+        service = usuario_service()
+        token_data = service.decode_token(token)
+        return Response(token_data,status=status.HTTP_200_OK)
     except ValueError:
-        pass
+        return Response(token_data,status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 

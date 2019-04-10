@@ -36,14 +36,14 @@
                                     <div class="col-md-6">
                                         <div>
                                             <select class="show-menu-arrow " name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" data-live-search="true"  >
-                                                <option>Ubicación(cualquiera)</option>
+                                                <option>Ubicación</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="dropdown form-group">
                                             <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_price" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Precio(cualquiera)
+                                                Precio
                                             </button>
 
                                             <div id="ddl_mnu_price" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
@@ -82,7 +82,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_size" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                 Tamaño(cualquiera)
+                                                 Tamaño
                                             </button>
                                             <div id="ddl_mnu_size" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
                                               <button type="button" class="close margin-right-form" >&times;</button>
@@ -118,7 +118,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_otro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Más filtro(s)(opcional)
+                                                Más filtro(s)
                                             </button>
                                             <div id="ddl_mnu_otro" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                               <button type="button" class="close margin-right-form" >&times;</button>
@@ -1582,7 +1582,7 @@
     $(document).ready(function(){
         $('#cmb_modo_portada').multiselect({
             includeSelectAllOption: true,
-            nonSelectedText: 'Operación(cualquiera)',
+            nonSelectedText: 'Operación',
             nSelectedText: 'Elementos seleccionados',
             selectAllText: ' Seleccionar todo',
             allSelectedText: 'Elementos seleccionados',
@@ -1590,7 +1590,7 @@
         });
         $('#cmb_tipo_propiedad_portada').multiselect({
             includeSelectAllOption: true,
-            nonSelectedText: 'Tipo propiedad(cualquiera)',
+            nonSelectedText: 'Tipo propiedad',
             nSelectedText: 'Elementos seleccionados',
             selectAllText: ' Seleccionar todo',
             allSelectedText: 'Elementos seleccionados',
@@ -1602,9 +1602,7 @@
         add_mod_form();
         $("#spn_orden").text("Orden por fecha pubicación mayor a menor");
         $("#cmb_ubicacion_portada").val($("#cmb_ubicacion_portada option:first").val()).change();
-        //$("#cmb_tipo_propiedad_portada").val($("#cmb_tipo_propiedad_portada option:first").val()).change();
-        //$("#cmb_modo_portada").val($("#cmb_modo_portada option:first").val()).change();
-		$('.bs-searchbox input').attr('placeholder','Busqueda');
+      	$('.bs-searchbox input').attr('placeholder','Busqueda');
 		$("#btn_ok_price").click(function(){
 		    set_max_price($("#min-price"),$("#max-price"),$("#ddl_price"));
 		    var value = $("#chk_precio_filter").is(':checked') ? 1 : 0;

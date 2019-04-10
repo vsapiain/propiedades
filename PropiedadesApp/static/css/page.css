@@ -530,12 +530,13 @@ a:active,
     background-color: rgba(255,255,255,0.95);
 }
 .navi.main-nav > ul ul a {
-    color: #ffffff;
-    background-color:#004272;
+    /*color: #ffffff;*/
+    /*background-color:#004272;*/
+    color : #004272;
 }
 .navi.main-nav > ul ul a:hover {
     color: #ffffff;
-    background-color:#00AEEF;
+    background-color:#EB5300;
 }
 .navi.main-nav > ul ul li {
     border-color: #e6e6e6;
@@ -559,9 +560,9 @@ a:active,
 .header-section-4 .header-right .btn-default,
 .header-section-4 .account-dropdown > ul > li > a {
     font-family: Roboto;
-    font-size: 14px;
+    font-size: medium;
     font-weight: 500;
-    /*line-height: 18px;*/
+    line-height: 17px;
     text-transform: none;
     text-align: left;
 }
@@ -4480,10 +4481,6 @@ figure .thumb-caption .cap-social {
     line-height: 55px
 }
 
-.header-right {
-    text-align: right
-}
-
 .header-right>div {
     line-height: 60px
 }
@@ -4897,23 +4894,24 @@ figure .thumb-caption .cap-social {
 }
 
 .header-section-4 .logo {
-    line-height: 85px
+    line-height: 85px;
+    margin-left:15px;
 }
 
 .header-section-4 .header-left {
     float: left;
-    width: 75%
+    width: 70%
 }
 
 .header-section-4 .header-left .navi {
     float: left;
-    margin-left: 5%
+    margin-left: 30%
 }
 
 
 .header-section-4 .header-right {
     float: right;
-    width: 25%
+    width: 30%
 }
 
 .header-section-4 .header-right a {
@@ -4944,14 +4942,19 @@ figure .thumb-caption .cap-social {
 }
 
 .header-section-4 .navi>ul>li>a {
-    line-height: 90px;
+    /*line-height: 90px;*/
     color: #004274;
+    margin-top:15px;
+    margin-left:5px;
+    border-radius:2px;
 }
 
 .header-section-4 .navi>ul>li.active>a,
 .header-section-4 .navi>ul>li>a:active,
 .header-section-4 .navi>ul>li>a:hover {
-    color: rgba(0, 174, 239, .5)
+    color: #ffffff;
+    background-color:#EB5300;
+
 }
 
 .header-section-4 .account-action li {

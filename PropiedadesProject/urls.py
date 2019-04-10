@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^propiedades/detalle/(?P<propiedad_codigo>\w+)', views.detalle, name='detalle'),
     url(r'^login/', views.login, name='login'),
     url(r'^planes/', views.planes, name='planes'),
+    url(r'^verificar_usuario/', views.verificar_usuario, name='verificar_usuario'),
     url(r'^api/', include('Api.urls'))
     #url(r'^admin/', admin.site.urls),
 ]

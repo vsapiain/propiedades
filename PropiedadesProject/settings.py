@@ -53,6 +53,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    #'PropiedadesApp.middleware.token_middleware.tokenMiddleware',
 ]
 
 REST_FRAMEWORK = {
