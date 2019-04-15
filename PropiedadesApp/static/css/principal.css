@@ -264,7 +264,7 @@
     margin:5px;
 }
 .panel_filter{
-    background-color:#004171;
+    background-color:#323639;
     color:#fff;
     height: 45px;
 }
@@ -518,5 +518,3 @@ input:checked + .slider:before {
     color: #34495e
 }
 /* fin planes*/
-
-

@@ -8,12 +8,16 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/bootstrap-multiselect.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/pnotify.custom.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal_responsive.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/breadcrumbs.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/waitMe.min.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/wrapper.css' %}' type='text/css' media='all'/>
         {% block content_css %}{% endblock %}
 	</head>
 	<body>
@@ -30,11 +34,11 @@
 				</div>
 				<div class="modal-body login-block">
 					<div class="tab-content">
-						<div class="tab-pane fade in active">
+                        <div class="tab-pane fade in active">
 							<div class="omb_login">
 									<div class="row">
 										<div class="col-md-12">
-											<form class="omb_loginForm" action="/login" method="post">
+                                           <form  class="omb_loginForm" action="" method="post">
 												<div class="panel panel-default">
 													<div class="panel-body">
 														<div class="row">
@@ -46,32 +50,26 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div>
-                                                                    <div>
-                                                                        <label class="destacado_lbl">Datos inicio sesión <span id="login_tipo"></span></label>
-                                                                    </div>
-                                                                    <div class="input-group">
-                                                                      <label>(*)<span id="lbl_login_tipo"></span></label>
-                                                                      <input id="username" name="username" type="text" class="form-control" autocomplete="off" placeholder=" ">
-                                                                    </div>
+                                                                    <label class="destacado_lbl">Datos inicio sesión <span id="loginTipo"></span></label>
                                                                 </div>
-                                                                <div>
-                                                                    <div class="input-group">
-                                                                      <label>(*)Clave</label>
-                                                                      <input id="password" name="password" type="password" class="form-control" placeholder=" " >
-                                                                    </div>
+                                                                <div class="form-group">
+                                                                  <input id="username" name="username" type="text" class="form-control" autocomplete="off" placeholder=" ">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                  <input id="password" name="password" type="password" class="form-control" placeholder="(*)Clave" >
                                                                 </div>
                                                                 <div class="row margin-top-form-4">
-                                                                    <div class="col-md-12">
+                                                                    <div id="dv_tipo" class="col-md-12">
                                                                         <label class="col-md-3 pull-left control control--radio" >Persona
-                                                                            <input type="radio"  name="rd_opcion_tipo_persona_login" value="1" checked="checked"/>
+                                                                            <input type="radio"  name="rdOpcionTipoPersonaLogin" value="1" checked="checked"/>
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                         <label class="col-md-3 pull-left control control--radio" > Corredor
-                                                                            <input type="radio"  name="rd_opcion_tipo_persona_login" value="2" />
+                                                                            <input type="radio"  name="rdOpcionTipoPersonaLogin" value="2" />
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                         <label class="col-md-3 pull-left control control--radio" > Inmobiliaria
-                                                                            <input type="radio"  name="rd_opcion_tipo_persona_login" value="3" />
+                                                                            <input type="radio"  name="rdOpcionTipoPersonaLogin" value="3" />
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                     </div>
@@ -83,7 +81,7 @@
                                                                         </p>
                                                                     </div>
                                                                     <div class="col-md-12">
-                                                                        <button id="btn_autenticar" class="btn btn-lg btn-primary btn-block" type="button"><i class="fa fa-user" aria-hidden="true"></i> Iniciar sesión</button>
+                                                                        <button id="btnAutenticar" class="btn btn-lg btn-primary btn-block" ><i class="fa fa-user" aria-hidden="true"></i> Iniciar sesión</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -106,362 +104,330 @@
 									<div class="row">
 										<div class="panel panel-default">
 											<div class="panel-body">
-												<div class="col-md-5">
-                                                    <div class="card departure-card">
-                                                        <div class="card-block">
-													        <div id="dv_persona_plan">
-                                                                <!--
-                                                                <img id="img_persona" class="img_tipo_persona_responsive" src='{% static 'img/img_arr_persona.jpg' %}' alt="Accceso personas">
-                                                                <img id="img_corredor" class="img_tipo_persona_responsive" src='{% static 'img/img_corredor.jpg' %}' alt="Accceso personas">
-                                                                <img id="img_inmobiliaria" class="img_tipo_persona_responsive" src='{% static 'img/img_inmobiliaria.jpg' %}' alt="Accceso personas">
-                                                                -->
-                                                                <div class="col-md-12">
-                                                                    <label class="destacado_lbl">Planes particular</label>
-                                                                    <hr>
-                                                                </div>
-                                                                <div>
-																	<div class="col-md-12 destacado_lbl2 light_blue_label">
-																		BASE GRATIS
-																	</div>
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="card departure-card">
+                                                            <div class="card-block">
+                                                                <div id="dv_persona_plan">
                                                                     <div class="col-md-12">
-																		<ul>
-																			<li>Hasta 5 anuncios al mes.</li>
-																			<li>Primeros lugares en busqueda por 5 días.</li>
-																			<li>30 días en publicación.</li>
-																		</ul>
+                                                                        <label class="destacado_lbl">Planes particular</label>
+                                                                        <hr>
                                                                     </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan base
-                                                                            <input type="radio" id="rd_opcion_plan_persona" name="rd_opcion_plan_persona" value="1" checked="checked"/>
-                                                                            <div class="control__indicator"></div>
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div>
                                                                     <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                        PLATA $11.900 IVA INCLUIDO
+                                                                        BASE GRATIS
                                                                     </div>
-                                                                    <div class="col-md-12">
-                                                                        <ul>
-                                                                            <li>Hasta 12 anuncios en total al mes.</li>
-                                                                            <li>5 propiedades destacadas al mes.</li>
-																			<li>2 propiedades destacadas en página principal.</li>
-                                                                            <li>Primeros lugares en busqueda por 15 días.</li>
-                                                                            <li>30 días en publicación.</li>
-                                                                        </ul>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div><i class="fa fa-check" aria-hidden="true"></i> Hasta 5 anuncios al mes.</div>
+                                                                            <div><i class="fa fa-check" aria-hidden="true"></i> Primeros lugares en busqueda por 5 días.</div>
+                                                                            <div><i class="fa fa-check" aria-hidden="true"></i> 30 días en publicación.</div>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan base
+                                                                                <input type="radio" id="rdOpcionPlanPersona" name="rdOpcionPlanPersona" value="1" checked="checked"/>
+                                                                                <div class="control__indicator"></div>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-md-12">
-                                                                         <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan plata
-                                                                            <input type="radio" id="rd_opcion_plan_persona" name="rd_opcion_plan_persona" value="2" />
-                                                                            <div class="control__indicator"></div>
-                                                                        </label>
+                                                                    <div>
+                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label">
+                                                                            PLATA $11.900 IVA INCLUIDO
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Hasta 12 anuncios en total al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 5 propiedades destacadas al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 2 propiedades destacadas en página principal.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Primeros lugares en busqueda por 15 días.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 30 días en publicación.</div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                 <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan plata
+                                                                                    <input type="radio" id="rdOpcionPlanPersona" name="rdOpcionPlanPersona" value="2" />
+                                                                                    <div class="control__indicator"></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div>
-                                                                    <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                        ORO 25.000 IVA INCLUIDO
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <ul>
-                                                                            <li>Anuncios ilimitados.</li>
-                                                                            <li>15 propiedades destacadas al mes.</li>
-																			<li>3 propiedades destacadas en página principal.</li>
-                                                                            <li>Primeros lugares en busqueda por 20 días.</li>
-                                                                            <li>30 días en publicación.</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan oro
-                                                                            <input type="radio" id="rd_opcion_plan_persona" name="rd_opcion_plan_persona" value="3"/>
-                                                                            <div class="control__indicator"></div>
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div id="dv_corredor_plan">
-																<div class="col-md-12">
-                                                                    <label class="destacado_lbl">Planes corredor</label>
-                                                                    <hr>
-                                                                </div>
-                                                                <div>
-																	<div class="col-md-12 destacado_lbl2 light_blue_label">
-																		BASE GRATIS
-																	</div>
-                                                                    <div class="col-md-12">
-																		<ul>
-																			<li>Hasta 10 anuncios al mes.</li>
-																			<li>2 propiedades destacadas al mes.</li>
-																			<li>1 usuario.</li>
-																			<li>Panel actividades.</li>
-																		</ul>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan base
-                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="1" checked="checked"/>
-                                                                            <div class="control__indicator"></div>
-                                                                        </label>
+                                                                    <div>
+                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label ">
+                                                                            ORO 25.000 IVA INCLUIDO
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Anuncios ilimitados.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 15 propiedades destacadas al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 3 propiedades destacadas en página principal.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Primeros lugares en busqueda por 20 días.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 30 días en publicación.</div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan oro
+                                                                                    <input type="radio" id="rdOpcionPlanPersona" name="rdOpcionPlanPersona" value="3"/>
+                                                                                    <div class="control__indicator"></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
 
                                                                 </div>
-																<div>
-                                                                    <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                        PLATA $25.000 IVA INCLUIDO
-                                                                    </div>
+                                                                <div id="dv_corredor_plan">
                                                                     <div class="col-md-12">
-                                                                        <ul>
-                                                                            <li>Hasta 55 anuncios en total al mes.</li>
-																			<li>10 propiedades destacadas al mes.</li>
-																			<li>3 propiedades destacadas en página principal.</li>
-																			<li>Hasta 3 usuario.</li>
-																			<li>Sitio web propio.</li>
-																			<li>Panel actividades.</li>
-                                                                        </ul>
+                                                                        <label class="destacado_lbl">Planes corredor</label>
+                                                                        <hr>
                                                                     </div>
-                                                                    <div class="col-md-12">
-                                                                         <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan plata
-                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="2" />
-                                                                            <div class="control__indicator"></div>
-                                                                        </label>
+                                                                    <div>
+                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label">
+                                                                            BASE GRATIS
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  Hasta 10 anuncios al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  2 propiedades destacadas al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  1 usuario.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  Panel actividades.</div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan base
+                                                                                    <input type="radio" id="rdOpcionPlanCorredor" name="rdOpcionPlanCorredor" value="1" checked="checked"/>
+                                                                                    <div class="control__indicator"></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label">
+                                                                            PLATA $25.000 IVA INCLUIDO
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  Hasta 55 anuncios en total al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  10 propiedades destacadas al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  3 propiedades destacadas en página principal.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  Hasta 3 usuario.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  Sitio web propio.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>  Panel actividades.</div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                 <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan plata
+                                                                                    <input type="radio" id="rdOpcionPlanCorredor" name="rdOpcionPlanCorredor" value="2" />
+                                                                                    <div class="control__indicator"></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label ">
+                                                                            ORO 32.000 IVA INCLUIDO
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Hasta 155 anuncios en total al mes al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 25 propiedades destacadas al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 6 propiedades destacadas en página principal.</div>
+                                                                                <div> <i class="fa fa-check" aria-hidden="true"></i>Hasta 4 usuario.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Sitio web propio.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Panel actividades.</div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan oro
+                                                                                    <input type="radio" id="rdOpcionPlanCorredor" name="rdOpcionPlanCorredor" value="3"/>
+                                                                                    <div class="control__indicator"></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label ">
+                                                                            PLATINUM 48.000 IVA INCLUIDO
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Anuncios ilimitados.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 100 propiedades destacadas al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i>10 propiedades destacadas en página principal.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Hasta 6 usuario.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Sitio web propio.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Panel actividades.</div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan platinum
+                                                                                    <input type="radio" id="rdOpcionPlanCorredor" name="rdOpcionPlanCorredor" value="4"/>
+                                                                                    <div class="control__indicator"></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-																<div>
-                                                                    <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                        ORO 32.000 IVA INCLUIDO
-                                                                    </div>
+                                                                <div id="dv_inmobiliaria_plan">
                                                                     <div class="col-md-12">
-                                                                        <ul>
-                                                                           <li>Hasta 155 anuncios en total al mes al mes.</li>
-																			<li>25 propiedades destacadas al mes.</li>
-																			<li>6 propiedades destacadas en página principal.</li>
-																			<li>Hasta 4 usuario.</li>
-																			<li>Sitio web propio.</li>
-																			<li>Panel actividades.</li>
-                                                                        </ul>
+                                                                        <label class="destacado_lbl">PLANES INMOBILIARIA </label>
+                                                                        <hr>
                                                                     </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan oro
-                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="3"/>
-                                                                            <div class="control__indicator"></div>
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-																<div>
-                                                                    <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                        PLATINUM 48.000 IVA INCLUIDO
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <ul>
-                                                                            <li>Anuncios ilimitados.</li>
-																			<li>100 propiedades destacadas al mes.</li>
-																			<li>10 propiedades destacadas en página principal.</li>
-																			<li>Hasta 6 usuario.</li>
-																			<li>Sitio web propio.</li>
-																			<li>Panel actividades.</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan platinum
-                                                                            <input type="radio" id="rd_opcion_plan_corredor" name="rd_opcion_plan_corredor" value="4"/>
-                                                                            <div class="control__indicator"></div>
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div id="dv_inmobiliaria_plan">
-                                                                <div class="col-md-12">
-                                                                    <label class="destacado_lbl">Planes inmobiliaria </label>
-                                                                    <hr>
-                                                                </div>
-                                                                <div>
-																	<div class="col-md-12 destacado_lbl2 light_blue_label">
-																		BASE GRATIS
-																	</div>
-                                                                    <div class="col-md-12">
-																		<ul>
-																			<li>Hasta 20 anuncios al mes.</li>
-																			<li>2 propiedades destacadas al mes.</li>
-																			<li>1 usuario.</li>
-																			<li>Panel actividades.</li>
-																		</ul>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan base
-                                                                            <input type="radio" id="rd_opcion_plan_inmobiliaria" name="rd_opcion_plan_inmobiliaria" value="1" checked="checked"/>
-                                                                            <div class="control__indicator"></div>
-                                                                        </label>
+                                                                    <div>
+                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label">
+                                                                            BASE GRATIS
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Hasta 20 anuncios al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 2 propiedades destacadas al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 1 usuario.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Panel actividades.</div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan base
+                                                                                    <input type="radio" id="rdOpcionPlanInmobiliaria" name="rdOpcionPlanInmobiliaria" value="1" checked="checked"/>
+                                                                                    <div class="control__indicator"></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-												</div>
-												<div class="col-md-7">
-                                                    <div class="card departure-card">
-                                                        <div class="card-block">
-                                                            <div class="col-md-12">
-                                                                <label class="destacado_lbl">Darme de alta como</label>
-                                                                <hr>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div id="dv_tipo_persona">
-                                                                    <label class="col-md-4 control control--radio">Particular
-                                                                        <input type="radio" id="rd_opcion_tipo1" name="rd_opcion_tipo_persona" value="1" checked="checked"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                    <label class="col-md-4 control control--radio">Corredor
-                                                                        <input type="radio" id="rd_opcion_tipo2" name="rd_opcion_tipo_persona" value="2"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                    <label class="col-md-4 control control--radio">Inmobiliaria
-                                                                        <input type="radio" id="rd_opcion_tipo3" name="rd_opcion_tipo_persona" value="3"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                </div>
-                                                                <!--
-                                                                <div id="dv_tipo_persona_mob">
-                                                                    <label class="col-md-4 control control--radio">Particular
-                                                                        <input type="radio" id="rd_opcion_tipo1_mob" name="rd_opcion_tipo_persona_mob" value="1" checked="checked"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                    <label class="col-md-4 control control--radio">Corredor
-                                                                        <input type="radio" id="rd_opcion_tipo2_mob" name="rd_opcion_tipo_persona_mob" value="2"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                    <label class="col-md-4 control control--radio">Inmobiliaria
-                                                                        <input type="radio" id="rd_opcion_tipo3_mob" name="rd_opcion_tipo_persona_mob" value="3"/>
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                </div>
-                                                                -->
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <label class="destacado_lbl">Plan seleccionado</label>
-                                                                <hr>
-                                                            </div>
-                                                            <div class="col-md-12">
-																 <!--<label>Plan Base (Gratis)</label>-->
-																 <div class="form-group">
-																	<select  name = "cmb_plan_persona" id="cmb_plan_persona" class="form-control" data-live-search="false" >
-																		<option value="1">Plan Base (Gratis)</option>
-																		<option value="2">Plan Plata (11.900 IVA incluido) </option>
-																		<option value="3">Plan Oro (25.000 IVA incluido) </option>
-																	</select>
-																	<select  name = "cmb_plan_corredor" id="cmb_plan_corredor" class="form-control" data-live-search="false" >
-																		<option value="1">Plan Base (Gratis)</option>
-																		<option value="2">Plan Plata (25.000 IVA incluido) </option>
-																		<option value="3">Plan Oro (32.000 IVA incluido) </option>
-                                                                        <option value="4">Plan Platinum (48.000 IVA incluido) </option>
-																	</select>
-																 	<select  name = "cmb_plan_inmobiliaria" id="cmb_plan_inmobiliaria" class="form-control" data-live-search="false" >
-																		<option value="1">Plan Base (Gratis)</option>
-																		<option value="2">Plan Plata (11.900 IVA incluido) </option>
-																	</select>
-																 </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <label class="destacado_lbl">Datos registro inicio sesión</label>
-                                                                <hr>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label>(*)Correo electrónico</label>
-                                                                    <input id="username_reg" name="username_reg" type="text" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label>(*)Clave</label>
-                                                                    <input id="password_reg" name="password_reg" type="password" class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div id="dv_persona">
+                                                    <div class="col-md-7">
+                                                        <div class="card departure-card">
+                                                            <div class="card-block row">
                                                                 <div class="col-md-12">
-                                                                    <label class="destacado_lbl"><span id="titl_persona"></span></label>
+                                                                    <label class="destacado_lbl">Darme de alta como</label>
                                                                     <hr>
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="input-group">
-                                                                      <label>Nombre</label>
-                                                                      <input id="nombre_persona" name="nombre_persona" type="text" class="form-control" placeholder=" ">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="input-group">
-                                                                      <label>Apellido</label>
-                                                                      <input id="apellido_persona" name="apellido_persona" type="text" class="form-control" placeholder=" " >
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div id="dv_corredor">
                                                                 <div class="col-md-12">
-                                                                    <label class="destacado_lbl"><span id="titl_corredor"></span></label>
-                                                                    <hr>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>(*)Rut</label>
-                                                                        <input id="rut_corredor" name="rut_corredor" type="text" class="form-control">
+                                                                    <div id="dv_tipo_persona">
+                                                                        <label class="col-md-4 control control--radio">Particular
+                                                                            <input type="radio" id="rdOpcionTipo1" name="rdOpcionTipoPersona" value="1" checked="checked"/>
+                                                                            <div class="control__indicator"></div>
+                                                                        </label>
+                                                                        <label class="col-md-4 control control--radio">Corredor
+                                                                            <input type="radio" id="rdOpcionTipo2" name="rdOpcionTipoPersona" value="2"/>
+                                                                            <div class="control__indicator"></div>
+                                                                        </label>
+                                                                        <label class="col-md-4 control control--radio">Inmobiliaria
+                                                                            <input type="radio" id="rdOpcionTipo3" name="rdOpcionTipoPersona" value="3"/>
+                                                                            <div class="control__indicator"></div>
+                                                                        </label>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>(*)Nombre/Razón social</label>
-                                                                        <input id="nombre_corredor" name="nombre_corredor" type="text" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>Nombre Contacto</label>
-                                                                        <input id="contacto_corredor" name="contacto_corredor" type="text" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>Teléfono contacto</label>
-                                                                        <input id="fono_contacto_corredor" name="fono_contacto_corredor" type="text" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div id="dv_inmobiliaria">
-                                                                <div class="col-md-12">
-                                                                    <label class="destacado_lbl"><span id="titl_inmobiliaria"></span></label>
-                                                                    <hr>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>(*)Rut</label>
-                                                                        <input id="rut_inmobiliaria" name="rut_inmobiliaria" type="text" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>(*)Nombre/Razón social</label>
-                                                                        <input id="nombre_inmobiliaria" name="nombre_inmobiliaria" type="text" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>Nombre Contacto</label>
-                                                                        <input id="contacto_inmobiliaria" name="contacto_inmobiliaria" type="text" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group">
-                                                                        <label>Teléfono contacto</label>
-                                                                        <input id="fono_contacto_inmobiliaria" name="fono_contacto_inmobiliaria" type="text" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
 
-                                                            <div class="margin-top-form-2 col-md-6 pull-right">
-                                                                <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Crear cuenta</button>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <label class="pull-right">(*) Datos obligatorios</label>
-                                                            </div>
-                                                       </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <label class="destacado_lbl">Plan seleccionado</label>
+                                                                    <hr>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                     <!--<label>Plan Base (Gratis)</label>-->
+                                                                     <div class="form-group">
+                                                                        <select  name = "cmb_plan_persona" id="cmb_plan_persona" class="form-control" data-live-search="false" >
+                                                                            <option value="1">Plan Base (Gratis)</option>
+                                                                            <option value="2">Plan Plata (11.900 IVA incluido) </option>
+                                                                            <option value="3">Plan Oro (25.000 IVA incluido) </option>
+                                                                        </select>
+                                                                        <select  name = "cmb_plan_corredor" id="cmb_plan_corredor" class="form-control" data-live-search="false" >
+                                                                            <option value="1">Plan Base (Gratis)</option>
+                                                                            <option value="2">Plan Plata (25.000 IVA incluido) </option>
+                                                                            <option value="3">Plan Oro (32.000 IVA incluido) </option>
+                                                                            <option value="4">Plan Platinum (48.000 IVA incluido) </option>
+                                                                        </select>
+                                                                        <select  name = "cmb_plan_inmobiliaria" id="cmb_plan_inmobiliaria" class="form-control" data-live-search="false" >
+                                                                            <option value="1">Plan Base (Gratis)</option>
+                                                                            <option value="2">Plan Plata (11.900 IVA incluido) </option>
+                                                                        </select>
+                                                                     </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <label class="destacado_lbl">Datos registro inicio sesión</label>
+                                                                    <hr>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input id="usernameReg" name="usernameReg" type="text" class="form-control" placeholder="(*)Correo electrónico">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input id="password_reg" name="password_reg" type="password" class="form-control" placeholder="(*)Clave">
+                                                                    </div>
+                                                                </div>
+                                                                <div id="dv_persona">
+                                                                    <div class="col-md-12">
+                                                                        <label class="destacado_lbl"><span id="titl_persona"></span></label>
+                                                                        <hr>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-group">
+                                                                          <input id="nombre_persona" name="nombre_persona" type="text" class="form-control" placeholder="Nombre">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="input-group">
+                                                                          <input id="apellido_persona" name="apellido_persona" type="text" class="form-control" placeholder="Apellido" >
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="dv_corredor">
+                                                                    <div class="col-md-12">
+                                                                        <label class="destacado_lbl"><span id="titl_corredor"></span></label>
+                                                                        <hr>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <input id="rut_corredor" name="rut_corredor" type="text" class="form-control" placeholder="(*)Rut">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <input id="nombre_corredor" name="nombre_corredor" type="text" class="form-control" placeholder="(*)Nombre/Razón social">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <input id="contacto_corredor" name="contacto_corredor" type="text" class="form-control" placeholder="Nombre Contacto">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <input id="fono_contacto_corredor" name="fono_contacto_corredor" type="text" class="form-control" placeholder="Teléfono contacto">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="dv_inmobiliaria">
+                                                                    <div class="col-md-12">
+                                                                        <label class="destacado_lbl"><span id="titl_inmobiliaria"></span></label>
+                                                                        <hr>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <input id="rut_inmobiliaria" name="rut_inmobiliaria" type="text" class="form-control" placeholder="(*)Rut">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <input id="nombre_inmobiliaria" name="nombre_inmobiliaria" type="text" class="form-control" placeholder="(*)Nombre/Razón social">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <input id="contacto_inmobiliaria" name="contacto_inmobiliaria" type="text" class="form-control" placeholder="Nombre Contacto">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <input id="fono_contacto_inmobiliaria" name="fono_contacto_inmobiliaria" type="text" class="form-control" placeholder="Teléfono contacto">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="margin-top-form-2 col-md-6 pull-right">
+                                                                    <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i> Crear cuenta</button>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <label class="pull-right">(*) Datos obligatorios</label>
+                                                                </div>
+                                                           </div>
+                                                        </div>
                                                     </div>
-												</div>
+                                                </div>
 											</div>
 										</div>
 									</div>
@@ -502,52 +468,19 @@
 			</div>
 		</div>
 		<!--start section header-->
+        <!--
 		<header id="header-section" class="houzez-header-main header-section-4 nav-left houzez-user-logout" data-sticky="0">
 			<div class="container">
 				<divr class="header-left">
 					<div class="logo logo-desktop">
 						<a href="http://houzez01.favethemes.com/">
-						<img src='{% static 'img/logotipo_original_v4.jpg' %}' alt="logotipo">
+						<img src='{% static 'img/logotipo_original.png' %}' alt="logotipo">
 						</a>
 					</div>
 					<nav class="navi main-nav">
 					<ul id="main-nav" class="">
 						<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="/planes">Planes</a>
-							<!--
-							<ul class="sub-menu">
-							<li id="menu-item-1333" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1333"><a href="#">Map</a>
-							<ul class="sub-menu">
-								<li id="menu-item-954" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-194 current_page_item menu-item-954"><a href="http://houzez01.favethemes.com/">Map Standard</a></li>
-								<li id="menu-item-1260" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1260"><a href="http://houzez01.favethemes.com/?fullscreen=yes">Map Fullscreen</a></li>
-							</ul>
-							</li>
-							<li id="menu-item-1334" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1334"><a href="#">Parallax</a>
-							<ul class="sub-menu">
-								<li id="menu-item-1013" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1013"><a href="http://houzez01.favethemes.com/homepage-with-image-2/">Parallax Standard</a></li>
-								<li id="menu-item-2988" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2988"><a href="http://houzez01.favethemes.com/homepage-with-image-fullscreen/">Parallax Fullscreen</a></li>
-							</ul>
-							</li>
-							<li id="menu-item-1335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1335"><a href="#">Video</a>
-							<ul class="sub-menu">
-								<li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-953"><a href="http://houzez01.favethemes.com/homepage-with-video-2/">Video Standard</a></li>
-								<li id="menu-item-1261" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1261"><a href="http://houzez01.favethemes.com/homepage-with-video-2/?fullscreen=yes">Video Fullscreen</a></li>
-							</ul>
-							</li>
-							<li id="menu-item-1336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1336"><a href="#">Sliders</a>
-							<ul class="sub-menu">
-								<li id="menu-item-1065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1065"><a href="http://houzez01.favethemes.com/homepage-with-revolution-slider/">Slider Revolution</a></li>
-								<li id="menu-item-1017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1017"><a href="http://houzez01.favethemes.com/homepage-with-properties-slider/">Properties Slider</a></li>
-							</ul>
-							</li>
-							<li id="menu-item-1338" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1338"><a href="#">Splash</a>
-							<ul class="sub-menu">
-								<li id="menu-item-1274" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1274"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=video">Video Fullscreen</a></li>
-								<li id="menu-item-1273" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1273"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=slider">Slider Fullscreen</a></li>
-								<li id="menu-item-1275" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1275"><a href="http://houzez01.favethemes.com/splash-page/?splash_type=image">Image Fullscreen</a></li>
-							</ul>
-							</li>
-						</ul>
-							-->
+
 						</li>
 						<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
 							<ul class="sub-menu">
@@ -574,7 +507,67 @@
 				</div>
 			</div>
 		</header>
+        -->
 		<!--end section header-->
+        <header id="header-section" class="houzez-header-main header-section-4 nav-left houzez-user-logout" data-sticky="0">
+			<div class="container">
+               <div class="header-left">
+				    <div class="logo logo-desktop cd-logo">
+						<a href="http://houzez01.favethemes.com/">
+						<img src='{% static 'img/logotipo_original.png' %}' alt="logotipo">
+						</a>
+					</div>
+					<nav class="navi main-nav">
+					<ul id="main-nav" class="">
+						<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="/planes">Planes</a>
+						</li>
+						<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
+							<ul class="sub-menu">
+                                <div class="userOff">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a id="inicioInmobiliaria" href="#">Iniciar sesión</a></li>
+                                </div>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a></li>
+						    </ul>
+						</li>
+						<li id="menu-item-314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-314"><a href="#">Corredoras</a>
+							<ul class="sub-menu">
+                                <div class="userOff">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a id="inicioCorredora" href="#">Iniciar sesión</a></li>
+                                </div>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="#">Corredoras Destacadas</a></li>
+						    </ul>
+						</li>
+					</ul>
+					</nav>
+				</div>
+                <div class="header-right">
+                  	<div class="user userOff">
+						<a href="#" id="userInicio"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Inicia sesión</span></a>
+						<a href="#" id="user-registro"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Regístrate</span></a>
+                     	<a href="#" style="color:#ffffff;" class="radius-btn-md btn-secundary" >Publica gratis</a>
+					</div>
+				</div>
+                <nav class="cd-main-nav-wrapper userOn">
+                    <ul class="cd-main-nav">
+                        <li><a href="#0" class="cd-subnav-trigger"><i class="fa fa-user" aria-hidden="true"></i> <span id="usernameLogin"></span></a>
+                            <ul>
+                                <li class="go-back"><a href="#0">Menu</a></li>
+
+                                <li><a href="#0">Panel general</a></li>
+                                <li><a href="#0">Mis datos</a></li>
+                                <li><a href="#0">Servicios</a></li>
+                                <li><a href="#0">Cerrar Sesión</a></li>
+                                <li><a href="#0" class="placeholder">Placeholder</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+			</div>
+		</header>
+
 		<div class="header-mobile houzez-header-mobile " data-sticky="0">
 			<div class="container">
 				<!--start mobile nav-->
@@ -587,7 +580,7 @@
 				<div class="header-logo logo-mobile">
 					<a href="http://houzez01.favethemes.com/">
 					<!--<img src="http://houzez01.favethemes.com/wp-content/uploads/2016/03/logo-houzez-color.png" alt="Mobile logo">-->
-						<img src='{% static 'img/logotipo_original_v4.jpg' %}' alt="www.citypro.cl">
+						<img src='{% static 'img/logotipo_original.png' %}' alt="www.citypro.cl">
 					</a>
 				</div>
 				<div class="header-user">
@@ -846,6 +839,7 @@
 		<script type='text/javascript' src='{% static 'js/jquery-min.js' %}'></script>
   		<script type='text/javascript' src='{% static 'js/jquery-ui.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/bootstrap.min.js' %}'></script>
+		<script type='text/javascript' src='{% static 'js/bootstrap-multiselect.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/css3-animate-it.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/plugins.js' %}'></script>
 		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-includes/js/jquery/ui/datepicker.min.js'></script>
@@ -860,6 +854,9 @@
 		<script type='text/javascript' src='{% static 'js/pnotify.custom.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/search-card.js' %}'></script>
 		<script src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
+        <script type='text/javascript' src='{% static 'js/waitMe.min.js' %}'></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+        <script type='text/javascript' src='{% static 'js/wrapper.js' %}'></script>
 		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e444e40ec0","applicationID":"66134438","transactionName":"MQQAYxBUV0pXAUxQWghOI1QWXFZXGRZdVEUKABZST11WVFMSWV5Q","queueTime":0,"applicationTime":2009,"atts":"HUMDFVhOREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 		<script type='text/javascript'>
 			$(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
@@ -871,30 +868,36 @@
 			/* ]]> */
 		</script>
 		<script>
+		    var ciudades = [
+				  "Arica", "Camarones", "Putre", "General Lagos",
+				  "Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica",
+				  "Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena",
+				  "Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco",
+				  "La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado",
+				  "Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María", "Quilpué", "Limache", "Olmué", "Villa Alemana",
+				  "Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente", "Pichilemu", "La Estrella", "Litueche", "Marchihue", "Navidad", "Paredones", "San Fernando", "Chépica", "Chimbarongo", "Lolol", "Nancagua", "Palmilla", "Peralillo", "Placilla", "Pumanque", "Santa Cruz",
+				  "Talca", "ConsVtución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén", "Linares", "Colbún", "Longaví", "Parral", "ReVro", "San Javier", "Villa Alegre", "Yerbas Buenas",
+				  "Concepción", "Coronel", "Chiguayante", "Florida", "Hualqui", "Lota", "Penco", "San Pedro de la Paz", "Santa Juana", "Talcahuano", "Tomé", "Hualpén", "Lebu", "Arauco", "Cañete", "Contulmo", "Curanilahue", "Los Álamos", "Tirúa", "Los Ángeles", "Antuco", "Cabrero", "Laja", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel", "Alto Biobío", "Chillán", "Bulnes", "Cobquecura", "Coelemu", "Coihueco", "Chillán Viejo", "El Carmen", "Ninhue", "Ñiquén", "Pemuco", "Pinto", "Portezuelo", "Quillón", "Quirihue", "Ránquil", "San Carlos", "San Fabián", "San Ignacio", "San Nicolás", "Treguaco", "Yungay",
+				  "Temuco", "Carahue", "Cunco", "Curarrehue", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Melipeuco", "Nueva Imperial", "Padre las Casas", "Perquenco", "Pitrufquén", "Pucón", "Saavedra", "Teodoro Schmidt", "Toltén", "Vilcún", "Villarrica", "Cholchol", "Angol", "Collipulli", "Curacautín", "Ercilla", "Lonquimay", "Los Sauces", "Lumaco", "Purén", "Renaico", "Traiguén", "Victoria",
+				  "Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "La Unión", "Futrono", "Lago Ranco", "Río Bueno",
+				  "Puerto Montt", "Calbuco", "Cochamó", "Fresia", "FruVllar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue", "Río Negro", "San Juan de la Costa", "San Pablo", "Chaitén", "Futaleufú", "Hualaihué", "Palena",
+				  "Coihaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O’Higgins", "Tortel", "Chile Chico", "Río Ibáñez",
+				  "Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine",
+				  "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "TilVl", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor","Santiago"
+				];
+			var tipo_propiedad = ["Departamento","Casa","Oficina","Local comercial","Sitio","Estacionamiento","Bodega"];
+			var modo_propiedad = ["Comprar","Arrendar","Arriendo por temporada"];
+			var estado_vivienda = ["Nueva","Usada"];
 		    $(window).load(function() {
+		        verify();
                 $(".loader").fadeOut("slow");
             });
 			$(document).ready(function(){
-				$(".owl-nav").hide();
+			    init();
 				add_location();
 				load_keyword();
-				$("#cmb_plan_persona").show();
-				$("#cmb_plan_corredor").hide();
-				$("#cmb_plan_inmobiliaria").hide();
-				$("#dv_persona").show();
-				$("#img_persona").show();
-				$("#titl_persona").html("Datos registro persona");
-				$('#tipo_reg').val($('input[name=rd_opcion_tipo_persona]').parent().text());
-				$("#dv_corredor").hide();
-				$("#img_corredor").hide();
-				$("#dv_inmobiliaria").hide();
-				$("#img_inmobiliaria").hide();
-				$("#dv_corredor_plan").hide();
-				$("#dv_inmobiliaria").hide();
-				$("#dv_inmobiliaria_plan").hide();
-				$("#mode").prop('title', 'Seleccionar todos');
-				$("#mode_mob").prop('title', 'Seleccionar todos');
-				$("#type").prop('title', 'Seleccionar todos');
+				$(".owl-nav").hide();
+
 				$("#btnOcultar").click(function(){
 					$(".advance-fields").toggle('hide');
 					$(".advance-btn").removeClass("active");
@@ -908,28 +911,33 @@
 						$("#btn_publicacion").hide();
 					}
 				});
-				$("#btn_autenticar").click(function(){
-					var form = $('.omb_loginForm');
-					$.ajax({
-						url: '/login',
-						data: form.serialize(),
-						success: function (data) {
-							if (!data.is_authenticated && data.msg.trim()!=''){
-								error_msg('Inicio sesión',data.msg,2500);
-								$("#username").val("");
-								$("#password").val("");
-								$("#username").focus();
-							}else{
-								$('#pop-login').modal('hide');
-							}
-						}
-					});
-					return false;
+				$("#btnAutenticar").click(function(){
+                    event.preventDefault();
+				  	var form = $('.omb_loginForm');
+				  	run_waitMe($(".omb_loginForm"), 2, 'facebook');
+					$.post('/login/', {'data': form.serializeArray(), 'csrfmiddlewaretoken': '{{ csrf_token }}'}, function(data) {
+					    if (data.token == '' && data.msg.trim()!=''){
+                            error_msg('Inicio sesión',data.msg,2500);
+                            localStorage.removeItem(data.token);
+                            localStorage.removeItem(data.username);
+                            $("#username").val("");
+                            $("#password").val("");
+                            $("#username").focus();
+                        }else{
+                            localStorage.token = data.token;
+                            localStorage.username = data.username;
+                            $(".userOff").hide();
+                            $(".userOn").show();
+                            $('#pop-login').modal('hide');
+                            $('#usernameLogin').text(data.username);
+                        }
+                        $('.omb_loginForm').waitMe('hide');
+                    });
 				});
-				$("#rd_opcion_tipo1,#rd_opcion_tipo2,#rd_opcion_tipo3").click(function(){
-					$("#username_reg").focus();
+				$("#rdOpcionTipo1,#rdOpcionTipo2,#rdOpcionTipo3").click(function(){
+					$("#usernameReg").focus();
 				});
-				$("#user-inicio,#user-inicio-mob").click(function (event) {
+				$("#userInicio,#userInicioMob").click(function (event) {
 					$("#tab-inicio").show();
 					$("#tab-registro").hide();
 					$('#pop-login').modal('show');
@@ -937,82 +945,139 @@
 					$("#username").focus();
 					clear_form_login();
 				});
-				$("#user-registro,#user-inicio-mob").click(function (event) {
+				$("#user-registro,#userInicioMob").click(function (event) {
 					$("#tab-registro").show();
 					$("#tab-inicio").hide();
 					$("#pop-login").modal('show');
 					ActivTab("tab-registro");
-					$("#username_reg").focus();
+					$("#usernameReg").focus();
 					clear_form_login();
-					$("#modal_login").addClass("modal-lg");
+					$("#modalLogin").addClass("modal-lg");
 				});
-				$('input[name=rd_opcion_tipo_persona_login]').change(function() {
-					var login_tipo = "";
+				$("#inicioInmobiliaria").click(function (event) {
+				    var img_source = $(".img_sesion source");
+					var img_ctl = $(".img_sesion img");
+					$("#tab-inicio").show();
+					$("#tab-registro").hide();
+					$('#pop-login').modal('show');
+					ActivTab("tab-inicio");
+					$("#username").focus();
+					$('input:radio[name=rdOpcionTipoPersonaLogin]')[2].checked = true;
+					$("#dv_tipo").hide();
+					//$("#lblLoginTipo").text("Usuario");
+                    lbl_tipo = "Usuario";
+                    img_source.attr("srcset","/static/img/img_inmobiliaria.jpg");
+                    img_ctl.attr("src","/static/img/img_inmobiliaria.jpg");
+                    loginTipo = "inmobiliaria";
+                    $("#loginTipo").text(loginTipo);
+					//$("#lblLoginTipo").text(lbl_tipo);
+					$("#username").attr("placeholder","(*)"+lbl_tipo);
+				});
+				$("#inicioCorredora").click(function (event) {
+                    var img_source = $(".img_sesion source");
+					var img_ctl = $(".img_sesion img");
+              		$("#tab-inicio").show();
+					$("#tab-registro").hide();
+					$('#pop-login').modal('show');
+					ActivTab("tab-inicio");
+					$("#username").focus();
+					$('input:radio[name=rdOpcionTipoPersonaLogin]')[1].checked = true;
+					$("#dv_tipo").hide();
+                    loginTipo = "corredor";
+                    lbl_tipo = "Usuario";
+					img_source.attr("srcset","/static/img/img_corredor.jpg");
+                    img_ctl.attr("src","/static/img/img_corredor.jpg");
+                    loginTipo = "corredora";
+                    $("#loginTipo").text(loginTipo);
+					//$("#lblLoginTipo").text(lbl_tipo);
+					$("#username").attr("placeholder","(*)"+lbl_tipo);
+
+			    });
+				$("#userInicio,#userInicioMob").click(function (event) {
+					$("#tab-inicio").show();
+					$("#tab-registro").hide();
+					$('#pop-login').modal('show');
+					ActivTab("tab-inicio");
+					$("#username").focus();
+					clear_form_login();
+				});
+				$('input[name=rdOpcionTipoPersonaLogin]').change(function() {
+					var loginTipo = "";
 					var lbl_tipo = "";
 					var img_source = $(".img_sesion source");
 					var img_ctl = $(".img_sesion img");
 					if ($(this).val() == 1){
-					  	login_tipo = "persona";
+					  	loginTipo = "persona";
 						lbl_tipo = "Correo electrónico";
 						img_source.attr("srcset","/static/img/img_arr_persona.jpg");
                         img_ctl.attr("src","/static/img/img_arr_persona.jpg");
 					}else if ($(this).val() == 2){
-						login_tipo = "corredor";
+						loginTipo = "corredor";
 						lbl_tipo = "Usuario";
 						img_source.attr("srcset","/static/img/img_corredor.jpg");
                         img_ctl.attr("src","/static/img/img_corredor.jpg");
 					}else if ($(this).val() == 3){
-            			login_tipo = "inmobiliaria";
+            			loginTipo = "inmobiliaria";
 						lbl_tipo = "Usuario";
 						img_source.attr("srcset","/static/img/img_inmobiliaria.jpg");
                         img_ctl.attr("src","/static/img/img_inmobiliaria.jpg");
 					}
-					$("#login_tipo").text(login_tipo);
-					$("#lbl_login_tipo").text(lbl_tipo);
+					$("#loginTipo").text(loginTipo);
+					//$("#lblLoginTipo").text("(*)"+lbl_tipo);
+					$("#username").attr("placeholder","(*)"+lbl_tipo);
 					$("#username").val("");
 					$("#password").val("");
 					$("#username").focus();
 				});
-				$('input[name=rd_opcion_plan_persona]').change(function() {
+				$('input[name=rdOpcionPlanPersona]').change(function() {
 					select_opt_persona($(this).val());
 				});
-				$('input[name=rd_opcion_plan_corredor]').change(function() {
+				$('input[name=rdOpcionPlanCorredor]').change(function() {
 					select_opt_corredor($(this).val());
 				});
-				$('input[name=rd_opcion_plan_inmobiliaria]').change(function() {
+				$('input[name=rdOpcionPlanInmobiliaria]').change(function() {
 					select_opt_inmobiliaria($(this).val());
 				});
-				$('input[name=rd_opcion_tipo_persona]').change(function() {
-				   	$("#tipo_reg").val($(this).parent().text());
+				$('input[name=rdOpcionTipoPersona]').change(function() {
+				   	$("#tipoReg").val($(this).parent().text());
 				   	if ($(this).val() == 1){
 				   		$("#titl_persona").html("Datos registro persona");
+				   		$("#cmb_plan_persona").show();
+                        $("#cmb_plan_corredor").hide();
+                        $("#cmb_plan_inmobiliaria").hide();
 						$("#dv_corredor").hide();
-						$("#img_corredor").hide();
+						$("#dv_corredor_plan").hide();
 						$("#dv_inmobiliaria").hide();
 						$("#img_inmobiliaria").hide();
 						$("#dv_persona").show();
-						$("#img_persona").show();
+						$("#dv_persona_plan").show();
 					}
 					else if ($(this).val() == 2){
 						$("#titl_corredor").html("Datos registro corredor");
+						$("#cmb_plan_persona").hide();
+                        $("#cmb_plan_corredor").show();
+                        $("#cmb_plan_inmobiliaria").hide();
 						$("#dv_corredor").show();
-						$("#img_corredor").show();
+						$("#dv_corredor_plan").show();
 						$("#dv_inmobiliaria").hide();
-						$("#img_inmobiliaria").hide();
+						$("#dv_inmobiliaria_plan").hide();
 						$("#dv_persona").hide();
-						$("#img_persona").hide();
+						$("#dv_persona_plan").hide();
 					}
 					else if ($(this).val() == 3){
 						$("#titl_inmobiliaria").html("Datos registro inmobiliaria");
+						$("#cmb_plan_persona").hide();
+                        $("#cmb_plan_corredor").hide();
+                        $("#cmb_plan_inmobiliaria").show();
 						$("#dv_corredor").hide();
-						$("#img_corredor").hide();
+						$("#dv_corredor_plan").hide();
 						$("#dv_inmobiliaria").show();
-						$("#img_inmobiliaria").show();
+						$("#dv_inmobiliaria_plan").show();
 						$("#dv_persona").hide();
-						$("#img_persona").hide();
+						$("#dv_persona_plan").hide();
 					}
 				});
-				$('input[name=rd_opcion_tipo_persona]').change(function() {
+				$('input[name=rdOpcionTipoPersona]').change(function() {
 				   	$("#tipo_reg").val($(this).parent().text());
 				   	if ($(this).val() == 1){
 				   		$("#titl_persona").html("Datos registro persona");
@@ -1051,7 +1116,7 @@
 						$("#dv_persona_plan").hide();
 					}
 				});
-				$('input[name=rd_opcion_tipo_persona_mob]').change(function() {
+				$('input[name=rdOpcionTipoPersona_mob]').change(function() {
 				   	$("#tipo_reg").val($(this).parent().text());
 				   	if ($(this).val() == 1){
 				   		$("#titl_persona").html("Datos registro persona");
@@ -1074,7 +1139,7 @@
 						$("#dv_persona").hide();
 					}
 				});
-				$('input[name=rd_opcion_tipo_persona_mob]').change(function() {
+				$('input[name=rdOpcionTipoPersona_mob]').change(function() {
 				   	$("#tipo_reg").val($(this).parent().text());
 				   	if ($(this).val() == 1){
 				   		$("#titl_persona").html("Datos registro persona");
@@ -1099,28 +1164,108 @@
 				});
 				$('#cmb_plan_persona').change(function() {
 					var op = $(this).val();
-					$('input:radio[name=rd_opcion_plan_persona]')[op-1].checked = true;
+					$('input:radio[name=rdOpcionPlanPersona]')[op-1].checked = true;
 				});
 				$('#cmb_plan_corredor').change(function() {
 					var op = $(this).val();
-					$('input:radio[name=rd_opcion_plan_corredor]')[op-1].checked = true;
+					$('input:radio[name=rdOpcionPlanCorredor]')[op-1].checked = true;
 				});
 				$('#cmb_plan_inmobiliaria').change(function() {
 					var op = $(this).val();
-					$('input:radio[name=rd_opcion_plan_inmobiliaria]')[op-1].checked = true;
+					$('input:radio[name=rdOpcionPlanInmobiliaria]')[op-1].checked = true;
 				});
-				function select_opt_persona(op){
-				$("#cmb_plan_persona").val(op);
-				}
-				function select_opt_corredor(op){
-					$("#cmb_plan_corredor").val(op);
-				}
-				function select_opt_inmobiliaria(op){
-					$("#cmb_plan_inmobiliaria").val(op);
-				}
 				$("#location").val($("#location option:first").val()).change();
 				$('.bs-searchbox input').attr('placeholder','Busqueda');
 			})
+			function init(){
+			    $(".userOff").hide();
+                $(".userOn").hide();
+			    $("#cmb_plan_persona").show();
+				$("#cmb_plan_corredor").hide();
+				$("#cmb_plan_inmobiliaria").hide();
+				$("#dv_persona").show();
+				$("#img_persona").show();
+				$("#titl_persona").html("Datos registro persona");
+				$('#tipo_reg').val($('input[name=rdOpcionTipoPersona]').parent().text());
+				$("#dv_corredor").hide();
+				$("#img_corredor").hide();
+				$("#dv_inmobiliaria").hide();
+				$("#img_inmobiliaria").hide();
+				$("#dv_corredor_plan").hide();
+				$("#dv_inmobiliaria").hide();
+				$("#dv_inmobiliaria_plan").hide();
+				$("#mode").prop('title', 'Seleccionar todos');
+				$("#mode_mob").prop('title', 'Seleccionar todos');
+				$("#type").prop('title', 'Seleccionar todos');
+			}
+			function run_waitMe(el, num, effect){
+                text = 'Please wait...';
+                fontSize = '';
+                switch (num) {
+                    case 1:
+                    maxSize = '';
+                    textPos = 'vertical';
+                    break;
+                    case 2:
+                    text = '';
+                    maxSize = 30;
+                    textPos = 'vertical';
+                    break;
+                    case 3:
+                    maxSize = 30;
+                    textPos = 'horizontal';
+                    fontSize = '18px';
+                    break;
+                }
+                el.waitMe({
+                    effect: effect,
+                    text: text,
+                    bg: 'rgba(255,255,255,0.7)',
+                    color: '#000',
+                    maxSize: maxSize,
+                    waitTime: -1,
+                    source: 'img.svg',
+                    textPos: textPos,
+                    fontSize: fontSize,
+                    onClose: function(el) {}
+                });
+            }
+			function verify(){
+			    $.ajax
+                ({
+                  type: "GET",
+                  url: "/verificar_usuario",
+                  dataType: 'json',
+                  beforeSend : function(req) {
+                    if (localStorage.token === undefined || localStorage.token === null ){
+                        localStorage.removeItem(localStorage.token);
+                        localStorage.removeItem(localStorage.username);
+                    }
+                    req.setRequestHeader('Authorization', localStorage.token);
+                  },
+                  success: function (data){
+                    if (data.error == 1){
+                        $(".userOff").show();
+                        $(".userOn").hide();
+                        localStorage.removeItem(localStorage.token);
+                        localStorage.removeItem(localStorage.username);
+                    }else{
+                        $(".userOff").hide();
+                        $(".userOn").show();
+                        $('#usernameLogin').text(data.username);
+                    }
+                  }
+                });
+			}
+			function select_opt_persona(op){
+                $("#cmb_plan_persona").val(op);
+            }
+            function select_opt_corredor(op){
+                $("#cmb_plan_corredor").val(op);
+            }
+            function select_opt_inmobiliaria(op){
+                $("#cmb_plan_inmobiliaria").val(op);
+            }
 			var ciudades = [
 				  "Arica", "Camarones", "Putre", "General Lagos",
 				  "Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica",
@@ -1154,10 +1299,19 @@
 			function clear_form_login(){
 				$("#username").val("");
 				$("#password").val("");
-				$("#username_reg").val("");
+				$("#usernameReg").val("");
 				$("#password_reg").val("");
-				$("#rd_opcion_tipo1").trigger('click');
-				$("#tipo_reg").val($('input[name=rd_opcion_tipo_persona]').parent().text());
+				$("#rdOpcionTipo1").trigger('click');
+				$('input:radio[name=rdOpcionTipoPersonaLogin]')[0].checked = true;
+				$("#tipoReg").val($('input[name=rdOpcionTipoPersona]').parent().text());
+				$("#loginTipo").text("persona");
+				//$("#lblLoginTipo").text("Correo electrónico");
+                $("#username").attr("placeholder","(*)Correo electrónico");
+				var img_source = $(".img_sesion source");
+                var img_ctl = $(".img_sesion img");
+				img_source.attr("srcset","/static/img/img_arr_persona.jpg");
+                img_ctl.attr("src","/static/img/img_arr_persona.jpg");
+                $("#dv_tipo").show();
 			}
 			function validate_numeric(e){
 				tecla = (document.all) ? e.keyCode : e.which;
