@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f90a770-11db-4824-bf46-8048416b8046" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PropiedadesApp/static/img/logotipo_original.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PropiedadesApp/static/css/breadcrumbs.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Api/service/usuario_service.py" afterPath="$PROJECT_DIR$/Api/service/usuario_service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/static/css/page.css" afterPath="$PROJECT_DIR$/PropiedadesApp/static/css/page.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/static/css/principal.css" afterPath="$PROJECT_DIR$/PropiedadesApp/static/css/principal.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/static/css/wrapper.css" afterPath="$PROJECT_DIR$/PropiedadesApp/static/css/wrapper.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/static/js/wrapper.js" afterPath="$PROJECT_DIR$/PropiedadesApp/static/js/wrapper.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/templates/base.html" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/templates/base2.html" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/base2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/templates/index.html" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/templates/propiedades.html" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/propiedades.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PropiedadesApp/views.py" afterPath="$PROJECT_DIR$/PropiedadesApp/views.py" />
     </list>
     <ignored path="PropiedadesDjango.iws" />
@@ -38,8 +27,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1362">
-              <caret line="578" column="64" selection-start-line="578" selection-start-column="64" selection-end-line="578" selection-end-column="64" />
+            <state relative-caret-position="83">
+              <caret line="1050" column="15" selection-start-line="1050" selection-start-column="15" selection-end-line="1050" selection-end-column="15" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -70,17 +59,30 @@
                 <element signature="n#style#0;n#option#0;n#select#0;n#div#0;n#div#4;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#option#0;n#select#0;n#div#0;n#div#5;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1555303166707" expanded="false" signature="44804:46560" placeholder="..." />
+                <marker date="1555356819507" expanded="false" signature="44804:46560" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base2.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="706">
+              <caret line="89" column="30" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#71#0" expanded="true" />
+                <element signature="e#338#412#1" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/base2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8468">
-              <caret line="931" column="45" selection-start-line="931" selection-start-column="32" selection-end-line="931" selection-end-column="45" />
+            <state relative-caret-position="264">
+              <caret line="902" column="60" selection-start-line="902" selection-start-column="60" selection-end-line="902" selection-end-column="60" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -105,48 +107,6 @@
                 <element signature="n#style#0;n#option#0;n#select#0;n#div#0;n#div#5;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Api/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-              <folding>
-                <element signature="e#458#782#1" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="usuario_service.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Api/service/usuario_service.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cuenta_acceso_proxy.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Api/proxy/cuenta_acceso_proxy.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="propiedades.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/propiedades.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="14" column="85" selection-start-line="14" selection-start-column="85" selection-end-line="14" selection-end-column="85" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -217,12 +177,12 @@
         <option value="$PROJECT_DIR$/PropiedadesApp/static/js/wrapper.js" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/css/principal.css" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/css/page.css" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/views.py" />
         <option value="$PROJECT_DIR$/Api/service/usuario_service.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/css/wrapper.css" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/templates/base.html" />
         <option value="$PROJECT_DIR$/PropiedadesApp/templates/base2.html" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/css/breadcrumbs.css" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/views.py" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/base.html" />
       </list>
     </option>
   </component>
@@ -286,61 +246,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesDjango" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesDjango" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesDjango" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesDjango" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesDjango" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PropiedadesDjango" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
+              <option name="myItemId" value="PropiedadesProject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -635,6 +541,11 @@
           <url>file://$PROJECT_DIR$/PropiedadesApp/proxy/inmobiliaria_proxy.py</url>
           <option name="timeStamp" value="138" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/PropiedadesApp/views.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -643,7 +554,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="295" />
+      <option name="time" value="298" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -835,13 +746,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/middleware/token_middleware.py" />
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/static/css/breadcrumb.css" />
-    <entry file="file://$PROJECT_DIR$/PropiedadesProject/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/static/css/principal_responsive.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -938,47 +842,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Api/proxy/cuenta_acceso_proxy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="88" column="84" selection-start-line="88" selection-start-column="72" selection-end-line="88" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-            <element signature="e#338#412#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="e#458#782#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/static/css/wrapper.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="235" column="17" selection-start-line="235" selection-start-column="17" selection-end-line="235" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/service/usuario_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -991,10 +858,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Api/proxy/cuenta_acceso_proxy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="37" column="55" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+          <folding>
+            <element signature="e#458#782#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/service/usuario_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="e#54#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/propiedades.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="251" column="205" selection-start-line="251" selection-start-column="202" selection-end-line="251" selection-end-column="205" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="89" column="30" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
+            <element signature="e#338#412#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1362">
-          <caret line="578" column="64" selection-start-line="578" selection-start-column="64" selection-end-line="578" selection-end-column="64" />
+        <state relative-caret-position="83">
+          <caret line="1050" column="15" selection-start-line="1050" selection-start-column="15" selection-end-line="1050" selection-end-column="15" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1025,15 +939,23 @@
             <element signature="n#style#0;n#option#0;n#select#0;n#div#0;n#div#4;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#option#0;n#select#0;n#div#0;n#div#5;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1555303166707" expanded="false" signature="44804:46560" placeholder="..." />
+            <marker date="1555356819507" expanded="false" signature="44804:46560" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesProject/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/base2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8468">
-          <caret line="931" column="45" selection-start-line="931" selection-start-column="32" selection-end-line="931" selection-end-column="45" />
+        <state relative-caret-position="264">
+          <caret line="902" column="60" selection-start-line="902" selection-start-column="60" selection-end-line="902" selection-end-column="60" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1058,14 +980,6 @@
             <element signature="n#style#0;n#option#0;n#select#0;n#div#0;n#div#5;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/propiedades.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="85" selection-start-line="14" selection-start-column="85" selection-end-line="14" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>

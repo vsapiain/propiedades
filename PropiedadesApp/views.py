@@ -15,17 +15,12 @@ def index(request):
     token = request.session.get('token', '')
     request.META['HTTP_AUTHORIZATION'] = token
     respuesta = json.loads(verificar_usuario(request).content.decode())
-    activa = '0'
-    if respuesta['error']!=1 and token is not None and token!='':
-        activa = '1'
-    '''
-    token = request.session.get('token', '')
-    request.META['HTTP_AUTHORIZATION'] = token
-    respuesta = json.loads(verificar_usuario(request).content.decode())
     estado_login = '0'
     if respuesta['error'] != 1:
         estado_login = '1'
-    context = {'authenticated': estado_login}
+    '''
+    context = {'authenticated': 0}
+
     t = loader.get_template('index.html')
     return HttpResponse(t.render(context))
 
@@ -69,7 +64,7 @@ def login(request):
         if data_service["error"]==1:
             data = {"token": "", "error": "1", "msg": data_service["msg"],"username" :"" }
         else:
-            request.session['token'] = data_service["token"]
+            #request.session['token'] = data_service["token"]
             data = {"token": data_service["token"],"error":0, "msg": data_service["msg"], "username" :data_service["username"] }
     return JsonResponse(data)
 
@@ -92,6 +87,6 @@ def verificar_usuario(request):
             data = {"token": "","username":"" ,"error": "1", "msg": data_service["msg"]}
         else:
             data = {"token": data_service["token"],"username":data_service["username"],"error": data_service["error"],"msg": data_service["msg"]}
-            request.session['token'] = data_service["token"]
+            #request.session['token'] = data_service["token"]
 
     return JsonResponse(data)
