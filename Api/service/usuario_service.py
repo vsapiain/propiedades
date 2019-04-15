@@ -14,7 +14,7 @@ class usuario_service:
                 obj_cuenta = cuenta_acceso_proxy.objects.filter(nid_cliente__nid_tipo_cliente=tipo_cliente_paticular).\
                     filter(semail_cuenta_acceso=email).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
-                    payload = {'usuario': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente), 'tipo': str(tipo_cliente_paticular)}
+                    payload = {'username': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente), 'tipo': str(tipo_cliente_paticular)}
                     usuario = obj_cuenta.semail_cuenta_acceso
                     token = self.encode_token(payload)
                 else:
@@ -109,19 +109,19 @@ class usuario_service:
         token_details = {}
         try:
             token_data = jwt.decode(token, "secret_citypro")
-            token_details['usuario'] = token_data['user']['usuario']
+            token_details['username'] = token_data['user']['username']
             token_details['msg'] = ""
             token_details['error'] = "0"
             token_details['token'] = token
             return token_details
         except (jwt.ExpiredSignatureError):
-            token_details['usuario'] = ""
+            token_details['username'] = ""
             token_details['msg'] = "La sesión a caducado"
             token_details['error'] = "1"
             token_details['token'] = ""
             return token_details
         except (jwt.DecodeError):
-            token_details['usuario'] = ""
+            token_details['username'] = ""
             token_details['msg'] = "Token invalido"
             token_details['error'] = "1"
             token_details['token'] = ""

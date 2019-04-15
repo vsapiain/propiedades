@@ -209,6 +209,11 @@ a,
 .btn-primary.btn-trans{
     color: #00aeef;
 }
+.btn-panel{
+    color: #fff;
+    background-color: #808080;
+    border-color: #808080;
+ }
 .header-section-2 .header-top-call {
     color: #ffffff;
     background-color: #00aeef;
@@ -1887,7 +1892,7 @@ blockquote p {
 }
 
 .container {
-    padding: 0
+    /*padding: 0*/
 }
 
 .dropdown-menu>li>a {
@@ -18284,6 +18289,9 @@ hr {
 }
 .fa-filter{
     color:#40C2F3;
+}
+.fa-check{
+    color:#558B2F;
 }
 .multiselect  {
   text-align: left;

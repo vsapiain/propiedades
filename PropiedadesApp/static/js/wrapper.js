@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
             $('.logo a img').prop("src", "/static/img/logo_alt_v2.png")
         }
 	    else{
-	        $('.logo a img').prop("src", "/static/img/logotipo_original_v4.jpg")
+	        $('.logo a img').prop("src", "/static/img/logotipo_original.png")
 	    }
 
 	});

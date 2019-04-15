@@ -1580,23 +1580,7 @@
 {% block content_script %}
 <script>
     $(document).ready(function(){
-        $('#cmb_modo_portada').multiselect({
-            includeSelectAllOption: true,
-            nonSelectedText: 'Operación',
-            nSelectedText: 'Elementos seleccionados',
-            selectAllText: ' Seleccionar todo',
-            allSelectedText: 'Elementos seleccionados',
-            buttonWidth: '100%'
-        });
-        $('#cmb_tipo_propiedad_portada').multiselect({
-            includeSelectAllOption: true,
-            nonSelectedText: 'Tipo propiedad',
-            nSelectedText: 'Elementos seleccionados',
-            selectAllText: ' Seleccionar todo',
-            allSelectedText: 'Elementos seleccionados',
-            buttonWidth: '100%'
-        });
-
+        initLocal();
         add_location_form();
         add_type_form();
         add_mod_form();
@@ -1707,6 +1691,24 @@
             disabledClass: 'disabled'
         });
     });
+    function initLocal(){
+        $('#cmb_modo_portada').multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText: 'Operación',
+            nSelectedText: 'Elementos seleccionados',
+            selectAllText: ' Seleccionar todo',
+            allSelectedText: 'Elementos seleccionados',
+            buttonWidth: '100%'
+        });
+        $('#cmb_tipo_propiedad_portada').multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText: 'Tipo propiedad',
+            nSelectedText: 'Elementos seleccionados',
+            selectAllText: ' Seleccionar todo',
+            allSelectedText: 'Elementos seleccionados',
+            buttonWidth: '100%'
+        });
+    }
     function set_msg_order(){
         var text_order = "Orden por " + $("#cmb_orden option:selected").text().toLowerCase();
         if ($(".order-opt").children().hasClass("fa-sort-alpha-desc"))
@@ -1742,7 +1744,7 @@
             var newitemdesc = tipo_propiedad[i];
             $("#cmb_tipo_propiedad_portada").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
         }
-         $('#cmb_tipo_propiedad_portada').multiselect('rebuild');
+        $('#cmb_tipo_propiedad_portada').multiselect('rebuild');
     }
     function add_mod_form(){
         for (var i=0;i<modo_propiedad.length;i++){

@@ -238,7 +238,7 @@
     /* padding left = logo size + logo left position*/
     /*padding: 0 5% 0 calc(5% + 124px);*/
     background: transparent;
-    text-align: right;
+    text-align: center;
   }
   .cd-main-nav li {
     display: inline-block;

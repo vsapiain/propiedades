@@ -89,9 +89,9 @@ def verificar_usuario(request):
         request_service = requests.post(url="http://" + baseurl + "/api/verify_token/", data=token, headers=headers)
         data_service = request_service.json()
         if data_service["error"]=="1":
-            data = {"token": "", "error": "1", "msg": data_service["msg"]}
+            data = {"token": "","username":"" ,"error": "1", "msg": data_service["msg"]}
         else:
-            data = {"token": data_service["token"],"error": data_service["error"],"msg": data_service["msg"]}
+            data = {"token": data_service["token"],"username":data_service["username"],"error": data_service["error"],"msg": data_service["msg"]}
             request.session['token'] = data_service["token"]
 
     return JsonResponse(data)

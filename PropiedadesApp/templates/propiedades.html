@@ -2,17 +2,26 @@
 {% block title %}Arriendos y ventas de propiedades{% endblock %}
 {% block content %}
 <div class="container">
+    <!--
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Propiedades</li>
         </ol>
     </nav>
+    -->
+    <div id="crumbs">
+	<ul>
+		<li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+		<li ><a class = "current" href="#"><i class="fa fa-building" aria-hidden="true"></i> Propiedades</a></li>
+	</ul>
+    </div>
 </div>
 
 <div class="container">
     <div class="row margin-top-form-2">
         <div class="col-md-3">
+
             <div class="sticky border filtersContainer" id="filtersContainer">
                 <div class="filterContainer filtro p-4 bg-white">
                     <div class="panel_filter">
@@ -21,45 +30,31 @@
                     </div>
                 </div>
                 <div class="filterContainer filtro bg-white">
-                    <h5>Operación</h5>
                      <div class="form-group">
-                        <select  name = "cmb_modo_portada" id="cmb_modo_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-                            <option value="-1">cualquiera</option>
-                            <option value="1">opcion1</option>
-                            <option value="2">opcion2</option>
-                        </select>
+                          <select  name = "cmbOperacion" id="cmbOperacion" data-live-search="false" multiple="multiple">
+                          </select>
                      </div>
                 </div>
                 <div class="filterContainer filtro bg-white">
-                    <h5>Tipo de vivienda</h5>
                      <div class="form-group">
-                        <select  name = "cmb_tipo_propiedad_portada" id="cmb_tipo_propiedad_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-                            <option value="-1">cualquiera</option>
-                            <option value="1">opcion1</option>
-                            <option value="2">opcion2</option>
+                        <select  name = "cmbTipoPropiedad"  id="cmbTipoPropiedad"  data-live-search="false"  multiple="multiple" >
+                        </select>
+                    </div>
+                </div>
+                <div class="filterContainer filtro bg-white">
+                     <div class="form-group">
+                        <select  name = "cmbEstadoPropiedad"  id="cmbEstadoPropiedad"  data-live-search="false"   multiple="multiple" >
                         </select>
                     </div>
                 </div>
                 <div class="filterContainer filtro bg-white" id="provinciaFilter">
-                    <h5>Ubicación</h5>
                      <div class="form-group">
-                        <select  name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-                            <option value="-1">cualquiera</option>
-                            <option value="1">opcion1</option>
-                            <option value="2">opcion2</option>
+                        <select class="show-menu-arrow " name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
+                            <option selected>Ubicación</option>
                         </select>
                     </div>
                 </div>
-                <div class="filterContainer filtro bg-white">
-                    <h5>Estado de la vivienda</h5>
-                    <div class="form-group">
-                        <select  name = "cmb_estado" id="cmb_estado" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="">
-                            <option value="-1">cualquiera</option>
-                            <option value="1">opcion1</option>
-                            <option value="2">opcion2</option>
-                        </select>
-                    </div>
-                </div>
+
                 <div class="filterContainer filtro filtersExtras bg-white">
                     <label class="advance-trigger"><i style="color:#00aeef;" class="fa fa-plus-square"></i> Otras características</label>
                     <div class="clearfix"></div>
@@ -750,15 +745,16 @@
         </div>
     </div>
 </div>
-
-
-
-
 {% endblock %}
 {% block content_script %}
 <script>
     var posicionActual, posicionNueva = 0;
     $(document).ready(function(){
+        initLocal();
+        loadOperacion();
+        loadTipoPropiedad();
+        loadUbicacion();
+        loadEstadoPropiedad();
         if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
             var stickyTop = $('.sticky').offset().top; // returns number
             $(window).scroll(function() { // scroll event
@@ -767,7 +763,7 @@
                     $('.sticky').css({
                         position: 'fixed',
                         top: 0,
-                        minWidth: '295px',
+                        minWidth: '300px',
                         zIndex : 1
                     });
                 } else {
@@ -810,6 +806,64 @@
             disabledClass: 'disabled'
         });
     });
+    function initLocal(){
+        $('#cmbOperacion').multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText: 'Operación',
+            nSelectedText: 'Elementos seleccionados',
+            selectAllText: ' Seleccionar todo',
+            allSelectedText: 'Elementos seleccionados',
+            buttonWidth: '100%'
+        });
+        $('#cmbTipoPropiedad').multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText: 'Tipo propiedad',
+            nSelectedText: 'Elementos seleccionados',
+            selectAllText: ' Seleccionar todo',
+            allSelectedText: 'Elementos seleccionados',
+            buttonWidth: '100%'
+        });
+        $('#cmbEstadoPropiedad').multiselect({
+            includeSelectAllOption: true,
+            nonSelectedText: 'Estado propiedad',
+            nSelectedText: 'Elementos seleccionados',
+            selectAllText: ' Seleccionar todo',
+            allSelectedText: 'Elementos seleccionados',
+            buttonWidth: '100%'
+        });
+    }
+    function loadOperacion(){
+         for (var i=0;i<modo_propiedad.length;i++){
+            var newitemnum=i+1;
+            var newitemdesc = modo_propiedad[i];
+            $("#cmbOperacion").append('<option value="'+newitemnum+'">'+newitemdesc+'</option>');
+        }
+        $('#cmbOperacion').multiselect('rebuild');
+    }
+    function loadTipoPropiedad(){
+        for (var i=0;i<tipo_propiedad.length;i++){
+            var newitemnum=i+1;
+            var newitemdesc = tipo_propiedad[i];
+            $("#cmbTipoPropiedad").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
+        }
+        $('#cmbTipoPropiedad').multiselect('rebuild');
+    }
+    function loadUbicacion(){
+        for (var i=0;i<ciudades.length;i++){
+            var newitemnum=i+1;
+            var newitemdesc = ciudades[i];
+            $("#cmbUbicacion").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
+        }
+        $("#cmbUbicacion").selectpicker("refresh");
+    }
+    function loadEstadoPropiedad(){
+        for (var i=0;i<estado_vivienda.length;i++){
+            var newitemnum=i+1;
+            var newitemdesc = estado_vivienda[i];
+            $("#cmbEstadoPropiedad").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
+        }
+        $('#cmbEstadoPropiedad').multiselect('rebuild');
+    }
     function set_msg_order(){
         var text_order = "Orden por " + $("#cmb_orden option:selected").text().toLowerCase();
         if ($(".order-opt").children().hasClass("fa-sort-alpha-desc"))
