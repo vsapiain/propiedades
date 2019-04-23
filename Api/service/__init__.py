@@ -1,1 +1,1 @@
-from Api.service.usuario_service import usuario_service
+from Api.service.UsuarioService import UsuarioService

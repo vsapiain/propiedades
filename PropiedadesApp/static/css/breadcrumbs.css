@@ -9,7 +9,6 @@
 #crumbs ul li {
     display: inline;
 }
-
 #crumbs ul li a {
     display: block;
     float: left;
@@ -26,6 +25,9 @@
 #crumbs ul li a.current {
     background: #00AEEF;
 }
+#crumbs ul li a.current:hover {
+    background: #00AEEF;
+}
 #crumbs ul li a:after {
     content: "";
     border-top: 15px solid transparent;
@@ -39,7 +41,7 @@
     content: "";
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
-    border-left: 15px solid #d4f2ff;
+    border-left: 15px solid #F6F6F6;
     position: absolute; left: 0; top: 0;
 }
 
@@ -51,7 +53,7 @@
 }
 
 #crumbs ul li:last-child a {
-    padding-right: 80px;
+    /*padding-right: 80px;*/
     border-top-right-radius: 10px; border-bottom-right-radius: 10px;
 }
 #crumbs ul li:last-child a:after {

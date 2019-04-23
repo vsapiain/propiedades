@@ -1,32 +1,23 @@
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.template import Context, loader
 from django.http import JsonResponse
-from Api.service import usuario_service
-#from PropiedadesApp.service import usuario_service
+from Api.service import UsuarioService
 import requests,json
 from PropiedadesApp.models import CuentaAcceso
+from django.conf import settings
 
 def index(request):
     '''
     user_ = Usuario(Clave='123', Email='XXX')
     user_.save()
     '''
-    '''
-    token = request.session.get('token', '')
-    request.META['HTTP_AUTHORIZATION'] = token
-    respuesta = json.loads(verificar_usuario(request).content.decode())
-    estado_login = '0'
-    if respuesta['error'] != 1:
-        estado_login = '1'
-    '''
-    context = {'authenticated': 0}
-
+    context = {'is_public': '1'}
     t = loader.get_template('index.html')
     return HttpResponse(t.render(context))
 
 def propiedades(request):
-    t = loader.get_template('propiedades.html')
-    context = {'list_var': ''}
+    t = loader.get_template('propiedad/propiedades.html')
+    context = {'is_public': '1'}
     if request.method == "POST":
         filter_modo = request.POST.get("cmb_operacion_portada")
         filte_tipo = request.POST.get("cmb_tipo_propiedad_portada")
@@ -43,7 +34,7 @@ def propiedades(request):
     return HttpResponse(t.render(context))
 
 def detalle(request,propiedad_codigo=None):
-    t = loader.get_template('detalle.html')
+    t = loader.get_template('propiedad/detalle.html')
     context = {'list_var': ''}
     return HttpResponse(t.render(context))
 
@@ -51,12 +42,11 @@ def login(request):
     t = loader.get_template('index.html')
     msg = ""
     data = {"token": "", "msg": "", "username": ""}
-
     if request.method == 'POST':
         usuario = request.POST.get("data[0][value]")
         clave = request.POST.get("data[1][value]")
         tipo_usuario = request.POST.get("data[2][value]")
-        service = usuario_service()
+        service = UsuarioService()
         data = {"tipo": tipo_usuario,"password": clave,"usuario": usuario}
         baseurl = request.get_host()
         request_service = requests.post(url = "http://" + baseurl +"/api/authenticate_user/", data = data )
@@ -64,12 +54,11 @@ def login(request):
         if data_service["error"]==1:
             data = {"token": "", "error": "1", "msg": data_service["msg"],"username" :"" }
         else:
-            #request.session['token'] = data_service["token"]
             data = {"token": data_service["token"],"error":0, "msg": data_service["msg"], "username" :data_service["username"] }
     return JsonResponse(data)
 
 def planes(request):
-    t = loader.get_template('planes.html')
+    t = loader.get_template('general/planes.html')
     context = {'list_var': ''}
     return HttpResponse(t.render(context))
 
@@ -77,6 +66,18 @@ def verificar_usuario(request):
     data = ''
     if request.method == "GET":
         token = ''
+        url = ''
+        i=1
+        for item in request.META.get('HTTP_REFERER').split("/")[3:]:
+            if i==1:
+                url = item
+            else:
+                url = url + "/" + item
+            i+=1
+        publico = "1"
+        if url in settings.PAGE_PATH_IS_NOT_PUBLIC:
+            publico  = "0"
+
         if request.META.get('HTTP_AUTHORIZATION') is not None:
             token = request.META['HTTP_AUTHORIZATION']
         baseurl = request.get_host()
@@ -84,9 +85,17 @@ def verificar_usuario(request):
         request_service = requests.post(url="http://" + baseurl + "/api/verify_token/", data=token, headers=headers)
         data_service = request_service.json()
         if data_service["error"]=="1":
-            data = {"token": "","username":"" ,"error": "1", "msg": data_service["msg"]}
+            data = {"token": "","username":"" ,"error": "1", "msg": data_service["msg"],"publico" : publico }
         else:
-            data = {"token": data_service["token"],"username":data_service["username"],"error": data_service["error"],"msg": data_service["msg"]}
-            #request.session['token'] = data_service["token"]
-
+            data = {"token": data_service["token"],"username":data_service["username"],"error": data_service["error"],"msg": data_service["msg"],"publico" : publico}
     return JsonResponse(data)
+
+def editar_usuario(request):
+    t = loader.get_template('usuario/editar_usuario.html')
+    context = {'is_public': '0'}
+    return HttpResponse(t.render(context))
+
+def editar_cuenta(request):
+    t = loader.get_template('usuario/editar_cuenta.html')
+    context = {'is_public': '0'}
+    return HttpResponse(t.render(context))

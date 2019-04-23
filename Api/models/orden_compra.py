@@ -11,7 +11,7 @@ class OrdenCompra(models.Model):
     ncantidadcompra_orden_compra = models.IntegerField(db_column='NCantidadCompra_orden_compra', blank=True, null=True)  # Field name made lowercase.
     ddescuentoglobal_orden_compra = models.DecimalField(db_column='DDescuentoGlobal_orden_compra', max_digits=2, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     nestadoregistro_orden_compra = models.IntegerField(db_column='NEstadoRegistro_orden_compra', blank=True, null=True)  # Field name made lowercase.
-    nid_cliente = models.ForeignKey('Cliente', models.DO_NOTHING, db_column='NId_cliente', blank=True, null=True)  # Field name made lowercase.
+    nid_cliente = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='NId_cliente', blank=True, null=True)  # Field name made lowercase.
     nid_factura = models.ForeignKey('Factura', models.DO_NOTHING, db_column='NId_factura', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:

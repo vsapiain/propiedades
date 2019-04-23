@@ -3,7 +3,7 @@ from PropiedadesApp.models.cuenta_acceso import CuentaAcceso
 from PropiedadesApp.proxy import cuenta_acceso_proxy
 import jwt
 import datetime
-class usuario_service:
+class UsuarioService:
     def authenticate_user(self,tipo_usuario,password,usuario):
         token = ""
         msg = ""
