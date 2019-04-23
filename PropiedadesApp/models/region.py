@@ -9,4 +9,4 @@ class Region(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'Region'
+        db_table = 'region'

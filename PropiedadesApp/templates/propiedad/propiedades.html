@@ -2,31 +2,57 @@
 {% block title %}Arriendos y ventas de propiedades{% endblock %}
 {% block content %}
 <div class="container">
-    <!--
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Propiedades</li>
-        </ol>
-    </nav>
-    -->
-    <div id="crumbs">
-	<ul>
-		<li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
-		<li ><a class = "current" href="#"><i class="fa fa-building" aria-hidden="true"></i> Propiedades</a></li>
-	</ul>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="crumbs">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li ><a class = "current" href="#">Propiedades</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <button id="btnMap" type="button" class="margin-top-form  top-button pull-right"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i> Mapa</button>
+            <button id="btnList" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-list-ul -fa-lg" aria-hidden="true"></i> Lista</button>
+        </div>
     </div>
 </div>
 
 <div class="container">
-    <div class="row margin-top-form-2">
+    <div class="row margin-button-form-2">
         <div class="col-md-3">
-
+            <div class="userOn">
+                <div class="card-flat card-block">
+                   <div class="margin-left-form">
+                   <div>
+                        <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+                        <label class="contenido"><span class="usernameLogin"></span></label>
+                    </div>
+                    <div>
+                        <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                        <label class="contenido">Plan básico</label>
+                    </div>
+                   </div>
+                </div>
+            </div>
             <div class="sticky border filtersContainer" id="filtersContainer">
+                <div class="userOn filterContainer filtro p-4 bg-white">
+                    <div class="panel_filter">
+                        &nbsp;&nbsp;
+                        <label class="destacado_lbl margin-top-form-4">Propiedades</label>
+                    </div>
+                </div>
+                <div class="userOn filterContainer filtro bg-white">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">Publicar aviso</a>
+                        <a href="#" class="list-group-item list-group-item-action">Panel resumen</a>
+                        <a href="#" class="list-group-item list-group-item-action">Mis publicaciones</a>
+                    </div>
+                </div>
                 <div class="filterContainer filtro p-4 bg-white">
                     <div class="panel_filter">
                         &nbsp;&nbsp;
-                        <label class="destacado_lbl margin-top-form-3">Filtrar por</label>
+                        <label class="destacado_lbl margin-top-form-4">Filtrar por</label>
                     </div>
                 </div>
                 <div class="filterContainer filtro bg-white">
@@ -127,6 +153,7 @@
             </div>
         </div>
         <div class="col-md-9">
+            <div class="card-flat card-block">
             <div class="row">
                 <div class="col-md-7">
                     <div class="form-group no-margin">
@@ -157,7 +184,6 @@
 
                 </div>
             </div>
-
             <div>
                 <div class="page" id="page1">
                     <div class="row">
@@ -742,6 +768,7 @@
                 </div>
                 <ul id="pagination-footer" class="pagination pull-right"></ul>
             </div>
+            </div>
         </div>
     </div>
 </div>
@@ -805,8 +832,17 @@
             activeClass: 'active',
             disabledClass: 'disabled'
         });
+        $("#btnList").click(function(){
+            $(this).css("background","#DDDDDD");
+            $("#btnMap").css("background","#FFFFFF");
+        });
+        $("#btnMap").click(function(){
+            $(this).css("background","#DDDDDD");
+            $("#btnList").css("background","#FFFFFF");
+        });
     });
     function initLocal(){
+        $("#btnList").css("background","#DDDDDD");
         $('#cmbOperacion').multiselect({
             includeSelectAllOption: true,
             nonSelectedText: 'Operación',
@@ -831,6 +867,7 @@
             allSelectedText: 'Elementos seleccionados',
             buttonWidth: '100%'
         });
+
     }
     function loadOperacion(){
          for (var i=0;i<modo_propiedad.length;i++){

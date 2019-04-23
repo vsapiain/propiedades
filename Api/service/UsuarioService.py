@@ -3,18 +3,18 @@ from Api.proxy import  cuenta_acceso_proxy
 import jwt
 import datetime
 
-class usuario_service:
+class UsuarioService:
     def is_authenticated_particular(self, email, clave):
         try:
             token = ""
             msg = ""
             usuario = ""
-            tipo_cliente_paticular = 1
+            tipo_usuario_paticular = 1
             try:
-                obj_cuenta = cuenta_acceso_proxy.objects.filter(nid_cliente__nid_tipo_cliente=tipo_cliente_paticular).\
+                obj_cuenta = cuenta_acceso_proxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular).\
                     filter(semail_cuenta_acceso=email).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
-                    payload = {'username': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente), 'tipo': str(tipo_cliente_paticular)}
+                    payload = {'username': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_usuario), 'tipo': str(tipo_usuario_paticular)}
                     usuario = obj_cuenta.semail_cuenta_acceso
                     token = self.encode_token(payload)
                 else:
@@ -36,13 +36,13 @@ class usuario_service:
             token = ""
             msg = ""
             usuario = ""
-            tipo_cliente_corredora = 2
+            tipo_usuario_corredora = 2
             try:
-                obj_cuenta = cuenta_acceso_proxy.objects.filter(nid_cliente__nid_tipo_cliente=tipo_cliente_corredora). \
+                obj_cuenta = cuenta_acceso_proxy.objects.filter(nid_usuario__nid_tipo_cliente=tipo_usuario_corredora). \
                     filter(snombreusuario_cuenta_acceso=nombre_usuario).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
-                    payload = {'usuario': obj_cuenta.snombreusuario_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente),
-                               'tipo': str(tipo_cliente_corredora)}
+                    payload = {'usuario': obj_cuenta.snombreusuario_cuenta_acceso, 'id': str(obj_cuenta.nid_usuario),
+                               'tipo': str(tipo_usuario_corredora)}
                     usuario = obj_cuenta.snombreusuario_cuenta_acceso
                     token = self.encode_token(payload)
                 else:
@@ -68,13 +68,13 @@ class usuario_service:
             token = ""
             msg = ""
             usuario = ""
-            tipo_cliente_inmobiliaria = 3
+            tipo_usuario_inmobiliaria = 3
             try:
-                obj_cuenta = cuenta_acceso_proxy.objects.filter(nid_cliente__nid_tipo_cliente=tipo_cliente_inmobiliaria). \
+                obj_cuenta = cuenta_acceso_proxy.objects.filter(nid_cliente__nid_tipo_cliente=tipo_usuario_inmobiliaria). \
                     filter(snombreusuario_cuenta_acceso=nombre_usuario).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
-                    payload = {'usuario': obj_cuenta.snombreusuario_cuenta_acceso, 'id': str(obj_cuenta.nid_cliente),
-                               'tipo': str(tipo_cliente_inmobiliaria)}
+                    payload = {'usuario': obj_cuenta.snombreusuario_cuenta_acceso, 'id': str(obj_cuenta.nid_usuario),
+                               'tipo': str(tipo_usuario_inmobiliaria)}
                     usuario = obj_cuenta.snombreusuario_cuenta_acceso
                     token = self.encode_token(payload)
                 else:

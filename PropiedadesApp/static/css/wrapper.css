@@ -135,6 +135,9 @@
   -moz-transition: -moz-transform 0.3s, opacity 0.3s;
   transition: transform 0.3s, opacity 0.3s;
 }
+#MenuLogin a:hover{
+    color: #004274;
+}
 .cd-main-nav li ul {
   position: absolute;
   top: 0;
@@ -148,6 +151,9 @@
   -ms-transform: translateX(260px);
   -o-transform: translateX(260px);
   transform: translateX(260px);
+}
+.cd-main-nav a:hover {
+    color:#fff;
 }
 .cd-main-nav.nav-is-visible {
   visibility: visible;
@@ -163,8 +169,6 @@
   -o-transform: translateX(-100%);
   transform: translateX(-100%);
   opacity: 0;
-
-
 }
 .cd-main-nav.moves-out > li > ul {
   -webkit-transform: translateX(0);
@@ -249,7 +253,7 @@
     display: inline-block;
     padding: .8em;
     line-height: 1;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     border-bottom: none;
     /* Prevent .cd-subnav-trigger flicker is Safari */
     -webkit-transform: translateZ(0);
@@ -282,6 +286,7 @@
   }
   .cd-main-nav .cd-subnav-trigger:hover {
     border-color: rgba(0, 66, 116, 0.4);
+    color:#fff;
   }
   .cd-main-nav .cd-subnav-trigger::before, .cd-main-nav .cd-subnav-trigger::after {
     top: 22px;

@@ -3,7 +3,10 @@
     background-color: #EB5300;
     border-color: #EB5300;
 }
-
+.btn-large {
+    padding: 9px 27px;
+    font-size: 16px;
+}
 .omb_login .omb_authTitle {
     text-align: center;
 	line-height: 300%;
@@ -58,7 +61,7 @@
     background-color: #FCFCFC;
 }
 .destacado_lbl{
-    font-size:18px;
+    font-size:15px;
     font-weight: 500;
 }
 .destacado_lbl2{
@@ -72,6 +75,12 @@
 .destacado_item{
     font-weight: bolder;
     font-size: medium;
+}
+.titulo{
+    font-weight: bolder;
+    padding:10px;
+    font-size: large;
+    border-bottom: 1px solid #E4E4E4;
 }
 .contenido{
     font-size : medium;
@@ -166,7 +175,10 @@
     margin-top:15px;
 }
 .margin-button-form{
-    margin-button:5px;
+    margin-bottom:5px;
+}
+.margin-button-form-2{
+    margin-bottom:10px;
 }
 .margin-top-form-2{
     margin-top:20px;
@@ -227,12 +239,10 @@
     max-width: 100%;
     min-height: 350px;
 }
-.login-tabs .fa-user-circle-o{
+.login-tabs .fa-user-circle-o, .login-tabs .fa-pencil{
     color: #004175;
 }
-.login-tabs .fa-pencil{
-    color: #004175;
-}
+
 .box_list{
     border : 1px solid #ccc;
     background-color:#fff;
@@ -261,12 +271,11 @@
     background-color: #fff;
 }
 .filtersContainer  .filtro{
-    margin:5px;
+    margin:4px;
 }
 .panel_filter{
     background-color:#323639;
     color:#fff;
-    height: 45px;
 }
 /* Item de lista */
 .margin_list{
@@ -420,6 +429,18 @@ input:checked + .slider:before {
     flex-direction: column;
     background-color: #fff;
     border: 1px solid #dbdbdb;
+    border-radius: .2857142857rem;
+}
+.card-flat {
+    margin: 4px;
+    border: none;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ccc;
     border-radius: .2857142857rem;
 }
 .card-block {

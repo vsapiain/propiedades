@@ -3,22 +3,12 @@ from rest_framework.decorators import api_view,permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 #from rest_framework.views import APIView
-from Api.service import usuario_service
+from Api.service import UsuarioService
 #from PropiedadesApp.proxy import  cuenta_acceso_proxy
 #from .serializers import UsuarioSerializer
 #from rest_framework_jwt.settings import api_settings
 #import jwt,json
 
-'''
-@api_view (['GET'])
-def user_list(request):
-    if request.method == 'GET':
-        service = usuario_service()
-        usuarios = service.list_users()
-        serializer = UsuarioSerializer(usuarios, many=True)
-        #obj_usuario = usuario_prox.get_by_email('admin@gmail.com')
-    return Response(serializer.data)
-'''
 @api_view (['GET'])
 def user_list(request):
     pass
@@ -27,7 +17,7 @@ def user_list(request):
 @permission_classes([AllowAny, ])
 def authenticate_user(request):
     if request.method == 'POST':
-        service = usuario_service()
+        service = UsuarioService()
         tipo_usuario = request.data['tipo']
         password = request.data['password']
         usuario = request.data['usuario']
@@ -49,7 +39,7 @@ def authenticate_user(request):
 def verify_token(request):
     try:
         token = request.META['HTTP_AUTHORIZATION']
-        service = usuario_service()
+        service = UsuarioService()
         token_data = service.decode_token(token)
         return Response(token_data,status=status.HTTP_200_OK)
     except ValueError:

@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
 		$('.cd-main-nav').toggleClass('moves-out');
 
 	    if ($('.cd-main-nav').hasClass('moves-out')){
-            $('.logo a img').prop("src", "/static/img/logo_alt_v2.png")
+            $('.logo a img').prop("src", "/static/img/logo_alt_v3.png")
         }
 	    else{
 	        $('.logo a img').prop("src", "/static/img/logotipo_original.png")
