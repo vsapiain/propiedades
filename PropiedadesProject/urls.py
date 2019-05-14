@@ -20,11 +20,13 @@ urlpatterns = [
     url(r'^$', views.index, name='home'),
     url(r'^propiedades/$', views.propiedades, name='propiedades'),
     url(r'^propiedades/(?P<propiedad_codigo>\w+)', views.detalle, name='detalle'),
-    url(r'^login/', views.login, name='login'),
     url(r'^planes/', views.planes, name='planes'),
     url(r'^usuarios/generales/editar', views.editar_usuario, name='editar_usuario'),
     url(r'^usuarios/cuentas/editar', views.editar_cuenta, name='editar_cuenta'),
     url(r'^verificar_usuario/', views.verificar_usuario, name='verificar_usuario'),
-    url(r'^api/', include('Api.urls'))
+    url(r'^api/', include('Api.urls')),
+    url(r'', include('PropiedadesApp.urls')),
+    #url(r'^login/', views.login, name='login'),
+    #url(r'^usuarios/get', views.obtener_usuario, name='obtener_usuario'),
     #url(r'^admin/', admin.site.urls),
 ]

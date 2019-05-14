@@ -887,8 +887,8 @@
     }
     function loadUbicacion(){
         for (var i=0;i<ciudades.length;i++){
-            var newitemnum=i+1;
-            var newitemdesc = ciudades[i];
+            var newitemnum=ciudades[i]['fields'].nid_comuna;
+            var newitemdesc = ciudades[i]['fields'].snombre_comuna;
             $("#cmbUbicacion").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
         }
         $("#cmbUbicacion").selectpicker("refresh");

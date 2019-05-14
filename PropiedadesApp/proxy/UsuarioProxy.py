@@ -1,7 +1,7 @@
 from PropiedadesApp.models import Usuario
 from PropiedadesApp.manager.usuario_manager import usuario_manager
 
-class usuario_proxy(Usuario):
+class UsuarioProxy(Usuario):
     objects = usuario_manager()
     authenticated = False
 
