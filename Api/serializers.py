@@ -1,7 +1,7 @@
 #from PropiedadesApp.models.usuario_model import Usuario
 from PropiedadesApp.models import CuentaAcceso
 
-from PropiedadesApp.proxy.usuario_proxy import  usuario_proxy
+from PropiedadesApp.proxy.UsuarioProxy import  UsuarioProxy
 from rest_framework import serializers
 
 class UsuarioSerializer(serializers.ModelSerializer):

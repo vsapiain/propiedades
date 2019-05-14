@@ -21,7 +21,7 @@
 </div>
 <div class="container">
     <div class="row margin-button-form-2">
-        <div class="col-md-3">
+         <div class="col-md-3">
            <div>
                 <div class="card-flat card-block ">
                    <div class="margin-left-form">
@@ -33,91 +33,72 @@
                         <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                         <label class="contenido">Plan básico</label>
                     </div>
-
                    </div>
                 </div>
             </div>
             <div class="sticky border filtersContainer" id="filtersContainer">
-                 <div class="userOn filterContainer filtro p-4 bg-white">
+                <div class="userOn filterContainer filtro p-4 bg-white">
                     <div class="panel_filter">
                         &nbsp;&nbsp;
                         <label class="destacado_lbl margin-top-form-4">Cuenta de usuario</label>
                     </div>
+                </div>
+                <div class="userOn filterContainer filtro bg-white">
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action">
                             Publicar aviso
                         </a>
                         <a href="/propiedades/" class="list-group-item list-group-item-action">Buscar propiedad</a>
-                        <a href="/propiedades/" class="list-group-item list-group-item-action">Cambiar contraseña</a>
-                        <a href="/propiedades/" class="list-group-item list-group-item-action">Dar de baja usuario</a>
                     </div>
-
                 </div>
             </div>
         </div>
-        <div class="col-md-9">
-            <div class="card-flat departure-card card-block ">
-                   <label class="titulo"><i class="fa fa-user" aria-hidden="true"></i> Cuenta de usuario</label>
+         <div class="col-md-9">
+               <div class="card-flat departure-card card-block ">
+                   <label class="titulo"><i class="fa fa-user" aria-hidden="true"></i> Mi configuración-cuenta de usuario</label>
                    <br>
-                   <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="txtRut">Rut</label>
-                                    <input class="form-control" name="txtRut" id="txtRut" placeholder="">
-                                </div>
+                  <form id="formDataAccount" method="post">
+                    <input type="hidden" id = "tokenHd" name="tokenHd">
+                    <input type="hidden" id = "hdEmail" name="hdEmail">
+                    <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
+                    <div class="form-row">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label for="txtClaveActual" class="titulo-campo-form">Contraseña actual</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                <input class="form-control" name="txtClaveActual" id="txtClaveActual" type="password" data-minlength="6"  data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="txtNombre">Nombre</label>
-                            <input class="form-control" name="txtNombre" id="txtNombre" placeholder="">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label for="txtClave1" class="titulo-campo-form">Nueva contraseña</label>
+                                <input class="form-control" name="txtClave1" id="txtClave1" type="password" data-minlength="6" data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="txtApellido">Apellido</label>
-                            <input class="form-control" name="txtApellido" id="txtApellido" placeholder="">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label for="txtClave2" class="titulo-campo-form">Repetir nueva contraseña</label>
+                                <input class="form-control" name="txtClave2" id="txtClave2" type="password" data-minlength="6" data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-12">
-                            <label for="txtDireccion">Dirección(calle,N°,depto., población)</label>
-                            <!--calle,N°,depto., población-->
-                            <input class="form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                        <div class="row">
+                            <div class="col-md-12">
+                               <hr/>
+                            </div>
+                            <div class="form-group col-md-3">
+                               <button type="submit" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
+                            </div>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtComuna">Comuna</label>
-                            <input class="form-control" name="txtComuna" id="txtComuna" placeholder="">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtCiudad">Ciudad</label>
-                            <input class="form-control" name="txtCiudad" id="txtCiudad" placeholder="">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtRegion">Región</label>
-                            <input class="form-control" name="txtRegion" id="txtRegion" placeholder="">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtTelefono">Teléfono</label>
-                            <input class="form-control" name="txtTelefono" id="txtTelefono" placeholder="">
-                        </div>
-                       <div class="form-group col-md-4">
-                            <label for="txtEmail">Email contacto</label>
-                            <input class="form-control" name="txtEmail" id="txtEmail" placeholder="">
-                            <label class="control control--checkbox">Usar Email cuenta de usuario
-                                <input type="checkbox" id="chkOpcion" name="chkOpcion" checked  >
-                                <div class="control__indicator"></div>
-                            </label>
-                       </div>
 
-                       <div class="col-md-12">
-                           <hr/>
-                       </div>
-                       <div class="form-group col-md-3">
-                           <button type="submit" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
-                       </div>
                    </div>
-            </div>
-        </div>
+                   </form>
+               </div>
+         </div>
     </div>
 </div>
-{% endblock %}
+ {% endblock %}
 {% block content_script %}
 <script>
     $(document).ready(function(){
@@ -127,7 +108,19 @@
         });
     });
     function initLocal(){
+        var activ_msg = '{{activar_msg}}';
+        if (activ_msg == '1'){
+            var msg = '{{msg}}';
+            var error = '{{error}}';
+            if (error != '1')
+                ok_msg("Datos generales",msg,1500);
+            else
+                error_msg("Error",msg,2500);
+        }
+        $("#tokenHd").val(localStorage.token);
         $("#btnCuenta").css("background","#DDDDDD");
+        $("#txtClaveActual").focus();
+        $('#formDataAccount').validator();
     }
 </script>
 {% endblock %}

@@ -1,6 +1,6 @@
 from PropiedadesApp.models import Usuario
 
-class inmobiliaria_proxy(Usuario):
+class InmobiliariaProxy(Usuario):
 
     class Meta:
         proxy = True

@@ -82,6 +82,10 @@
     font-size: large;
     border-bottom: 1px solid #E4E4E4;
 }
+.titulo-campo-form{
+    font-weight: bold;
+    font-size: 14px;
+}
 .contenido{
     font-size : medium;
 }

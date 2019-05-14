@@ -5,7 +5,7 @@ class cuenta_acceso_manager(models.Manager):
     def get_queryset(self):
         return super(cuenta_acceso_manager, self).get_queryset()
 
-class cuenta_acceso_proxy(CuentaAcceso):
+class CuentaAccesoProxy(CuentaAcceso):
     authenticated = False
     objects = cuenta_acceso_manager()
 

@@ -1,9 +1,12 @@
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from django.template import Context, loader
+from django.http import HttpResponse
+from django.template import  loader
 from django.http import JsonResponse
-from Api.service import UsuarioService
-import requests,json
-from PropiedadesApp.models import CuentaAcceso
+from PropiedadesApp.service import UsuarioService
+from PropiedadesApp.service import ComunaService
+import requests
+from django.core import serializers
+import json
+
 from django.conf import settings
 
 def index(request):
@@ -47,15 +50,11 @@ def login(request):
         clave = request.POST.get("data[1][value]")
         tipo_usuario = request.POST.get("data[2][value]")
         service = UsuarioService()
-        data = {"tipo": tipo_usuario,"password": clave,"usuario": usuario}
-        baseurl = request.get_host()
-        request_service = requests.post(url = "http://" + baseurl +"/api/authenticate_user/", data = data )
-        data_service = request_service.json()
-        if data_service["error"]==1:
-            data = {"token": "", "error": "1", "msg": data_service["msg"],"username" :"" }
-        else:
-            data = {"token": data_service["token"],"error":0, "msg": data_service["msg"], "username" :data_service["username"] }
-    return JsonResponse(data)
+        #baseurl = request.get_host()
+        data = {"tipo": tipo_usuario, "password": clave, "usuario": usuario}
+        service.base = request.get_host()
+        resp = service.authenticate_user(data)
+    return JsonResponse(resp)
 
 def planes(request):
     t = loader.get_template('general/planes.html')
@@ -74,6 +73,7 @@ def verificar_usuario(request):
             else:
                 url = url + "/" + item
             i+=1
+        url = url.split("?")[0]
         publico = "1"
         if url in settings.PAGE_PATH_IS_NOT_PUBLIC:
             publico  = "0"
@@ -92,10 +92,80 @@ def verificar_usuario(request):
 
 def editar_usuario(request):
     t = loader.get_template('usuario/editar_usuario.html')
-    context = {'is_public': '0'}
+    baseurl = request.get_host()
+    service_usuario = UsuarioService()
+    service_usuario.base = baseurl
+    service_comuna = ComunaService()
+    service_comuna.base = baseurl
+    comunas = service_comuna.get_all()
+    options ={}
+    obj_comunas = serializers.deserialize('json', comunas["obj"])
+    for comuna in obj_comunas:
+        id = comuna.object.nid_comuna
+        nombre = comuna.object.snombre_comuna
+        options[id]=nombre
+    context = {'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    if request.method == 'POST':
+        token = request.POST.get('tokenHd')
+        #decode_tkn = service.decode_token(token)
+        rut = request.POST.get('txtRut')
+        nombre = request.POST.get('txtNombre')
+        apellidoP = request.POST.get('txtApellidoP')
+        apellidoM = request.POST.get('txtApellidoM')
+        direccion = request.POST.get('txtDireccion')
+        telefono = request.POST.get('txtTelefono')
+        ubicacion = request.POST.get('cmbUbicacion')
+        #email = request.POST.get('hdEmail')
+        email = request.POST.get('txtEmail')
+        email_contacto = request.POST.get('txtEmail')
+        opcion_email = request.POST.get('chkOpcion')
+        if opcion_email is not None:
+            email_contacto = ""
+
+        data = {"id_cuenta":id,"rut": rut, "nombre": nombre , "apellidoP":apellidoP,"apellidoM":apellidoM,"direccion":direccion,
+                "telefono":telefono,"email":email,'ubicacion':ubicacion,'opcion_email':opcion_email,"email_contacto":email_contacto,'token':token}
+        service_usuario.set_user(data)
+        context = {'activar_msg': '1','error':'0', 'msg': 'Datos guardados correctamente','options':options}
     return HttpResponse(t.render(context))
 
 def editar_cuenta(request):
     t = loader.get_template('usuario/editar_cuenta.html')
-    context = {'is_public': '0'}
+    context = {'activar_msg': '0', 'error': '0', 'msg': ''}
+    if request.method == 'POST':
+        service = UsuarioService()
+        baseurl = request.get_host()
+        service.base = baseurl
+        token = request.POST.get('tokenHd')
+        actual = request.POST.get('txtClaveActual')
+        nuevo1 = request.POST.get('txtClave1')
+        nuevo2 = request.POST.get('txtClave2')
+        if nuevo1 != nuevo2:
+            context = {'activar_msg': '1', 'error': '1', 'msg': 'Nueva clave ingresada incorrecta'}
+        else:
+            data = {"clave":actual,"ClaveNueva":nuevo1,'token':token}
+            resp = service.set_account_password(data)
+            cod_error = "0"
+            msg_error = ""
+            if resp["error"]=="1":
+                msg_error = resp["msg"]
+                cod_error = "1"
+            context = {'activar_msg': '1', 'error': cod_error, 'msg': msg_error}
+
+
     return HttpResponse(t.render(context))
+
+def obtener_usuario(request):
+    service = UsuarioService()
+    service.base = request.get_host()
+    token = request.META['HTTP_AUTHORIZATION']
+    data = {"token": token}
+    obj_usuario = service.get_user(data)
+    context = {'object': obj_usuario}
+    return JsonResponse(obj_usuario)
+
+def obtener_comunas(request):
+    if request.is_ajax():
+        service = ComunaService()
+        service.base = request.get_host()
+        comunas  =  service.get_all()
+        return JsonResponse(comunas)

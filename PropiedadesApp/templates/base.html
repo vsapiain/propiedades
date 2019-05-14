@@ -287,7 +287,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-7">
-                                                        <div class="card-flat departure-card">
+                                                         <div class="card-flat departure-card">
+                                                            <form id="formValidator"  data-toggle="validator" role="form">
                                                             <div class="card-block row">
                                                                 <div class="col-md-12">
                                                                     <label class="destacado_lbl">Darme de alta como</label>
@@ -340,12 +341,14 @@
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <input id="usernameReg" name="usernameReg" type="text" class="form-control" placeholder="(*)Correo electrónico">
+                                                                        <input id="usernameReg" name="usernameReg" type="text" class="form-control" placeholder="(*)Correo electrónico" required>
+                                                                        <div class="help-block with-errors"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <input id="password_reg" name="password_reg" type="password" class="form-control" placeholder="(*)Clave">
+                                                                        <input id="password_reg" name="password_reg" type="password" class="form-control" placeholder="(*)Clave" required>
+                                                                        <div class="help-block with-errors"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div id="dv_persona">
@@ -353,14 +356,18 @@
                                                                         <label class="destacado_lbl"><span id="titl_persona"></span></label>
                                                                         <hr>
                                                                     </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="input-group">
-                                                                          <input id="nombre_persona" name="nombre_persona" type="text" class="form-control" placeholder="Nombre">
-                                                                        </div>
+                                                                    <div class="col-sm-6 form-group">
+                                                                        <input id="rut_persona" name="rut_persona" type="text" class="form-control" placeholder="(*)Rut" required>
+                                                                        <div class="help-block with-errors"></div>
                                                                     </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="input-group">
-                                                                          <input id="apellido_persona" name="apellido_persona" type="text" class="form-control" placeholder="Apellido" >
+                                                                    <div class="col-sm-6 form-group">
+                                                                        <input id="nombre_persona" name="nombre_persona" type="text" class="form-control" placeholder="Nombre">
+                                                                    </div>
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                           <div class="col-sm-6 pull-left">
+                                                                               <input id="apellido_persona" name="apellido_persona" type="text" class="form-control" placeholder="Apellido">
+                                                                           </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -424,6 +431,7 @@
                                                                     <label class="pull-right">(*) Datos obligatorios</label>
                                                                 </div>
                                                            </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -710,26 +718,25 @@
                                                 <i class='fa fa-filter' aria-hidden='true'></i> Tamaño
                                             </button>
                                             <div id="ddl_mnu_tamano" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
-                                                    <button type="button" class="close margin-right-form" >&times;</button>
-                                                    <div class="form-group">
-                                                        <div class="col-md-12">
+                                                <button type="button" class="close margin-right-form" >&times;</button>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                      <div class="col-md-12">
                                                           <div class="col-md-12">
-                                                              <div class="col-md-12">
-                                                                    <input type="text" class="form-control" value="" name="min-size-filter" id="min-size-filter" placeholder="Mín. m²" onkeypress="return validate_numeric(event)" maxlength="10">
-                                                              </div>
-                                                              <div class="col-md-12">
-                                                                    <input type="text" class="form-control" value="" name="max-size-filter" id="max-size-filter" placeholder="Máx. m²" onkeypress="return validate_numeric(event)" maxlength="10">
-                                                              </div>
+                                                                <input type="text" class="form-control" value="" name="min-size-filter" id="min-size-filter" placeholder="Mín. m²" onkeypress="return validate_numeric(event)" maxlength="10">
                                                           </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <button id="btn_size_filter" type="button" class="btn btn-primary btn-sm margin-top-form">Aceptar</button>
-                                                        </div>
+                                                          <div class="col-md-12">
+                                                                <input type="text" class="form-control" value="" name="max-size-filter" id="max-size-filter" placeholder="Máx. m²" onkeypress="return validate_numeric(event)" maxlength="10">
+                                                          </div>
+                                                      </div>
                                                     </div>
+                                                    <div class="col-md-12">
+                                                        <button id="btn_size_filter" type="button" class="btn btn-primary btn-sm margin-top-form">Aceptar</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 									</div>
-
 									<div class="col-sm-2 col-xs-6">
 										<button id="btnOcultar" class="btn-sm btn-primary" type="button"><i class="fa fa-gear"></i> Ocultar filtros</button>
 									</div>
@@ -990,6 +997,7 @@
         <script type='text/javascript' src='{% static 'js/waitMe.min.js' %}'></script>
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
         <script type='text/javascript' src='{% static 'js/wrapper.js' %}'></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>
 		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e444e40ec0","applicationID":"66134438","transactionName":"MQQAYxBUV0pXAUxQWghOI1QWXFZXGRZdVEUKABZST11WVFMSWV5Q","queueTime":0,"applicationTime":2009,"atts":"HUMDFVhOREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 		<script type='text/javascript'>
 			$(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
@@ -1263,6 +1271,7 @@
 				$("#location").val($("#location option:first").val()).change();
 				$('.bs-searchbox input').attr('placeholder','Busqueda');
 			})
+			/*
 			var ciudades = [
 				  "Arica", "Camarones", "Putre", "General Lagos",
 				  "Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica",
@@ -1280,6 +1289,8 @@
 				  "Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine",
 				  "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "TilVl", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor","Santiago"
 				];
+			*/
+			var ciudades = [];
 			var tipo_propiedad = ["Departamento","Casa","Oficina","Local comercial","Sitio","Estacionamiento","Bodega"];
 			var modo_propiedad = ["Comprar","Arrendar","Arriendo por temporada"];
 			function init(){
@@ -1300,6 +1311,25 @@
 				$("#mode").prop('title', 'Seleccionar todos');
 				$("#modeMob").prop('title', 'Seleccionar todos');
 				$("#type").prop('title', 'Seleccionar todos');
+				cargarUbicacion();
+			}
+			function cargarUbicacion(){
+				$.ajax
+                ({
+                  type: "GET",
+                  url: "/comunas/",
+                  async: false,
+                  dataType: 'json',
+                  success: function (data){
+                    if (data.error == 0){
+                        var data_obj = JSON.parse(data.obj);
+                        ciudades = data_obj;
+                    }
+                  },
+                  error: function(xhr, status, error) {
+                    alert("error" );
+                  }
+                });
 			}
 			function verify(){
 			    $.ajax
@@ -1308,17 +1338,46 @@
                   url: "/verificar_usuario",
                   dataType: 'json',
                   beforeSend : function(req) {
-                    if (localStorage.token === undefined || localStorage.token === null || localStorage.token==""){
-                        //localStorage.removeItem(localStorage.token);
-                        //localStorage.removeItem(localStorage.username);
-                        localStorage.removeItem('token');
-                        localStorage.removeItem('username');
+                    if (localStorage.token === undefined || localStorage.token === null ){
+                        localStorage.removeItem(localStorage.token);
+                        localStorage.removeItem(localStorage.username);
                     }
                     req.setRequestHeader('Authorization', localStorage.token);
                   },
                   success: function (data){
                     if (data.error == 1){
-                        logout();
+                        $(".userOff").show();
+                        $(".userOn").hide();
+                        localStorage.removeItem(localStorage.token);
+                        localStorage.removeItem(localStorage.username);
+                        if (data.publico == 0){
+                           new PNotify({
+                              title: 'Su sesión a terminado',
+                              text: 'Vuelve a iniciar sesión.',
+                              icon: 'fa fa-clock-o fa-2x',
+                              hide: false,
+                              styling: 'fontawesome',
+                              confirm: {
+                                confirm: true,
+                                 buttons: [{
+                                        text: 'Aceptar',
+                                        addClass : 'btn-sm'
+                                    },
+                                    null]
+                              },
+                              buttons: {
+                                closer: false,
+                                sticker: false
+                              },
+                              history: {
+                                history: false
+                              },
+                              addclass: 'stack-modal',
+                              stack: {'dir1': 'down', 'dir2': 'right', 'modal': true}
+                            }).get().on('pnotify.confirm', function(){
+                                window.location = "/";
+                           });
+                        }
                     }else{
                         $(".userOff").hide();
                         $(".userOn").show();
@@ -1338,6 +1397,7 @@
                 //localStorage.clear();
                 localStorage.removeItem('token');
                 localStorage.removeItem('username');
+                verify();
 			}
 			function run_waitMe(el, num, effect){
                 text = 'Please wait...';
@@ -1459,8 +1519,8 @@
 			}
 			function addLocation(){
 				for (var i=0;i<ciudades.length;i++){
-					var newitemnum=ciudades[i];
-					var newitemdesc = ciudades[i];
+					var newitemnum=ciudades[i]['fields'].nid_comuna;
+                    var newitemdesc = ciudades[i]['fields'].snombre_comuna;
 					$("#location").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
 				}
 				$("#location").selectpicker("refresh");

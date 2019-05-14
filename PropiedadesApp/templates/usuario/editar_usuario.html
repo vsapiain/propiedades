@@ -55,49 +55,55 @@
         </div>
          <div class="col-md-9">
                <div class="card-flat departure-card card-block ">
-                   <label class="titulo"><i class="fa fa-pencil" aria-hidden="true"></i> Datos generales</label>
+                   <label class="titulo"><i class="fa fa-pencil" aria-hidden="true"></i> Mi configuración-datos generales</label>
                    <br>
-                   <div class="form-row">
-                        <div class="form-group col-md-12">
+                  <form id="formDataUser" method="post">
+                    <input type="hidden" id = "tokenHd" name="tokenHd">
+                    <input type="hidden" id = "hdEmail" name="hdEmail">
+                    <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
+                    <div class="form-row">
+                         <div class="form-group col-md-12">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label for="txtRut">Rut</label>
-                                    <input class="form-control" name="txtRut" id="txtRut" placeholder="">
+                                    <label for="txtRut" class="titulo-campo-form">Rut</label>
+                                    <input class="form-control" name="txtRut" id="txtRut" placeholder=""  required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="col-md-9">
+                                    <label for="txtNombre" class=" titulo-campo-form">Nombre</label>
+                                    <input class="form-control" name="txtNombre" id="txtNombre" placeholder="">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="txtNombre">Nombre</label>
-                            <input class="form-control" name="txtNombre" id="txtNombre" placeholder="">
+                            <label for="txtApellidoP" class="titulo-campo-form">Apellido Paterno</label>
+                            <input class="form-control" name="txtApellidoP" id="txtApellidoP" placeholder="">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="txtApellido">Apellido</label>
-                            <input class="form-control" name="txtApellido" id="txtApellido" placeholder="">
+                            <label for="txtApellidoM" class="titulo-campo-form">Apellido Materno</label>
+                            <input class="form-control" name="txtApellidoM" id="txtApellidoM" placeholder="">
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="txtDireccion">Dirección(calle,N°,depto., población)</label>
+                            <label for="txtDireccion" class="titulo-campo-form">Dirección</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
                             <!--calle,N°,depto., población-->
                             <input class="form-control" name="txtDireccion" id="txtDireccion" placeholder="">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="txtComuna">Comuna</label>
-                            <input class="form-control" name="txtComuna" id="txtComuna" placeholder="">
+                            <label for="cmbUbicacion" class="titulo-campo-form">Ubicación</label>
+                            <select class="selectpicker" name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
+                                <option selected value="-1">Ubicación</option>
+                                {% for value,name in options.items %}
+                                    <option  value="{{value}}">{{name}}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="txtCiudad">Ciudad</label>
-                            <input class="form-control" name="txtCiudad" id="txtCiudad" placeholder="">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtRegion">Región</label>
-                            <input class="form-control" name="txtRegion" id="txtRegion" placeholder="">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtTelefono">Teléfono</label>
+                            <label for="txtTelefono" class="titulo-campo-form">Teléfono</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
                             <input class="form-control" name="txtTelefono" id="txtTelefono" placeholder="">
                         </div>
                        <div class="form-group col-md-4">
-                            <label for="txtEmail">Email contacto</label>
-                            <input class="form-control" name="txtEmail" id="txtEmail" placeholder="">
+                            <label for="txtEmail" class="titulo-campo-form">Email contacto</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            <input class="form-control"  name="txtEmail" id="txtEmail" placeholder="">
                             <label class="control control--checkbox">Usar Email cuenta de usuario
                                 <input type="checkbox" id="chkOpcion" name="chkOpcion" checked  >
                                 <div class="control__indicator"></div>
@@ -108,9 +114,13 @@
                            <hr/>
                        </div>
                        <div class="form-group col-md-3">
-                           <button type="submit" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
+                           <button type="submit" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
+                       </div>
+                       <div class="form-group margin-top-form col-md-3">
+                           (*) Datos obligatorios
                        </div>
                    </div>
+                   </form>
                </div>
          </div>
     </div>
@@ -120,12 +130,75 @@
 <script>
     $(document).ready(function(){
         initLocal();
+        loadDataForm();
         $("#btnCuenta").click(function(){
             window.location = "/usuarios/cuentas/editar";
         });
+        $("#chkOpcion").click(function(){
+            if (this.checked) {
+                $('#txtEmail').val($("#hdEmail").val());
+                $('#txtEmail').prop('disabled', true);
+            } else {
+                $('#txtEmail').prop('disabled', false);
+                $("#txtEmail").focus();
+                $("#txtEmail").select();
+
+            }
+        });
+        /*
+        $('#formDataUser').validator().on('submit', function (e) {
+          if (!e.isDefaultPrevented()) {
+            ok_msg("Datos generales","Dato(s) guardado(s) correctamente",1500);
+          }
+        })
+        */
     });
     function initLocal(){
+        var activ_msg = '{{activar_msg}}';
+        if (activ_msg == '1'){
+            var msg = '{{msg}}';
+            var error = '{{error}}';
+            if (error != '1')
+                 ok_msg("Datos generales",msg,1500);
+        }
+        $("#tokenHd").val(localStorage.token);
         $("#btnDatosGenerales").css("background","#DDDDDD");
+    }
+    function loadDataForm(){
+        token = localStorage.token;
+        if (token!=""){
+            $.ajax
+            ({
+              type: "GET",
+              url: "/usuarios/info",
+              async: false,
+              dataType: 'json',
+              beforeSend : function(req) {
+                req.setRequestHeader('Authorization', localStorage.token);
+              },
+              success: function (data){
+                 $("#txtRut").val(data.rut);
+                 $("#txtNombre").val(data.nombre);
+                 $("#txtApellidoP").val(data.apellidoP);
+                 $("#txtApellidoM").val(data.apellidoM);
+                 $("#txtDireccion").val(data.direccion);
+                 $("#txtEmail").val(data.EmailCuenta);
+                 $("#txtEmail").prop('disabled', true);
+                 $("#hdEmail").val(data.EmailCuenta);
+                 if(data.EmailContacto!=""){
+                    $("#txtEmail").val(data.EmailContacto);
+                    $("#chkOpcion").prop("checked",false);
+                    $('#txtEmail').prop('disabled', false);
+                 }
+                 $("#cmbUbicacion").val(data.comunaId);
+                 $("#cmbUbicacion").selectpicker("refresh");
+              },
+              error: function(xhr, status, error) {
+                alert("error" );
+              }
+            });
+            $('#formDataUser').validator();
+        }
     }
 </script>
 {% endblock %}

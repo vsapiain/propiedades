@@ -1,1 +1,2 @@
 from PropiedadesApp.service.UsuarioService import UsuarioService
+from PropiedadesApp.service.ComunaService import ComunaService

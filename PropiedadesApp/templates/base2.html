@@ -289,6 +289,7 @@
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="card-flat departure-card">
+                                                            <form   data-toggle="validator" role="form">
                                                             <div class="card-block row">
                                                                 <div class="col-md-12">
                                                                     <label class="destacado_lbl">Darme de alta como</label>
@@ -341,12 +342,14 @@
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <input id="usernameReg" name="usernameReg" type="text" class="form-control" placeholder="(*)Correo electrónico">
+                                                                        <input id="usernameReg" name="usernameReg" type="text" class="form-control" placeholder="(*)Correo electrónico" required>
+                                                                        <div class="help-block with-errors"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
-                                                                        <input id="password_reg" name="password_reg" type="password" class="form-control" placeholder="(*)Clave">
+                                                                        <input id="password_reg" name="password_reg" type="password" class="form-control" placeholder="(*)Clave" required>
+                                                                        <div class="help-block with-errors"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div id="dv_persona">
@@ -354,14 +357,18 @@
                                                                         <label class="destacado_lbl"><span id="titl_persona"></span></label>
                                                                         <hr>
                                                                     </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="input-group">
-                                                                          <input id="nombre_persona" name="nombre_persona" type="text" class="form-control" placeholder="Nombre">
-                                                                        </div>
+                                                                    <div class="col-sm-6 form-group">
+                                                                        <input id="rut_persona" name="rut_persona" type="text" class="form-control" placeholder="(*)Rut" required>
+                                                                        <div class="help-block with-errors"></div>
                                                                     </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="input-group">
-                                                                          <input id="apellido_persona" name="apellido_persona" type="text" class="form-control" placeholder="Apellido" >
+                                                                    <div class="col-sm-6 form-group">
+                                                                        <input id="nombre_persona" name="nombre_persona" type="text" class="form-control" placeholder="Nombre">
+                                                                    </div>
+                                                                    <div class="col-sm-12">
+                                                                        <div class="row">
+                                                                           <div class="col-sm-6 pull-left">
+                                                                               <input id="apellido_persona" name="apellido_persona" type="text" class="form-control" placeholder="Apellido">
+                                                                           </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -425,6 +432,7 @@
                                                                     <label class="pull-right">(*) Datos obligatorios</label>
                                                                 </div>
                                                            </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -840,6 +848,7 @@
         <script type='text/javascript' src='{% static 'js/waitMe.min.js' %}'></script>
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
         <script type='text/javascript' src='{% static 'js/wrapper.js' %}'></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>
 		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e444e40ec0","applicationID":"66134438","transactionName":"MQQAYxBUV0pXAUxQWghOI1QWXFZXGRZdVEUKABZST11WVFMSWV5Q","queueTime":0,"applicationTime":2009,"atts":"HUMDFVhOREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 		<script type='text/javascript'>
 			$(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
@@ -851,6 +860,7 @@
 			/* ]]> */
 		</script>
 		<script>
+		    /*
 		    var ciudades = [
 				  "Arica", "Camarones", "Putre", "General Lagos",
 				  "Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica",
@@ -868,6 +878,8 @@
 				  "Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine",
 				  "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "TilVl", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor","Santiago"
 				];
+            */
+            var ciudades = [];
 			var tipo_propiedad = ["Departamento","Casa","Oficina","Local comercial","Sitio","Estacionamiento","Bodega"];
 			var modo_propiedad = ["Comprar","Arrendar","Arriendo por temporada"];
 			var estado_vivienda = ["Nueva","Usada"];
@@ -1180,6 +1192,26 @@
 				$("#mode").prop('title', 'Seleccionar todos');
 				$("#mode_mob").prop('title', 'Seleccionar todos');
 				$("#type").prop('title', 'Seleccionar todos');
+				cargarUbicacion();
+			}
+			function cargarUbicacion(){
+				$.ajax
+                ({
+                  type: "GET",
+                  url: "/comunas/",
+                  async: false,
+                  dataType: 'json',
+                  success: function (data){
+                    if (data.error == 0){
+                        var data_obj = JSON.parse(data.obj);
+                        //alert(data_obj[0]['fields'].snombre_comuna);
+                        ciudades = data_obj;
+                    }
+                  },
+                  error: function(xhr, status, error) {
+                    alert("error" );
+                  }
+                });
 			}
 			function run_waitMe(el, num, effect){
                 text = 'Please wait...';
@@ -1234,7 +1266,7 @@
                         localStorage.removeItem(localStorage.username);
                         if (data.publico == 0){
                            new PNotify({
-                              title: 'Su sesión a expirado',
+                              title: 'Su sesión a terminado',
                               text: 'Vuelve a iniciar sesión.',
                               icon: 'fa fa-clock-o fa-2x',
                               hide: false,
@@ -1268,6 +1300,18 @@
                   }
                 });
 			}
+			function CerrarSession(){
+			    $('.cd-main-nav').toggleClass('moves-out');
+			    logout();
+			}
+			function logout(){
+                $(".userOff").show();
+                $(".userOn").hide();
+                $('.logo a img').prop("src", "/static/img/logotipo_original.png")
+                localStorage.removeItem('token');
+                localStorage.removeItem('username');
+                verify();
+			}
 			function select_opt_persona(op){
                 $("#cmb_plan_persona").val(op);
             }
@@ -1277,32 +1321,13 @@
             function select_opt_inmobiliaria(op){
                 $("#cmb_plan_inmobiliaria").val(op);
             }
-			var ciudades = [
-				  "Arica", "Camarones", "Putre", "General Lagos",
-				  "Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica",
-				  "Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena",
-				  "Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco",
-				  "La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado",
-				  "Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María", "Quilpué", "Limache", "Olmué", "Villa Alemana",
-				  "Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente", "Pichilemu", "La Estrella", "Litueche", "Marchihue", "Navidad", "Paredones", "San Fernando", "Chépica", "Chimbarongo", "Lolol", "Nancagua", "Palmilla", "Peralillo", "Placilla", "Pumanque", "Santa Cruz",
-				  "Talca", "ConsVtución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén", "Linares", "Colbún", "Longaví", "Parral", "ReVro", "San Javier", "Villa Alegre", "Yerbas Buenas",
-				  "Concepción", "Coronel", "Chiguayante", "Florida", "Hualqui", "Lota", "Penco", "San Pedro de la Paz", "Santa Juana", "Talcahuano", "Tomé", "Hualpén", "Lebu", "Arauco", "Cañete", "Contulmo", "Curanilahue", "Los Álamos", "Tirúa", "Los Ángeles", "Antuco", "Cabrero", "Laja", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel", "Alto Biobío", "Chillán", "Bulnes", "Cobquecura", "Coelemu", "Coihueco", "Chillán Viejo", "El Carmen", "Ninhue", "Ñiquén", "Pemuco", "Pinto", "Portezuelo", "Quillón", "Quirihue", "Ránquil", "San Carlos", "San Fabián", "San Ignacio", "San Nicolás", "Treguaco", "Yungay",
-				  "Temuco", "Carahue", "Cunco", "Curarrehue", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Melipeuco", "Nueva Imperial", "Padre las Casas", "Perquenco", "Pitrufquén", "Pucón", "Saavedra", "Teodoro Schmidt", "Toltén", "Vilcún", "Villarrica", "Cholchol", "Angol", "Collipulli", "Curacautín", "Ercilla", "Lonquimay", "Los Sauces", "Lumaco", "Purén", "Renaico", "Traiguén", "Victoria",
-				  "Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "La Unión", "Futrono", "Lago Ranco", "Río Bueno",
-				  "Puerto Montt", "Calbuco", "Cochamó", "Fresia", "FruVllar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue", "Río Negro", "San Juan de la Costa", "San Pablo", "Chaitén", "Futaleufú", "Hualaihué", "Palena",
-				  "Coihaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O’Higgins", "Tortel", "Chile Chico", "Río Ibáñez",
-				  "Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos (Ex Navarino)", "AntárVca", "Porvenir", "Primavera", "Timaukel", "Natales", "Torres del Paine",
-				  "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "TilVl", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor","Santiago"
-				];
-			var tipo_propiedad = ["Departamento","Casa","Oficina","Local comercial","Sitio","Estacionamiento","Bodega"];
-			var modo_propiedad = ["Comprar","Busco arriendo","Busco arriendo por temporada"];
 			function ActivTab(id){
 				$("#"+id).trigger('click');
 			};
 			function add_location(){
 				for (var i=0;i<ciudades.length;i++){
-					var newitemnum=ciudades[i];
-					var newitemdesc = ciudades[i];
+					var newitemnum=ciudades[i]['fields'].nid_comuna;
+					var newitemdesc = ciudades[i]['fields'].snombre_comuna;
 					$("#location").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
 				}
 				$("#location").selectpicker("refresh");
