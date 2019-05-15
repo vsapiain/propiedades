@@ -14,7 +14,17 @@ def index(request):
     user_ = Usuario(Clave='123', Email='XXX')
     user_.save()
     '''
-    context = {'is_public': '1'}
+    baseurl = request.get_host()
+    service_comuna = ComunaService()
+    service_comuna.base = baseurl
+    comunas = service_comuna.get_all()
+    options = {}
+    obj_comunas = serializers.deserialize('json', comunas["obj"])
+    for comuna in obj_comunas:
+        id = comuna.object.nid_comuna
+        nombre = comuna.object.snombre_comuna
+        options[id] = nombre
+    context = {'is_public': '1','options':options}
     t = loader.get_template('index.html')
     return HttpResponse(t.render(context))
 
@@ -85,16 +95,17 @@ def verificar_usuario(request):
         request_service = requests.post(url="http://" + baseurl + "/api/verify_token/", data=token, headers=headers)
         data_service = request_service.json()
         if data_service["error"]=="1":
-            data = {"token": "","username":"" ,"error": "1", "msg": data_service["msg"],"publico" : publico }
+            data = {"token": "","username":"" ,"plan":"","plan_id": "",
+                    "planLink":"","error": "1", "msg": data_service["msg"],"publico" : publico }
         else:
-            data = {"token": data_service["token"],"username":data_service["username"],"error": data_service["error"],"msg": data_service["msg"],"publico" : publico}
+            data = {"token": data_service["token"],"username":data_service["username"],"error": data_service["error"],
+                    "plan":data_service["plan"],"plan_id": data_service["plan_id"],"planLink":data_service["planLink"],
+                    "msg": data_service["msg"],"publico" : publico}
     return JsonResponse(data)
 
 def editar_usuario(request):
     t = loader.get_template('usuario/editar_usuario.html')
     baseurl = request.get_host()
-    service_usuario = UsuarioService()
-    service_usuario.base = baseurl
     service_comuna = ComunaService()
     service_comuna.base = baseurl
     comunas = service_comuna.get_all()
@@ -105,9 +116,15 @@ def editar_usuario(request):
         nombre = comuna.object.snombre_comuna
         options[id]=nombre
     context = {'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
-    if request.method == 'POST':
-        token = request.POST.get('tokenHd')
-        #decode_tkn = service.decode_token(token)
+    return HttpResponse(t.render(context))
+
+def actualizar_usuario(request):
+    baseurl = request.get_host()
+    service_usuario = UsuarioService()
+    service_usuario.base = baseurl
+    if request.is_ajax() and request.method == 'POST':
+        #token = request.POST.get('tokenHd')
+        token = request.META['HTTP_AUTHORIZATION']
         rut = request.POST.get('txtRut')
         nombre = request.POST.get('txtNombre')
         apellidoP = request.POST.get('txtApellidoP')
@@ -115,44 +132,48 @@ def editar_usuario(request):
         direccion = request.POST.get('txtDireccion')
         telefono = request.POST.get('txtTelefono')
         ubicacion = request.POST.get('cmbUbicacion')
-        #email = request.POST.get('hdEmail')
+        # email = request.POST.get('hdEmail')
         email = request.POST.get('txtEmail')
         email_contacto = request.POST.get('txtEmail')
         opcion_email = request.POST.get('chkOpcion')
         if opcion_email is not None:
             email_contacto = ""
 
-        data = {"id_cuenta":id,"rut": rut, "nombre": nombre , "apellidoP":apellidoP,"apellidoM":apellidoM,"direccion":direccion,
-                "telefono":telefono,"email":email,'ubicacion':ubicacion,'opcion_email':opcion_email,"email_contacto":email_contacto,'token':token}
+        data = {"id_cuenta": id, "rut": rut, "nombre": nombre, "apellidoP": apellidoP, "apellidoM": apellidoM,
+                "direccion": direccion,
+                "telefono": telefono, "email": email, 'ubicacion': ubicacion, 'opcion_email': opcion_email,
+                "email_contacto": email_contacto, 'token': token}
         service_usuario.set_user(data)
-        context = {'activar_msg': '1','error':'0', 'msg': 'Datos guardados correctamente','options':options}
-    return HttpResponse(t.render(context))
+        context = {'error': '0', 'msg': 'Datos guardados correctamente'}
+        return JsonResponse(context)
 
 def editar_cuenta(request):
     t = loader.get_template('usuario/editar_cuenta.html')
     context = {'activar_msg': '0', 'error': '0', 'msg': ''}
-    if request.method == 'POST':
+    return HttpResponse(t.render(context))
+
+def actualizar_cuenta(request):
+    if request.is_ajax() and request.method == 'POST':
         service = UsuarioService()
         baseurl = request.get_host()
         service.base = baseurl
-        token = request.POST.get('tokenHd')
+        #token = request.POST.get('tokenHd')
+        token = request.META['HTTP_AUTHORIZATION']
         actual = request.POST.get('txtClaveActual')
         nuevo1 = request.POST.get('txtClave1')
         nuevo2 = request.POST.get('txtClave2')
         if nuevo1 != nuevo2:
-            context = {'activar_msg': '1', 'error': '1', 'msg': 'Nueva clave ingresada incorrecta'}
+            context = {'error': '1', 'msg': 'Nueva clave ingresada incorrecta'}
         else:
-            data = {"clave":actual,"ClaveNueva":nuevo1,'token':token}
+            data = {"clave": actual, "ClaveNueva": nuevo1, 'token': token}
             resp = service.set_account_password(data)
             cod_error = "0"
-            msg_error = ""
-            if resp["error"]=="1":
+            msg_error = "Datos guardados correctamente"
+            if resp["error"] == "1":
                 msg_error = resp["msg"]
                 cod_error = "1"
-            context = {'activar_msg': '1', 'error': cod_error, 'msg': msg_error}
-
-
-    return HttpResponse(t.render(context))
+            context = {'error': cod_error, 'msg': msg_error}
+        return JsonResponse(context)
 
 def obtener_usuario(request):
     service = UsuarioService()
@@ -162,10 +183,3 @@ def obtener_usuario(request):
     obj_usuario = service.get_user(data)
     context = {'object': obj_usuario}
     return JsonResponse(obj_usuario)
-
-def obtener_comunas(request):
-    if request.is_ajax():
-        service = ComunaService()
-        service.base = request.get_host()
-        comunas  =  service.get_all()
-        return JsonResponse(comunas)
