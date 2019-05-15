@@ -31,8 +31,12 @@
                     </div>
                     <div>
                         <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-                        <label class="contenido">Plan básico</label>
+                        <label class="contenido"><span class="plan"></span></label>
                     </div>
+                   <!--
+                    <div>
+                        <span class="label label-success"><span class="plan"></span></span>
+                    </div>-->
                    </div>
                 </div>
             </div>
@@ -57,7 +61,7 @@
                <div class="card-flat departure-card card-block ">
                    <label class="titulo"><i class="fa fa-pencil" aria-hidden="true"></i> Mi configuración-datos generales</label>
                    <br>
-                  <form id="formDataUser" method="post">
+                  <form id="formDataUser" class="omb_loginForm" method="post" role="form">
                     <input type="hidden" id = "tokenHd" name="tokenHd">
                     <input type="hidden" id = "hdEmail" name="hdEmail">
                     <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
@@ -145,23 +149,38 @@
 
             }
         });
-        /*
         $('#formDataUser').validator().on('submit', function (e) {
-          if (!e.isDefaultPrevented()) {
-            ok_msg("Datos generales","Dato(s) guardado(s) correctamente",1500);
-          }
-        })
-        */
+            if (!e.isDefaultPrevented()){
+                var form = $(this).serialize();
+                run_waitMe($(".omb_loginForm"), 2, 'facebook');
+                $.ajax
+                ({
+                  type: "POST",
+                  data: form,
+                  url: "/SetUser/",
+                  async: false,
+                  dataType: 'json',
+                  beforeSend : function(req) {
+                    req.setRequestHeader('Authorization', localStorage.token);
+                  },
+                  success: function (data){
+                    if (data.error!='1'){
+                        ok_msg("Datos generales",data.msg,2500);
+                    }
+                  },
+                  error: function(xhr, status, error) {
+                     error_msg("Error","Se ha producido un error. Intente realizar esta acción nuevamente.",2500);
+                  }
+                });
+                $('.omb_loginForm').waitMe('hide');
+
+            }
+            return false;
+        });
+
     });
     function initLocal(){
-        var activ_msg = '{{activar_msg}}';
-        if (activ_msg == '1'){
-            var msg = '{{msg}}';
-            var error = '{{error}}';
-            if (error != '1')
-                 ok_msg("Datos generales",msg,1500);
-        }
-        $("#tokenHd").val(localStorage.token);
+        //$("#tokenHd").val(localStorage.token);
         $("#btnDatosGenerales").css("background","#DDDDDD");
     }
     function loadDataForm(){

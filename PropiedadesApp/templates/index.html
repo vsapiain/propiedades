@@ -37,6 +37,9 @@
                                         <div>
                                             <select class="show-menu-arrow " name = "cmb_ubicacion_portada" id="cmb_ubicacion_portada" data-live-search="true"  >
                                                 <option>Ubicación</option>
+                                                 {% for value,name in options.items %}
+                                                    <option  value="{{value}}">{{name}}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                     </div>
@@ -1581,12 +1584,11 @@
 <script>
     $(document).ready(function(){
         initLocal();
-        add_location_form();
+        //add_location_form();
         add_type_form();
         add_mod_form();
         $("#spn_orden").text("Orden por fecha pubicación mayor a menor");
-        $("#cmb_ubicacion_portada").val($("#cmb_ubicacion_portada option:first").val()).change();
-      	$('.bs-searchbox input').attr('placeholder','Busqueda');
+       	$('.bs-searchbox input').attr('placeholder','Busqueda');
 		$("#btn_ok_price").click(function(){
 		    set_max_price($("#min-price"),$("#max-price"),$("#ddl_price"));
 		    var value = $("#chk_precio_filter").is(':checked') ? 1 : 0;
@@ -1629,38 +1631,6 @@
             $("#max-price").val("");
             $("#ddl_price").text("Precio(cualquiera)");
         });
-        /*
-        $("#btn_any_size").click(function(){
-            $("#min-size").val("");
-            $("#max-size").val("");
-            $("#ddl_size").text("Tamaño(cualquiera)");
-        });
-        */
-        $("#btn_sn_filtro_otros").click(function(){
-            $("#n_dormitorios_otros").text("");
-            $("#n_banos_otros").text("");
-            $("#n_estacionamientos_otros").text("");
-            $("#ddl_otro").text("Más filtro(s)(opcional)");
-        });
-        $("#n_dormitorios_otros,#n_banos_otros,#n_estacionamientos_otros").focusout(function(){
-            set_filter_otros();
-        });
-
-        /*
-        $("#min-price").focusout(function(s){
-            set_max_price($("#min-price"),$("#max-price"),$("#ddl_price"));
-        });
-        $("#max-price").focusout(function(){
-            set_max_price($("#min-price"),$("#max-price"),$("#ddl_size"));
-        });
-
-        $("#min-size").focusout(function(){
-            set_max_size();
-        });
-        $("#max-size").focusout(function(){
-            set_max_size();
-        });
-        */
 
         $("#cmb_orden").change(function(){
             set_msg_order();
@@ -1692,6 +1662,7 @@
         });
     });
     function initLocal(){
+        $("#cmb_ubicacion_portada").selectpicker("refresh");
         $('#cmb_modo_portada').multiselect({
             includeSelectAllOption: true,
             nonSelectedText: 'Operación',
@@ -1729,14 +1700,6 @@
             $(".order-opt").children().addClass("fa-sort-alpha-desc");
         }
         $("#spn_orden").text(text_order);
-    }
-    function add_location_form(){
-        for (var i=0;i<ciudades.length;i++){
-            var newitemnum=ciudades[i]['fields'].nid_comuna;
-            var newitemdesc = ciudades[i]['fields'].snombre_comuna;
-            $("#cmb_ubicacion_portada").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
-        }
-        $("#cmb_ubicacion_portada").selectpicker("refresh");
     }
     function add_type_form(){
         for (var i=0;i<tipo_propiedad.length;i++){

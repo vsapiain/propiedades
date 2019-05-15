@@ -889,7 +889,6 @@
             });
 			$(document).ready(function(){
 			    init();
-				add_location();
 				load_keyword();
 				$(".owl-nav").hide();
 
@@ -1169,7 +1168,6 @@
 					var op = $(this).val();
 					$('input:radio[name=rdOpcionPlanInmobiliaria]')[op-1].checked = true;
 				});
-				$("#location").val($("#location option:first").val()).change();
 				$('.bs-searchbox input').attr('placeholder','Busqueda');
 			})
 			function init(){
@@ -1192,26 +1190,6 @@
 				$("#mode").prop('title', 'Seleccionar todos');
 				$("#mode_mob").prop('title', 'Seleccionar todos');
 				$("#type").prop('title', 'Seleccionar todos');
-				cargarUbicacion();
-			}
-			function cargarUbicacion(){
-				$.ajax
-                ({
-                  type: "GET",
-                  url: "/comunas/",
-                  async: false,
-                  dataType: 'json',
-                  success: function (data){
-                    if (data.error == 0){
-                        var data_obj = JSON.parse(data.obj);
-                        //alert(data_obj[0]['fields'].snombre_comuna);
-                        ciudades = data_obj;
-                    }
-                  },
-                  error: function(xhr, status, error) {
-                    alert("error" );
-                  }
-                });
 			}
 			function run_waitMe(el, num, effect){
                 text = 'Please wait...';
@@ -1296,6 +1274,7 @@
                         $(".userOff").hide();
                         $(".userOn").show();
                         $('.usernameLogin').text(data.username);
+                        $(".plan").html(data.planLink);
                     }
                   }
                 });
@@ -1324,14 +1303,6 @@
 			function ActivTab(id){
 				$("#"+id).trigger('click');
 			};
-			function add_location(){
-				for (var i=0;i<ciudades.length;i++){
-					var newitemnum=ciudades[i]['fields'].nid_comuna;
-					var newitemdesc = ciudades[i]['fields'].snombre_comuna;
-					$("#location").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
-				}
-				$("#location").selectpicker("refresh");
-			}
 			function clear_form_login(){
 				$("#username").val("");
 				$("#password").val("");

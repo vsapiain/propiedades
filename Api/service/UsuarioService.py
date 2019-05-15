@@ -4,6 +4,7 @@ from Api.models import CuentaAcceso
 from Api.models import Usuario
 from Api.models import Particular
 from Api.models import Direccion
+from Api.models import UsuarioPlanContrato
 import jwt
 import datetime
 
@@ -14,6 +15,8 @@ class UsuarioService:
             msg = ""
             usuario = ""
             tipo_usuario_paticular = 1
+            plan = ""
+            plan_id = ""
             try:
                 '''
                 obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular).\
@@ -21,9 +24,16 @@ class UsuarioService:
                 '''
                 obj_cuenta = CuentaAccesoProxy.objects_particular.filter(semail_cuenta_acceso=email).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
-                    payload = {'username': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cuenta_acceso),
-                               'tipo': str(tipo_usuario_paticular)}
                     usuario = obj_cuenta.semail_cuenta_acceso
+                    obj_usuario = obj_cuenta.nid_usuario
+                    obj_plan_usuario = UsuarioPlanContrato.objects.filter(nid_usuario = obj_usuario.nid_usuario ).get()
+                    obj_plan = obj_plan_usuario.nid_plan_contrato
+                    plan_id = obj_plan.nid_plan_contrato
+                    plan = obj_plan.snombre_plan_contrato
+                    plan_link = "<a href=/planes/" + str(plan_id) + ">Plan " + plan + "</a>"
+                    payload = {'username': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cuenta_acceso),
+                               'tipo': str(tipo_usuario_paticular), 'plan': plan, 'plan_id': str(plan_id),
+                               'planLink': plan_link}
                     token = self.encode_token(payload)
                 else:
                     usuario = ""
@@ -34,6 +44,9 @@ class UsuarioService:
                 user_details = {}
                 user_details['username'] = usuario
                 user_details['token'] = token
+                user_details['plan'] = plan
+                user_details['plan_id'] = plan_id
+                user_details['planLink'] = "<a href=/planes/" + str(plan_id) + ">Plan " + plan +"</a>"
                 user_details['msg'] = msg
                 user_details['error'] = ""
                 return user_details
@@ -200,6 +213,9 @@ class UsuarioService:
             token_data = jwt.decode(token, "secret_citypro")
             token_details['username'] = token_data['user']['username']
             token_details['id'] = token_data['user']['id']
+            token_details['plan'] = token_data['user']['plan']
+            token_details['plan_id'] = token_data['user']['plan_id']
+            token_details['planLink'] = token_data['user']['planLink']
             token_details['msg'] = ""
             token_details['error'] = "0"
             token_details['token'] = token

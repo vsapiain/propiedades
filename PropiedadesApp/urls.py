@@ -3,6 +3,8 @@ from PropiedadesApp import views
 
 urlpatterns = [
     url(r'^login/', views.login, name='login'),
-    url(r'^comunas/', views.obtener_comunas, name='obtener_comunas'),
+    url(r'^SetUser/', views.actualizar_usuario, name='SetUser'),
+    url(r'^SetAccount/', views.actualizar_cuenta, name='SetAccount'),
+    #url(r'^comunas/', views.obtener_comunas, name='obtener_comunas'),
     url(r'^usuarios/info', views.obtener_usuario, name='obtener_usuario'),
 ]
