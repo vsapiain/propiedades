@@ -1715,28 +1715,29 @@ figure .hover-effect:after {
     color: #fff
 }
 
+
 table {
     margin-bottom: 15px
 }
 
 .table-striped>thead>tr>th {
-    background-color: #e9e9e9;
+    background-color: rgb(221, 221, 221);
     font-weight: 400;
     border-bottom: 0;
     border-right: 1px solid #fff;
     padding: 10px 15px;
-    font-size: 11px
+    font-size: 14px
 }
 
 .table-striped>thead>tr>th:last-child {
    border-right: none
 }
 
-
+/*
 .table-striped>tbody>tr:nth-of-type(2n+1) {
     background-color: #eee
 }
-
+*/
 .table-striped>tbody>tr {
     background-color: transparent
 }
@@ -18304,6 +18305,9 @@ hr {
 .fa-question-circle{
     color:#00AEEF;
 }
+.fa-minus-square{
+    color : #D84D42;
+}
 .multiselect  {
   text-align: left;
 }
@@ -18357,3 +18361,11 @@ hr {
     background-color: #dcdfe6;
     border-color: #dcdfe6;
 }
+
+/*
+.btn.focus, .btn:focus, .btn:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+*/
+

@@ -3,9 +3,12 @@ from django.template import  loader
 from django.http import JsonResponse
 from PropiedadesApp.service import UsuarioService
 from PropiedadesApp.service import ComunaService
-import requests
+from PropiedadesApp.service import PlanContratoService
+from PropiedadesApp.service import TokenService
 from django.core import serializers
-import json
+from rest_framework.renderers import JSONRenderer
+
+import requests
 
 from django.conf import settings
 
@@ -71,38 +74,6 @@ def planes(request):
     context = {'list_var': ''}
     return HttpResponse(t.render(context))
 
-def verificar_usuario(request):
-    data = ''
-    if request.method == "GET":
-        token = ''
-        url = ''
-        i=1
-        for item in request.META.get('HTTP_REFERER').split("/")[3:]:
-            if i==1:
-                url = item
-            else:
-                url = url + "/" + item
-            i+=1
-        url = url.split("?")[0]
-        publico = "1"
-        if url in settings.PAGE_PATH_IS_NOT_PUBLIC:
-            publico  = "0"
-
-        if request.META.get('HTTP_AUTHORIZATION') is not None:
-            token = request.META['HTTP_AUTHORIZATION']
-        baseurl = request.get_host()
-        headers = {'Authorization': token}
-        request_service = requests.post(url="http://" + baseurl + "/api/verify_token/", data=token, headers=headers)
-        data_service = request_service.json()
-        if data_service["error"]=="1":
-            data = {"token": "","username":"" ,"plan":"","plan_id": "",
-                    "planLink":"","error": "1", "msg": data_service["msg"],"publico" : publico }
-        else:
-            data = {"token": data_service["token"],"username":data_service["username"],"error": data_service["error"],
-                    "plan":data_service["plan"],"plan_id": data_service["plan_id"],"planLink":data_service["planLink"],
-                    "msg": data_service["msg"],"publico" : publico}
-    return JsonResponse(data)
-
 def editar_usuario(request):
     t = loader.get_template('usuario/editar_usuario.html')
     baseurl = request.get_host()
@@ -152,6 +123,11 @@ def editar_cuenta(request):
     context = {'activar_msg': '0', 'error': '0', 'msg': ''}
     return HttpResponse(t.render(context))
 
+def editar_planes(request):
+    t = loader.get_template('plan/editar_planes.html')
+    context = {'activar_msg': '0', 'error': '0', 'msg': ''}
+    return HttpResponse(t.render(context))
+
 def actualizar_cuenta(request):
     if request.is_ajax() and request.method == 'POST':
         service = UsuarioService()
@@ -175,11 +151,83 @@ def actualizar_cuenta(request):
             context = {'error': cod_error, 'msg': msg_error}
         return JsonResponse(context)
 
+def obtener_planes(request):
+    service = PlanContratoService()
+    service_token = TokenService()
+    baseurl = request.get_host()
+    service.base = baseurl
+    token = request.META['HTTP_AUTHORIZATION']
+    param = {"tipo": "1", "token" : token}
+    data_token = service_token.decode_token(token)
+    if data_token["error"]!="1":
+        planes = service.get_all(param)
+        context = {'error': '0', 'msg': ''}
+        servicio_plan_contrato = 1
+        if planes["error"]!="1":
+            planes["servicio"] = servicio_plan_contrato
+            plan_id = int(data_token["plan_id"])
+            for item in planes["obj"]:
+                if plan_id == int(item['nid_plan_contrato']):
+                    item['plan_actual'] = True
+                    break
+            context = {'error': '0', 'msg': planes["msg"], 'list': planes["obj"]}
+        else:
+            context = {'error': '1', 'msg': planes["msg"]}
+    else:
+        context = {'error': '1', 'msg': data_token["msg"]}
+    return JsonResponse(context)
+
 def obtener_usuario(request):
     service = UsuarioService()
     service.base = request.get_host()
     token = request.META['HTTP_AUTHORIZATION']
     data = {"token": token}
     obj_usuario = service.get_user(data)
-    context = {'object': obj_usuario}
     return JsonResponse(obj_usuario)
+
+def editar_datos_comercial(request):
+    t = loader.get_template('comercial/editar_comercial.html')
+    baseurl = request.get_host()
+    service_comuna = ComunaService()
+    service_comuna.base = baseurl
+    comunas = service_comuna.get_all()
+    options = {}
+    obj_comunas = serializers.deserialize('json', comunas["obj"])
+    for comuna in obj_comunas:
+        id = comuna.object.nid_comuna
+        nombre = comuna.object.snombre_comuna
+        options[id] = nombre
+    context = {'activar_msg': '0', 'error': '0', 'msg': '','options': options}
+    return HttpResponse(t.render(context))
+
+def verificar_usuario(request):
+    data = ''
+    if request.method == "GET":
+        token = ''
+        url = ''
+        i=1
+        for item in request.META.get('HTTP_REFERER').split("/")[3:]:
+            if i==1:
+                url = item
+            else:
+                url = url + "/" + item
+            i+=1
+        url = url.split("?")[0]
+        publico = "1"
+        if url in settings.PAGE_PATH_IS_NOT_PUBLIC:
+            publico  = "0"
+
+        if request.META.get('HTTP_AUTHORIZATION') is not None:
+            token = request.META['HTTP_AUTHORIZATION']
+        baseurl = request.get_host()
+        headers = {'Authorization': token}
+        request_service = requests.post(url="http://" + baseurl + "/api/verify_token/", data=token, headers=headers)
+        data_service = request_service.json()
+        if data_service["error"]=="1":
+            data = {"token": "","username":"" ,"plan":"","plan_id": "",
+                    "planLink":"","error": "1", "msg": data_service["msg"],"publico" : publico }
+        else:
+            data = {"token": data_service["token"],"username":data_service["username"],"error": data_service["error"],
+                    "plan":data_service["plan"],"plan_id": data_service["plan_id"],"planLink":data_service["planLink"],
+                    "msg": data_service["msg"],"publico" : publico}
+    return JsonResponse(data)

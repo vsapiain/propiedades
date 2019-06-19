@@ -23,3 +23,4 @@ from Api.models.tipo_usuario import TipoUsuario
 from Api.models.tipo_operacion import TipoOperacion
 from Api.models.tipo_propiedad import TipoPropiedad
 from Api.models.detalle_plan_contrato import DetallePlanContrato
+from Api.models.tipo_plan_contrato import TipoPlanContrato

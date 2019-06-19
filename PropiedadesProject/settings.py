@@ -155,5 +155,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
 PAGE_PATH_IS_NOT_PUBLIC = [
     'usuarios/generales/editar',
-    'usuarios/cuentas/editar'
+    'usuarios/cuentas/editar',
+    'usuarios/planes/editar'
 ]
