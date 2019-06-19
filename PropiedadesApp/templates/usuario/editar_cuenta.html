@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col-md-9">
-            <button id="btnDatosComerciales" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Datos comerciales</button>
+            <button id="btnDatosComerciales" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Datos comercial</button>
             <button id="btnPlanes" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-list-ol" aria-hidden="true"></i> Planes y productos</button>
             <button id="btnCuenta" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-user" aria-hidden="true"></i> Cuenta de usuario</button>
             <button id="btnDatosGenerales" type="button" class="margin-top-form margin-left-form top-button pull-right"><i class="fa fa-pencil" aria-hidden="true"></i> Datos generales</button>
@@ -57,7 +57,7 @@
                <div class="card-flat departure-card card-block ">
                    <label class="titulo"><i class="fa fa-user" aria-hidden="true"></i> Mi configuración-cuenta de usuario</label>
                    <br>
-                  <form id="formDataAccount" method="post">
+                  <form id="formDataAccount" class="omb_loginForm" method="post">
                     <input type="hidden" id = "tokenHd" name="tokenHd">
                     <input type="hidden" id = "hdEmail" name="hdEmail">
                     <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
@@ -106,16 +106,22 @@
         $("#btnDatosGenerales").click(function(){
             window.location = "/usuarios/generales/editar";
         });
+        $("#btnPlanes").click(function(){
+            window.location = "/usuarios/planes/editar";
+        });
+        $("#btnDatosComerciales").click(function(){
+            window.location = "/usuarios/comerciales/editar";
+        });
          $('#formDataAccount').validator().on('submit', function (e) {
              if (!e.isDefaultPrevented()){
-                var form = $(this).serialize();
                 run_waitMe($(".omb_loginForm"), 2, 'facebook');
+                var form = $(this).serialize();
                 $.ajax
                 ({
                   type: "POST",
                   data: form,
                   url: "/SetAccount/",
-                  async: false,
+                  async: true,
                   dataType: 'json',
                   beforeSend : function(req) {
                     req.setRequestHeader('Authorization', localStorage.token);
@@ -126,13 +132,14 @@
                         $("#txtClave1").val("");
                         $("#txtClave2").val("");
                         ok_msg("Datos generales",data.msg,2500);
+                        $('.omb_loginForm').waitMe('hide');
                     }
                   },
                   error: function(xhr, status, error) {
                      error_msg("Error","Se ha producido un error. Intente realizar esta acción nuevamente.",2500);
                   }
                 });
-                $('.omb_loginForm').waitMe('hide');
+
              }
              return false;
          });

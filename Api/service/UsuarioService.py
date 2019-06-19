@@ -5,8 +5,7 @@ from Api.models import Usuario
 from Api.models import Particular
 from Api.models import Direccion
 from Api.models import UsuarioPlanContrato
-import jwt
-import datetime
+from Api.service.TokenService import TokenService
 
 class UsuarioService:
     def is_authenticated_particular(self, email, clave):
@@ -22,6 +21,7 @@ class UsuarioService:
                 obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular).\
                     filter(semail_cuenta_acceso=email).get()
                 '''
+                service_token = TokenService()
                 obj_cuenta = CuentaAccesoProxy.objects_particular.filter(semail_cuenta_acceso=email).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
                     usuario = obj_cuenta.semail_cuenta_acceso
@@ -34,7 +34,7 @@ class UsuarioService:
                     payload = {'username': obj_cuenta.semail_cuenta_acceso, 'id': str(obj_cuenta.nid_cuenta_acceso),
                                'tipo': str(tipo_usuario_paticular), 'plan': plan, 'plan_id': str(plan_id),
                                'planLink': plan_link}
-                    token = self.encode_token(payload)
+                    token = service_token.encode_token(payload)
                 else:
                     usuario = ""
                     msg = "Clave de acceso incorrecta"
@@ -60,13 +60,14 @@ class UsuarioService:
             usuario = ""
             tipo_usuario_corredora = 2
             try:
+                service_token = TokenService()
                 obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_cliente=tipo_usuario_corredora). \
                     filter(snombreusuario_cuenta_acceso=nombre_usuario).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
                     payload = {'usuario': obj_cuenta.snombreusuario_cuenta_acceso, 'id': str(obj_cuenta.nid_cuenta_acceso),
                                'tipo': str(tipo_usuario_corredora)}
                     usuario = obj_cuenta.snombreusuario_cuenta_acceso
-                    token = self.encode_token(payload)
+                    token = service_token.encode_token(payload)
                 else:
                     usuario = ""
                     msg = "Clave de acceso incorrecta"
@@ -92,13 +93,14 @@ class UsuarioService:
             usuario = ""
             tipo_usuario_inmobiliaria = 3
             try:
+                service_token = TokenService()
                 obj_cuenta = CuentaAccesoProxy.objects.filter(nid_cliente__nid_tipo_cliente=tipo_usuario_inmobiliaria). \
                     filter(snombreusuario_cuenta_acceso=nombre_usuario).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
                     payload = {'usuario': obj_cuenta.snombreusuario_cuenta_acceso, 'id': str(obj_cuenta.nid_cuenta_acceso),
                                'tipo': str(tipo_usuario_inmobiliaria)}
                     usuario = obj_cuenta.snombreusuario_cuenta_acceso
-                    token = self.encode_token(payload)
+                    token = service_token.encode_token(payload)
                 else:
                     usuario = ""
                     msg = "Clave de acceso incorrecta"
@@ -193,6 +195,8 @@ class UsuarioService:
         finally:
             return user_data
 
+
+    '''
     def encode_token(self,data_encode):
         try:
             payload = {
@@ -234,3 +238,4 @@ class UsuarioService:
             token_details['error'] = "1"
             token_details['token'] = ""
             return token_details
+    '''

@@ -1,5 +1,3 @@
-from PropiedadesApp.models import Comuna
-from django.core import serializers
 import requests
 
 class ComunaService:

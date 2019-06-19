@@ -1,2 +1,4 @@
 from PropiedadesApp.service.UsuarioService import UsuarioService
 from PropiedadesApp.service.ComunaService import ComunaService
+from PropiedadesApp.service.PlanContratoService import PlanContratoService
+from PropiedadesApp.service.TokenService import TokenService

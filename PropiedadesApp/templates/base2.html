@@ -9,12 +9,14 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/bootstrap-multiselect.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/pnotify.custom.min.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/breadcrumbs.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/waitMe.min.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/wrapper.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/cart.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/page.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/principal_responsive.css' %}' type='text/css' media='all'/>
@@ -50,7 +52,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div>
-                                                                    <label class="destacado_lbl">Datos inicio sesión <span id="loginTipo"></span></label>
+                                                                    <label class="destacado_lbl2">Datos inicio sesión <span id="loginTipo"></span></label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                   <input id="username" name="username" type="text" class="form-control" autocomplete="off" placeholder=" ">
@@ -110,7 +112,7 @@
                                                             <div class="card-block">
                                                                 <div id="dv_persona_plan">
                                                                     <div class="col-md-12">
-                                                                        <label class="destacado_lbl">Planes particular</label>
+                                                                        <label class="destacado_lbl2">Planes particular</label>
                                                                         <hr>
                                                                     </div>
                                                                     <div class="col-md-12 destacado_lbl2 light_blue_label">
@@ -173,7 +175,7 @@
                                                                 </div>
                                                                 <div id="dv_corredor_plan">
                                                                     <div class="col-md-12">
-                                                                        <label class="destacado_lbl">Planes corredor</label>
+                                                                        <label class="destacado_lbl2">Planes corredor</label>
                                                                         <hr>
                                                                     </div>
                                                                     <div>
@@ -292,7 +294,7 @@
                                                             <form   data-toggle="validator" role="form">
                                                             <div class="card-block row">
                                                                 <div class="col-md-12">
-                                                                    <label class="destacado_lbl">Darme de alta como</label>
+                                                                    <label class="destacado_lbl2">Darme de alta como</label>
                                                                     <hr>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -337,7 +339,7 @@
                                                                      </div>
                                                                 </div>
                                                                 <div class="col-md-12">
-                                                                    <label class="destacado_lbl">Datos registro inicio sesión</label>
+                                                                    <label class="destacado_lbl2">Datos registro inicio sesión</label>
                                                                     <hr>
                                                                 </div>
                                                                 <div class="col-md-6">
@@ -354,7 +356,7 @@
                                                                 </div>
                                                                 <div id="dv_persona">
                                                                     <div class="col-md-12">
-                                                                        <label class="destacado_lbl"><span id="titl_persona"></span></label>
+                                                                        <label class="destacado_lbl2"><span id="titl_persona"></span></label>
                                                                         <hr>
                                                                     </div>
                                                                     <div class="col-sm-6 form-group">
@@ -524,10 +526,10 @@
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">General <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
                                         <div><a href="#">Panel general </a></div>
-                                        <div><a href="#">Mis publicaciones </a></div>
+                                        <div><a href="#">Mis anuncios </a></div>
                                         <div><a href="#">Contactos </a></div>
                                         <div><a href="#">Mis mensajes </a></div>
-                                        <div><a href="#">Mis favoritos </a></div>
+                                        <div><a href="#">Favoritos </a></div>
                                     </div>
                                 </li>
                                 <li class="dropdown">
@@ -535,8 +537,9 @@
                                     <div id="MenuLogin" class="dropdown-menu">
                                         <div><a href="/usuarios/generales/editar"> Datos generales</a></div>
                                         <div><a href="/usuarios/cuentas/editar">Cuenta de usuario</a></div>
-                                        <div><a href="#"> Planes y productos</a></div>
-                                        <div><a href="#"> Datos comerciales</a></div>
+                                        <div><a href="/usuarios/planes/editar"> Planes y productos</a></div>
+                                        <div><a href="/usuarios/comerciales/editar"> Datos comercial</a></div>
+                                        <div><a href="#"> Darme de baja</a></div>
                                         <!--<div class="divider"></div>
                                         <div><a href="#">Trash</a></div>-->
                                     </div>
@@ -544,8 +547,7 @@
                                  <li class="dropdown">
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Servicios <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
-                                        <div><a href="#">Destacados</a></div>
-                                        <div><a href="#">Hazte premium</a></div>
+                                        <div><a href="#">Publicar propiedad</a></div>
                                     </div>
                                 </li>
                                 <li><a href="#" onclick="CerrarSession()">Cerrar Sesión</a></li>
@@ -781,7 +783,6 @@
 								}
 								})();
 							</script>
-							<!-- MailChimp for WordPress v4.2 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
 							<form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-1251" method="post" data-id="1251" data-name="Footer Form">
 								<div class="mc4wp-form-fields">
 									<div class="table-list">
@@ -816,7 +817,6 @@
 								<div class="mc4wp-response">
 								</div>
 							</form>
-							<!-- / MailChimp for WordPress Plugin -->
 						</div>
 					</div>
 				</div>
@@ -824,8 +824,36 @@
 		</div>
 		<!-- End footer bottom -->
 		</footer>
-
 		<!--end footer section-->
+        <!--cart-->
+        <div class="cd-cart js-cd-cart cd-cart--empty">
+            <a href="#0" class="cd-cart__trigger text--replace">
+            <ul class="cd-cart__count">
+                <li>0</li>
+                <li>1</li>
+            </ul>
+            </a>
+            <div class="cd-cart__content">
+                <div class="cd-cart__layout">
+                    <header class="cd-cart__header">
+                        <label class="destacado_lbl">Detalle compra(s)</label>
+                        <span class="cd-cart__undo"></span>
+                    </header>
+                    <div class="cd-cart__body">
+                        <ul>
+                        </ul>
+                    </div>
+                    <footer class="cd-cart__footer">
+                        <a href="#0" class="cd-cart__checkout">
+                        <em>Pagar Total : $<span>0.00</span> IVA INCL.
+                        <svg class="icon icon--sm" viewbox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"></line><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "></polyline></g>
+                        </svg>
+                        </em>
+                        </a>
+                    </footer>
+                </div>
+            </div>
+        </div>
 
 		<script type='text/javascript' src='{% static 'js/jquery-min.js' %}'></script>
   		<script type='text/javascript' src='{% static 'js/jquery-ui.js' %}'></script>
@@ -834,11 +862,13 @@
 		<script type='text/javascript' src='{% static 'js/css3-animate-it.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/plugins.js' %}'></script>
 		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-includes/js/jquery/ui/datepicker.min.js'></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 		<script type='text/javascript'>
 			/* <![CDATA[ */
 			var HOUZEZ_ajaxcalls_vars = {"admin_url":"http:\/\/houzez01.favethemes.com\/wp-admin\/","houzez_rtl":"no","redirect_type":"same_page","login_redirect":"http:\/\/houzez01.favethemes.com","login_loading":"Sending user info, please wait...","direct_pay_text":"Processing, Please wait...","user_id":"0","transparent_menu":"no","simple_logo":"http:\/\/houzez01.favethemes.com\/wp-content\/uploads\/2016\/03\/logo-houzez-color.png","retina_logo":"http:\/\/houzez01.favethemes.com\/wp-content\/uploads\/2016\/03\/logo-houzez-color@2x.png","retina_logo_mobile":"http:\/\/houzez01.favethemes.com\/wp-content\/uploads\/2016\/03\/logo-houzez-color@2x.png","retina_logo_mobile_splash":"http:\/\/houzez01.favethemes.com\/wp-content\/uploads\/2016\/03\/logo-houzez-white@2x.png","retina_logo_splash":"http:\/\/houzez01.favethemes.com\/wp-content\/uploads\/2016\/03\/logo-houzez-white@2x.png","retina_logo_height":"24","retina_logo_width":"140","property_lat":"","property_lng":"","property_map":"","property_map_street":"","is_singular_property":"","process_loader_refresh":"fa fa-spin fa-refresh","process_loader_spinner":"fa fa-spin fa-spinner","process_loader_circle":"fa fa-spin fa-circle-o-notch","process_loader_cog":"fa fa-spin fa-cog","success_icon":"fa fa-check","prop_featured":"Featured","featured_listings_none":"You have used all the \"Featured\" listings in your package.","prop_sent_for_approval":"Sent for Approval","paypal_connecting":"Connecting to paypal, Please wait... ","mollie_connecting":"Connecting to mollie, Please wait... ","confirm":"Are you sure you want to delete?","confirm_featured":"Are you sure you want to make this a featured listing?","confirm_featured_remove":"Are you sure you want to remove from featured listing?","confirm_relist":"Are you sure you want to relist this property?","delete_property":"Processing, please wait...","delete_confirmation":"Are you sure you want to delete?","not_found":"We didn't find any results","for_rent":"for-rent","for_rent_price_range":"for-rent","currency_symbol":"$","advanced_search_widget_min_price":"1000","advanced_search_widget_max_price":"4500000","advanced_search_min_price_range_for_rent":"50","advanced_search_max_price_range_for_rent":"26000","advanced_search_widget_min_area":"50","advanced_search_widget_max_area":"13000","advanced_search_price_slide":"1","fave_page_template":"template-homepage.php","google_map_style":"[{\"featureType\":\"administrative\",\"elementType\":\"labels.text.fill\",\"stylers\":[{\"color\":\"#444444\"}]},{\"featureType\":\"landscape\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#f2f2f2\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"saturation\":-100},{\"lightness\":45}]},{\"featureType\":\"road.highway\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#46bcec\"},{\"visibility\":\"on\"}]}]","googlemap_default_zoom":"1","googlemap_pin_cluster":"yes","googlemap_zoom_cluster":"5","map_icons_path":"http:\/\/houzez01.favethemes.com\/wp-content\/themes\/houzez\/images\/map\/","infoboxClose":"http:\/\/houzez01.favethemes.com\/wp-content\/themes\/houzez\/images\/map\/close.png","clusterIcon":"http:\/\/houzez01.favethemes.com\/wp-content\/themes\/houzez\/images\/map\/cluster-icon.png","google_map_needed":"yes","paged":"1","search_result_page":"normal_page","search_keyword":"","search_country":"","search_state":"","search_city":"","search_feature":"","search_area":"","search_status":"","search_label":"","search_type":"","search_bedrooms":"","search_bathrooms":"","search_min_price":"","search_max_price":"","search_min_area":"","search_max_area":"","search_publish_date":"","search_no_posts":"10","search_location":"","use_radius":"on","search_lat":"","search_long":"","search_radius":"","transportation":"Transportation","supermarket":"Supermarket","schools":"Schools","libraries":"Libraries","pharmacies":"Pharmacies","hospitals":"Hospitals","sort_by":"","measurement_updating_msg":"Updating, Please wait...","autosearch_text":"Searching...","currency_updating_msg":"Updating Currency, Please wait...","currency_position":"before","submission_currency":"USD","wire_transfer_text":"To be paid","direct_pay_thanks":"Thank you. Please check your email for payment instructions.","direct_payment_title":"Direct Payment Instructions","direct_payment_button":"SEND ME THE INVOICE","direct_payment_details":"Please send payment to\u00a0<strong>Houzez Inc<\/strong>. <br\/>\r\n\r\nBank Account -\u00a0<strong>BWA7849843FAVE007<\/strong>\u00a0\u00a0<br\/>\r\n\r\nPlease include the invoice number in payment details Thank you for your business with us! <br\/>","measurement_unit":"sqft","header_map_selected_city":["new-york"],"thousands_separator":",","current_tempalte":"template\/template-homepage.php","monthly_payment":"Monthly Payment","weekly_payment":"Weekly Payment","bi_weekly_payment":"Bi-Weekly Payment","compare_button_url":"http:\/\/houzez01.favethemes.com\/compare-properties\/","template_thankyou":"http:\/\/houzez01.favethemes.com\/thank-you\/","compare_page_not_found":"Please create page using compare properties template","property_detail_top":"v1","keyword_search_field":"prop_title","keyword_autocomplete":"1","houzez_date_language":"","houzez_default_radius":"30","enable_radius_search":"0","enable_radius_search_halfmap":"1","houzez_primary_color":"#00aeef","geocomplete_country":"","houzez_logged_in":"no","ipinfo_location":"0","gallery_autoplay":"1","stripe_page":"http:\/\/houzez01.favethemes.com\/stripe\/","twocheckout_page":"http:\/\/houzez01.favethemes.com\/","custom_fields":"[]"};
 			/* ]]> */
 		</script>
+        <script type='text/javascript' src='{% static 'js/util.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/custom.js' %}'></script>
 		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
 		<script type='text/javascript' src='{% static 'js/property-carousels-v2.min.js' %}'></script>
@@ -848,6 +878,9 @@
         <script type='text/javascript' src='{% static 'js/waitMe.min.js' %}'></script>
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
         <script type='text/javascript' src='{% static 'js/wrapper.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/dynamicListener.js' %}'></script>
+        <script type='text/javascript' src='{% static 'js/cart.js' %}'></script>
+
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>
 		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e444e40ec0","applicationID":"66134438","transactionName":"MQQAYxBUV0pXAUxQWghOI1QWXFZXGRZdVEUKABZST11WVFMSWV5Q","queueTime":0,"applicationTime":2009,"atts":"HUMDFVhOREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 		<script type='text/javascript'>

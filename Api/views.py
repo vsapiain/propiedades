@@ -4,6 +4,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from Api.service import UsuarioService
 from Api.service import ComunaService
+from Api.service import  PlanService
+from Api.service import  TokenService
 
 @api_view (['POST'])
 @permission_classes([AllowAny, ])
@@ -31,7 +33,8 @@ def users(request,id=None):
     try:
         token = request.META['HTTP_AUTHORIZATION']
         service = UsuarioService()
-        token_data = service.decode_token(token)
+        service_token = TokenService()
+        token_data = service_token.decode_token(token)
         if token_data["error"] == "0":
             if request.method == 'GET':
                 data = service.get_user_detail(id)
@@ -65,7 +68,8 @@ def account(request,id=None):
     try:
         token = request.META['HTTP_AUTHORIZATION']
         service = UsuarioService()
-        token_data = service.decode_token(token)
+        service_token = TokenService()
+        token_data = service_token.decode_token(token)
         if token_data["error"] == "0":
             if request.method == 'PUT':
                 usuario = request.POST.get('usuario')
@@ -89,12 +93,35 @@ def get_communes(request):
     except ValueError:
         return Response(comunas, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+@api_view (['GET'])
+@permission_classes([AllowAny, ])
+def get_plans(request):
+    try:
+        token = request.META['HTTP_AUTHORIZATION']
+        service = PlanService()
+        tipo_plan = request.GET['tipo']
+        service_token = TokenService()
+        token_data = service_token.decode_token(token)
+        if token_data["error"] == "0":
+            if tipo_plan == "1":
+                data = service.get_all_particular()
+            else:
+                if tipo_plan == "2":
+                    pass
+                else:
+                    pass
+            return Response(data, status=status.HTTP_200_OK)
+        else:
+            return Response(token_data, status=status.HTTP_200_OK)
+    except ValueError:
+        return Response("", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 @api_view (['GET','POST'])
 @permission_classes([AllowAny, ])
 def verify_token(request):
     try:
         token = request.META['HTTP_AUTHORIZATION']
-        service = UsuarioService()
+        service = TokenService()
         token_data = service.decode_token(token)
         return Response(token_data,status=status.HTTP_200_OK)
     except ValueError:

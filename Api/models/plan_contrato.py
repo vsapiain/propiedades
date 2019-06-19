@@ -8,6 +8,7 @@ class PlanContrato(models.Model):
     ffechainiciovigencia_plan_contrato = models.DateTimeField(db_column='FFechaInicioVigencia_plan_contrato', blank=True, null=True)  # Field name made lowercase.
     ffechafinvigencia_plan_contrato = models.DateTimeField(db_column='FFechaFinVigencia_plan_contrato', blank=True, null=True)  # Field name made lowercase.
     nestadoregistro_plan_contrato = models.IntegerField(db_column='NEstadoRegistro_plan_contrato', blank=True, null=True)  # Field name made lowercase.
+    nid_tipo_plan_contrato = models.ForeignKey('TipoPlanContrato', models.DO_NOTHING, db_column='NId_tipo_plan_contrato', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False

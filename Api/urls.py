@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^comunas/$', views.get_communes, name='comunas'),
     url(r'^usuarios/(?P<id>\w+)', views.users, name='users'),
     url(r'^cuentas/(?P<id>\w+)', views.account, name='account'),
-
+    url(r'^planes/$', views.get_plans, name='usuarios_planes'),
 ]
