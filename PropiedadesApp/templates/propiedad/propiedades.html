@@ -45,6 +45,7 @@
                 <div class="userOn filterContainer filtro bg-white">
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action">Publicar aviso</a>
+                        <a href="#" class="list-group-item list-group-item-action">Servicios adicionales</a>
                         <a href="#" class="list-group-item list-group-item-action">Panel resumen</a>
                         <a href="#" class="list-group-item list-group-item-action">Mis anuncios</a>
                     </div>
@@ -75,9 +76,12 @@
                 </div>
                 <div class="filterContainer filtro bg-white" id="provinciaFilter">
                      <div class="form-group">
-                        <select class="show-menu-arrow " name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
-                            <option selected>Ubicación</option>
-                        </select>
+                        <select class="selectpicker" name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
+                                <option selected value="-1">Ubicación</option>
+                                {% for value,name in options.items %}
+                                    <option  value="{{value}}">{{name}}</option>
+                                {% endfor %}
+                            </select>
                     </div>
                 </div>
 
