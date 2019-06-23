@@ -33,7 +33,16 @@ def index(request):
 
 def propiedades(request):
     t = loader.get_template('propiedad/propiedades.html')
-    context = {'is_public': '1'}
+    baseurl = request.get_host()
+    service_comuna = ComunaService()
+    service_comuna.base = baseurl
+    comunas = service_comuna.get_all()
+    options = {}
+    obj_comunas = serializers.deserialize('json', comunas["obj"])
+    for comuna in obj_comunas:
+        id = comuna.object.nid_comuna
+        nombre = comuna.object.snombre_comuna
+        options[id] = nombre
     if request.method == "POST":
         filter_modo = request.POST.get("cmb_operacion_portada")
         filte_tipo = request.POST.get("cmb_tipo_propiedad_portada")
@@ -45,8 +54,7 @@ def propiedades(request):
         filter_dormitorio = request.POST.get("n_dormitorios_otros")
         filter_bano = request.POST.get("n_banos_otros")
         filter_estacionamientos = request.POST.get("n_estacionamientos_otros")
-
-    context = {'list_var': ''}
+    context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
     return HttpResponse(t.render(context))
 
 def detalle(request,propiedad_codigo=None):
