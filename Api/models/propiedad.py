@@ -4,12 +4,8 @@ from django.db import models
 class Propiedad(models.Model):
     nid_propiedad = models.AutoField(db_column='NId_propiedad', primary_key=True)  # Field name made lowercase.
     scodigo_propiedad = models.CharField(db_column='SCodigo_propiedad', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    nid_publicacion = models.ForeignKey('Publicacion', models.DO_NOTHING, db_column='NId_publicacion', blank=True, null=True)  # Field name made lowercase.
     nid_tipo_propiedad = models.ForeignKey('TipoPropiedad', models.DO_NOTHING, db_column='NId_tipo_propiedad', blank=True, null=True)  # Field name made lowercase.
-    nid_estado_propiedad = models.ForeignKey('EstadoPropiedad', models.DO_NOTHING, db_column='NId_estado_propiedad', blank=True, null=True)  # Field name made lowercase.
     nid_direccion = models.ForeignKey('Direccion', models.DO_NOTHING, db_column='NId_Direccion', blank=True, null=True)  # Field name made lowercase.
-    nid_operacion = models.ForeignKey('Operacion', models.DO_NOTHING, db_column='NId_operacion', blank=True, null=True)  # Field name made lowercase.
-    nid_proyecto = models.ForeignKey('Proyecto', models.DO_NOTHING, db_column='NId_proyecto', blank=True, null=True)  # Field name made lowercase.
     ntotal_habitacion_propiedad = models.IntegerField(db_column='NTotal_habitacion_propiedad', blank=True, null=True)  # Field name made lowercase.
     ntotal_bannos_propiedad = models.IntegerField(db_column='NTotal_bannos_propiedad', blank=True, null=True)  # Field name made lowercase.
     ntotal_estacionamiento_propiedad = models.IntegerField(db_column='NTotal_estacionamiento_propiedad', blank=True, null=True)  # Field name made lowercase.

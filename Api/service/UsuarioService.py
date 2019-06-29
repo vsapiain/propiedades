@@ -4,7 +4,11 @@ from Api.models import CuentaAcceso
 from Api.models import Usuario
 from Api.models import Particular
 from Api.models import Direccion
-from Api.models import UsuarioPlanContrato
+
+from Api.models import  PlanContrato
+from Api.models import Servicio
+from Api.models import ServicioPedido
+
 from Api.service.TokenService import TokenService
 
 class UsuarioService:
@@ -17,6 +21,8 @@ class UsuarioService:
             plan = ""
             plan_id = ""
             try:
+                obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular)\
+
                 '''
                 obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular).\
                     filter(semail_cuenta_acceso=email).get()
@@ -26,8 +32,11 @@ class UsuarioService:
                 if obj_cuenta.sclave_cuenta_acceso == clave:
                     usuario = obj_cuenta.semail_cuenta_acceso
                     obj_usuario = obj_cuenta.nid_usuario
-                    obj_plan_usuario = UsuarioPlanContrato.objects.filter(nid_usuario = obj_usuario.nid_usuario ).get()
-                    obj_plan = obj_plan_usuario.nid_plan_contrato
+                    #reemplazar
+                    #obj_plan_usuario = ServicioPedido.objects.filter(nid_servicio__)
+                    #obj_plan_usuario = UsuarioPlanContrato.objects.filter(nid_usuario = obj_usuario.nid_usuario ).get()
+                    #obj_plan = obj_plan_usuario.nid_plan_contrato
+                    obj_plan = None
                     plan_id = obj_plan.nid_plan_contrato
                     plan = obj_plan.snombre_plan_contrato
                     plan_link = "<a href=/planes/" + str(plan_id) + ">Plan " + plan + "</a>"
