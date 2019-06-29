@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'PropiedadesProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'citypro',
+        'NAME': 'citypro_prod',
         'ENGINE': 'sql_server.pyodbc',
         'HOST': '186.64.123.187',
         'USER': 'sa',
@@ -105,6 +105,7 @@ DATABASES = {
         'PORT' : '1433',
         'OPTIONS': {
             'host_is_server': True
+
         },
     }
 }
