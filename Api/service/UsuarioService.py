@@ -27,6 +27,13 @@ class UsuarioService:
                 obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular).\
                     filter(semail_cuenta_acceso=email).get()
                 '''
+
+                obj_servicio_pedido = ServicioPedido.objects.filter(nid_servicio__nid_tipo_servicio=1).filter(
+                    nid_pedido__nid_usuario=8).filter(nestadoregistro_pedido=1).filter(
+                    nid_servicio__nestadoregistro_servicio=1).filter(nid_pedido__nid_usuario__nestadoregistro_usuario=1)
+                obj_plan = PlanContrato.objects.filter(
+                    nid_servicio__nid_servicio=obj_servicio_pedido.get().nid_servicio.nid_servicio).get()
+
                 service_token = TokenService()
                 obj_cuenta = CuentaAccesoProxy.objects_particular.filter(semail_cuenta_acceso=email).get()
                 if obj_cuenta.sclave_cuenta_acceso == clave:
@@ -36,7 +43,6 @@ class UsuarioService:
                     #obj_plan_usuario = ServicioPedido.objects.filter(nid_servicio__)
                     #obj_plan_usuario = UsuarioPlanContrato.objects.filter(nid_usuario = obj_usuario.nid_usuario ).get()
                     #obj_plan = obj_plan_usuario.nid_plan_contrato
-                    obj_plan = None
                     plan_id = obj_plan.nid_plan_contrato
                     plan = obj_plan.snombre_plan_contrato
                     plan_link = "<a href=/planes/" + str(plan_id) + ">Plan " + plan + "</a>"

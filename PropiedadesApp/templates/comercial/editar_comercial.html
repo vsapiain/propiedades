@@ -40,23 +40,21 @@
                 <div class="userOn filterContainer filtro p-4 bg-white">
                     <div class="panel_filter">
                         &nbsp;&nbsp;
-                        <label class="destacado_lbl margin-top-form-4">Datos comercial</label>
+                        <label class="destacado_lbl margin-top-form-4">Opciones datos comercial</label>
                     </div>
                 </div>
                 <div class="userOn filterContainer filtro bg-white">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">
-                            Publicar aviso
-                        </a>
-                        <a href="/propiedades/" class="list-group-item list-group-item-action">Buscar propiedad</a>
-                        <a href="#" class="list-group-item list-group-item-action">Servicios adicionales</a>
+                        <a href="/propiedades/publicar/" class="list-group-item list-group-item-action"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
+                        <a href="/propiedades/" class="list-group-item list-group-item-action"><i class="fa fa-binoculars pull-right" aria-hidden="true"></i> Buscar propiedad</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Servicios adicionales</a>
                     </div>
                 </div>
             </div>
         </div>
          <div class="col-md-9">
                <div class="card-flat departure-card card-block ">
-                   <label class="titulo"><i class="fa fa-pencil" aria-hidden="true"></i> Mi configuración-datos comercial</label>
+                   <label class="titulo"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Mi configuración-datos comercial</label>
                    <br>
                     <div class="form-group col-md-6">
                         <label for="cmbTipo" class="titulo-campo-form">Tipo documento</label>
@@ -181,6 +179,12 @@
         });
     });
     function initLocal(){
+        $(".titulo").find("i").css("color","#007FAD");
+        $(".list-group a").each(function(index){
+            $(this).find("i").css("color","#007FAD");
+        })
+        $("#btnDatosComerciales").find("i").css("color","darkseagreen");
+        $("#btnDatosComerciales").css("border-color","darkseagreen");
         $("#btnDatosComerciales").css("background","#DDDDDD");
         $('#formDataComercialTicket').validator();
     }

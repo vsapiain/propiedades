@@ -1,0 +1,182 @@
+{% extends "base2.html" %}
+{% block title %}Arriendos y ventas de propiedades{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="crumbs">
+                <ul>
+                    <li><a href="/"> Inicio</a></li>
+                    <li ><a class = "current" href="#">Publicar</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row margin-button-form-2">
+        <div class="col-md-3">
+           <div>
+                <div class="card-flat card-block ">
+                   <div class="margin-left-form">
+                       <div>
+                            <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+                            <label class="contenido"><span class="usernameLogin"></span></label>
+                        </div>
+                        <div>
+                            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                            <label class="contenido"><span class="plan"></span></label>
+                        </div>
+                   </div>
+                </div>
+            </div>
+            <div class="sticky border filtersContainer" id="filtersContainer">
+                <div class="userOn filterContainer filtro p-4 bg-white">
+                    <div class="panel_filter">
+                        &nbsp;&nbsp;
+                        <label class="destacado_lbl margin-top-form-4">Favoritos</label>
+                    </div>
+                </div>
+                <div class="userOn filterContainer filtro bg-white">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
+                        <a href="/propiedades/" class="list-group-item list-group-item-action"><i class="fa fa-binoculars pull-right" aria-hidden="true"></i> Buscar propiedad</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Servicios adicionales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card-flat departure-card card-block ">
+                 <label class="titulo"><i class="fa fa-home" aria-hidden="true"></i> Publicar propiedad</label>
+                <br>
+                 <form id="formDataUser" class="omb_loginForm" method="post" role="form">
+                    <input type="hidden" id = "tokenHd" name="tokenHd">
+                    <input type="hidden" id = "hdEmail" name="hdEmail">
+                    <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
+                    <div class="form-row">
+                         <div class="form-group col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="txtRut" class="titulo-campo-form">Tipo propiedad</label>
+                                   	<select id = "type" name="type" class="selectpicker" data-live-search="false" data-live-search-style="begins">
+                                        <option value="-1" selected>Tipo propiedad</option>
+										<option value="1" >Departamento</option>
+										<option value="2">Casa</option>
+										<option value="3">Oficina</option>
+										<option value="4">Local comercial</option>
+										<option value="5">Sitio</option>
+										<option value="6">Estacionamiento</option>
+										<option value="7">Bodega</option>
+									</select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="txtNombre" class="titulo-campo-form">Operación</label>
+                                    <select   id = "cmb_modo_portada" name="cmb_modo_portada" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
+                                        <option value="1">Venta</option>
+                                        <option value="2" selected>Arriendo</option>
+                                        <option value="3">Arriendo por temproada</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="txtApellidoP" class="titulo-campo-form">Titulo</label>
+                            <input class="col-md-12 form-control" name="txtApellidoP" id="txtApellidoP" placeholder="">
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="txtApellidoM" class="titulo-campo-form">Descripción</label>
+                            <textarea name="textarea" data-length-min="50" data-length-max="-1" rows="8" cols="45" class="col-md-12 form-control"></textarea>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="txtApellidoM" class="titulo-campo-form">Equipamiento</label>
+                            <div class="form-group field-expand" style="display: block;">
+                                <div class="col-mod-12">
+                                    <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="Barbeque">Quincho
+                                         <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="gym">Gimnasio
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                </div>
+                                <div class="col-mod-12">
+                                    <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="laundry">Lavandería
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                </div>
+                                 <div class="col-mod-12">
+                                    <label class="col-md-5 control control--checkbox"><input name="bodega[]" type="checkbox" value="laundry">Bodega
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="col-md-5 control control--checkbox">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="txtDireccion1" class="titulo-campo-form">Dirección</label>
+                            <!--calle,N°,depto., población-->
+                            <input class="col-md-12 form-control" name="txtDireccion1" id="txtDireccion1" placeholder="">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cmbUbicacion" class="titulo-campo-form">Ubicación</label>
+                            <select class="selectpicker" name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
+                                <option selected value="-1">Ubicación</option>
+                                {% for value,name in options.items %}
+                                    <option  value="{{value}}">{{name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="txtDireccion" class="titulo-campo-form">Dormitorio</label>
+                            <!--calle,N°,depto., población-->
+                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="txtDireccion" class="titulo-campo-form">Baño</label>
+                            <!--calle,N°,depto., población-->
+                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="txtDireccion" class="titulo-campo-form">Estacionamiento</label>
+                            <!--calle,N°,depto., población-->
+                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="txtDireccion" class="titulo-campo-form">Sup.Total</label>
+                            <!--calle,N°,depto., población-->
+                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                        </div>
+                       <div class="col-md-12">
+                           <hr/>
+                       </div>
+                       <div class="form-group col-md-3">
+                           <button type="submit" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
+                       </div>
+                       <div class="form-group margin-top-form col-md-3">
+                           (*) Datos obligatorios
+                       </div>
+                   </div>
+                   </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content_script %}
+<script>
+     $(document).ready(function(){
+        initLocal();
+     });
+     function initLocal(){
+        $(".titulo").find("i").css("color","#007FAD");
+        $(".list-group a").each(function(index){
+            $(this).find("i").css("color","#007FAD");
+        })
+     }
+</script>
+{% endblock %}

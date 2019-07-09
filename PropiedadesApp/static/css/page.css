@@ -18299,9 +18299,6 @@ hr {
 .fa-check{
     color:#558B2F;
 }
-.fa-map-marker{
-    color:#E84A35;
-}
 .fa-question-circle{
     color:#00AEEF;
 }
@@ -18355,13 +18352,16 @@ hr {
 }
 .list-group-item{
     padding: 5px 15px;
+    font-size:15px;
 }
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
     color: #323639;
     background-color: #dcdfe6;
     border-color: #dcdfe6;
 }
-
+.list-group {
+    margin-bottom: 10px;
+}
 /*
 .btn.focus, .btn:focus, .btn:hover {
     color: #FFFFFF;

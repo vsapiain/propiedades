@@ -38,18 +38,15 @@
             </div>
             <div class="sticky border filtersContainer" id="filtersContainer">
                 <div class="userOn filterContainer filtro p-4 bg-white">
-                    <div class="panel_filter">
-                        &nbsp;&nbsp;
-                        <label class="destacado_lbl margin-top-form-4">Cuenta de usuario</label>
+                    <div class="panel_filter">&nbsp;&nbsp;
+                        <label class="destacado_lbl margin-top-form-4">Opciones cuenta de usuario</label>
                     </div>
                 </div>
                 <div class="userOn filterContainer filtro bg-white">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">
-                            Publicar aviso
-                        </a>
-                        <a href="/propiedades/" class="list-group-item list-group-item-action">Buscar propiedad</a>
-                        <a href="#" class="list-group-item list-group-item-action">Servicios adicionales</a>
+                        <a href="/propiedades/publicar/" class="list-group-item list-group-item-action"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
+                        <a href="/propiedades/" class="list-group-item list-group-item-action"><i class="fa fa-binoculars pull-right" aria-hidden="true"></i> Buscar propiedad</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Servicios adicionales</a>
                     </div>
                 </div>
             </div>
@@ -155,7 +152,13 @@
             else
                 error_msg("Error",msg,2500);
         }
+        $(".list-group a").each(function(index){
+            $(this).find("i").css("color","#007FAD");
+        })
+        $(".titulo").find("i").css("color","#007FAD");
         $("#tokenHd").val(localStorage.token);
+        $("#btnCuenta").find("i").css("color","cornflowerblue");
+        $("#btnCuenta").css("border-color","cornflowerblue");
         $("#btnCuenta").css("background","#DDDDDD");
         $("#txtClaveActual").focus();
         $('#formDataAccount').validator();

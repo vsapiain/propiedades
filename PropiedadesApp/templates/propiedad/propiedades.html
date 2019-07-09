@@ -37,17 +37,25 @@
             </div>
             <div class="sticky border filtersContainer" id="filtersContainer">
                 <div class="userOn filterContainer filtro p-4 bg-white">
-                    <div class="panel_filter">
-                        &nbsp;&nbsp;
-                        <label class="destacado_lbl margin-top-form-4">Propiedades</label>
+                    <div class="panel_filter">&nbsp;&nbsp;
+                        <label class="destacado_lbl margin-top-form-4">Favoritos</label>
+                    </div>
+                </div>
+                <div class="userOn filterContainer filtro bg-white">
+                     <div class="list-group">
+                        <a href="/propiedades/publicar/" class="list-group-item list-group-item-action"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Servicios adicionales</a>
+                    </div>
+                </div>
+                <div class="userOn filterContainer filtro p-4 bg-white">
+                    <div class="panel_filter">&nbsp;&nbsp;
+                        <label class="destacado_lbl margin-top-form-4">Opciones propiedades</label>
                     </div>
                 </div>
                 <div class="userOn filterContainer filtro bg-white">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Publicar aviso</a>
-                        <a href="#" class="list-group-item list-group-item-action">Servicios adicionales</a>
-                        <a href="#" class="list-group-item list-group-item-action">Panel resumen</a>
-                        <a href="#" class="list-group-item list-group-item-action">Mis anuncios</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-bar-chart pull-right" aria-hidden="true"></i> Panel resumen</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-th-list pull-right" aria-hidden="true"></i> Mis anuncios</a>
                     </div>
                 </div>
                 <div class="filterContainer filtro p-4 bg-white">
@@ -58,7 +66,11 @@
                 </div>
                 <div class="filterContainer filtro bg-white">
                      <div class="form-group">
-                          <select  name = "cmbOperacion" id="cmbOperacion" data-live-search="false" multiple="multiple">
+                          <select  name = "cmbOperacion" id="cmbOperacion" data-live-search="false"   class="form-control selectpicker">
+                                <option value="-1" selected>Seleccionar Operación</option>
+                                <option value="1">Quiero comprar</option>
+                                <option value="2">Busco arriendo</option>
+                                <option value="3">Busco arriendo por temporada</option>
                           </select>
                      </div>
                 </div>
@@ -159,7 +171,10 @@
         <div class="col-md-9">
             <div class="card-flat card-block">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-12">
+                     <label class="titulo-sb"><i class="fa fa-list-ul" aria-hidden="true"></i> Últimas propiedades</label>
+                </div>
+                <div class="col-md-8">
                     <div class="form-group no-margin">
                         <div class="input-search input-icon">
                             <input type="text" id="search_ctl" class="search-text form-control" value=""  placeholder="Buscar por palabra..">
@@ -173,19 +188,12 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <select class="form-control" name = "cmb_orden" id="cmb_orden">
-                            <option>Destacados</option>
-                            <option>Precio</option>
-                            <option selected>Fecha publicación</option>
+                            <option>Últimas publicaciones</option>
+                            <option>Publicaciones más antiguas</option>
+                            <option>Menor precio</option>
+                            <option>Mayor precio</option>
                         </select>
                     </div>
-                </div>
-                <div class="col-md-1">
-                    <button class="btn btn-sm order-opt" onclick="load_order_msg()"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></button>
-                </div>
-                <div class="col-md-12">
-                    <label class="pull-right"><span class="sort_list" id="spn_orden"></span></label>
-                    <!--<span class="label label-info pull-right"><span class="sort_list" id="spn_orden"></span></span>-->
-
                 </div>
             </div>
             <div>
@@ -782,7 +790,7 @@
     var posicionActual, posicionNueva = 0;
     $(document).ready(function(){
         initLocal();
-        loadOperacion();
+        //loadOperacion();
         loadTipoPropiedad();
         loadUbicacion();
         loadEstadoPropiedad();
@@ -802,14 +810,14 @@
                 }
             });
         }
-        $("#spn_orden").text("Orden por fecha pubicación mayor a menor");
+
         $('.carousel').each(function(e){
             $(this).carousel({
                 interval: false
             });
         });
         $("#cmb_orden").change(function(){
-            set_msg_order();
+            console.log('ordenando..');
         });
         $('#pagination-footer').twbsPagination({
             totalPages: 2,
@@ -837,24 +845,30 @@
             disabledClass: 'disabled'
         });
         $("#btnList").click(function(){
+            $(this).find("i").css("color","lightseagreen");
+            $(this).css("border-color","lightseagreen");
             $(this).css("background","#DDDDDD");
+            $("#btnMap").find("i").css("color","#606266");
+            $("#btnMap").css("border-color","#DDDDDD");
             $("#btnMap").css("background","#FFFFFF");
         });
         $("#btnMap").click(function(){
+            $(this).find("i").css("color","#E84A35");
+            $(this).css("border-color","#E84A35");
             $(this).css("background","#DDDDDD");
+            $("#btnList").find("i").css("color","#606266");
+            $("#btnList").css("border-color","#DDDDDD");
             $("#btnList").css("background","#FFFFFF");
         });
     });
     function initLocal(){
+        $(".titulo-sb").find("i").css("color","#007FAD");
+        $(".list-group a").each(function(index){
+            $(this).find("i").css("color","#007FAD");
+        })
+        $("#btnList").find("i").css("color","lightseagreen");
+        $("#btnList").css("border-color","lightseagreen");
         $("#btnList").css("background","#DDDDDD");
-        $('#cmbOperacion').multiselect({
-            includeSelectAllOption: true,
-            nonSelectedText: 'Operación',
-            nSelectedText: 'Elementos seleccionados',
-            selectAllText: ' Seleccionar todo',
-            allSelectedText: 'Elementos seleccionados',
-            buttonWidth: '100%'
-        });
         $('#cmbTipoPropiedad').multiselect({
             includeSelectAllOption: true,
             nonSelectedText: 'Tipo propiedad',
@@ -904,27 +918,6 @@
             $("#cmbEstadoPropiedad").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
         }
         $('#cmbEstadoPropiedad').multiselect('rebuild');
-    }
-    function set_msg_order(){
-        var text_order = "Orden por " + $("#cmb_orden option:selected").text().toLowerCase();
-        if ($(".order-opt").children().hasClass("fa-sort-alpha-desc"))
-            text_order += " mayor a menor";
-        else
-            text_order += " menor a mayor";
-        $("#spn_orden").text(text_order);
-    }
-    function load_order_msg(){
-        var text_order = "Orden por " + $("#cmb_orden option:selected").text().toLowerCase();
-        if ($(".order-opt").children().hasClass("fa-sort-alpha-desc")){
-            $(".order-opt").children().removeClass("fa-sort-alpha-desc");
-            $(".order-opt").children().addClass("fa-sort-alpha-asc");
-            text_order += " menor a mayor";
-        }else{
-            text_order += " mayor a menor";
-            $(".order-opt").children().removeClass("fa-sort-alpha-asc");
-            $(".order-opt").children().addClass("fa-sort-alpha-desc");
-        }
-        $("#spn_orden").text(text_order);
     }
     function modal_details(obj){
         alert(obj.src);

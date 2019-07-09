@@ -62,6 +62,21 @@ def detalle(request,propiedad_codigo=None):
     context = {'list_var': ''}
     return HttpResponse(t.render(context))
 
+def publicar(request):
+    t = loader.get_template('propiedad/publicar.html')
+    baseurl = request.get_host()
+    service_comuna = ComunaService()
+    service_comuna.base = baseurl
+    comunas = service_comuna.get_all()
+    options = {}
+    obj_comunas = serializers.deserialize('json', comunas["obj"])
+    for comuna in obj_comunas:
+        id = comuna.object.nid_comuna
+        nombre = comuna.object.snombre_comuna
+        options[id] = nombre
+    context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    return HttpResponse(t.render(context))
+
 def login(request):
     t = loader.get_template('index.html')
     msg = ""
@@ -224,7 +239,6 @@ def verificar_usuario(request):
         publico = "1"
         if url in settings.PAGE_PATH_IS_NOT_PUBLIC:
             publico  = "0"
-
         if request.META.get('HTTP_AUTHORIZATION') is not None:
             token = request.META['HTTP_AUTHORIZATION']
         baseurl = request.get_host()

@@ -2,74 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f90a770-11db-4824-bf46-8048416b8046" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Api/models/adicional.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/detalle_factura.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/detalle_nota_venta.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/detalle_orden_compra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/documento.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/documento_pedido.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/estado_factura.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/estado_nota_venta.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/estado_orden_compra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/forma_pago.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/nota_venta.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/pedido.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/precio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/propiedad_proyecto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/servicio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/servicio_pedido.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/tipo_documento.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models/tipo_servicio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/comuna.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/corredora.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/cuenta_acceso.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/detalle_plan_contrato.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/direccion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/factura.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/inmobiliaria.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/operacion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/orden_compra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/particular.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/plan_contrato.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/propiedad.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/provincia.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/proyecto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/publicacion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/region.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/telefono.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/tipo_plan_contrato.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/tipo_propiedad.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/tipo_usuario.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Api/models_/usuario.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PropiedadesDjango.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PropiedadesDjango.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api/service/PropiedadService.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PropiedadesApp/templates/propiedad/publicar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/corredora.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/corredora.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/cuenta_acceso.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/cuenta_acceso.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/detalle_plan_contrato.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/detalle_plan_contrato.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/estado_propiedad.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models_/estado_propiedad.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/factura.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/factura.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/linea_factura.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models_/linea_factura.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/linea_orden_compra.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models_/linea_orden_compra.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/operacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/operacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/orden_compra.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/orden_compra.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/plan_contrato.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/plan_contrato.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/propiedad.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/propiedad.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/provincia.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/provincia.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/proyecto.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/proyecto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/publicacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/publicacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/region.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/region.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/tipo_operacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models_/tipo_operacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/tipo_plan_contrato.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/tipo_plan_contrato.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/tipo_propiedad.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/tipo_propiedad.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/tipo_usuario.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models/tipo_usuario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/models/usuario_plan_contrato.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/models_/usuario_plan_contrato.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Api/service/UsuarioService.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/service/UsuarioService.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/service/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api/service/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/static/css/breadcrumbs.css" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/static/css/breadcrumbs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/static/css/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/static/css/page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/static/css/principal.css" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/static/css/principal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/templates/comercial/editar_comercial.html" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/comercial/editar_comercial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/templates/plan/editar_planes.html" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/plan/editar_planes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/templates/propiedad/propiedades.html" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/propiedad/propiedades.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_cuenta.html" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_cuenta.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PropiedadesProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesProject/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PropiedadesProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PropiedadesProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <ignored path="PropiedadesDjango.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,14 +36,18 @@
     <session id="1175322323">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="19" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="4" />
+          <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="4" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -103,8 +57,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="css" value="9" />
+          <entry key="gif" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="1" />
+          <entry key="html" value="35" />
           <entry key="modelBD" value="11" />
           <entry key="modelBD2" value="7" />
           <entry key="modelBD3" value="2" />
@@ -115,27 +71,33 @@
           <entry key="modelDB5" value="2" />
           <entry key="modelDB6" value="2" />
           <entry key="modelsdb" value="2" />
-          <entry key="py" value="211" />
-          <entry key="txt" value="1" />
+          <entry key="py" value="247" />
+          <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="1" />
-          <entry key="PLAIN_TEXT" value="45" />
-          <entry key="Python" value="211" />
+          <entry key="CSS" value="9" />
+          <entry key="HTML" value="35" />
+          <entry key="Image" value="1" />
+          <entry key="PLAIN_TEXT" value="46" />
+          <entry key="Python" value="247" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1" />
-          <entry key="py" value="246" />
+          <entry key="css" value="64" />
+          <entry key="dummy" value="6" />
+          <entry key="html" value="1989" />
+          <entry key="py" value="1071" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1" />
-          <entry key="Python" value="246" />
+          <entry key="CSS" value="64" />
+          <entry key="HTML" value="1989" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Python" value="1071" />
         </counts>
       </usages-collector>
     </session>
@@ -145,34 +107,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Api/service/UsuarioService.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" selection-start-line="7" selection-end-line="9" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Api/proxy/CuentaAccesoProxy.py">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/propiedad/publicar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="223">
+              <caret line="43" column="164" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="43" selection-end-column="164" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Api/models/cuenta_acceso.py">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_cuenta.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+            <state relative-caret-position="136">
+              <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/plan/editar_planes.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="117" column="10" lean-forward="true" selection-start-line="115" selection-start-column="7" selection-end-line="117" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/comercial/editar_comercial.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="49" column="164" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="49" selection-end-column="164" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_usuario.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="51" column="54" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="1332" column="16" lean-forward="true" selection-start-line="1332" selection-start-column="16" selection-end-line="1332" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="232" column="20" lean-forward="true" selection-start-line="232" selection-start-column="20" selection-end-line="232" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/propiedad/propiedades.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PropiedadesApp/static/img/loaderhouse_2.gif">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -187,22 +202,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>requirement</find>
-      <find>servicios</find>
-      <find>servic</find>
+      <find>fa-credit-card-alt</find>
+      <find>list-ul</find>
+      <find>titulo-sb</find>
+      <find>fa-list-ul</find>
+      <find>titulo-db</find>
+      <find>titulo</find>
+      <find>m</find>
+      <find>publi</find>
+      <find>publicar</find>
+      <find>Últimas propiedades</find>
+      <find>propiedad</find>
+      <find>últimas</find>
+      <find>comprar</find>
+      <find>tipo_propiedad</find>
+      <find>add_type_form</find>
+      <find>tipo</find>
+      <find>tipo prop</find>
+      <find>cmb_tipo_propiedad_portada</find>
+      <find>comp</find>
+      <find>Estacionamiento</find>
+      <find>PropiedadProxy</find>
+      <find>save()</find>
+      <find>verify</find>
+      <find>publico</find>
+      <find>verificar_usuario</find>
+      <find>fa-arrow-circle-right</find>
+      <find>initLocal</find>
+      <find>init</find>
+      <find>ini</find>
       <find>buscar</find>
-      <find>models_db</find>
-      <find>obj_plan_usuario</find>
-      <find>Usuario</find>
-      <find>Usuario(</find>
-      <find>DocumentoPe</find>
-      <find>Tipo</find>
-      <find>Corredora</find>
-      <find>cuenta_ac</find>
-      <find>UsuarioPlanContrato</find>
     </findStrings>
     <replaceStrings>
       <replace>Api</replace>
+      <replace>dark_blue_label</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -216,35 +249,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Api/urls.py" />
-        <option value="$PROJECT_DIR$/Api/proxy/__init__.py" />
-        <option value="$PROJECT_DIR$/Api/views.py" />
-        <option value="$PROJECT_DIR$/Api/proxy/PlanContratoProxy.py" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/service/__init__.py" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/service/PlanContratoService.py" />
-        <option value="$PROJECT_DIR$/Api/serializers/PlanContratoSerializer.py" />
-        <option value="$PROJECT_DIR$/Api/serializers/__init__.py" />
-        <option value="$PROJECT_DIR$/Api/serializers/PlanContratoProxySerializer.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/templates/comercial/editar_comercial.py" />
-        <option value="$PROJECT_DIR$/PropiedadesProject/urls.py" />
         <option value="$PROJECT_DIR$/Api/service/PlanService.py" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/static/css/principal.css" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/js/dynamicListener.js" />
         <option value="$PROJECT_DIR$/PropiedadesApp/service/UsuarioService.py" />
         <option value="$PROJECT_DIR$/Api/service/TokenService.py" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/css/cart.css" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/static/css/page.css" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/js/uttil.js" />
         <option value="$PROJECT_DIR$/PropiedadesApp/templates/base2.html" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/templates/base.html" />
         <option value="$PROJECT_DIR$/PropiedadesApp/static/js/cart.js" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/templates/plan/editar_planes.html" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/templates/comercial/editar_comercial.html" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_cuenta.html" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/views.py" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/templates/propiedad/propiedades.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_usuario.html" />
         <option value="$PROJECT_DIR$/Api/models/__init__.py" />
         <option value="$PROJECT_DIR$/PropiedadesProject/settings.py" />
         <option value="$PROJECT_DIR$/models_db/models/adicional.py" />
@@ -266,22 +280,40 @@
         <option value="$PROJECT_DIR$/models_db/models/tipo_servicio.py" />
         <option value="$PROJECT_DIR$/Api/models/adicional.py" />
         <option value="$PROJECT_DIR$/Api/models/provincia.py" />
+        <option value="$PROJECT_DIR$/Api/models/plan_contrato.py" />
         <option value="$PROJECT_DIR$/Api/service/UsuarioService.py" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/static/css/breadcrumbs.css" />
+        <option value="$PROJECT_DIR$/PropiedadesProject/urls.py" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/static/css/principal.css" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/index.html" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/base.html" />
+        <option value="$PROJECT_DIR$/Api/proxy/propiedad.py" />
+        <option value="$PROJECT_DIR$/Api/proxy/PropiedadProxy.py" />
+        <option value="$PROJECT_DIR$/Api/proxy/__init__.py" />
+        <option value="$PROJECT_DIR$/Api/service/__init__.py" />
+        <option value="$PROJECT_DIR$/Api/service/PropiedadService.py" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/views.py" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/propiedad/publicar.html" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/static/css/page.css" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_cuenta.html" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_usuario.html" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/comercial/editar_comercial.html" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/plan/editar_planes.html" />
+        <option value="$PROJECT_DIR$/PropiedadesApp/templates/propiedad/propiedades.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-184" />
-    <option name="y" value="123" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -292,28 +324,26 @@
             <path>
               <item name="PropiedadesDjango" type="b2602c69:ProjectViewProjectNode" />
               <item name="PropiedadesDjango" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PropiedadesDjango" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PropiedadesDjango" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PropiedadesDjango" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PropiedadesDjango" type="462c0819:PsiDirectoryNode" />
               <item name="PropiedadesApp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PropiedadesDjango" type="b2602c69:ProjectViewProjectNode" />
               <item name="PropiedadesDjango" type="462c0819:PsiDirectoryNode" />
-              <item name="PropiedadesProject" type="462c0819:PsiDirectoryNode" />
+              <item name="PropiedadesApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PropiedadesDjango" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PropiedadesDjango" type="462c0819:PsiDirectoryNode" />
+              <item name="PropiedadesApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,7 +364,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="159" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="160" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="835" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../venv-3.5" />
+    <property name="last_opened_file_path" value="C:/djangoArchitectureAzure/project" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -460,7 +490,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32569557" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32352942" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4940476" weight="0.42156863" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4940476" visible="true" weight="0.30228758" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.33060557" />
@@ -516,16 +546,6 @@
           <url>file://$PROJECT_DIR$/PropiedadesApp/proxy_resp/InmobiliariaProxy.py</url>
           <option name="timeStamp" value="138" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Api/service/UsuarioService.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="139" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Api/service/UsuarioService.py</url>
-          <line>23</line>
-          <option name="timeStamp" value="140" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -536,192 +556,27 @@
       </default-breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>obj_plan</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>obj_plan.nid_plan_contrato</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Api/models_/estado_propiedad.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/models/detalle_orden_compra.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/models/detalle_plan_contrato.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/admin/detalle_factura_admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/detalle_factura.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/detalle_plan_contrato.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/direccion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/documento.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/documento_pedido.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/estado_factura.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/estado_nota_venta.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/estado_orden_compra.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/factura.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/forma_pago.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/precio.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/plan_contrato.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/pedido.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/particular.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/orden_compra.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/operacion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/nota_venta.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/inmobiliaria.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/propiedad.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/propiedad_proyecto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/provincia.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/proyecto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/publicacion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/region.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/servicio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/servicio_pedido.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/telefono.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_documento.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_plan_contrato.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_propiedad.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_servicio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_usuario.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models_db/models/usuario.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_documento.py" />
+    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_plan_contrato.py" />
+    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_propiedad.py" />
+    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_servicio.py" />
+    <entry file="file://$PROJECT_DIR$/models_db/models/tipo_usuario.py" />
+    <entry file="file://$PROJECT_DIR$/models_db/models/usuario.py" />
     <entry file="file://$PROJECT_DIR$/Api/models/adicional.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -736,54 +591,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="34" column="44" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Api/proxy/PlanContratoProxy.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/proxy/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Api/models/tipo_plan_contrato.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/models/plan_contrato.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/proxy/CuentaAccesoProxy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/models/cuenta_acceso.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api/models/servicio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -794,13 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Api/models/usuario.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Api/models/pedido.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -808,12 +615,277 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Api/service/UsuarioService.py">
+    <entry file="file://$PROJECT_DIR$/../venv-3.5/Lib/site-packages/django/db/models/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" selection-start-line="7" selection-end-line="9" selection-end-column="37" />
+        <state relative-caret-position="194">
+          <caret line="470" column="6" selection-start-line="470" selection-start-column="6" selection-end-line="470" selection-end-column="6" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt" />
+    <entry file="file://$PROJECT_DIR$/Api/models/tipo_usuario.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/models/plan_contrato.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="47" lean-forward="true" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/models/usuario.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/models/servicio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/models/cuenta_acceso.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/propiedad/detalle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/models/particular.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/service/UsuarioService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesProject/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="69" lean-forward="true" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/static/css/breadcrumbs.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="74" lean-forward="true" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesProject/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/static/css/principal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="84" column="12" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/proxy/PropiedadProxy.py" />
+    <entry file="file://$PROJECT_DIR$/Api/proxy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="43" lean-forward="true" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/service/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="49" lean-forward="true" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/service/UsuarioService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="185" column="23" selection-start-line="185" selection-start-column="8" selection-end-line="185" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/models/direccion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/service/ComunaService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/service/PlanService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="39" selection-start-column="39" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+          <folding>
+            <element signature="n#div#1;n#div#1;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/proxy/CuentaAccesoProxy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="6" column="79" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/service/PropiedadService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1562558189047" expanded="true" signature="128:133" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="127" column="48" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="1332" column="16" lean-forward="true" selection-start-line="1332" selection-start-column="16" selection-end-line="1332" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="232" column="20" lean-forward="true" selection-start-line="232" selection-start-column="20" selection-end-line="232" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/static/css/page.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="18307" selection-start-line="18307" selection-end-line="18307" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/propiedad/publicar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="43" column="164" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="43" selection-end-column="164" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_usuario.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="51" column="54" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/usuario/editar_cuenta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/comercial/editar_comercial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="49" column="164" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="49" selection-end-column="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/plan/editar_planes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="117" column="10" lean-forward="true" selection-start-line="115" selection-start-column="7" selection-end-line="117" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/templates/propiedad/propiedades.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PropiedadesApp/static/img/loaderhouse_2.gif">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>

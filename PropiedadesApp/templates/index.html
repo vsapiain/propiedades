@@ -22,7 +22,10 @@
                             <div class="search-form animated pulse" data-id='1'>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <select  name = "cmb_modo_portada" id="cmb_modo_portada" data-live-search="false" multiple="multiple">
+                                            <select   id = "cmb_modo_portada" name="cmb_modo_portada" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
+                                                <option value="1">Quiero comprar</option>
+                                                <option value="2" selected>Busco arriendo</option>
+                                                <option value="3">Busco arriendo por temporada</option>
                                             </select>
                                         </div>
                                     </div>
@@ -178,7 +181,7 @@
 
     </div>
     <div class="container">
-        <div class="row row-fluid">
+        <div class="row-fluid">
             <div class="col-sm-12">
                 <div class="vc_column-inner ">
                     <div class="wpb_wrapper">
@@ -314,7 +317,7 @@
                 </div>
             </div>
         </div>
-        <div class="row row-fluid">
+        <div class="row-fluid">
             <div class="col-sm-12">
                 <div class="vc_column-inner ">
                     <div class="wpb_wrapper">
@@ -939,48 +942,41 @@
                 </div>
             </div>
         </div>
-
-        <div class="row row-fluid">
-            <div class="col-sd-12">
+        <div class="row-fluid">
+            <div class="row col-md-12">
                 <div class="margin-list">
                     <div class="clearfix">
-                        <div class="row ">
-                            <div class="col-md-2">
+                            <div class="col-md-12">
                                 <h2 class="title_h2">Últimos anuncios</h2>
                             </div>
-                            <div class="col-md-10">
-                                <div class="col-md-7">
-                                  <div class="form-group no-margin">
-                                        <div class="input-search input-icon">
-                                            <input type="text" id="search_ctl" class="search-text form-control" value=""  placeholder="Buscar por palabra..">
-                                            <!-- si quiero saber total coincidencias descomentar -->
-                                            <!--<label class="pull-right" style="display:none;"><span class="number-word">0</span> coincidencia(s)</label>-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-8">
+                                      <div class="form-group no-margin">
+                                            <div class="input-search input-icon">
+                                                <input type="text" id="search_ctl" class="search-text form-control" value=""  placeholder="Buscar por palabra..">
+                                                <!-- si quiero saber total coincidencias descomentar -->
+                                                <!--<label class="pull-right" style="display:none;"><span class="number-word">0</span> coincidencia(s)</label>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="margin-top-form-4 important">Orden </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <select class="form-control" name = "cmb_orden" id="cmb_orden">
+                                                <option>Últimas publicaciones</option>
+                                                <option>Publicaciones más antiguas</option>
+                                                <option>Menor precio</option>
+                                                <option>Mayor precio</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-1">
-                                    <label class="margin-top-form-4 important">Orden </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <select class="form-control" name = "cmb_orden" id="cmb_orden">
-                                            <option>Destacados</option>
-                                            <option>Precio</option>
-                                            <option selected>Fecha publicación</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-                                    <button class="btn btn-sm order-opt" onclick="load_order_msg()"><i class="fa fa-sort-alpha-desc" aria-hidden="true"></i></button>
-                                </div>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label class="pull-right"><span class="sort_list" id="spn_orden"></span></label>
-                    </div>
-                    <div class="container">
-
+                    <div>
                         <div class="page" id="page1">
                             <div class="module-title-nav">
                                  <div class="card departure-card ">
@@ -1587,8 +1583,7 @@
         //add_location_form();
         add_type_form();
         add_mod_form();
-        $("#spn_orden").text("Orden por fecha pubicación mayor a menor");
-       	$('.bs-searchbox input').attr('placeholder','Busqueda');
+        $('.bs-searchbox input').attr('placeholder','Busqueda');
 		$("#btn_ok_price").click(function(){
 		    set_max_price($("#min-price"),$("#max-price"),$("#ddl_price"));
 		    var value = $("#chk_precio_filter").is(':checked') ? 1 : 0;
@@ -1633,7 +1628,7 @@
         });
 
         $("#cmb_orden").change(function(){
-            set_msg_order();
+            console.log('ordenando...');
         });
         $('#pagination-footer').twbsPagination({
             totalPages: 2,
@@ -1663,14 +1658,6 @@
     });
     function initLocal(){
         $("#cmb_ubicacion_portada").selectpicker("refresh");
-        $('#cmb_modo_portada').multiselect({
-            includeSelectAllOption: true,
-            nonSelectedText: 'Operación',
-            nSelectedText: 'Elementos seleccionados',
-            selectAllText: ' Seleccionar todo',
-            allSelectedText: 'Elementos seleccionados',
-            buttonWidth: '100%'
-        });
         $('#cmb_tipo_propiedad_portada').multiselect({
             includeSelectAllOption: true,
             nonSelectedText: 'Tipo propiedad',
@@ -1680,45 +1667,19 @@
             buttonWidth: '100%'
         });
     }
-    function set_msg_order(){
-        var text_order = "Orden por " + $("#cmb_orden option:selected").text().toLowerCase();
-        if ($(".order-opt").children().hasClass("fa-sort-alpha-desc"))
-            text_order += " mayor a menor";
-        else
-            text_order += " menor a mayor";
-        $("#spn_orden").text(text_order);
-    }
-    function load_order_msg(){
-        var text_order = "Orden por " + $("#cmb_orden option:selected").text().toLowerCase();
-        if ($(".order-opt").children().hasClass("fa-sort-alpha-desc")){
-            $(".order-opt").children().removeClass("fa-sort-alpha-desc");
-            $(".order-opt").children().addClass("fa-sort-alpha-asc");
-            text_order += " menor a mayor";
-        }else{
-            text_order += " mayor a menor";
-            $(".order-opt").children().removeClass("fa-sort-alpha-asc");
-            $(".order-opt").children().addClass("fa-sort-alpha-desc");
-        }
-        $("#spn_orden").text(text_order);
-    }
     function add_type_form(){
         for (var i=0;i<tipo_propiedad.length;i++){
             var newitemnum=i+1;
             var newitemdesc = tipo_propiedad[i];
-            $("#cmb_tipo_propiedad_portada").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
+            if (i==0)
+                $("#cmb_tipo_propiedad_portada").append('<option selected value="'+newitemnum+'" >'+newitemdesc+'</option>');
+            else
+                $("#cmb_tipo_propiedad_portada").append('<option value="'+newitemnum+'" >'+newitemdesc+'</option>');
         }
         $('#cmb_tipo_propiedad_portada').multiselect('rebuild');
     }
     function add_mod_form(){
-        for (var i=0;i<modo_propiedad.length;i++){
-            var newitemnum=i+1;
-            var newitemdesc = modo_propiedad[i];
-            $("#cmb_modo_portada").append('<option value="'+newitemnum+'">'+newitemdesc+'</option>');
-        }
-        //$("#cmb_modo_portada").selectpicker("refresh");
-        //$("#cmb_modo_portada2").selectpicker("refresh");
-         //$('#cmb_modo_portada2').multiselect('rebuild');
-         $('#cmb_modo_portada').multiselect('rebuild');
+        return false;
     }
     function set_filter_otros(){
         $("#ddl_otro").text("");
