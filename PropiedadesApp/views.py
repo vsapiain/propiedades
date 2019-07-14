@@ -4,30 +4,28 @@ from django.http import JsonResponse
 from PropiedadesApp.service import UsuarioService
 from PropiedadesApp.service import ComunaService
 from PropiedadesApp.service import PlanContratoService
+from PropiedadesApp.service import PropiedadService
 from PropiedadesApp.service import TokenService
 from django.core import serializers
-from rest_framework.renderers import JSONRenderer
 
 import requests
 
 from django.conf import settings
 
 def index(request):
-    '''
-    user_ = Usuario(Clave='123', Email='XXX')
-    user_.save()
-    '''
     baseurl = request.get_host()
     service_comuna = ComunaService()
     service_comuna.base = baseurl
-    comunas = service_comuna.get_all()
-    options = {}
-    obj_comunas = serializers.deserialize('json', comunas["obj"])
-    for comuna in obj_comunas:
-        id = comuna.object.nid_comuna
-        nombre = comuna.object.snombre_comuna
-        options[id] = nombre
-    context = {'is_public': '1','options':options}
+    resp = service_comuna.get_all()
+    if resp['error'] == 0:
+        options = {}
+        for comuna in resp['data']:
+            id = comuna['nid_comuna']
+            nombre = comuna['snombre_comuna']
+            options[id] = nombre
+        context = {'is_public': '1','options':options}
+    else:
+        context = {'is_public': '1', 'options': ''}
     t = loader.get_template('index.html')
     return HttpResponse(t.render(context))
 
@@ -36,25 +34,27 @@ def propiedades(request):
     baseurl = request.get_host()
     service_comuna = ComunaService()
     service_comuna.base = baseurl
-    comunas = service_comuna.get_all()
-    options = {}
-    obj_comunas = serializers.deserialize('json', comunas["obj"])
-    for comuna in obj_comunas:
-        id = comuna.object.nid_comuna
-        nombre = comuna.object.snombre_comuna
-        options[id] = nombre
-    if request.method == "POST":
-        filter_modo = request.POST.get("cmb_operacion_portada")
-        filte_tipo = request.POST.get("cmb_tipo_propiedad_portada")
-        filter_ubicacion = request.POST.get("cmb_ubicacion_portada")
-        filter_precio_min = request.POST.get("min-price")
-        filter_precio_max = request.POST.get("max-price")
-        filter_size_min = request.POST.get("min-size")
-        filter_size_max = request.POST.get("max-size")
-        filter_dormitorio = request.POST.get("n_dormitorios_otros")
-        filter_bano = request.POST.get("n_banos_otros")
-        filter_estacionamientos = request.POST.get("n_estacionamientos_otros")
-    context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    resp = service_comuna.get_all()
+    if resp['error'] == 0:
+        options = {}
+        for comuna in resp['data']:
+            id = comuna['nid_comuna']
+            nombre = comuna['snombre_comuna']
+            options[id] = nombre
+        if request.method == "POST":
+            filter_modo = request.POST.get("cmb_operacion_portada")
+            filte_tipo = request.POST.get("cmb_tipo_propiedad_portada")
+            filter_ubicacion = request.POST.get("cmb_ubicacion_portada")
+            filter_precio_min = request.POST.get("min-price")
+            filter_precio_max = request.POST.get("max-price")
+            filter_size_min = request.POST.get("min-size")
+            filter_size_max = request.POST.get("max-size")
+            filter_dormitorio = request.POST.get("n_dormitorios_otros")
+            filter_bano = request.POST.get("n_banos_otros")
+            filter_estacionamientos = request.POST.get("n_estacionamientos_otros")
+        context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    else:
+        context = {'is_public': '1', 'activar_msg': '1', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
     return HttpResponse(t.render(context))
 
 def detalle(request,propiedad_codigo=None):
@@ -67,14 +67,17 @@ def publicar(request):
     baseurl = request.get_host()
     service_comuna = ComunaService()
     service_comuna.base = baseurl
-    comunas = service_comuna.get_all()
-    options = {}
-    obj_comunas = serializers.deserialize('json', comunas["obj"])
-    for comuna in obj_comunas:
-        id = comuna.object.nid_comuna
-        nombre = comuna.object.snombre_comuna
-        options[id] = nombre
-    context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    resp = service_comuna.get_all()
+    if resp['error']==0:
+        options = {}
+        for comuna in resp['data']:
+            id = comuna['nid_comuna']
+            nombre = comuna['snombre_comuna']
+            options[id] = nombre
+        context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    else:
+        context = {'is_public': '1', 'activar_msg': '1', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
+
     return HttpResponse(t.render(context))
 
 def login(request):
@@ -86,7 +89,6 @@ def login(request):
         clave = request.POST.get("data[1][value]")
         tipo_usuario = request.POST.get("data[2][value]")
         service = UsuarioService()
-        #baseurl = request.get_host()
         data = {"tipo": tipo_usuario, "password": clave, "usuario": usuario}
         service.base = request.get_host()
         resp = service.authenticate_user(data)
@@ -102,14 +104,16 @@ def editar_usuario(request):
     baseurl = request.get_host()
     service_comuna = ComunaService()
     service_comuna.base = baseurl
-    comunas = service_comuna.get_all()
-    options ={}
-    obj_comunas = serializers.deserialize('json', comunas["obj"])
-    for comuna in obj_comunas:
-        id = comuna.object.nid_comuna
-        nombre = comuna.object.snombre_comuna
-        options[id]=nombre
-    context = {'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    resp = service_comuna.get_all()
+    if resp['error'] == 0:
+        options = {}
+        for comuna in resp['data']:
+            id = comuna['nid_comuna']
+            nombre = comuna['snombre_comuna']
+            options[id] = nombre
+        context = {'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    else:
+        context = {'activar_msg': '0', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
     return HttpResponse(t.render(context))
 
 def actualizar_usuario(request):
@@ -132,7 +136,6 @@ def actualizar_usuario(request):
         opcion_email = request.POST.get('chkOpcion')
         if opcion_email is not None:
             email_contacto = ""
-
         data = {"id_cuenta": id, "rut": rut, "nombre": nombre, "apellidoP": apellidoP, "apellidoM": apellidoM,
                 "direccion": direccion,
                 "telefono": telefono, "email": email, 'ubicacion': ubicacion, 'opcion_email': opcion_email,
@@ -183,19 +186,20 @@ def obtener_planes(request):
     param = {"tipo": "1", "token" : token}
     data_token = service_token.decode_token(token)
     if data_token["error"]!="1":
-        planes = service.get_all(param)
+        resp = service.get_all(param)
         context = {'error': '0', 'msg': ''}
         servicio_plan_contrato = 1
-        if planes["error"]!="1":
-            planes["servicio"] = servicio_plan_contrato
+        if resp["error"]!="1":
+            planes = resp['data']
+            #planes["servicio"] = servicio_plan_contrato
             plan_id = int(data_token["plan_id"])
-            for item in planes["obj"]:
+            for item in resp['data']:
                 if plan_id == int(item['nid_plan_contrato']):
                     item['plan_actual'] = True
                     break
-            context = {'error': '0', 'msg': planes["msg"], 'list': planes["obj"]}
+            context = {'error': '0', 'msg': resp["msg"], 'list': resp['data']}
         else:
-            context = {'error': '1', 'msg': planes["msg"]}
+            context = {'error': '1', 'msg': resp["msg"]}
     else:
         context = {'error': '1', 'msg': data_token["msg"]}
     return JsonResponse(context)
@@ -213,15 +217,28 @@ def editar_datos_comercial(request):
     baseurl = request.get_host()
     service_comuna = ComunaService()
     service_comuna.base = baseurl
-    comunas = service_comuna.get_all()
-    options = {}
-    obj_comunas = serializers.deserialize('json', comunas["obj"])
-    for comuna in obj_comunas:
-        id = comuna.object.nid_comuna
-        nombre = comuna.object.snombre_comuna
-        options[id] = nombre
-    context = {'activar_msg': '0', 'error': '0', 'msg': '','options': options}
+    resp = service_comuna.get_all()
+    if resp['error'] == 0:
+        options = {}
+        for comuna in resp['data']:
+            id = comuna['nid_comuna']
+            nombre = comuna['snombre_comuna']
+            options[id] = nombre
+        context = {'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+    else:
+        context = {'activar_msg': '0', 'error': resp['error'], 'msg': resp['msg'],'options': ''}
     return HttpResponse(t.render(context))
+
+def publicar_propiedad(request):
+    token = request.META['HTTP_AUTHORIZATION']
+    if request.is_ajax() and request.method == 'POST':
+        service = PropiedadService()
+        data = request.POST.dict()
+        service.base = request.get_host()
+        data.update({'token': token})
+        service.add_property(data)
+    context = {'error': '0', 'msg': 'Datos guardados correctamente'}
+    return JsonResponse(context)
 
 def verificar_usuario(request):
     data = ''

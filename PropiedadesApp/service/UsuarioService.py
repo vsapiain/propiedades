@@ -1,4 +1,5 @@
 from Api.models import CuentaAcceso
+from PropiedadesApp.service.TokenService import TokenService
 import jwt
 import requests
 
@@ -16,8 +17,9 @@ class UsuarioService:
         return resp
 
     def get_user(self, data):
+        service_token = TokenService()
         token = data['token']
-        token_data = self.decode_token(token)
+        token_data = service_token.decode_token(token)
         if token_data["error"] == "0":
             id = token_data["id"]
             request_service = requests.get(url="http://" + self.base + "/api/usuarios/" + str(id),
@@ -27,18 +29,21 @@ class UsuarioService:
         return token_data
 
     def set_user(self, data):
+        service_token = TokenService()
         token = data['token']
-        token_data = self.decode_token(token)
+        token_data = service_token.decode_token(token)
         if token_data["error"] == "0":
             id = token_data["id"]
             request_service = requests.put(url="http://" + self.base + "/api/usuarios/" + str(id), data = data,
                                            headers={'Authorization': token})
-            data_service = request_service.json()
-        return token_data
+            request_json = request_service.json()
+            request_json.update({'status': request_service.status_code})
+        return request_json
 
     def set_account_password(self, data):
+        service_token = TokenService()
         token = data['token']
-        token_data = self.decode_token(token)
+        token_data = service_token.decode_token(token)
         id = token_data["id"]
         clave = data["clave"]
         clave_nueva = data["ClaveNueva"]
@@ -49,7 +54,7 @@ class UsuarioService:
                 token_data["msg"] = "Clave actual incorrecta"
                 return token_data
             else:
-                usuario = obj_cuenta.snombreusuario_cuenta_acceso
+                usuario =  obj_cuenta.snombre_cuenta_acceso
                 FVigenciaInicial = obj_cuenta.ffechavigenciainicial_cuenta_acceso
                 FVigenciaFinal = obj_cuenta.ffechavigenciafinal_cuenta_acceso
                 email = obj_cuenta.semail_cuenta_acceso
@@ -57,29 +62,7 @@ class UsuarioService:
                                "email":email,"clave":clave_nueva}
                 request_service = requests.put(url="http://" + self.base + "/api/cuentas/" + str(id), data=data_account,
                                                headers={'Authorization': token})
-                data_service = request_service.json()
+                request_json = request_service.json()
+                request_json.update({'status': request_service.status_code})
+                return request_json
         return token_data
-
-    def decode_token(self, token):
-        token_details = {}
-        try:
-            token_data = jwt.decode(token, "secret_citypro")
-            token_details['username'] = token_data['user']['username']
-            token_details['id'] = token_data['user']['id']
-            token_details['msg'] = ""
-            token_details['error'] = "0"
-            token_details['token'] = token
-        except (jwt.ExpiredSignatureError):
-            token_details['username'] = ""
-            token_details['id'] = ""
-            token_details['msg'] = "La sesión a caducado"
-            token_details['error'] = "1"
-            token_details['token'] = ""
-        except (jwt.DecodeError):
-            token_details['username'] = ""
-            token_details['id'] = ""
-            token_details['msg'] = "Token invalido"
-            token_details['error'] = "1"
-            token_details['token'] = ""
-        finally:
-            return token_details

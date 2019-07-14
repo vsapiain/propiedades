@@ -21,12 +21,7 @@ class UsuarioService:
             plan = ""
             plan_id = ""
             try:
-                obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular)\
-
-                '''
-                obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular).\
-                    filter(semail_cuenta_acceso=email).get()
-                '''
+                obj_cuenta = CuentaAccesoProxy.objects.filter(nid_usuario__nid_tipo_usuario=tipo_usuario_paticular)
 
                 obj_servicio_pedido = ServicioPedido.objects.filter(nid_servicio__nid_tipo_servicio=1).filter(
                     nid_pedido__nid_usuario=8).filter(nestadoregistro_pedido=1).filter(
@@ -39,10 +34,6 @@ class UsuarioService:
                 if obj_cuenta.sclave_cuenta_acceso == clave:
                     usuario = obj_cuenta.semail_cuenta_acceso
                     obj_usuario = obj_cuenta.nid_usuario
-                    #reemplazar
-                    #obj_plan_usuario = ServicioPedido.objects.filter(nid_servicio__)
-                    #obj_plan_usuario = UsuarioPlanContrato.objects.filter(nid_usuario = obj_usuario.nid_usuario ).get()
-                    #obj_plan = obj_plan_usuario.nid_plan_contrato
                     plan_id = obj_plan.nid_plan_contrato
                     plan = obj_plan.snombre_plan_contrato
                     plan_link = "<a href=/planes/" + str(plan_id) + ">Plan " + plan + "</a>"
@@ -131,20 +122,20 @@ class UsuarioService:
             return None
 
     def update_user(self,id,data):
+        user_data = {}
+        tipo_particular = 1
+        tipo_corredora = 2
+        tipo_inmobiliaria = 2
         try:
-            user_data = {}
-            tipo_particular = 1
-            tipo_corredora = 2
-            tipo_inmobiliaria = 2
-            '''
-            cuenta_rut =  Usuario.objects.filter(srut_usuario=data["rut"])
-            if cuenta_rut.count()>0:
-                user_data["error"] = "1"
-                user_data["msg"] = "Rut existente"
-                return user_data
-            '''
-            obj_cuenta = CuentaAcceso.objects.filter(nid_cuenta_acceso=int(id)).get()
-            obj_usuario = obj_cuenta.nid_usuario
+            obj_cuenta = CuentaAcceso.objects.filter(nid_cuenta_acceso=int(id))
+        except CuentaAcceso.DoesNotExist:
+            user_data["error"] = 1
+            user_data["msg"] = "Usuario inexistentes"
+            user_data["data"] = ""
+            return user_data
+        try:
+            obj_usuario = obj_cuenta.get()
+            obj_usuario = obj_usuario.nid_usuario
             if obj_usuario.nid_tipo_usuario.nid_tipo_usuario == tipo_particular:
                 obj_usuario.semailcontacto_usuario = data["email_contacto"]
                 obj_usuario.save()
@@ -153,41 +144,49 @@ class UsuarioService:
                 obj_particular.sapellidop_particular = data["apellidoP"]
                 obj_particular.sapellidom_particular = data["apellidoM"]
                 obj_particular.save()
-                obj_direccion =  obj_usuario.nid_direccion
+                obj_direccion = obj_usuario.nid_direccion
                 obj_direccion.sdireccion_direccion = data["direccion"]
                 obj_direccion.save()
-            #guardar data
             user_data["error"] = "0"
             user_data["msg"] = ""
-        except CuentaAcceso.DoesNotExist:
-            user_data["error"] = "1"
-            user_data["msg"] = "Usuario no encontrado"
+        except Exception as err:
+            msg = "Error al guardar datos de usuario"
+            error = 1
         finally:
-            return user_data
+            user_data["msg"] = ""
+            user_data["error"] = "0"
+        return user_data
 
-    def update_account(self, id, data):
+    def update_account(self, id, clave):
+        user_data = {}
+        tipo_particular = 1
+        tipo_corredora = 2
+        tipo_inmobiliaria = 2
         try:
-            user_data = {}
-            tipo_particular = 1
-            tipo_corredora = 2
-            tipo_inmobiliaria = 2
-            clave = data["clave"]
-            obj_cuenta = CuentaAcceso.objects.filter(nid_cuenta_acceso=int(id)).get()
+            obj_cuenta = CuentaAcceso.objects.filter(nid_cuenta_acceso=int(id))
+            obj_cuenta.save()
+            user_data["error"] = "0"
             obj_cuenta.sclave_cuenta_acceso = clave
             obj_cuenta.save()
             user_data["error"] = "0"
             user_data["msg"] = "Dato(s) actualizado(s) correctamente "
         except CuentaAcceso.DoesNotExist:
             user_data["error"] = "1"
-            user_data["msg"] = "Usuario no encontrado"
-        finally:
+            user_data["msg"] = "Cuenta de acceso invalida"
             return user_data
 
     def get_user_detail(self, id):
         tipo_particular = 1
+        error = "0"
+        msg = ""
         try:
             user_data = {}
-            obj_cuenta = CuentaAcceso.objects.filter(nid_cuenta_acceso=int(id)).get()
+            obj_cuenta = CuentaAcceso.objects.filter(nid_cuenta_acceso=int(id))
+        except CuentaAcceso.DoesNotExist:
+            user_data["error"] = "1"
+            user_data["msg"] = "Usuario no encontrado"
+        try:
+            obj_cuenta = obj_cuenta.get()
             obj_usuario = obj_cuenta.nid_usuario
             obj_direccion = obj_usuario.nid_direccion
             user_data["rut"] = obj_usuario.srut_usuario
@@ -203,54 +202,11 @@ class UsuarioService:
                 user_data["nombre"] = particular_data.snombre_particular
                 user_data["apellidoP"] = particular_data.sapellidop_particular
                 user_data["apellidoM"] = particular_data.sapellidom_particular
-                user_data["error"] = "0"
-        except CuentaAcceso.DoesNotExist:
-            user_data["error"] = "1"
-            user_data["msg"] = "Usuario no encontrado"
+        except Exception as err:
+            error = 1
+            msg = "Error al obtener información"
         finally:
-            return user_data
+            user_data["msg"] = msg
+            user_data["error"] = error
+        return user_data
 
-
-    '''
-    def encode_token(self,data_encode):
-        try:
-            payload = {
-                'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0, seconds=60*30),
-                'iat': datetime.datetime.utcnow(),
-                'user': data_encode
-            }
-            return jwt.encode(
-                payload,
-                "secret_citypro"
-            )
-        except ValueError:
-            return None
-
-    def decode_token(self, token):
-        token_details = {}
-        try:
-            token_data = jwt.decode(token, "secret_citypro")
-            token_details['username'] = token_data['user']['username']
-            token_details['id'] = token_data['user']['id']
-            token_details['plan'] = token_data['user']['plan']
-            token_details['plan_id'] = token_data['user']['plan_id']
-            token_details['planLink'] = token_data['user']['planLink']
-            token_details['msg'] = ""
-            token_details['error'] = "0"
-            token_details['token'] = token
-            return token_details
-        except (jwt.ExpiredSignatureError):
-            token_details['username'] = ""
-            token_details['id'] = ""
-            token_details['msg'] = "La sesión a caducado"
-            token_details['error'] = "1"
-            token_details['token'] = ""
-            return token_details
-        except (jwt.DecodeError):
-            token_details['username'] = ""
-            token_details['id'] = ""
-            token_details['msg'] = "Token invalido"
-            token_details['error'] = "1"
-            token_details['token'] = ""
-            return token_details
-    '''

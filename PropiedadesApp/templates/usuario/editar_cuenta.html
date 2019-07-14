@@ -12,10 +12,12 @@
             </div>
         </div>
         <div class="col-md-9">
-            <button id="btnDatosComerciales" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Datos comercial</button>
-            <button id="btnPlanes" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-list-ol" aria-hidden="true"></i> Planes y productos</button>
-            <button id="btnCuenta" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-user" aria-hidden="true"></i> Cuenta de usuario</button>
-            <button id="btnDatosGenerales" type="button" class="margin-top-form margin-left-form top-button pull-right"><i class="fa fa-pencil" aria-hidden="true"></i> Datos generales</button>
+            <div id="menuCabecera">
+                <button id="btnDatosComerciales" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Datos comercial</button>
+                <button id="btnPlanes" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-list-ol" aria-hidden="true"></i> Planes y productos</button>
+                <button id="btnCuenta" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-user" aria-hidden="true"></i> Cuenta de usuario</button>
+                <button id="btnDatosGenerales" type="button" class="margin-top-form margin-left-form top-button pull-right"><i class="fa fa-pencil" aria-hidden="true"></i> Datos generales</button>}
+            </div>
         </div>
     </div>
 </div>
@@ -159,7 +161,7 @@
         $("#tokenHd").val(localStorage.token);
         $("#btnCuenta").find("i").css("color","cornflowerblue");
         $("#btnCuenta").css("border-color","cornflowerblue");
-        $("#btnCuenta").css("background","#DDDDDD");
+        $("#btnCuenta").css("background","#dcdfe6");
         $("#txtClaveActual").focus();
         $('#formDataAccount').validator();
     }

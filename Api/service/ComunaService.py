@@ -1,16 +1,27 @@
 from Api.models import Comuna
-from django.core import serializers
+from Api.serializers import ComunaSerializer
+#from django.core import serializers
 
 class ComunaService:
     def get_all(self):
-        data =  Comuna.objects.order_by('snombre_comuna')
         comuna_data = {}
-        comuna_data["error"] = "0"
-        comuna_data["msg"] = ""
-        comuna_data["obj"] = ""
-        if len(list(data))<1:
-            comuna_data["error"]="1"
-            comuna_data["msg"] = "No existen comunas"
-        else:
-            comuna_data["obj"] = serializers.serialize('json', data)
-        return comuna_data
+        msg = ""
+        error = 0
+        try:
+            data =  Comuna.objects.order_by('snombre_comuna')
+        except Comuna.DoesNotExist:
+            comuna_data["error"] = 1
+            comuna_data["msg"] = "Comunas inexistentes"
+            comuna_data["data"] = ""
+            return comuna_data
+        try:
+            data_serializer = ComunaSerializer(data,many=True)
+        except Exception as err:
+            msg = "Error carga Comunas"
+            error = 1
+            data = ""
+        finally:
+            comuna_data["msg"] = msg
+            comuna_data["error"] = error
+            comuna_data["data"] = data_serializer.data
+            return comuna_data

@@ -39,7 +39,7 @@
                 </div>
                 <div class="userOn filterContainer filtro bg-white">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
+                        <a href="#" class="list-group-item list-group-item-action active"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
                         <a href="/propiedades/" class="list-group-item list-group-item-action"><i class="fa fa-binoculars pull-right" aria-hidden="true"></i> Buscar propiedad</a>
                         <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Servicios adicionales</a>
                     </div>
@@ -48,18 +48,15 @@
         </div>
         <div class="col-md-9">
             <div class="card-flat departure-card card-block ">
-                 <label class="titulo"><i class="fa fa-home" aria-hidden="true"></i> Publicar propiedad</label>
+                 <label class="titulo"><i class="fa fa-home" aria-hidden="true"></i> Publicar aviso</label>
                 <br>
-                 <form id="formDataUser" class="omb_loginForm" method="post" role="form">
-                    <input type="hidden" id = "tokenHd" name="tokenHd">
-                    <input type="hidden" id = "hdEmail" name="hdEmail">
-                    <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
+                 <form id="formDataProp" class="omb_loginForm" method="post" role="form">
                     <div class="form-row">
                          <div class="form-group col-md-12">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="txtRut" class="titulo-campo-form">Tipo propiedad</label>
-                                   	<select id = "type" name="type" class="selectpicker" data-live-search="false" data-live-search-style="begins">
+                                    <label for="cmbTipoPropiedad" class="titulo-campo-form">Tipo propiedad</label>
+                                   	<select id = "cmbTipoPropiedad" name="cmbTipoPropiedad" class="selectpicker" data-live-search="false" data-live-search-style="begins">
                                         <option value="-1" selected>Tipo propiedad</option>
 										<option value="1" >Departamento</option>
 										<option value="2">Casa</option>
@@ -71,8 +68,8 @@
 									</select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="txtNombre" class="titulo-campo-form">Operación</label>
-                                    <select   id = "cmb_modo_portada" name="cmb_modo_portada" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
+                                    <label for="cmbOperacion" class="titulo-campo-form">Operación</label>
+                                    <select   id = "cmbOperacion" name="cmbOperacion" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
                                         <option value="1">Venta</option>
                                         <option value="2" selected>Arriendo</option>
                                         <option value="3">Arriendo por temproada</option>
@@ -81,34 +78,36 @@
                             </div>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="txtApellidoP" class="titulo-campo-form">Titulo</label>
-                            <input class="col-md-12 form-control" name="txtApellidoP" id="txtApellidoP" placeholder="">
+                            <label for="txtTitulo" class="titulo-campo-form">Titulo</label>
+                            <input class="col-md-12 form-control" name="txtTitulo" id="txtTitulo" placeholder="" required>
+                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-md-7">
-                            <label for="txtApellidoM" class="titulo-campo-form">Descripción</label>
-                            <textarea name="textarea" data-length-min="50" data-length-max="-1" rows="8" cols="45" class="col-md-12 form-control"></textarea>
+                            <label for="txtDescripcion" class="titulo-campo-form">Descripción</label>
+                            <textarea id="txtDescripcion" name="txtDescripcion" required data-length-min="50" data-length-max="-1" rows="8" cols="45" class="col-md-12 form-control"></textarea>
+                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-md-5">
-                            <label for="txtApellidoM" class="titulo-campo-form">Equipamiento</label>
+                            <label class="titulo-campo-form">Equipamiento</label>
                             <div class="form-group field-expand" style="display: block;">
                                 <div class="col-mod-12">
-                                    <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="Barbeque">Quincho
+                                    <label class="col-md-5 control control--checkbox"><input name="Quincho" type="checkbox" value="quincho">Quincho
                                          <div class="control__indicator"></div>
                                     </label>
-                                    <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="gym">Gimnasio
+                                    <label class="col-md-5 control control--checkbox"><input name="Gimnasio" type="checkbox" value="gimnasio">Gimnasio
                                         <div class="control__indicator"></div>
                                     </label>
                                 </div>
                                 <div class="col-mod-12">
-                                    <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="laundry">Lavandería
+                                    <label class="col-md-5 control control--checkbox"><input name="Lavandería" type="checkbox" value="lavandería">Lavandería
                                         <div class="control__indicator"></div>
                                     </label>
-                                    <label class="col-md-5 control control--checkbox"><input name="feature[]" type="checkbox" value="swimming-pool">Piscina
+                                    <label class="col-md-5 control control--checkbox"><input name="Piscina" type="checkbox" value="piscina">Piscina
                                         <div class="control__indicator"></div>
                                     </label>
                                 </div>
                                  <div class="col-mod-12">
-                                    <label class="col-md-5 control control--checkbox"><input name="bodega[]" type="checkbox" value="laundry">Bodega
+                                    <label class="col-md-5 control control--checkbox"><input name="Bodega" type="checkbox" value="bodega">Bodega
                                         <div class="control__indicator"></div>
                                     </label>
                                     <label class="col-md-5 control control--checkbox">
@@ -118,13 +117,20 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="txtDireccion1" class="titulo-campo-form">Dirección</label>
+
+                            <label for="txtDireccion" class="titulo-campo-form">Dirección</label>
                             <!--calle,N°,depto., población-->
-                            <input class="col-md-12 form-control" name="txtDireccion1" id="txtDireccion1" placeholder="">
+                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" required placeholder="">
+                            <div class="help-block with-errors"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="cmbUbicacion" class="titulo-campo-form">Ubicación</label>
-                            <select class="selectpicker" name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
+                            <select
+                                     data-validation = " length "
+                                     data-validation-length = " min2 "
+                                     data-validation-error-msg = " Debe seleccionar al menos dos opciones "
+                                     data-validation-event = " change "
+                                    class="selectpicker" name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
                                 <option selected value="-1">Ubicación</option>
                                 {% for value,name in options.items %}
                                     <option  value="{{value}}">{{name}}</option>
@@ -132,24 +138,66 @@
                             </select>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="txtDireccion" class="titulo-campo-form">Dormitorio</label>
+                            <label for="cmbDormitorio" class="titulo-campo-form">Dormitorio</label>
                             <!--calle,N°,depto., población-->
-                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                            <select id = "cmbDormitorio" name="cmbDormitorio" class="selectpicker" data-live-search="false" data-live-search-style="begins">
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">+5</option>
+                            </select>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="txtDireccion" class="titulo-campo-form">Baño</label>
+                            <label for="cmbBanno" class="titulo-campo-form">Baño</label>
                             <!--calle,N°,depto., población-->
-                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                              <select id = "cmbBanno" name="cmbBanno" class="selectpicker" data-live-search="false" data-live-search-style="begins">
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">+5</option>
+                            </select>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="txtDireccion" class="titulo-campo-form">Estacionamiento</label>
+                            <label for="cmbEstacionamiento" class="titulo-campo-form">Estacionamiento</label>
                             <!--calle,N°,depto., población-->
-                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                             <select id = "cmbEstacionamiento" name="cmbEstacionamiento" class="selectpicker" data-live-search="false" data-live-search-style="begins">
+                                <option value="-1" >-------</option>
+                                <option value="1" >1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">+5</option>
+                            </select>
+
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="txtDireccion" class="titulo-campo-form">Sup.Total</label>
+                            <label class="titulo-campo-form">Sup.Total</label>
                             <!--calle,N°,depto., población-->
-                            <input class="col-md-12 form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                            <div class="dropdown form-group">
+                                <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_area_filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tamaño
+                                </button>
+                                <div id="ddl_mnu_tamano" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
+                                    <button type="button" class="close margin-right-form" >&times;</button>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                          <div class="col-md-12">
+                                              <div class="col-md-12">
+                                                    <input type="text" class="form-control" value="" name="min-size-filter" id="min-size-filter" placeholder="Mín. m²" onkeypress="return validate_numeric(event)" maxlength="10">
+                                              </div>
+                                              <div class="col-md-12">
+                                                    <input type="text" class="form-control" value="" name="max-size-filter" id="max-size-filter" placeholder="Máx. m²" onkeypress="return validate_numeric(event)" maxlength="10">
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button id="btn_size_filter" type="button" class="btn btn-primary btn-sm margin-top-form">Aceptar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                        <div class="col-md-12">
                            <hr/>
@@ -169,8 +217,37 @@
 {% endblock %}
 {% block content_script %}
 <script>
+
      $(document).ready(function(){
+
         initLocal();
+        $('#formDataProp').validator().on('submit', function (e) {
+            if (!e.isDefaultPrevented()){
+                run_waitMe($(".omb_loginForm"), 2, 'facebook');
+                var form = $(this).serialize();
+                $.ajax
+                ({
+                  type: "POST",
+                  data: form,
+                  url: "/SetProperty/",
+                  async: true,
+                  dataType: 'json',
+                  beforeSend : function(req) {
+                    req.setRequestHeader('Authorization', localStorage.token);
+                  },
+                  success: function (data){
+                    if (data.error!='1'){
+                        ok_msg("Datos generales",data.msg,2500);
+                        $('.omb_loginForm').waitMe('hide');
+                    }
+                  },
+                  error: function(xhr, status, error) {
+                     error_msg("Error","Se ha producido un error. Intente realizar esta acción nuevamente.",2500);
+                  }
+                });
+            }
+            return false;
+        });
      });
      function initLocal(){
         $(".titulo").find("i").css("color","#007FAD");
