@@ -316,6 +316,8 @@ var nice = !1;
         var a = null,
             t = null,
             s = null;
+            //poner si se requiere cabecera flotante
+           /*
         ee() > 991 ? (a = e(".advance-search-header"), t = e(".advance-search-header").outerHeight()) : (a = e(".advanced-search-mobile"), t = e(".advanced-search-mobile").outerHeight()), a.data("sticky") && (e(".splash-search")[0] ? (s = e(".splash-search").offset().top, s += 200) : s = ee() > 991 ? e(".advance-search-header").offset().top + 65 : e(".advanced-search-mobile").offset().top, 0 == s && (s = e("#header-section").height()), e(window).scroll(function() {
             var n = e(window).scrollTop(),
                 i = e("#wpadminbar").height() + "px";
@@ -328,7 +330,7 @@ var nice = !1;
         }else{
             e(".advanced-search-mobile").removeClass("advanced-search-sticky");
         }
-
+        */
     }
 
     function N() {

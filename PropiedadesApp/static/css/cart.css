@@ -193,6 +193,7 @@ svg {
         }
     }
 }
+/*
 .margin-top,
 .margin-top--md {
     margin-top: 1.25em;
@@ -243,6 +244,7 @@ svg {
     margin-bottom: 1.25em;
     margin-bottom: var(--space-md)
 }
+*/
 .margin-bottom--xxxxs {
     margin-bottom: .125em;
     margin-bottom: var(--space-xxxxs)

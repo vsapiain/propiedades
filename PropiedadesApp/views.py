@@ -191,7 +191,6 @@ def obtener_planes(request):
         servicio_plan_contrato = 1
         if resp["error"]!="1":
             planes = resp['data']
-            #planes["servicio"] = servicio_plan_contrato
             plan_id = int(data_token["plan_id"])
             for item in resp['data']:
                 if plan_id == int(item['nid_plan_contrato']):
@@ -239,6 +238,11 @@ def publicar_propiedad(request):
         service.add_property(data)
     context = {'error': '0', 'msg': 'Datos guardados correctamente'}
     return JsonResponse(context)
+
+def panel(request):
+    t = loader.get_template('panel/panel.html')
+    context = {'activar_msg': '0', 'error': '0', 'msg': ''}
+    return HttpResponse(t.render(context))
 
 def verificar_usuario(request):
     data = ''

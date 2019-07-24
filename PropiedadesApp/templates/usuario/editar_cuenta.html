@@ -1,101 +1,103 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 {% block title %}Arriendos y ventas de propiedades{% endblock %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div id="crumbs">
-                <ul>
-                    <li><a href="/"> Inicio</a></li>
-                    <li ><a class = "current" href="#">Cuenta de usuario</a></li>
-                </ul>
+<div class="margin-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="crumbs">
+                    <ul>
+                        <li><a href="/"> Inicio</a></li>
+                        <li ><a class = "current" href="#">Cuenta de usuario</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="col-md-9">
-            <div id="menuCabecera">
-                <button id="btnDatosComerciales" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Datos comercial</button>
-                <button id="btnPlanes" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-list-ol" aria-hidden="true"></i> Planes y productos</button>
-                <button id="btnCuenta" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-user" aria-hidden="true"></i> Cuenta de usuario</button>
-                <button id="btnDatosGenerales" type="button" class="margin-top-form margin-left-form top-button pull-right"><i class="fa fa-pencil" aria-hidden="true"></i> Datos generales</button>}
+            <div class="col-md-9">
+                <div id="menuCabecera">
+                    <button id="btnDatosComerciales" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Datos comercial</button>
+                    <button id="btnPlanes" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-list-ol" aria-hidden="true"></i> Planes y productos</button>
+                    <button id="btnCuenta" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-user" aria-hidden="true"></i> Cuenta de usuario</button>
+                    <button id="btnDatosGenerales" type="button" class="margin-top-form margin-left-form top-button pull-right"><i class="fa fa-pencil" aria-hidden="true"></i> Datos generales</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row margin-button-form-2">
-         <div class="col-md-3">
-           <div>
-                <div class="card-flat card-block ">
-                   <div class="margin-left-form">
-                   <div>
-                        <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
-                        <label class="contenido"><span class="usernameLogin"></span></label>
+    <div class="container">
+        <div class="row margin-button-form-2">
+             <div class="col-md-3">
+               <div>
+                    <div class="card-flat card-block ">
+                       <div class="margin-left-form">
+                       <div>
+                            <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+                            <label class="contenido"><span class="usernameLogin"></span></label>
+                        </div>
+                        <div>
+                            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                            <label class="contenido"><span class="plan"></span></label>
+                        </div>
+                       </div>
                     </div>
-                    <div>
-                        <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-                        <label class="contenido"><span class="plan"></span></label>
+                </div>
+                <div class="sticky border filtersContainer" id="filtersContainer">
+                    <div class="userOn filterContainer filtro p-4 bg-white">
+                        <div class="panel_filter">&nbsp;&nbsp;
+                            <label class="destacado_lbl margin-top-form-4">Opciones cuenta de usuario</label>
+                        </div>
                     </div>
-                   </div>
+                    <div class="userOn filterContainer filtro bg-white">
+                        <div class="list-group">
+                            <a href="/propiedades/publicar/" class="list-group-item list-group-item-action"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
+                            <a href="/propiedades/" class="list-group-item list-group-item-action"><i class="fa fa-binoculars pull-right" aria-hidden="true"></i> Buscar propiedad</a>
+                            <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Servicios adicionales</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="sticky border filtersContainer" id="filtersContainer">
-                <div class="userOn filterContainer filtro p-4 bg-white">
-                    <div class="panel_filter">&nbsp;&nbsp;
-                        <label class="destacado_lbl margin-top-form-4">Opciones cuenta de usuario</label>
-                    </div>
-                </div>
-                <div class="userOn filterContainer filtro bg-white">
-                    <div class="list-group">
-                        <a href="/propiedades/publicar/" class="list-group-item list-group-item-action"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
-                        <a href="/propiedades/" class="list-group-item list-group-item-action"><i class="fa fa-binoculars pull-right" aria-hidden="true"></i> Buscar propiedad</a>
-                        <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Servicios adicionales</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-9">
-               <div class="card-flat departure-card card-block ">
-                   <label class="titulo"><i class="fa fa-user" aria-hidden="true"></i> Mi configuración-cuenta de usuario</label>
-                   <br>
-                  <form id="formDataAccount" class="omb_loginForm" method="post">
-                    <input type="hidden" id = "tokenHd" name="tokenHd">
-                    <input type="hidden" id = "hdEmail" name="hdEmail">
-                    <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
-                    <div class="form-row">
-                        <div class="row">
-                            <div class="form-group col-md-5">
-                                <label for="txtClaveActual" class="titulo-campo-form">Contraseña actual</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
-                                <input class="form-control" name="txtClaveActual" id="txtClaveActual" type="password" data-minlength="6"  data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
-                                <div class="help-block with-errors"></div>
+             <div class="col-md-9">
+                   <div class="card-flat departure-card card-block ">
+                       <label class="titulo"><i class="fa fa-user" aria-hidden="true"></i> Mi configuración-cuenta de usuario</label>
+                       <br>
+                      <form id="formDataAccount" class="omb_loginForm" method="post">
+                        <input type="hidden" id = "tokenHd" name="tokenHd">
+                        <input type="hidden" id = "hdEmail" name="hdEmail">
+                        <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
+                        <div class="form-row">
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label for="txtClaveActual" class="titulo-campo-form">Contraseña actual</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                    <input class="form-control" name="txtClaveActual" id="txtClaveActual" type="password" data-minlength="6"  data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-5">
-                                <label for="txtClave1" class="titulo-campo-form">Nueva contraseña</label>
-                                <input class="form-control" name="txtClave1" id="txtClave1" type="password" data-minlength="6" data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
-                                <div class="help-block with-errors"></div>
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label for="txtClave1" class="titulo-campo-form">Nueva contraseña</label>
+                                    <input class="form-control" name="txtClave1" id="txtClave1" type="password" data-minlength="6" data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-5">
-                                <label for="txtClave2" class="titulo-campo-form">Repetir nueva contraseña</label>
-                                <input class="form-control" name="txtClave2" id="txtClave2" type="password" data-minlength="6" data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
-                                <div class="help-block with-errors"></div>
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label for="txtClave2" class="titulo-campo-form">Repetir nueva contraseña</label>
+                                    <input class="form-control" name="txtClave2" id="txtClave2" type="password" data-minlength="6" data-error="Debe ingresar un mínimo de 6 caracteres" placeholder="" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                               <hr/>
+                            <div class="row">
+                                <div class="col-md-12">
+                                   <hr/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                   <button type="submit" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
+                                </div>
                             </div>
-                            <div class="form-group col-md-3">
-                               <button type="submit" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
-                            </div>
-                        </div>
 
+                       </div>
+                       </form>
                    </div>
-                   </form>
-               </div>
-         </div>
+             </div>
+        </div>
     </div>
 </div>
  {% endblock %}
@@ -104,10 +106,10 @@
     $(document).ready(function(){
         initLocal();
         $("#btnDatosGenerales").click(function(){
-            window.location = "/usuarios/generales/editar";
+            window.location = "/usuarios/datos/editar";
         });
         $("#btnPlanes").click(function(){
-            window.location = "/usuarios/planes/editar";
+            window.location = "/usuarios/planes";
         });
         $("#btnDatosComerciales").click(function(){
             window.location = "/usuarios/comerciales/editar";

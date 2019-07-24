@@ -25,6 +25,7 @@ class Propiedad(models.Model):
     ntvcable_propiedad = models.IntegerField(db_column='NTVcable_propiedad', blank=True, null=True)  # Field name made lowercase.
     nlavadora_propiedad = models.IntegerField(db_column='NLavadora_propiedad', blank=True, null=True)  # Field name made lowercase.
     nwifi_propiedad = models.IntegerField(db_column='NWIfi_propiedad', blank=True, null=True)  # Field name made lowercase.
+    nbodega_propiedad = models.IntegerField(db_column='NBodega_propiedad', blank=True, null=True)  # Field name made lowercase.
     ffechavigenciainicial_propiedad = models.DateTimeField(db_column='FFechaVigenciaInicial_propiedad', blank=True, null=True)  # Field name made lowercase.
     fvigenciafinal_propiedad = models.DateTimeField(db_column='FVigenciaFInal_propiedad', blank=True, null=True)  # Field name made lowercase.
     nestadoregistro_propiedad = models.IntegerField(db_column='NEstadoRegistro_propiedad', blank=True, null=True)  # Field name made lowercase.

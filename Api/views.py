@@ -6,6 +6,7 @@ from Api.service import UsuarioService
 from Api.service import ComunaService
 from Api.service import  PlanService
 from Api.service import PropiedadService
+from Api.service import PublicacionService
 from Api.service import  TokenService
 
 @api_view (['POST'])
@@ -117,25 +118,33 @@ def property(request):
     service_token = TokenService()
     token_data = service_token.decode_token(token)
     if token_data["error"] == "0":
-        service = PropiedadService()
+        propiedad_service = PropiedadService()
         if request.method == 'POST':
+            registro_activo = 1
+            quincho = 1 if request.POST.get('Quincho') is not None else -1
+            gimnasio = 1 if request.POST.get('Gimnasio') is not None else -1
+            lavanderia = 1 if request.POST.get('Lavandería') is not None else -1
+            piscina = 1 if request.POST.get('Piscina') is not None else -1
+            bodega = 1 if request.POST.get('Bodega') is not None else -1
             tipo_propiedad = request.POST.get('cmbTipoPropiedad')
             operacion = request.POST.get('cmbOperacion')
             titulo = request.POST.get('txtTitulo')
             descripcion = request.POST.get('txtDescripcion')
-
-            quincho = request.POST.get('Quincho')
-            gimnasio = request.POST.get('Gimnasio')
-            lavandería = request.POST.get('Lavandería')
-            piscina = request.POST.get('Piscina')
-            bodega = request.POST.get('Bodega')
-
+            area_total = request.POST.get('ddl_area_filter')
             direccion = request.POST.get('txtDireccion')
             ubicacion = request.POST.get('cmbUbicacion')
             dormitorio = request.POST.get('cmbDormitorio')
             banno = request.POST.get('cmbBanno')
-            estacionamiento = request.POST.get('cmbEstacionamiento')
-        return Response( status=status.HTTP_200_OK)
+            estacionamiento = request.POST.get('cmbEstacion amiento')
+            codigo = 1
+            propiedad_instance = propiedad_service.save(codigo,tipo_propiedad,direccion,
+                         ubicacion,dormitorio,banno,estacionamiento,-1,area_total,-1,quincho,-1,gimnasio,lavanderia,-1,-1,-1,-1,
+                         -1,piscina,-1,-1,-1,bodega,None,None,registro_activo)
+            if propiedad_instance is not None:
+                publicacion_service = PublicacionService()
+                publicacion_service.save(propiedad_instance.nid_propiedad,token_data['plan_id'],token_data['id'],
+                                         operacion,titulo,descripcion,None,None,'',registro_activo)
+        return Response(status=status.HTTP_200_OK)
     else:
         return Response(token_data, status=status.HTTP_401_UNAUTHORIZED)
 

@@ -7,11 +7,14 @@
 		<link href="{% static 'img/ico/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
         <link rel='stylesheet' href='{% static 'css/bootstrap-multiselect.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/pnotify.custom.min.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/breadcrumbs.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/imageuploadify.min.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/waitMe.min.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/wrapper.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/cart.css' %}' type='text/css' media='all'/>
@@ -486,29 +489,43 @@
 						</a>
 					</div>
 					<nav class="navi main-nav">
-					<ul id="main-nav" class="">
-						<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="/planes">Planes</a>
-						</li>
-						<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
-							<ul class="sub-menu">
-                                <div class="userOff">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a id="inicioInmobiliaria" href="#">Iniciar sesión</a></li>
-                                </div>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a></li>
-						    </ul>
-						</li>
-						<li id="menu-item-314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-314"><a href="#">Corredoras</a>
-							<ul class="sub-menu">
-                                <div class="userOff">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a id="inicioCorredora" href="#">Iniciar sesión</a></li>
-                                </div>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="#">Corredoras Destacadas</a></li>
-						    </ul>
-						</li>
-					</ul>
+                        <ul id="main-nav" class="">
+                            <li  id="menu-item-955" class="userOff menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="/planes">Planes</a>
+                            </li>
+                            <li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
+                                <ul class="sub-menu">
+                                    <div class="userOff">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a id="inicioInmobiliaria" href="#">Iniciar sesión</a></li>
+                                    </div>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-314"><a href="#">Corredoras</a>
+                                <ul class="sub-menu">
+                                    <div class="userOff">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a id="inicioCorredora" href="#">Iniciar sesión</a></li>
+                                    </div>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="#">Corredoras Destacadas</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="menu-item active"><a class="userOn" href="/propiedades/publicar/"><i class="fa fa-home" aria-hidden="true"></i> Publicar</a>
+                            </li>
+
+                        </ul>
 					</nav>
+                   <!--
+                    <nav class=" main-nav header-right">
+                       <ul style="margin-top: 30px;float: right;">
+                           <li style="list-style:none;">
+                               <a class="btn" style="color:#EB5300;border-color:#EB5300;background-color:white;font-size:medium;"><i class="fa fa-pencil" aria-hidden="true"></i>Publica gratis</a>
+                           </li>
+                       </ul>
+                    </nav>-->
 				</div>
+
+
                 <div class="header-right">
                   	<div class="user userOff">
 						<a href="#" id="userInicio"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Inicia sesión</span></a>
@@ -526,7 +543,7 @@
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">General <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
-                                        <div><a href="#">Panel general </a></div>
+                                        <div><a href="/datos/panel">Panel general </a></div>
                                         <div><a href="#">Mis anuncios </a></div>
                                         <div><a href="#">Contactos </a></div>
                                         <div><a href="#">Mis mensajes </a></div>
@@ -536,9 +553,9 @@
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mi configuración <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
-                                        <div><a href="/usuarios/generales/editar"> Datos generales</a></div>
+                                        <div><a href="/usuarios/datos/editar"> Datos generales</a></div>
                                         <div><a href="/usuarios/cuentas/editar">Cuenta de usuario</a></div>
-                                        <div><a href="/usuarios/planes/editar"> Planes y productos</a></div>
+                                        <div><a href="/usuarios/planes"> Planes y productos</a></div>
                                         <div><a href="/usuarios/comerciales/editar"> Datos comercial</a></div>
                                         <div><a href="#"> Darme de baja</a></div>
                                         <!--<div class="divider"></div>
@@ -647,6 +664,7 @@
 									<button id="btn_publicacion" style="display:none;" class="radius-btn-md btn-secundary">Publica gratis</button>
                 				</div>
 							</div>
+                            <!--
 							<div class="advance-fields">
 								<div class="row">
 									<div class="col-sm-2 col-xs-6">
@@ -749,6 +767,7 @@
 									</div>
 								</div>
 							</div>
+						    -->
 						</form>
 					</div>
 				</div>
@@ -1029,6 +1048,9 @@
 		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
 		<script type='text/javascript' src='{% static 'js/property-carousels-v2.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/pnotify.custom.min.js' %}'></script>
+		<script type='text/javascript' src='{% static 'js/imageuploadify.min.js' %}'></script>
+
+        <script type='text/javascript' src='https://colorlib.com/polygon/vendors/Chart.js/dist/Chart.min.js'></script>
 		<script type='text/javascript' src='{% static 'js/search-card.js' %}'></script>
 		<script src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
         <script type='text/javascript' src='{% static 'js/waitMe.min.js' %}'></script>
@@ -1041,6 +1063,7 @@
 		<script type='text/javascript'>
 			$(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
 		</script>
+        <!--<script type='text/javascript' src='{% static 'js/panel.js' %}'></script>-->
 		<script type='text/javascript'>
 			/* <![CDATA[ */
 			var prop_carousel_v2_D1l7r = {"slide_auto":"false","auto_speed":"3000","slide_dots":"true","slide_infinite":"true","slides_to_scroll":"1"};
@@ -1108,6 +1131,7 @@
                             $(".userOn").show();
                             $('#pop-login').modal('hide');
                             $('.usernameLogin').text(data.username);
+                            window.location.href = "/datos/panel";
                         }
                         $('.omb_loginForm').waitMe('hide');
                     });

@@ -6,6 +6,6 @@ urlpatterns = [
     url(r'^SetUser/', views.actualizar_usuario, name='SetUser'),
     url(r'^SetAccount/', views.actualizar_cuenta, name='SetAccount'),
     url(r'^usuarios/info', views.obtener_usuario, name='obtener_usuario'),
-    url(r'^usuarios/planes', views.obtener_planes, name='obtener_planes'),
+    url(r'^GetPlans', views.obtener_planes, name='obtener_planes'),
     url(r'^SetProperty/', views.publicar_propiedad, name='publicar_propiedad'),
 ]

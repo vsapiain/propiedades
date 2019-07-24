@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Arriendos y ventas de propiedades{% endblock %}
 {% block content %}
-<div id="section-body" class="">
+<div id="section-body" class="" style="padding-top:95px;">
     <div class="header-media-wrap">
         <div class="header-media">
             <section id="intro" class="section-intro" style="padding-top: 0px;">
@@ -936,7 +936,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -946,590 +945,644 @@
             <div class="row col-md-12">
                 <div class="margin-list">
                     <div class="clearfix">
-                            <div class="col-md-12">
-                                <h2 class="title_h2">Últimos anuncios</h2>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="col-md-8">
-                                      <div class="form-group no-margin">
-                                            <div class="input-search input-icon">
-                                                <input type="text" id="search_ctl" class="search-text form-control" value=""  placeholder="Buscar por palabra..">
-                                                <!-- si quiero saber total coincidencias descomentar -->
-                                                <!--<label class="pull-right" style="display:none;"><span class="number-word">0</span> coincidencia(s)</label>-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <label class="margin-top-form-4 important">Orden </label>
+                        <div class="col-md-12">
+                            <h2 class="title_h2">Últimos anuncios</h2>
+                        </div>
+                    </div>
+                    <div class="card-flat card-block">
+                        <div class="margin-top-form-5 col-md-12">
+                            <form method="post" action="/propiedades">
+                                <div class="form-group">
+                                    <div class="col-md-3">
+                                    <select   id = "mode" name="mode" class="form-control selectpicker" data-live-search="false" data-live-search-style="begins" >
+                                        <option value="-1" selected>Operación</option>
+                                        <option value="1">Comprar</option>
+                                        <option value="2" >Busco arriendo</option>
+                                        <option value="3">Busco arriendo por temporada</option>
+                                    </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group">
-                                            <select class="form-control" name = "cmb_orden" id="cmb_orden">
-                                                <option>Últimas publicaciones</option>
-                                                <option>Publicaciones más antiguas</option>
-                                                <option>Menor precio</option>
-                                                <option>Mayor precio</option>
-                                            </select>
+                                    <select id = "type" name="type" class="selectpicker" data-live-search="false" data-live-search-style="begins">
+                                        <option value="-1" selected>Tipo propiedad</option>
+                                        <option value="1" >Departamento</option>
+                                        <option value="2">Casa</option>
+                                        <option value="3">Oficina</option>
+                                        <option value="4">Local comercial</option>
+                                        <option value="5">Sitio</option>
+                                        <option value="6">Estacionamiento</option>
+                                        <option value="7">Bodega</option>
+                                    </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                    <select class="form-control" id="locationListado" name="locationListado"  data-live-search="true"  >
+                                        <option value="-1">Ubicación</option>
+                                        {% for value,name in options.items %}
+                                            <option  value="{{value}}">{{name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button id="btn_Buscar" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+                                        <button class="btn btn-primary"  type="button"><i class="fa fa-filter"></i> Más filtros</button>
+                                        <div class="advanced-search-mobile houzez-adv-price-range" data-sticky='0'>
+                                        <div class="advance-fields">
+                                            sdd
+                                        </div>
                                         </div>
                                     </div>
+
                                 </div>
-                            </div>
+                            </form>
+                        </div>
                     </div>
-                    <div>
-                        <div class="page" id="page1">
-                            <div class="module-title-nav">
-                                 <div class="card departure-card ">
-                                     <div  class="card-block">
-                                        <div class="col-md-3 principal_list">
-                                            <div class="img_list_principal">
-                                                <img src="https://clvstc.com/up/photo/1/MRwybSlA_7ab807ac093101348e74ba79e94e2dc8_small.jpg" alt="Los Angeles">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="margin-top-form search-key">
-                                                <div style="width:80px;">
-                                                    <div class="prop-user-agent box_list">
-                                                        <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202757712575/437123-20170517180018.jpg/100x52/">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <div class="contenido">Casa en condominio</div>
-                                                                <div class="place_list_principal">Las Heras, Las Condes, Región Metropolitana</div>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                <label class="date_list_principal">01/09/2018</label>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <label class="price_list">$ 320.000</label>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                 <span class="label label-danger">En Venta</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
-                                                        </div>
-                                                        <div class="detail_list_principal">
-                                                            La Reina Depto. 1 Ambiente, Estacionamiento.
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
-                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="text-right">
-                                                <div class="col-md-12">
-                                                    <div class="shared-panel pull-right">
-                                                        <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
-                                                        <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                     </div>
-                                 </div>
-                            </div>
-                            <div class="module-title-nav">
-                                <div class="card departure-card">
-                                    <div class="card-block">
-                                        <div class="col-md-3 principal_list">
-                                            <div class="img_list_principal">
-                                                <img src="https://clvstc.com/up/photo/1/MRwybSlA_7ab807ac093101348e74ba79e94e2dc8_small.jpg" alt="Los Angeles">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="margin-top-form search-key">
-                                                <span class="label label-success">INMOBILIARIA SIN LOGO</span>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <div class="contenido">Departamento</div>
-                                                                <div class="place_list_principal">Lastarria 104, Santiago, Región Metropolitana</div>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                <label class="date_list_principal">01/09/2018</label>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <label class="price_list">$ 320.000</label>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                 <span class="label label-danger">En Arriendo</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
-                                                        </div>
-                                                        <div class="detail_list_principal">
-                                                            La Reina Depto. 1 Ambiente, Estacionamiento.
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
-                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="text-right">
-                                                <div class="col-md-12">
-                                                    <div class="shared-panel pull-right">
-                                                        <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
-                                                        <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
+                    <div style="margin-top:10px;" class="card-flat card-block">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-8">
+                                  <div class="form-group no-margin">
+                                        <div class="input-search input-icon">
+                                            <input type="text" id="search_ctl" class="search-text form-control" value=""  placeholder="Buscar por palabra..">
+                                            <!-- si quiero saber total coincidencias descomentar -->
+                                            <!--<label class="pull-right" style="display:none;"><span class="number-word">0</span> coincidencia(s)</label>-->
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="module-title-nav">
-                                <div class="card departure-card">
-                                    <div class="card-block">
-                                        <div class="col-md-3 principal_list">
-                                            <div class="img_list_principal">
-                                                <img src="https://clvstc.com/up/photo/1/KIn8ju2L_e0ca25be131c887e83c100ef9df2fe2c_small.jpg" alt="Los Angeles">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="margin-top-form search-key">
-                                                <div style="width:80px;">
-                                                    <div class="prop-user-agent box_list">
-                                                        <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202761383997/460661-20180806143521.jpg/100x52/">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <div class="contenido">Casa en condominio</div>
-                                                                <div class="place_list_principal">Martín de Zamora 4909, Las Condes, Región Metropolitana</div>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                <label class="date_list_principal">01/09/2018</label>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <label class="price_list">$ 320.000</label>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                 <span class="label label-danger">En Venta</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
-                                                        </div>
-                                                        <div class="detail_list_principal">
-                                                            La Reina Depto. 1 Ambiente, Estacionamiento.
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
-                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="text-right">
-                                                <div class="col-md-12">
-                                                    <div class="shared-panel pull-right">
-                                                        <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
-                                                        <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-md-1">
+                                    <label class="margin-top-form-4 important">Orden </label>
                                 </div>
-                            </div>
-                            <div class="module-title-nav">
-                                <div class="card departure-card">
-                                    <div class="card-block">
-                                        <div class="col-md-3 principal_list">
-                                            <div class="img_list_principal">
-                                                <img src="https://clvstc.com/up/photo/1/CIJN6ket_06e8b0b5cacfaef8e7c94577d5d01bfa_small.jpg" alt="Los Angeles">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="margin-top-form search-key">
-                                                <span class="label label-success">DIRECTO DUEÑO</span>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <div class="conenido">Departamento</div>
-                                                                <div class="place_list_principal">Torre 212, Vitacura, Región Metropolitana</div>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                <label class="date_list_principal">01/09/2018</label>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <label class="price_list">$ 320.000</label>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                 <span class="label label-danger">En Venta</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
-                                                        </div>
-                                                        <div class="detail_list_principal">
-                                                            La Reina Depto. 1 Ambiente, Estacionamiento.
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
-                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="text-right">
-                                                <div class="col-md-12">
-                                                    <div class="shared-panel pull-right">
-                                                        <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
-                                                        <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <select class="form-control" name = "cmb_orden" id="cmb_orden">
+                                            <option>Últimas publicaciones</option>
+                                            <option>Publicaciones más antiguas</option>
+                                            <option>Menor precio</option>
+                                            <option>Mayor precio</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="page" id="page2">
-                            <div class="module-title-nav">
-                                 <div class="card departure-card ">
-                                     <div  class="card-block">
-                                        <div class="col-md-3 principal_list">
-                                            <div class="img_list_principal">
-                                                <img src="https://clvstc.com/up/photo/1/MRwybSlA_7ab807ac093101348e74ba79e94e2dc8_small.jpg" alt="Los Angeles">
+                        <div>
+                            <div class="page" id="page1">
+                                <div class="module-title-nav">
+                                     <div class="card departure-card ">
+                                         <div  class="card-block">
+                                            <div class="col-md-3 principal_list">
+                                                <div class="img_list_principal">
+                                                    <img src="https://clvstc.com/up/photo/1/MRwybSlA_7ab807ac093101348e74ba79e94e2dc8_small.jpg" alt="Los Angeles">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="margin-top-form search-key">
-                                                <span class="label label-success">INMOBILIARIA SIENA2</span>
-                                                <div class="row">
+                                            <div class="col-md-7">
+                                                <div class="margin-top-form search-key">
+                                                    <div style="width:80px;">
+                                                        <div class="prop-user-agent box_list">
+                                                            <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202757712575/437123-20170517180018.jpg/100x52/">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <div class="contenido">Casa en condominio</div>
+                                                                    <div class="place_list_principal">Las Heras, Las Condes, Región Metropolitana</div>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                    <label class="date_list_principal">01/09/2018</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <label class="price_list">$ 320.000</label>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                     <span class="label label-danger">En Venta</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="additional_principal">
+                                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                            </div>
+                                                            <div class="detail_list_principal">
+                                                                La Reina Depto. 1 Ambiente, Estacionamiento.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                            <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="text-right">
                                                     <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <div class="contenido">Casa</div>
-                                                                <div class="place_list_principal">Las Heras, Las Condes, Región Metropolitana</div>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                <label class="date_list_principal">01/09/2018</label>
-                                                            </div>
+                                                        <div class="shared-panel pull-right">
+                                                            <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
+                                                            <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                                            <a target="_blank" class="shared ce" title="Enviar a amigo"></a>
                                                         </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <label class="price_list">$ 420.000</label>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                 <span class="label label-danger">En Venta</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 4  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
-                                                        </div>
-                                                        <div class="detail_list_principal">
-                                                            La Reina Depto. 2 Ambiente, Estacionamiento.
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
-                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="text-right">
-                                                <div class="col-md-12">
-                                                    <div class="shared-panel pull-right">
-                                                        <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
-                                                        <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
-                                                    </div>
-                                                </div>
 
-
-                                            </div>
-                                        </div>
-
+                                         </div>
                                      </div>
-                                 </div>
-                            </div>
-                            <div class="module-title-nav">
-                                <div class="card departure-card">
-                                    <div class="card-block">
-                                        <div class="col-md-3 principal_list">
-                                            <div class="img_list_principal">
-                                                <img src="https://clvstc.com/up/photo/1/MRwybSlA_7ab807ac093101348e74ba79e94e2dc8_small.jpg" alt="Los Angeles">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="margin-top-form search-key">
-                                                <span class="label label-success">INMOBILIARIA SIENA</span>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <div class="contenido">Departamento</div>
-                                                                <div class="place_list_principal">Lastarria 104, Santiago, Región Metropolitana</div>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                <label class="date_list_principal">01/09/2018</label>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <label class="price_list">$ 320.000</label>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                 <span class="label label-danger">En Arriendo</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
-                                                        </div>
-                                                        <div class="detail_list_principal">
-                                                            La Reina Depto. 1 Ambiente, Estacionamiento.
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
-                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="text-right">
-                                                <div class="col-md-12">
-                                                    <div class="shared-panel pull-right">
-                                                        <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
-                                                        <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-                            <div class="module-title-nav">
-                                <div class="card departure-card">
-                                    <div class="card-block">
-                                        <div class="col-md-3 principal_list">
-                                            <div class="img_list_principal">
-                                                <img src="https://clvstc.com/up/photo/1/KIn8ju2L_e0ca25be131c887e83c100ef9df2fe2c_small.jpg" alt="Los Angeles">
+                                <div class="module-title-nav">
+                                    <div class="card departure-card">
+                                        <div class="card-block">
+                                            <div class="col-md-3 principal_list">
+                                                <div class="img_list_principal">
+                                                    <img src="https://clvstc.com/up/photo/1/MRwybSlA_7ab807ac093101348e74ba79e94e2dc8_small.jpg" alt="Los Angeles">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="margin-top-form search-key">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <div class="contenido">Casa</div>
-                                                                <div class="place_list_principal">Martín de Zamora 4909, Las Condes, Región Metropolitana</div>
+                                            <div class="col-md-7">
+                                                <div class="margin-top-form search-key">
+                                                    <span class="label label-success">INMOBILIARIA SIN LOGO</span>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <div class="contenido">Departamento</div>
+                                                                    <div class="place_list_principal">Lastarria 104, Santiago, Región Metropolitana</div>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                    <label class="date_list_principal">01/09/2018</label>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-md-3 text-right">
-                                                                <label class="date_list_principal">01/09/2018</label>
-                                                            </div>
-                                                        </div>
 
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <label class="price_list">$ 320.000</label>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <label class="price_list">$ 320.000</label>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                     <span class="label label-danger">En Arriendo</span>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-md-3 text-right">
-                                                                 <span class="label label-danger">En Venta</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="additional_principal">
+                                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                            </div>
+                                                            <div class="detail_list_principal">
+                                                                La Reina Depto. 1 Ambiente, Estacionamiento.
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                        <div class="col-md-5">
+                                                            <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                            <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                         </div>
-                                                        <div class="detail_list_principal">
-                                                            La Reina Depto. 1 Ambiente, Estacionamiento.
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
-                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="text-right">
-                                                <div class="col-md-12">
-                                                    <div class="shared-panel pull-right">
-                                                        <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
-                                                        <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                            <div class="col-md-2">
+                                                <div class="text-right">
+                                                    <div class="col-md-12">
+                                                        <div class="shared-panel pull-right">
+                                                            <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
+                                                            <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                                            <a target="_blank" class="shared ce" title="Enviar a amigo"></a>
+                                                        </div>
                                                     </div>
-                                                </div>
 
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="module-title-nav">
-                                <div class="card departure-card">
-                                    <div class="card-block">
-                                        <div class="col-md-3 principal_list">
-                                            <div class="img_list_principal">
-                                                <img src="https://clvstc.com/up/photo/1/CIJN6ket_06e8b0b5cacfaef8e7c94577d5d01bfa_small.jpg" alt="Los Angeles">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="margin-top-form search-key">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <div class="contenido">Condominio</div>
-                                                                <div class="place_list_principal">Torre 212, Vitacura, Región Metropolitana</div>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                <label class="date_list_principal">01/09/2018</label>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-9 text-left">
-                                                                <label class="price_list">$ 320.000</label>
-                                                            </div>
-                                                            <div class="col-md-3 text-right">
-                                                                 <span class="label label-danger">En Venta</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-7">
-                                                        <div class="additional_principal">
-                                                           <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
-                                                        </div>
-                                                        <div class="detail_list_principal">
-                                                            La Reina Depto. 1 Ambiente, Estacionamiento.
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
-                                                        <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="text-right">
-                                                <div class="col-md-12">
-                                                    <div class="shared-panel pull-right">
-                                                        <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
-                                                        <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="module-title-nav">
+                                    <div class="card departure-card">
+                                        <div class="card-block">
+                                            <div class="col-md-3 principal_list">
+                                                <div class="img_list_principal">
+                                                    <img src="https://clvstc.com/up/photo/1/KIn8ju2L_e0ca25be131c887e83c100ef9df2fe2c_small.jpg" alt="Los Angeles">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="margin-top-form search-key">
+                                                    <div style="width:80px;">
+                                                        <div class="prop-user-agent box_list">
+                                                            <img class="re-CardImage-image" src="https://d.fotocasa.es/client/9202761383997/460661-20180806143521.jpg/100x52/">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <div class="contenido">Casa en condominio</div>
+                                                                    <div class="place_list_principal">Martín de Zamora 4909, Las Condes, Región Metropolitana</div>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                    <label class="date_list_principal">01/09/2018</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <label class="price_list">$ 320.000</label>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                     <span class="label label-danger">En Venta</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="additional_principal">
+                                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                            </div>
+                                                            <div class="detail_list_principal">
+                                                                La Reina Depto. 1 Ambiente, Estacionamiento.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                            <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="text-right">
+                                                    <div class="col-md-12">
+                                                        <div class="shared-panel pull-right">
+                                                            <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
+                                                            <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                                            <a target="_blank" class="shared ce" title="Enviar a amigo"></a>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-title-nav">
+                                    <div class="card departure-card">
+                                        <div class="card-block">
+                                            <div class="col-md-3 principal_list">
+                                                <div class="img_list_principal">
+                                                    <img src="https://clvstc.com/up/photo/1/CIJN6ket_06e8b0b5cacfaef8e7c94577d5d01bfa_small.jpg" alt="Los Angeles">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="margin-top-form search-key">
+                                                    <span class="label label-success">DIRECTO DUEÑO</span>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <div class="conenido">Departamento</div>
+                                                                    <div class="place_list_principal">Torre 212, Vitacura, Región Metropolitana</div>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                    <label class="date_list_principal">01/09/2018</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <label class="price_list">$ 320.000</label>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                     <span class="label label-danger">En Venta</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="additional_principal">
+                                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                            </div>
+                                                            <div class="detail_list_principal">
+                                                                La Reina Depto. 1 Ambiente, Estacionamiento.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                            <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="text-right">
+                                                    <div class="col-md-12">
+                                                        <div class="shared-panel pull-right">
+                                                            <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
+                                                            <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                                            <a target="_blank" class="shared ce" title="Enviar a amigo"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="page" id="page2">
+                                <div class="module-title-nav">
+                                     <div class="card departure-card ">
+                                         <div  class="card-block">
+                                            <div class="col-md-3 principal_list">
+                                                <div class="img_list_principal">
+                                                    <img src="https://clvstc.com/up/photo/1/MRwybSlA_7ab807ac093101348e74ba79e94e2dc8_small.jpg" alt="Los Angeles">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="margin-top-form search-key">
+                                                    <span class="label label-success">INMOBILIARIA SIENA2</span>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <div class="contenido">Casa</div>
+                                                                    <div class="place_list_principal">Las Heras, Las Condes, Región Metropolitana</div>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                    <label class="date_list_principal">01/09/2018</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <label class="price_list">$ 420.000</label>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                     <span class="label label-danger">En Venta</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="additional_principal">
+                                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 4  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                            </div>
+                                                            <div class="detail_list_principal">
+                                                                La Reina Depto. 2 Ambiente, Estacionamiento.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                            <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="text-right">
+                                                    <div class="col-md-12">
+                                                        <div class="shared-panel pull-right">
+                                                            <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
+                                                            <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                                            <a target="_blank" class="shared ce" title="Enviar a amigo"></a>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                         </div>
+                                     </div>
+                                </div>
+                                <div class="module-title-nav">
+                                    <div class="card departure-card">
+                                        <div class="card-block">
+                                            <div class="col-md-3 principal_list">
+                                                <div class="img_list_principal">
+                                                    <img src="https://clvstc.com/up/photo/1/MRwybSlA_7ab807ac093101348e74ba79e94e2dc8_small.jpg" alt="Los Angeles">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="margin-top-form search-key">
+                                                    <span class="label label-success">INMOBILIARIA SIENA</span>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <div class="contenido">Departamento</div>
+                                                                    <div class="place_list_principal">Lastarria 104, Santiago, Región Metropolitana</div>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                    <label class="date_list_principal">01/09/2018</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <label class="price_list">$ 320.000</label>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                     <span class="label label-danger">En Arriendo</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="additional_principal">
+                                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                            </div>
+                                                            <div class="detail_list_principal">
+                                                                La Reina Depto. 1 Ambiente, Estacionamiento.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                            <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="text-right">
+                                                    <div class="col-md-12">
+                                                        <div class="shared-panel pull-right">
+                                                            <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
+                                                            <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                                            <a target="_blank" class="shared ce" title="Enviar a amigo"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-title-nav">
+                                    <div class="card departure-card">
+                                        <div class="card-block">
+                                            <div class="col-md-3 principal_list">
+                                                <div class="img_list_principal">
+                                                    <img src="https://clvstc.com/up/photo/1/KIn8ju2L_e0ca25be131c887e83c100ef9df2fe2c_small.jpg" alt="Los Angeles">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="margin-top-form search-key">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <div class="contenido">Casa</div>
+                                                                    <div class="place_list_principal">Martín de Zamora 4909, Las Condes, Región Metropolitana</div>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                    <label class="date_list_principal">01/09/2018</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <label class="price_list">$ 320.000</label>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                     <span class="label label-danger">En Venta</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="additional_principal">
+                                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                            </div>
+                                                            <div class="detail_list_principal">
+                                                                La Reina Depto. 1 Ambiente, Estacionamiento.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                            <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="text-right">
+                                                    <div class="col-md-12">
+                                                        <div class="shared-panel pull-right">
+                                                            <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
+                                                            <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                                            <a target="_blank" class="shared ce" title="Enviar a amigo"></a>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="module-title-nav">
+                                    <div class="card departure-card">
+                                        <div class="card-block">
+                                            <div class="col-md-3 principal_list">
+                                                <div class="img_list_principal">
+                                                    <img src="https://clvstc.com/up/photo/1/CIJN6ket_06e8b0b5cacfaef8e7c94577d5d01bfa_small.jpg" alt="Los Angeles">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="margin-top-form search-key">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <div class="contenido">Condominio</div>
+                                                                    <div class="place_list_principal">Torre 212, Vitacura, Región Metropolitana</div>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                    <label class="date_list_principal">01/09/2018</label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="row">
+                                                                <div class="col-md-9 text-left">
+                                                                    <label class="price_list">$ 320.000</label>
+                                                                </div>
+                                                                <div class="col-md-3 text-right">
+                                                                     <span class="label label-danger">En Venta</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <div class="additional_principal">
+                                                               <i class="fa fa-bed" aria-hidden="true"> </i> Habit.: 3  <i class="fa fa-shower" aria-hidden="true"></i> Baños: 1 <i class="fa fa-cube" aria-hidden="true"></i> m2: 2450
+                                                            </div>
+                                                            <div class="detail_list_principal">
+                                                                La Reina Depto. 1 Ambiente, Estacionamiento.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <a href="about-me.html" class="btn btn-primary pull-right width_btn" role="button"><i class="fa fa-floppy-o"></i> Guardar</a>
+                                                            <a href="/propiedades/detalle/100" class="btn btn-primary pull-right width_btn margin-right-form" role="button"><i class="fa fa-search-plus"></i> Ver detalle</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="text-right">
+                                                    <div class="col-md-12">
+                                                        <div class="shared-panel pull-right">
+                                                            <a target="_blank" class="shared fb" title="Comparte Facebook"></a>
+                                                            <a target="_blank" class="shared tt" title="Comparte Twitter"></a>
+                                                            <a target="_blank" class="shared ce" title="Enviar a amigo"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul id="pagination-footer" class="pagination pull-right"></ul>
                         </div>
-
-                        <ul id="pagination-footer" class="pagination pull-right"></ul>
                     </div>
                 </div>
 
@@ -1666,6 +1719,7 @@
             allSelectedText: 'Elementos seleccionados',
             buttonWidth: '100%'
         });
+        $("#locationListado").selectpicker("refresh");
     }
     function add_type_form(){
         for (var i=0;i<tipo_propiedad.length;i++){
