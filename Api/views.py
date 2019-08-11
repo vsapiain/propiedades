@@ -4,6 +4,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from Api.service import UsuarioService
 from Api.service import ComunaService
+from Api.service import ProvinciaService
 from Api.service import  PlanService
 from Api.service import PropiedadService
 from Api.service import PublicacionService
@@ -91,6 +92,17 @@ def get_communes(request):
     else:
         return Response(resp, status=status.HTTP_200_OK)
 
+
+@api_view (['GET','POST'])
+@permission_classes([AllowAny, ])
+def get_provincias(request):
+    service = ProvinciaService()
+    resp = service.get_all()
+    if resp['error']==1:
+        return Response(resp, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    else:
+        return Response(resp, status=status.HTTP_200_OK)
+
 @api_view (['GET'])
 @permission_classes([AllowAny, ])
 def get_plans(request):
@@ -136,14 +148,18 @@ def property(request):
             dormitorio = request.POST.get('cmbDormitorio')
             banno = request.POST.get('cmbBanno')
             estacionamiento = request.POST.get('cmbEstacion amiento')
+            mts_construidos = request.POST.get('construidos')
+            tipo_cambio = request.POST.get('cmbTipoCambio')
+            precio = request.POST.get('txtPrecio')
+            gastos_comunes = request.POST.get('txtGastosComunes')
             codigo = 1
             propiedad_instance = propiedad_service.save(codigo,tipo_propiedad,direccion,
-                         ubicacion,dormitorio,banno,estacionamiento,-1,area_total,-1,quincho,-1,gimnasio,lavanderia,-1,-1,-1,-1,
+                         ubicacion,dormitorio,banno,estacionamiento,mts_construidos,area_total,-1,quincho,-1,gimnasio,lavanderia,-1,-1,-1,-1,
                          -1,piscina,-1,-1,-1,bodega,None,None,registro_activo)
             if propiedad_instance is not None:
                 publicacion_service = PublicacionService()
                 publicacion_service.save(propiedad_instance.nid_propiedad,token_data['plan_id'],token_data['id'],
-                                         operacion,titulo,descripcion,None,None,'',registro_activo)
+                                         operacion,titulo,descripcion,None,None,'',tipo_cambio,gastos_comunes,precio,registro_activo)
         return Response(status=status.HTTP_200_OK)
     else:
         return Response(token_data, status=status.HTTP_401_UNAUTHORIZED)

@@ -51,7 +51,6 @@
                                             <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_price" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Precio
                                             </button>
-
                                             <div id="ddl_mnu_price" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
                                                 <button type="button" class="close margin-right-form" >&times;</button>
                                                 <div class="form-group">
@@ -78,8 +77,8 @@
                                                           </div>
                                                       </div>
                                                     </div>
-                                                    <div class="col-md-6 col-md-offset-6">
-                                                        <button id="btn_ok_price" type="button" class="btn btn-primary margin-top-form"><i class="fa fa-check" aria-hidden="true"></i> Aceptar</button>
+                                                    <div class="col-md-6">
+                                                        <button id="btn_ok_price" type="button" class="btn btn-primary margin-top-form"> Aplicar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,7 +89,7 @@
                                             <button class="btn dropdown-toggle box_range_form form-control" type="button" id="ddl_size" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                  Tamaño
                                             </button>
-                                            <div id="ddl_mnu_size" class="dropdown-menu" aria-labelledby="dropdownMenuButton" onClick="event.stopPropagation();">
+                                            <div id="ddl_mnu_size" class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
                                               <button type="button" class="close margin-right-form" >&times;</button>
                                               <div class="form-group">
                                                   <div class="col-md-12">
@@ -113,8 +112,8 @@
                                                             <input type="text" class="form-control" value="" name="max-size" id="max-size" placeholder="" onkeypress="return validate_numeric(event)" maxlength="4">
                                                           </div>
                                                       </div>
-                                                      <div class="col-md-6 col-md-offset-6">
-                                                          <button id="btn_ok_size" type="button" class="btn btn-primary margin-top-form"><i class="fa fa-check" aria-hidden="true"></i> Aceptar</button>
+                                                      <div class="col-md-6">
+                                                          <button id="btn_ok_size" type="button" class="btn btn-primary margin-top-form"> Aplicar</button>
                                                       </div>
                                                   </div>
                                               </div>
@@ -157,8 +156,10 @@
                                                             <input type="text" class="form-control" value="" id="n_estacionamientos_otros" placeholder="N° estacionamientos" onkeypress="return validate_numeric(event)" maxlength="1">
                                                           </div>
                                                       </div>
-                                                      <div class="col-md-6 col-md-offset-7">
-                                                        <button id="btn_sn_filtro_otros" type="button" class="btn btn-primary margin-top-form"><i class="fa fa-refresh" aria-hidden="true"></i> Sin Filtro(s)</button>
+
+                                                      <div class="col-md-8">
+                                                        <button id="btn_filtro_otros" type="button" class="btn btn-primary margin-top-form"> Aplicar</button>
+                                                        <button id="btn_sn_filtro_otros" type="button" class="btn btn-primary margin-top-form"> Sin Filtros</button>
                                                       </div>
                                                   </div>
                                               </div>
@@ -1707,6 +1708,9 @@
             pageClass: 'page',
             activeClass: 'active',
             disabledClass: 'disabled'
+        });
+        $("#btn_filtro_otros").click(function(){
+            set_filter_otros();
         });
     });
     function initLocal(){

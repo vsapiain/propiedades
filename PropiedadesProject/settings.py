@@ -1,3 +1,4 @@
+
 """
 Django settings for PropiedadesProject project.
 
@@ -92,9 +93,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'PropiedadesProject.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'NAME': 'citypro_prod',
@@ -155,8 +153,9 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
 PAGE_PATH_IS_NOT_PUBLIC = [
-    'usuarios/datos/editar',
+    'usuarios/generales/editar',
     'usuarios/cuentas/editar',
+    'usuarios/planes/editar',
     'usuarios/planes',
-    'datos/panel'
+    'datos/panel',
 ]

@@ -63,21 +63,30 @@ def detalle(request,propiedad_codigo=None):
     return HttpResponse(t.render(context))
 
 def publicar(request):
-    t = loader.get_template('propiedad/publicar.html')
-    baseurl = request.get_host()
-    service_comuna = ComunaService()
-    service_comuna.base = baseurl
-    resp = service_comuna.get_all()
-    if resp['error']==0:
-        options = {}
-        for comuna in resp['data']:
-            id = comuna['nid_comuna']
-            nombre = comuna['snombre_comuna']
-            options[id] = nombre
-        context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
-    else:
-        context = {'is_public': '1', 'activar_msg': '1', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
-
+    if request.method == 'GET':
+        t = loader.get_template('propiedad/publicar.html')
+        baseurl = request.get_host()
+        service_comuna = ComunaService()
+        service_comuna.base = baseurl
+        resp = service_comuna.get_all()
+        if resp['error']==0:
+            options = {}
+            for comuna in resp['data']:
+                id = comuna['nid_comuna']
+                nombre = comuna['snombre_comuna']
+                options[id] = nombre
+            context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+        else:
+            context = {'is_public': '1', 'activar_msg': '1', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
+    elif request.method == 'POST':
+        t = loader.get_template('propiedad/publicar.html')
+        token = request.META['HTTP_AUTHORIZATION']
+        service = PropiedadService()
+        data = request.POST.dict()
+        service.base = request.get_host()
+        data.update({'token': token})
+        service.add_property(data)
+        context = {'error': '0', 'msg': 'Datos guardados correctamente'}
     return HttpResponse(t.render(context))
 
 def login(request):
@@ -100,21 +109,46 @@ def planes(request):
     return HttpResponse(t.render(context))
 
 def editar_usuario(request):
-    t = loader.get_template('usuario/editar_usuario.html')
     baseurl = request.get_host()
-    service_comuna = ComunaService()
-    service_comuna.base = baseurl
-    resp = service_comuna.get_all()
-    if resp['error'] == 0:
-        options = {}
-        for comuna in resp['data']:
-            id = comuna['nid_comuna']
-            nombre = comuna['snombre_comuna']
-            options[id] = nombre
-        context = {'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
-    else:
-        context = {'activar_msg': '0', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
-    return HttpResponse(t.render(context))
+    if request.method == 'GET':
+        t = loader.get_template('usuario/editar_usuario.html')
+        service_comuna = ComunaService()
+        service_comuna.base = baseurl
+        resp = service_comuna.get_all()
+        if resp['error'] == 0:
+            options = {}
+            for comuna in resp['data']:
+                id = comuna['nid_comuna']
+                nombre = comuna['snombre_comuna']
+                options[id] = nombre
+            context = {'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+        else:
+            context = {'activar_msg': '0', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
+        return HttpResponse(t.render(context))
+    elif request.method == 'POST':
+        service_usuario = UsuarioService()
+        service_usuario.base = baseurl
+        token = request.META['HTTP_AUTHORIZATION']
+        rut = request.POST.get('txtRut')
+        nombre = request.POST.get('txtNombre')
+        apellidoP = request.POST.get('txtApellidoP')
+        apellidoM = request.POST.get('txtApellidoM')
+        direccion = request.POST.get('txtDireccion')
+        telefono = request.POST.get('txtTelefono')
+        ubicacion = request.POST.get('cmbUbicacion')
+        # email = request.POST.get('hdEmail')
+        email = request.POST.get('txtEmail')
+        email_contacto = request.POST.get('txtEmail')
+        opcion_email = request.POST.get('chkOpcion')
+        if opcion_email is not None:
+            email_contacto = ""
+        data = {"rut": rut, "nombre": nombre, "apellidoP": apellidoP, "apellidoM": apellidoM,
+                "direccion": direccion,
+                "telefono": telefono, "email": email, 'ubicacion': ubicacion, 'opcion_email': opcion_email,
+                "email_contacto": email_contacto, 'token': token}
+        service_usuario.set_user(data)
+        context = {'error': '0', 'msg': 'Datos guardados correctamente'}
+        return JsonResponse(context)
 
 def actualizar_usuario(request):
     baseurl = request.get_host()
@@ -145,9 +179,30 @@ def actualizar_usuario(request):
         return JsonResponse(context)
 
 def editar_cuenta(request):
-    t = loader.get_template('usuario/editar_cuenta.html')
-    context = {'activar_msg': '0', 'error': '0', 'msg': ''}
-    return HttpResponse(t.render(context))
+    if request.method == 'GET':
+        t = loader.get_template('usuario/editar_cuenta.html')
+        context = {'activar_msg': '0', 'error': '0', 'msg': ''}
+        return HttpResponse(t.render(context))
+    elif request.method == 'POST':
+        service = UsuarioService()
+        baseurl = request.get_host()
+        service.base = baseurl
+        token = request.META['HTTP_AUTHORIZATION']
+        actual = request.POST.get('txtClaveActual')
+        nuevo1 = request.POST.get('txtClave1')
+        nuevo2 = request.POST.get('txtClave2')
+        if nuevo1 != nuevo2:
+            context = {'error': '1', 'msg': 'Nueva clave ingresada no coincide con clave actual'}
+        else:
+            data = {"clave": actual, "ClaveNueva": nuevo1, 'token': token}
+            resp = service.set_account_password(data)
+            cod_error = "0"
+            msg_error = "Datos guardados correctamente"
+            if resp["error"] == "1":
+                msg_error = resp["msg"]
+                cod_error = "1"
+            context = {'error': cod_error, 'msg': msg_error}
+        return JsonResponse(context)
 
 def editar_planes(request):
     t = loader.get_template('plan/editar_planes.html')

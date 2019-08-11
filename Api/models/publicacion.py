@@ -14,6 +14,7 @@ class Publicacion(models.Model):
     ffechafinvigencia_publicacion = models.DateTimeField(db_column='FFechaFinVigencia_publicacion', blank=True, null=True)  # Field name made lowercase.
     sobservacion_publicacion = models.CharField(db_column='SObservacion_publicacion', max_length=5000, blank=True, null=True)  # Field name made lowercase.
     nprecioneto_publicacion = models.IntegerField(db_column='NPrecioNeto_publicacion', blank=True, null=True)  # Field name made lowercase.
+    ngastocomun_publicacion = models.IntegerField(db_column='NGastoComun_publicacion', blank=True, null=True)  # Field name made lowercase.
     npreciouf_publicacion = models.DecimalField(db_column='NPrecioUF_publicacion', max_digits=6, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     nestadoregistro_publicacion = models.IntegerField(db_column='NEstadoRegistro_publicacion', blank=True, null=True)  # Field name made lowercase.
 

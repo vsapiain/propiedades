@@ -535,19 +535,16 @@
 				</div>
                 <nav class="cd-main-nav-wrapper userOn">
                     <ul class="cd-main-nav">
-                        <li><a href="#0" class="cd-subnav-trigger"><i class="fa fa-user" aria-hidden="true"></i> <span class="usernameLogin"></span></a>
+                        <li><a href="#0" class="cd-subnav-trigger" data-toggle="popover" data-placement="left"><i class="fa fa-user" aria-hidden="true"></i> <span class="usernameLogin"></span></a>
                             <ul>
                                 <li class="go-back"><a href="#0">Menu</a></li>
-
-
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">General <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
-                                        <div><a href="/datos/panel">Panel general </a></div>
+                                        <div><a href="/datos/panel">Panel de resumen </a></div>
                                         <div><a href="#">Mis anuncios </a></div>
                                         <div><a href="#">Contactos </a></div>
                                         <div><a href="#">Mis mensajes </a></div>
-                                        <div><a href="#">Favoritos </a></div>
                                     </div>
                                 </li>
                                 <li class="dropdown">
@@ -578,8 +575,6 @@
                 <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
 			</div>
 		</header>
-
-
 		<div class="header-mobile houzez-header-mobile " data-sticky="0">
 			<div class="container">
 				<!--start mobile nav-->
@@ -1049,16 +1044,16 @@
 		<script type='text/javascript' src='{% static 'js/property-carousels-v2.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/pnotify.custom.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/imageuploadify.min.js' %}'></script>
-
         <script type='text/javascript' src='https://colorlib.com/polygon/vendors/Chart.js/dist/Chart.min.js'></script>
 		<script type='text/javascript' src='{% static 'js/search-card.js' %}'></script>
-		<script src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
+	    <script type='text/javascript' src='{% static 'js/jquery.twbsPagination.min.js' %}'></script>
         <script type='text/javascript' src='{% static 'js/waitMe.min.js' %}'></script>
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
         <script type='text/javascript' src='{% static 'js/wrapper.js' %}'></script>
         <script type='text/javascript' src='{% static 'js/dynamicListener.js' %}'></script>
         <script type='text/javascript' src='{% static 'js/cart.js' %}'></script>
-        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>
+        <!--<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e444e40ec0","applicationID":"66134438","transactionName":"MQQAYxBUV0pXAUxQWghOI1QWXFZXGRZdVEUKABZST11WVFMSWV5Q","queueTime":0,"applicationTime":2009,"atts":"HUMDFVhOREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 		<script type='text/javascript'>
 			$(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
@@ -1079,6 +1074,9 @@
 			    init();
 				verifFilterAdv();
 				loadKeyword();
+				if (localStorage.rem !== undefined && localStorage.rem !== null ){
+				    $('.cd-subnav-trigger').attr('data-content', 'Más opciones Presionando aquí');
+				}
 				$('#chkPrecioFilter').click(function(){
 				    var value = $(this).is(':checked') ? 1 : 0;
 				    if (value == 0){
@@ -1119,12 +1117,14 @@
 					$.post('/login/', {'data': form.serializeArray(), 'csrfmiddlewaretoken': '{{ csrf_token }}'}, function(data) {
 					    if (data.token == '' && data.msg.trim()!=''){
                             error_msg('Inicio sesión',data.msg,2500);
+                            localStorage.removeItem('rem');
                             localStorage.removeItem('token');
                             localStorage.removeItem('username');
                             $("#username").val("");
                             $("#password").val("");
                             $("#username").focus();
                         }else{
+                            localStorage.setItem('rem',1);
                             localStorage.setItem('token', data.token);
                             localStorage.setItem('username',data.username);
                             $(".userOff").hide();
@@ -1135,6 +1135,10 @@
                         }
                         $('.omb_loginForm').waitMe('hide');
                     });
+				});
+				$('.cd-subnav-trigger').click(function(){
+				    localStorage.removeItem('rem');
+				    $('.cd-subnav-trigger').popover('destroy')
 				});
 				$("#rdOpcionTipo1,#rdOpcionTipo2,#rdOpcionTipo3").click(function(){
 					$("#usernameReg").focus();
@@ -1470,10 +1474,12 @@
                     ok_msg("Mensaje","Filtro aplicado correctamente",1500);
                 }else{
                     ctl.text( " Precio");
+                    /*
                     if (icon == 1)
                         ctl.prepend("<i class='fa fa-filter' aria-hidden='true'></i>");
-                    //$('.close').click();
+                    */
                 }
+                $('.close').click();
             }
             function set_max_size(min,max,ctl,icon=0){
                 if(min.val().trim()!="" && max.val().trim()!="" && min.val().trim()!="0"){
@@ -1491,9 +1497,12 @@
                     ok_msg("Mensaje","Filtro aplicado correctamente",1500);
                 }else{
                     ctl.text( " Tamaño");
+                    /*
                     if (icon == 1)
                         ctl.prepend("<i class='fa fa-filter' aria-hidden='true'></i>");
+                    */
                 }
+                $('.close').click();
             }
             function prop_price_validate(min,max){
                 var resp = false;

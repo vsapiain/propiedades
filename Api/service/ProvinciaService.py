@@ -1,22 +1,22 @@
-from Api.models import Comuna
-from Api.serializers import ComunaSerializer
+from Api.models import Provincia
+from Api.serializers import ProvinciaSerializer
 #from django.core import serializers
 
-class ComunaService:
+class ProvinciaService:
     def get_all(self):
         comuna_data = {}
         msg = ""
         error = 0
         try:
-            data =  Comuna.objects.order_by('snombre_comuna')
-            data_serializer = ComunaSerializer(data,many=True)
-        except Comuna.DoesNotExist:
+            data =  Provincia.objects.order_by('snombre_provincia')
+            data_serializer = ProvinciaSerializer(data,many=True)
+        except Provincia.DoesNotExist:
             comuna_data["error"] = 1
             comuna_data["msg"] = "Comunas inexistentes"
             comuna_data["data"] = ""
             return comuna_data
         except Exception as err:
-            msg = "Error carga Comunas"
+            msg = err
             error = 1
             data = ""
         finally:
