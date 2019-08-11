@@ -7,11 +7,14 @@
 		<link href="{% static 'img/ico/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
         <link rel='stylesheet' href='{% static 'css/bootstrap-multiselect.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/font-awesome.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/all.min.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/animations.css' %}' type='text/css' media='all'/>
 		<link rel='stylesheet' href='{% static 'css/pnotify.custom.min.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/breadcrumbs.css' %}' type='text/css' media='all'/>
+        <link rel='stylesheet' href='{% static 'css/imageuploadify.min.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/waitMe.min.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/wrapper.css' %}' type='text/css' media='all'/>
         <link rel='stylesheet' href='{% static 'css/cart.css' %}' type='text/css' media='all'/>
@@ -27,8 +30,8 @@
 		  	<div class="modal-content">
 				<div class="modal-header">
 					<ul class="login-tabs">
-						<li id="tab-inicio" class="active"><i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i> <label class="destacado_lbl">Inicio sesión</label> </li>
-						<li id="tab-registro" class=""><i class="fa fa-pencil fa-lg" aria-hidden="true"></i> <label class="destacado_lbl">Regístrate</label></li>
+						<li id="tab-inicio" class="active"><label class="destacado_lbl2">Inicio sesión</label> </li>
+						<li id="tab-registro" class=""><label class="destacado_lbl2">Regístrate</label></li>
 					</ul>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-close"></i></button>
 				</div>
@@ -113,25 +116,28 @@
                                                                         <label class="destacado_lbl2">Planes particular</label>
                                                                         <hr>
                                                                     </div>
-                                                                    <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                        BASE GRATIS
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <div><i class="fa fa-check" aria-hidden="true"></i> Hasta 5 anuncios al mes.</div>
-                                                                            <div><i class="fa fa-check" aria-hidden="true"></i> Primeros lugares en busqueda por 5 días.</div>
-                                                                            <div><i class="fa fa-check" aria-hidden="true"></i> 30 días en publicación.</div>
+                                                                    <div class="card-flat">
+                                                                        <div class="col-md-12 destacado_lbl2 dark_blue_label">
+                                                                            Base gratis
                                                                         </div>
-                                                                        <div class="col-md-12">
-                                                                            <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan base
-                                                                                <input type="radio" id="rdOpcionPlanPersona" name="rdOpcionPlanPersona" value="1" checked="checked"/>
-                                                                                <div class="control__indicator"></div>
-                                                                            </label>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Hasta 5 anuncios al mes.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> Primeros lugares en busqueda por 5 días.</div>
+                                                                                <div><i class="fa fa-check" aria-hidden="true"></i> 30 días en publicación.</div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <label class="pull-right control control--radio" style="font-weight:600;">Seleccionar plan base
+                                                                                    <input type="radio" id="rdOpcionPlanPersona" name="rdOpcionPlanPersona" value="1" checked="checked"/>
+                                                                                    <div class="control__indicator"></div>
+                                                                                </label>
+                                                                            </div>
+
                                                                         </div>
                                                                     </div>
-                                                                    <div>
-                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                            PLATA $11.900 IVA INCLUIDO
+                                                                    <div class="card-flat">
+                                                                        <div class="col-md-12 destacado_lbl2 dark_blue_label">
+                                                                            Plata $11.900 Iva incluido
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
@@ -149,9 +155,9 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div>
-                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                            ORO 25.000 IVA INCLUIDO
+                                                                    <div class="card-flat">
+                                                                        <div class="col-md-12 destacado_lbl2 dark_blue_label ">
+                                                                            Oro 25.000 IVA incluido
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
@@ -173,12 +179,12 @@
                                                                 </div>
                                                                 <div id="dv_corredor_plan">
                                                                     <div class="col-md-12">
-                                                                        <label class="destacado_lbl">Planes corredor</label>
+                                                                        <label class="destacado_lbl2">Planes corredor</label>
                                                                         <hr>
                                                                     </div>
-                                                                    <div>
-                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                            BASE GRATIS
+                                                                    <div class="card-flat">
+                                                                        <div class="col-md-12 destacado_lbl2 dark_blue_label">
+                                                                            Base gratis
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
@@ -195,9 +201,9 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div>
-                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                            PLATA $25.000 IVA INCLUIDO
+                                                                    <div class="card-flat">
+                                                                        <div class="col-md-12 destacado_lbl2 dark_blue_label">
+                                                                            Plata $25.000 IVA incluido
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
@@ -216,9 +222,9 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div>
-                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                            ORO 32.000 IVA INCLUIDO
+                                                                    <div class="card-flat">
+                                                                        <div class="col-md-12 destacado_lbl2 dark_blue_label ">
+                                                                            Oro 32.000 IVA incluido
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
@@ -237,9 +243,9 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div>
-                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label ">
-                                                                            PLATINUM 48.000 IVA INCLUIDO
+                                                                    <div class="card-flat">
+                                                                        <div class="col-md-12 destacado_lbl2 dark_blue_label ">
+                                                                            Platinum 48.000 IVA Incluido
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
@@ -261,12 +267,12 @@
                                                                 </div>
                                                                 <div id="dv_inmobiliaria_plan">
                                                                     <div class="col-md-12">
-                                                                        <label class="destacado_lbl">PLANES INMOBILIARIA </label>
+                                                                        <label class="destacado_lbl2">Planes inmobiliaria </label>
                                                                         <hr>
                                                                     </div>
-                                                                    <div>
-                                                                        <div class="col-md-12 destacado_lbl2 light_blue_label">
-                                                                            BASE GRATIS
+                                                                    <div class="card-flat">
+                                                                        <div class="col-md-12 destacado_lbl2 dark_blue_label">
+                                                                            Base gratis
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-md-12">
@@ -313,7 +319,7 @@
 
                                                                 </div>
                                                                 <div class="col-md-12">
-                                                                    <label class="destacado_lbl">Plan seleccionado</label>
+                                                                    <label class="destacado_lbl2">Plan seleccionado</label>
                                                                     <hr>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -374,7 +380,7 @@
                                                                 </div>
                                                                 <div id="dv_corredor">
                                                                     <div class="col-md-12">
-                                                                        <label class="destacado_lbl"><span id="titl_corredor"></span></label>
+                                                                        <label class="destacado_lbl2"><span id="titl_corredor"></span></label>
                                                                         <hr>
                                                                     </div>
                                                                     <div class="col-md-6">
@@ -400,7 +406,7 @@
                                                                 </div>
                                                                 <div id="dv_inmobiliaria">
                                                                     <div class="col-md-12">
-                                                                        <label class="destacado_lbl"><span id="titl_inmobiliaria"></span></label>
+                                                                        <label class="destacado_lbl2"><span id="titl_inmobiliaria"></span></label>
                                                                         <hr>
                                                                     </div>
                                                                     <div class="col-md-6">
@@ -483,29 +489,43 @@
 						</a>
 					</div>
 					<nav class="navi main-nav">
-					<ul id="main-nav" class="">
-						<li id="menu-item-955" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="/planes">Planes</a>
-						</li>
-						<li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
-							<ul class="sub-menu">
-                                <div class="userOff">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a id="inicioInmobiliaria" href="#">Iniciar sesión</a></li>
-                                </div>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a></li>
-						    </ul>
-						</li>
-						<li id="menu-item-314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-314"><a href="#">Corredoras</a>
-							<ul class="sub-menu">
-                                <div class="userOff">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a id="inicioCorredora" href="#">Iniciar sesión</a></li>
-                                </div>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="#">Corredoras Destacadas</a></li>
-						    </ul>
-						</li>
-					</ul>
+                        <ul id="main-nav" class="">
+                            <li  id="menu-item-955" class="userOff menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children menu-item-955"><a href="/planes">Planes</a>
+                            </li>
+                            <li id="menu-item-352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-352"><a href="#">Inmobiliarias</a>
+                                <ul class="sub-menu">
+                                    <div class="userOff">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a id="inicioInmobiliaria" href="#">Iniciar sesión</a></li>
+                                    </div>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1340"><a href="#">Inmobiliarias Destacadas</a></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1342"><a href="#">Proyectos Destacados</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-314" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-314"><a href="#">Corredoras</a>
+                                <ul class="sub-menu">
+                                    <div class="userOff">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a id="inicioCorredora" href="#">Iniciar sesión</a></li>
+                                    </div>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-346"><a href="#">Corredoras Destacadas</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="menu-item active"><a class="userOn" href="/propiedades/publicar/"><i class="fa fa-home" aria-hidden="true"></i> Publicar</a>
+                            </li>
+
+                        </ul>
 					</nav>
+                   <!--
+                    <nav class=" main-nav header-right">
+                       <ul style="margin-top: 30px;float: right;">
+                           <li style="list-style:none;">
+                               <a class="btn" style="color:#EB5300;border-color:#EB5300;background-color:white;font-size:medium;"><i class="fa fa-pencil" aria-hidden="true"></i>Publica gratis</a>
+                           </li>
+                       </ul>
+                    </nav>-->
 				</div>
+
+
                 <div class="header-right">
                   	<div class="user userOff">
 						<a href="#" id="userInicio"><i class="fa fa-user hidden-md hidden-lg"></i><span class="hidden-sm hidden-xs">Inicia sesión</span></a>
@@ -515,27 +535,24 @@
 				</div>
                 <nav class="cd-main-nav-wrapper userOn">
                     <ul class="cd-main-nav">
-                        <li><a href="#0" class="cd-subnav-trigger"><i class="fa fa-user" aria-hidden="true"></i> <span class="usernameLogin"></span></a>
+                        <li><a href="#0" class="cd-subnav-trigger" data-toggle="popover" data-placement="left"><i class="fa fa-user" aria-hidden="true"></i> <span class="usernameLogin"></span></a>
                             <ul>
                                 <li class="go-back"><a href="#0">Menu</a></li>
-
-
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">General <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
-                                        <div><a href="#">Panel general </a></div>
+                                        <div><a href="/datos/panel">Panel de resumen </a></div>
                                         <div><a href="#">Mis anuncios </a></div>
                                         <div><a href="#">Contactos </a></div>
                                         <div><a href="#">Mis mensajes </a></div>
-                                        <div><a href="#">Favoritos </a></div>
                                     </div>
                                 </li>
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mi configuración <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
-                                        <div><a href="/usuarios/generales/editar"> Datos generales</a></div>
+                                        <div><a href="/usuarios/datos/editar"> Datos generales</a></div>
                                         <div><a href="/usuarios/cuentas/editar">Cuenta de usuario</a></div>
-                                        <div><a href="/usuarios/planes/editar"> Planes y productos</a></div>
+                                        <div><a href="/usuarios/planes"> Planes y productos</a></div>
                                         <div><a href="/usuarios/comerciales/editar"> Datos comercial</a></div>
                                         <div><a href="#"> Darme de baja</a></div>
                                         <!--<div class="divider"></div>
@@ -558,8 +575,6 @@
                 <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
 			</div>
 		</header>
-
-
 		<div class="header-mobile houzez-header-mobile " data-sticky="0">
 			<div class="container">
 				<!--start mobile nav-->
@@ -618,7 +633,7 @@
 										<option value="3">Busco arriendo por temporada</option>
 									</select>
 									<select id = "type" name="type" class="selectpicker" data-live-search="false" data-live-search-style="begins">
-                                         <option value="-1" selected>Tipo propiedad</option>
+                                        <option value="-1" selected>Tipo propiedad</option>
 										<option value="1" >Departamento</option>
 										<option value="2">Casa</option>
 										<option value="3">Oficina</option>
@@ -644,6 +659,7 @@
 									<button id="btn_publicacion" style="display:none;" class="radius-btn-md btn-secundary">Publica gratis</button>
                 				</div>
 							</div>
+                            <!--
 							<div class="advance-fields">
 								<div class="row">
 									<div class="col-sm-2 col-xs-6">
@@ -746,6 +762,7 @@
 									</div>
 								</div>
 							</div>
+						    -->
 						</form>
 					</div>
 				</div>
@@ -1026,18 +1043,22 @@
 		<script type='text/javascript' src='http://houzez01.favethemes.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'></script>
 		<script type='text/javascript' src='{% static 'js/property-carousels-v2.min.js' %}'></script>
 		<script type='text/javascript' src='{% static 'js/pnotify.custom.min.js' %}'></script>
+		<script type='text/javascript' src='{% static 'js/imageuploadify.min.js' %}'></script>
+        <script type='text/javascript' src='https://colorlib.com/polygon/vendors/Chart.js/dist/Chart.min.js'></script>
 		<script type='text/javascript' src='{% static 'js/search-card.js' %}'></script>
-		<script src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
+	    <script type='text/javascript' src='{% static 'js/jquery.twbsPagination.min.js' %}'></script>
         <script type='text/javascript' src='{% static 'js/waitMe.min.js' %}'></script>
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
         <script type='text/javascript' src='{% static 'js/wrapper.js' %}'></script>
         <script type='text/javascript' src='{% static 'js/dynamicListener.js' %}'></script>
         <script type='text/javascript' src='{% static 'js/cart.js' %}'></script>
-        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>
+        <!--<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e444e40ec0","applicationID":"66134438","transactionName":"MQQAYxBUV0pXAUxQWghOI1QWXFZXGRZdVEUKABZST11WVFMSWV5Q","queueTime":0,"applicationTime":2009,"atts":"HUMDFVhOREQ=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 		<script type='text/javascript'>
 			$(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
 		</script>
+        <!--<script type='text/javascript' src='{% static 'js/panel.js' %}'></script>-->
 		<script type='text/javascript'>
 			/* <![CDATA[ */
 			var prop_carousel_v2_D1l7r = {"slide_auto":"false","auto_speed":"3000","slide_dots":"true","slide_infinite":"true","slides_to_scroll":"1"};
@@ -1053,6 +1074,9 @@
 			    init();
 				verifFilterAdv();
 				loadKeyword();
+				if (localStorage.rem !== undefined && localStorage.rem !== null ){
+				    $('.cd-subnav-trigger').attr('data-content', 'Más opciones Presionando aquí');
+				}
 				$('#chkPrecioFilter').click(function(){
 				    var value = $(this).is(':checked') ? 1 : 0;
 				    if (value == 0){
@@ -1093,21 +1117,28 @@
 					$.post('/login/', {'data': form.serializeArray(), 'csrfmiddlewaretoken': '{{ csrf_token }}'}, function(data) {
 					    if (data.token == '' && data.msg.trim()!=''){
                             error_msg('Inicio sesión',data.msg,2500);
+                            localStorage.removeItem('rem');
                             localStorage.removeItem('token');
                             localStorage.removeItem('username');
                             $("#username").val("");
                             $("#password").val("");
                             $("#username").focus();
                         }else{
+                            localStorage.setItem('rem',1);
                             localStorage.setItem('token', data.token);
                             localStorage.setItem('username',data.username);
                             $(".userOff").hide();
                             $(".userOn").show();
                             $('#pop-login').modal('hide');
                             $('.usernameLogin').text(data.username);
+                            window.location.href = "/datos/panel";
                         }
                         $('.omb_loginForm').waitMe('hide');
                     });
+				});
+				$('.cd-subnav-trigger').click(function(){
+				    localStorage.removeItem('rem');
+				    $('.cd-subnav-trigger').popover('destroy')
 				});
 				$("#rdOpcionTipo1,#rdOpcionTipo2,#rdOpcionTipo3").click(function(){
 					$("#usernameReg").focus();
@@ -1443,10 +1474,12 @@
                     ok_msg("Mensaje","Filtro aplicado correctamente",1500);
                 }else{
                     ctl.text( " Precio");
+                    /*
                     if (icon == 1)
                         ctl.prepend("<i class='fa fa-filter' aria-hidden='true'></i>");
-                    //$('.close').click();
+                    */
                 }
+                $('.close').click();
             }
             function set_max_size(min,max,ctl,icon=0){
                 if(min.val().trim()!="" && max.val().trim()!="" && min.val().trim()!="0"){
@@ -1464,9 +1497,12 @@
                     ok_msg("Mensaje","Filtro aplicado correctamente",1500);
                 }else{
                     ctl.text( " Tamaño");
+                    /*
                     if (icon == 1)
                         ctl.prepend("<i class='fa fa-filter' aria-hidden='true'></i>");
+                    */
                 }
+                $('.close').click();
             }
             function prop_price_validate(min,max){
                 var resp = false;

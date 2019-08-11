@@ -1,133 +1,133 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 {% block title %}Arriendos y ventas de propiedades{% endblock %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div id="crumbs">
-                <ul>
-                    <li><a href="/"> Inicio</a></li>
-                    <li ><a class = "current" href="#">Datos generales</a></li>
-                </ul>
+<div class="margin-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div id="crumbs">
+                    <ul>
+                        <li><a href="/"> Inicio</a></li>
+                        <li ><a class = "current" href="#">Datos generales</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="col-md-9">
-            <button id="btnDatosComerciales" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Datos comercial</button>
-            <button id="btnPlanes" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-list-ol" aria-hidden="true"></i> Planes y productos</button>
-            <button id="btnCuenta" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-user" aria-hidden="true"></i> Cuenta de usuario</button>
-            <button id="btnDatosGenerales" type="button" class="margin-top-form margin-left-form top-button pull-right"><i class="fa fa-pencil" aria-hidden="true"></i> Datos generales</button>
+            <div class="col-md-9">
+                <button id="btnDatosComerciales" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Datos comercial</button>
+                <button id="btnPlanes" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-list-ol" aria-hidden="true"></i> Planes y productos</button>
+                <button id="btnCuenta" type="button" class="margin-top-form top-button pull-right"><i class="fa fa-user" aria-hidden="true"></i> Cuenta de usuario</button>
+                <button id="btnDatosGenerales" type="button" class="margin-top-form margin-left-form top-button pull-right"><i class="fa fa-pencil" aria-hidden="true"></i> Datos generales</button>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row margin-button-form-2">
-         <div class="col-md-3">
-           <div>
-                <div class="card-flat card-block ">
-                   <div class="margin-left-form">
-                   <div>
-                        <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
-                        <label class="contenido"><span class="usernameLogin"></span></label>
+    <div class="container">
+        <div class="row margin-button-form-2">
+             <div class="col-md-3">
+               <div>
+                    <div class="card-flat card-block ">
+                       <div class="margin-left-form">
+                       <div>
+                            <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+                            <label class="contenido"><span class="usernameLogin"></span></label>
+                        </div>
+                        <div>
+                            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                            <label class="contenido"><span class="plan"></span></label>
+                        </div>
+                       <!--
+                        <div>
+                            <span class="label label-success"><span class="plan"></span></span>
+                        </div>-->
+                       </div>
                     </div>
-                    <div>
-                        <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-                        <label class="contenido"><span class="plan"></span></label>
+                </div>
+                <div class="sticky border filtersContainer" id="filtersContainer">
+                    <div class="userOn filterContainer filtro p-4 bg-white">
+                        <div class="panel_filter">
+                            &nbsp;&nbsp;
+                            <label class="destacado_lbl margin-top-form-4">Opciones</label>
+                        </div>
                     </div>
-                   <!--
-                    <div>
-                        <span class="label label-success"><span class="plan"></span></span>
-                    </div>-->
-                   </div>
+                    <div class="userOn filterContainer filtro bg-white">
+                        <div class="list-group">
+                           <a href="/propiedades/publicar/" class="list-group-item list-group-item-action"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
+                            <a href="/propiedades/" class="list-group-item list-group-item-action"><i class="fa fa-binoculars pull-right" aria-hidden="true"></i> Propiedades</a>
+                            <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Otros servicios</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="sticky border filtersContainer" id="filtersContainer">
-                <div class="userOn filterContainer filtro p-4 bg-white">
-                    <div class="panel_filter">
-                        &nbsp;&nbsp;
-                        <label class="destacado_lbl margin-top-form-4">Datos generales</label>
-                    </div>
-                </div>
-                <div class="userOn filterContainer filtro bg-white">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">
-                            Publicar aviso
-                        </a>
-                        <a href="/propiedades/" class="list-group-item list-group-item-action">Buscar propiedad</a>
-                        <a href="#" class="list-group-item list-group-item-action">Servicios adicionales</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-9">
-               <div class="card-flat departure-card card-block ">
-                   <label class="titulo"><i class="fa fa-pencil" aria-hidden="true"></i> Mi configuración-datos generales</label>
-                   <br>
-                  <form id="formDataUser" class="omb_loginForm" method="post" role="form">
-                    <input type="hidden" id = "tokenHd" name="tokenHd">
-                    <input type="hidden" id = "hdEmail" name="hdEmail">
-                    <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
-                    <div class="form-row">
-                         <div class="form-group col-md-12">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label for="txtRut" class="titulo-campo-form">Rut</label>
-                                    <input class="form-control" name="txtRut" id="txtRut" placeholder=""  required>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                                <div class="col-md-9">
-                                    <label for="txtNombre" class=" titulo-campo-form">Nombre</label>
-                                    <input class="form-control" name="txtNombre" id="txtNombre" placeholder="">
+             <div class="col-md-9">
+                   <div class="card-flat departure-card card-block ">
+                       <label class="titulo"><i class="fa fa-pencil" aria-hidden="true"></i> Mi configuración-datos generales</label>
+                       <br>
+                      <form id="formDataUser" class="omb_loginForm" method="post" role="form" novalidate>
+                        <input type="hidden" id = "tokenHd" name="tokenHd">
+                        <input type="hidden" id = "hdEmail" name="hdEmail">
+                        <input type="hidden" id = "hdUbicacion" name="hdUbicacion">
+                        <div class="form-row">
+                             <div class="form-group col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="txtRut" class="titulo-campo-form">Rut</label>
+                                        <input class="form-control" name="txtRut" id="txtRut" placeholder="" >
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label for="txtNombre" class=" titulo-campo-form">Nombre</label>
+                                        <input class="form-control" name="txtNombre" id="txtNombre" placeholder="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="txtApellidoP" class="titulo-campo-form">Apellido Paterno</label>
-                            <input class="form-control" name="txtApellidoP" id="txtApellidoP" placeholder="">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="txtApellidoM" class="titulo-campo-form">Apellido Materno</label>
-                            <input class="form-control" name="txtApellidoM" id="txtApellidoM" placeholder="">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label for="txtDireccion" class="titulo-campo-form">Dirección</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
-                            <!--calle,N°,depto., población-->
-                            <input class="form-control" name="txtDireccion" id="txtDireccion" placeholder="">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="cmbUbicacion" class="titulo-campo-form">Ubicación</label>
-                            <select class="selectpicker" name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
-                                <option selected value="-1">Ubicación</option>
-                                {% for value,name in options.items %}
-                                    <option  value="{{value}}">{{name}}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="txtTelefono" class="titulo-campo-form">Teléfono</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
-                            <input class="form-control" name="txtTelefono" id="txtTelefono" placeholder="">
-                        </div>
-                       <div class="form-group col-md-4">
-                            <label for="txtEmail" class="titulo-campo-form">Email contacto</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
-                            <input class="form-control"  name="txtEmail" id="txtEmail" placeholder="">
-                            <label class="control control--checkbox">Usar Email cuenta de usuario
-                                <input type="checkbox" id="chkOpcion" name="chkOpcion" checked  >
-                                <div class="control__indicator"></div>
-                            </label>
-                       </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtApellidoP" class="titulo-campo-form">Apellido Paterno</label>
+                                <input class="form-control" name="txtApellidoP" id="txtApellidoP" placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="txtApellidoM" class="titulo-campo-form">Apellido Materno</label>
+                                <input class="form-control" name="txtApellidoM" id="txtApellidoM" placeholder="">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="txtDireccion" class="titulo-campo-form">Dirección</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                <!--calle,N°,depto., población-->
+                                <input class="form-control" name="txtDireccion" id="txtDireccion" placeholder="">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="cmbUbicacion" class="titulo-campo-form">Ubicación</label>
+                                <select class="selectpicker" name = "cmbUbicacion" id="cmbUbicacion" data-live-search="true"  >
+                                    <option selected value="-1">Ubicación</option>
+                                    {% for value,name in options.items %}
+                                        <option  value="{{value}}">{{name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="txtTelefono" class="titulo-campo-form">Teléfono</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                <input class="form-control" name="txtTelefono" id="txtTelefono" placeholder="">
+                            </div>
+                           <div class="form-group col-md-4">
+                                <label for="txtEmail" class="titulo-campo-form">Email contacto</label> <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                <input class="form-control"  name="txtEmail" id="txtEmail" placeholder="">
+                                <label class="control control--checkbox">Usar Email cuenta de usuario
+                                    <input type="checkbox" id="chkOpcion" name="chkOpcion" checked  >
+                                    <div class="control__indicator"></div>
+                                </label>
+                           </div>
 
-                       <div class="col-md-12">
-                           <hr/>
+                           <div class="col-md-12">
+                               <hr/>
+                           </div>
+                           <div class="form-group col-md-3">
+                               <!--<button type="submit" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>-->
+                               <button type="button" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
+                           </div>
+                           <div class="form-group margin-top-form col-md-3">
+                               (*) Datos obligatorios
+                           </div>
                        </div>
-                       <div class="form-group col-md-3">
-                           <button type="submit" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
-                       </div>
-                       <div class="form-group margin-top-form col-md-3">
-                           (*) Datos obligatorios
-                       </div>
+                       </form>
                    </div>
-                   </form>
-               </div>
-         </div>
+             </div>
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -135,37 +135,17 @@
 <script>
     $(document).ready(function(){
         initLocal();
+        validator();
         loadDataForm();
-        $("#btnCuenta").click(function(){
-            window.location = "/usuarios/cuentas/editar";
-        });
-        $("#btnPlanes").click(function(){
-            window.location = "/usuarios/planes/editar";
-        });
-        $("#btnDatosComerciales").click(function(){
-            window.location = "/usuarios/comerciales/editar";
-        });
-        $("#chkOpcion").click(function(){
-            if (this.checked) {
-                $('#txtEmail').val($("#hdEmail").val());
-                $('#txtEmail').prop('disabled', true);
-            } else {
-                $('#txtEmail').prop('disabled', false);
-                $("#txtEmail").focus();
-                $("#txtEmail").select();
-
-            }
-        });
-
-        $('#formDataUser').validator().on('submit', function (e) {
-            if (!e.isDefaultPrevented()){
+        $("#btnGuardar").click(function(){
+            if ($("#formDataUser").valid()){
                 run_waitMe($(".omb_loginForm"), 2, 'facebook');
-                var form = $(this).serialize();
+                var form = $("#formDataUser").serialize();
                 $.ajax
                 ({
                   type: "POST",
                   data: form,
-                  url: "/SetUser/",
+                  url: "/usuarios/datos/editar/",
                   async: true,
                   dataType: 'json',
                   beforeSend : function(req) {
@@ -182,12 +162,36 @@
                   }
                 });
             }
-            return false;
         });
+        $("#btnCuenta").click(function(){
+            window.location = "/usuarios/cuentas/editar";
+        });
+        $("#btnPlanes").click(function(){
+            window.location = "/usuarios/planes";
+        });
+        $("#btnDatosComerciales").click(function(){
+            window.location = "/usuarios/comerciales/editar";
+        });
+        $("#chkOpcion").click(function(){
+            if (this.checked) {
+                $('#txtEmail').val($("#hdEmail").val());
+                $('#txtEmail').prop('disabled', true);
+            } else {
+                $('#txtEmail').prop('disabled', false);
+                $("#txtEmail").focus();
+                $("#txtEmail").select();
 
+            }
+        });
     });
     function initLocal(){
-        $("#btnDatosGenerales").css("background","#DDDDDD");
+        $(".titulo").find("i").css("color","#007FAD");
+        $(".list-group a").each(function(index){
+            $(this).find("i").css("color","#007FAD");
+        })
+        $("#btnDatosGenerales").find("i").css("color","cornflowerblue");
+        $("#btnDatosGenerales").css("border-color","cornflowerblue");
+        $("#btnDatosGenerales").css("background","#dcdfe6");
     }
     function loadDataForm(){
         token = localStorage.token;
@@ -222,8 +226,29 @@
                 alert("error" );
               }
             });
-            $('#formDataUser').validator();
         }
+    }
+    function validator(){
+        $("#formDataUser").validate({
+            ignore: ":hidden:not(.selectpicker)",
+            rules: {
+                txtRut:{
+                    required: true
+                },
+                txtNombre: {
+                    required: true
+                }
+            }
+            ,
+            messages : {
+                txtRut:{
+                    required: "Ingrese Rut"
+                },
+                txtNombre: {
+                    required: "Ingrese Nombre"
+                }
+            }
+        });
     }
 </script>
 {% endblock %}
