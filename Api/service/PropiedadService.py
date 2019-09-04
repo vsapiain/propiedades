@@ -36,6 +36,7 @@ class PropiedadService():
                                                 ffechavigenciainicial_propiedad=finicial,
                                                 fvigenciafinal_propiedad=ffecha_vigencia_final,
                                                 nestadoregistro_propiedad=nestado_registro)
+
                 return propiedad_instance
         except IntegrityError:
             return None

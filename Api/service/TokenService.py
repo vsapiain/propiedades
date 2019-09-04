@@ -33,7 +33,7 @@ class TokenService:
         except (jwt.ExpiredSignatureError):
             token_details['username'] = ""
             token_details['id'] = ""
-            token_details['msg'] = "La sesión a caducado"
+            token_details['msg'] = "La sesión ha caducado"
             token_details['error'] = "1"
             token_details['token'] = ""
             return token_details

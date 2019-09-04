@@ -82,6 +82,17 @@
     font-size: 22px;
     border-bottom: 1px solid #E4E4E4;
 }
+.sub-titulo{
+    font-weight: bolder;
+    font-size: 19px;
+    padding-bottom: 19px;
+    position:relative;
+    top :3px;
+}
+.align-center-vert{
+    position:relative;
+    top:2px;
+}
 .titulo-sb {
     font-weight: bolder;
     padding: 10px;
@@ -558,3 +569,9 @@ input:checked + .slider:before {
     color: #34495e
 }
 /* fin planes*/
+
+.opcional{
+    font-size:14px;
+    color:#9b9b9b;
+    font-webkit:bold;
+}

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'PropiedadesApp',
     'Api',
     'corsheaders',
+    'storages',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -152,10 +153,20 @@ STATICFILES_DIRS = (
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
+AWS_ACCESS_KEY_ID = 'AKIAYBGDREPH2ZQKO2VL'
+AWS_SECRET_ACCESS_KEY = 'qR+hDts3/2hb6iIYX/b4KpOzcUIKIZYAVGlAwavua7H'
+AWS_STORAGE_BUCKET_NAME = 'sibtc-static'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 PAGE_PATH_IS_NOT_PUBLIC = [
+    'usuarios',
     'usuarios/generales/editar',
-    'usuarios/cuentas/editar',
+    'usuarios/cuentas/configuraciones',
     'usuarios/planes/editar',
     'usuarios/planes',
-    'datos/panel',
+    'publicaciones/datos',
 ]

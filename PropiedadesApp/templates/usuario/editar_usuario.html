@@ -24,6 +24,10 @@
         <div class="row margin-button-form-2">
              <div class="col-md-3">
                <div>
+                    <div>
+                        <button type="button" class="top-badge"> Publicados <span class="badge">7</span></button>
+                        <button type="button" class="top-badge"> Por Publicar <span class="badge">7</span></button>
+                    </div>
                     <div class="card-flat card-block ">
                        <div class="margin-left-form">
                        <div>
@@ -43,8 +47,7 @@
                 </div>
                 <div class="sticky border filtersContainer" id="filtersContainer">
                     <div class="userOn filterContainer filtro p-4 bg-white">
-                        <div class="panel_filter">
-                            &nbsp;&nbsp;
+                        <div class="panel_filter">&nbsp;&nbsp;
                             <label class="destacado_lbl margin-top-form-4">Opciones</label>
                         </div>
                     </div>
@@ -145,7 +148,7 @@
                 ({
                   type: "POST",
                   data: form,
-                  url: "/usuarios/datos/editar/",
+                  url: "/usuarios/configuraciones/",
                   async: true,
                   dataType: 'json',
                   beforeSend : function(req) {
@@ -164,7 +167,7 @@
             }
         });
         $("#btnCuenta").click(function(){
-            window.location = "/usuarios/cuentas/editar";
+            window.location = "/usuarios/cuentas/configuraciones";
         });
         $("#btnPlanes").click(function(){
             window.location = "/usuarios/planes";
