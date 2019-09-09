@@ -15,11 +15,11 @@ class PublicacionService():
              tipo_cambio,gastos_comunes,precio,nestado):
         tipo_peso  = 1
         tipo_uf = 2
-        if tipo_cambio == tipo_peso:
+        if int(tipo_cambio) == tipo_peso:
             precio_peso = precio
             precio_uf = -1
         else:
-            precio_uf = precio
+            precio_uf = float(precio)
             precio_peso = -1
         usuario_instance = CuentaAcceso.objects.get(nid_cuenta_acceso=ncuenta).nid_usuario
         propiedad_instance = Propiedad.objects.filter(nid_propiedad=npropiedad).get()
@@ -35,6 +35,6 @@ class PublicacionService():
                                             sobservacion_publicacion=sobservacion,nestadoregistro_publicacion=nestado,
                                             nprecioneto_publicacion=precio_peso,npreciouf_publicacion=precio_uf)
                 return publicacion_instance
-        except IntegrityError:
+        except IntegrityError as e:
             return None
 

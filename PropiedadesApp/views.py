@@ -6,11 +6,8 @@ from PropiedadesApp.service import ComunaService
 from PropiedadesApp.service import PlanContratoService
 from PropiedadesApp.service import PropiedadService
 from PropiedadesApp.service import TokenService
-from django.core import serializers
-
-import requests
-
 from django.conf import settings
+import requests
 
 def index(request):
     baseurl = request.get_host()
@@ -63,8 +60,8 @@ def detalle(request,propiedad_codigo=None):
     return HttpResponse(t.render(context))
 
 def publicar(request):
+    t = loader.get_template('propiedad/publicar.html')
     if request.method == 'GET':
-        t = loader.get_template('propiedad/publicar.html')
         baseurl = request.get_host()
         service_comuna = ComunaService()
         service_comuna.base = baseurl
@@ -79,14 +76,14 @@ def publicar(request):
         else:
             context = {'is_public': '1', 'activar_msg': '1', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
     elif request.method == 'POST':
-        t = loader.get_template('propiedad/publicar.html')
-        token = request.META['HTTP_AUTHORIZATION']
+        token = request.POST.get("tokenhd")
         service = PropiedadService()
         data = request.POST.dict()
         service.base = request.get_host()
         data.update({'token': token})
         service.add_property(data)
-        context = {'error': '0', 'msg': 'Datos guardados correctamente'}
+        id_publicacion = '1'
+        context = {'error': '0', 'msg': 'Datos guardados correctamente','path_info' : '/propiedades/publicaciones/' + id_publicacion}
     return HttpResponse(t.render(context))
 
 def login(request):
@@ -298,6 +295,12 @@ def panel(request):
     t = loader.get_template('panel/panel.html')
     context = {'activar_msg': '0', 'error': '0', 'msg': ''}
     return HttpResponse(t.render(context))
+
+def publicacion_resumen(request,id=None):
+    t = loader.get_template('propiedad/resumen_publicacion.html')
+    context = {'activar_msg': '0', 'error': '0', 'msg': ''}
+    return HttpResponse(t.render(context))
+
 
 def verificar_usuario(request):
     data = ''

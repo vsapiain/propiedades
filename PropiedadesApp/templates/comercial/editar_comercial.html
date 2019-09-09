@@ -24,6 +24,10 @@
         <div class="row margin-button-form-2">
              <div class="col-md-3">
                <div>
+                    <div>
+                        <button type="button" class="top-badge"> Publicados <span class="badge">7</span></button>
+                        <button type="button" class="top-badge"> Por Publicar <span class="badge">7</span></button>
+                    </div>
                     <div class="card-flat card-block ">
                        <div class="margin-left-form">
                        <div>
@@ -157,13 +161,13 @@
         initLocal();
         loadTicket();
          $("#btnDatosGenerales").click(function(){
-            window.location = "/usuarios/datos/editar";
+            window.location = "/usuarios/configuraciones/";
         });
         $("#btnPlanes").click(function(){
             window.location = "/usuarios/planes";
         });
         $("#btnCuenta").click(function(){
-            window.location = "/usuarios/cuentas/editar";
+            window.location = "/usuarios/cuentas/configuraciones";
         });
         $("#cmbTipo").change(function(){
             let factura = 2;

@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block title %}Arriendos y ventas de propiedades{% endblock %}
+{% block content %}
+<div class="margin-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="crumbs">
+                    <ul>
+                        <li><a href="/"> Inicio</a></li>
+                        <li ><a class = "current" href="#">Publicar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row margin-button-form-2">
+            <div class="col-md-3">
+               <div>
+                    <div>
+                        <button type="button" class="top-badge"> Publicados <span class="badge">7</span></button>
+                        <button type="button" class="top-badge"> Por Publicar <span class="badge">7</span></button>
+                    </div>
+                    <div class="card-flat card-block ">
+                       <div class="margin-left-form">
+                           <div>
+                                <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+                                <label class="contenido"><span class="usernameLogin"></span></label>
+                            </div>
+                            <div>
+                                <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                                <label class="contenido"><span class="plan"></span></label>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="sticky border filtersContainer" id="filtersContainer">
+                    <div class="userOn filterContainer filtro p-4 bg-white">
+                        <div class="panel_filter">&nbsp;&nbsp;
+                            <label class="destacado_lbl margin-top-form-4">Opciones</label>
+                        </div>
+                    </div>
+                    <div class="userOn filterContainer filtro bg-white">
+                        <div class="list-group">
+                            <a href="/propiedades/datos/" class="list-group-item list-group-item-action"><i class="fa fa-bar-chart pull-right" aria-hidden="true"></i> Panel de resumen</a>
+                            <a href="#" class="list-group-item list-group-item-action active"><i class="fa fa-pencil pull-right" aria-hidden="true"></i> Publicar aviso</a>
+                            <a href="/propiedades/" class="list-group-item list-group-item-action"><i class="fa fa-binoculars pull-right" aria-hidden="true"></i> Propiedades</a>
+                            <a href="#" class="list-group-item list-group-item-action"><i class="fa fa-cog pull-right" aria-hidden="true"></i> Otros servicios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card-flat departure-card card-block ">
+                     <label class="titulo"><i class="fa fa-home" aria-hidden="true"></i> Vista publicación #1222</label>
+                    <br>
+                    <div class="form-row">
+                         <div class="form-group col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="titulo-campo-form">(*)Tipo propiedad</label>
+                                    <label id="lblTipoPropiedad"></label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="titulo-campo-form">(*)Operación</label>
+                                    <label id="lblOperacion"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label class="titulo-campo-form">(*)Titulo</label>
+                            <label id="lblTitulo"></label>
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="txtDescripcion" class="titulo-campo-form">(*)Descripción</label>
+                            <textarea id="txtDescripcion" name="txtDescripcion" data-length-min="50" data-length-max="-1" rows="8" cols="45" class="col-md-12 form-control"></textarea>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="titulo-campo-form">Equipamiento</label>
+                            <div class="form-group field-expand" style="display: block;">
+                                <div class="col-mod-12">
+                                    <label class="col-md-5 control control--checkbox"><input name="Quincho" type="checkbox" value="quincho">Quincho
+                                         <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="col-md-5 control control--checkbox"><input name="Gimnasio" type="checkbox" value="gimnasio">Gimnasio
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                </div>
+                                <div class="col-mod-12">
+                                    <label class="col-md-5 control control--checkbox"><input name="Lavandería" type="checkbox" value="lavandería">Lavandería
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="col-md-5 control control--checkbox"><input name="Piscina" type="checkbox" value="piscina">Piscina
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                </div>
+                                 <div class="col-mod-12">
+                                    <label class="col-md-5 control control--checkbox"><input name="Bodega" type="checkbox" value="bodega">Bodega
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="col-md-5 control control--checkbox">
+                                        &nbsp;
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="form-group col-md-3">
+                                <label class="titulo-campo-form">Moneda</label>
+                                <label id="lblTipoCambio"></label>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="txtPrecio" class="titulo-campo-form">(*)Precio</label>
+                                <label id="lblPrecio"></label>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="titulo-campo-form">Gastos comunes</label>
+                                <label id="lblGastosComunes"></label>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="form-group col-md-3">
+                                <label class="titulo-campo-form">(*)Dormitorio</label>
+                                <label id="lblDormitorio"></label>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="titulo-campo-form">(*)Baño</label>
+                                <label id="lblBanno"></label>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="titulo-campo-form">Estacionamiento</label>
+                                <label id="lblEstacionamiento"></label>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="titulo-campo-form">Mts. construidos</label>
+                                <label id="lblconstruidos"></label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="row col-md-6 titulo-campo-form">(*)Dirección</label>
+                            <div class="col-md-6">
+                                  <label><input type="checkbox" value=""> No publicar dirección</label>
+                            </div>
+                            <label id="lblDireccion"></label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label  class="titulo-campo-form">(*)Ubicación</label>
+                            <label id="lblUbicacion"></label>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="container">
+                                <input id="files_prop" name="files_prop" type="file" accept="image/*" multiple>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                           <hr/>
+                        </div>
+                        <div class="form-group col-md-3">
+                           <button type="submit" id="btnGuardar" class="btn btn-large btn-primary btn-block">Guardar cambios</button>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content_script %}
+<script>
+     $(document).ready(function(){
+
+
+     });
+     function initLocal(){
+
+     }
+     function validator(){
+
+
+
+     }
+</script>
+{% endblock %}

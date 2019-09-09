@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'PropiedadesApp',
     'Api',
     'corsheaders',
+    'storages',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -153,9 +154,10 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
 PAGE_PATH_IS_NOT_PUBLIC = [
+    'usuarios',
     'usuarios/generales/editar',
-    'usuarios/cuentas/editar',
+    'usuarios/cuentas/configuraciones',
     'usuarios/planes/editar',
     'usuarios/planes',
-    'datos/panel',
+    'publicaciones/datos',
 ]

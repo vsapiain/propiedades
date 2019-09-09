@@ -541,7 +541,7 @@
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">General <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
-                                        <div><a href="/datos/panel">Panel de resumen </a></div>
+                                        <div><a href="/propiedades/datos/">Panel de resumen </a></div>
                                         <div><a href="#">Mis anuncios </a></div>
                                         <div><a href="#">Contactos </a></div>
                                         <div><a href="#">Mis mensajes </a></div>
@@ -550,8 +550,8 @@
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mi configuración <b class="caret"></b></a>
                                     <div id="MenuLogin" class="dropdown-menu">
-                                        <div><a href="/usuarios/datos/editar"> Datos generales</a></div>
-                                        <div><a href="/usuarios/cuentas/editar">Cuenta de usuario</a></div>
+                                        <div><a href="/usuarios/configuraciones/"> Datos generales</a></div>
+                                        <div><a href="/usuarios/cuentas/configuraciones">Cuenta de usuario</a></div>
                                         <div><a href="/usuarios/planes"> Planes y productos</a></div>
                                         <div><a href="/usuarios/comerciales/editar"> Datos comercial</a></div>
                                         <div><a href="#"> Darme de baja</a></div>
@@ -1131,7 +1131,7 @@
                             $(".userOn").show();
                             $('#pop-login').modal('hide');
                             $('.usernameLogin').text(data.username);
-                            window.location.href = "/datos/panel";
+                            window.location.href = "/propiedades/datos/";
                         }
                         $('.omb_loginForm').waitMe('hide');
                     });

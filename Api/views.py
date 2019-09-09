@@ -8,6 +8,7 @@ from Api.service import ProvinciaService
 from Api.service import  PlanService
 from Api.service import PropiedadService
 from Api.service import PublicacionService
+from Api.service import ArchivoService
 from Api.service import  TokenService
 
 @api_view (['POST'])
@@ -148,21 +149,35 @@ def property(request):
             dormitorio = request.POST.get('cmbDormitorio')
             banno = request.POST.get('cmbBanno')
             estacionamiento = request.POST.get('cmbEstacion amiento')
-            mts_construidos = request.POST.get('construidos')
+            mts_construidos = request.POST.get('construidos').replace(".","") if request.POST.get('construidos') is not None else -1
             tipo_cambio = request.POST.get('cmbTipoCambio')
-            precio = request.POST.get('txtPrecio')
-            gastos_comunes = request.POST.get('txtGastosComunes')
-            codigo = 1
-            propiedad_instance = propiedad_service.save(codigo,tipo_propiedad,direccion,
+            precio = request.POST.get('txtPrecio').replace(".","") if request.POST.get('txtPrecio') is not None else ''
+            gastos_comunes = request.POST.get('txtGastosComunes').replace(".","") if request.POST.get('txtGastosComunes') is not None else -1
+            codigo = -1
+            publicacion_instance = None
+            propiedad_instance = propiedad_service.save(-1,tipo_propiedad,direccion,
                          ubicacion,dormitorio,banno,estacionamiento,mts_construidos,area_total,-1,quincho,-1,gimnasio,lavanderia,-1,-1,-1,-1,
                          -1,piscina,-1,-1,-1,bodega,None,None,registro_activo)
             if propiedad_instance is not None:
+                codigo_propiedad = (hex(int(ubicacion)) + '-' + str(propiedad_instance.nid_propiedad) + tipo_propiedad + operacion).replace('0x', '').upper()
+                propiedad_instance.scodigo_propiedad = codigo_propiedad
+                propiedad_instance.save()
                 publicacion_service = PublicacionService()
-                publicacion_service.save(propiedad_instance.nid_propiedad,token_data['plan_id'],token_data['id'],
+                publicacion_instance = publicacion_service.save(propiedad_instance.nid_propiedad,token_data['plan_id'],token_data['id'],
                                          operacion,titulo,descripcion,None,None,'',tipo_cambio,gastos_comunes,precio,registro_activo)
-        return Response(status=status.HTTP_200_OK)
+            if propiedad_instance is not None and publicacion_instance is not None:
+                #subir archivos
+                pass
+        return Response(token_data, status=status.HTTP_200_OK)
     else:
         return Response(token_data, status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view (['GET'])
+@permission_classes([AllowAny, ])
+def subir_archivo(request):
+    service = ArchivoService()
+    resp = service.upload()
+    return Response(status=status.HTTP_200_OK)
 
 @api_view (['GET','POST'])
 @permission_classes([AllowAny, ])
