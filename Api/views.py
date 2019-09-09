@@ -8,6 +8,7 @@ from Api.service import ProvinciaService
 from Api.service import  PlanService
 from Api.service import PropiedadService
 from Api.service import PublicacionService
+from Api.service import ArchivoService
 from Api.service import  TokenService
 
 @api_view (['POST'])
@@ -170,6 +171,13 @@ def property(request):
         return Response(token_data, status=status.HTTP_200_OK)
     else:
         return Response(token_data, status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view (['GET'])
+@permission_classes([AllowAny, ])
+def subir_archivo(request):
+    service = ArchivoService()
+    resp = service.upload()
+    return Response(status=status.HTTP_200_OK)
 
 @api_view (['GET','POST'])
 @permission_classes([AllowAny, ])

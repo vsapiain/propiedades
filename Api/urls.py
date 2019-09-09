@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^cuentas/(?P<id>\w+)', views.account, name='account'),
     url(r'^planes/$', views.get_plans, name='usuarios_planes'),
     url(r'^propiedades/$', views.property, name='property'),
+    url(r'^upload/$', views.subir_archivo, name='upload'),
 ]

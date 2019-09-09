@@ -6,11 +6,8 @@ from PropiedadesApp.service import ComunaService
 from PropiedadesApp.service import PlanContratoService
 from PropiedadesApp.service import PropiedadService
 from PropiedadesApp.service import TokenService
-from django.core import serializers
-
-import requests
-
 from django.conf import settings
+import requests
 
 def index(request):
     baseurl = request.get_host()
