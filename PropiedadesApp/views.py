@@ -76,7 +76,9 @@ def publicar(request):
         else:
             context = {'is_public': '1', 'activar_msg': '1', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
     elif request.method == 'POST':
-        token = request.POST.get("tokenhd")
+        t = loader.get_template('propiedad/resumen_publicacion.html')
+        #token = request.META['HTTP_AUTHORIZATION']
+        token = request.POST.get("token")
         service = PropiedadService()
         data = request.POST.dict()
         service.base = request.get_host()

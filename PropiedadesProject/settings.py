@@ -69,9 +69,12 @@ REST_FRAMEWORK = {
     ),
 }
 
+'''
 CORS_ORIGIN_WHITELIST = (
     'localhost:8000',
 )
+'''
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'PropiedadesProject.urls'
 
@@ -161,3 +164,9 @@ PAGE_PATH_IS_NOT_PUBLIC = [
     'usuarios/planes',
     'publicaciones/datos',
 ]
+
+'''AWS'''
+AWS_ACCESS_KEY_ID = 'AKIAYBGDREPH4IEDDAGA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME  = 'citypro.properties'
+AWS_S3_REGION_NAME = 'us-east-2'

@@ -1,6 +1,6 @@
 
 .cd-logo {
-  display: inline-block;
+  /*display: inline-block;*/
   height: 100%;
   margin-left: 15px;
   /* remove jump on iOS devices - when we fire the navigation */

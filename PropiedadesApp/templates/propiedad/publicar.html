@@ -8,7 +8,7 @@
                 <div id="crumbs">
                     <ul>
                         <li><a href="/"> Inicio</a></li>
-                        <li ><a class = "current" href="#">Publicar</a></li>
+                        <li ><a class = "current" href="#">Publicación</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,9 +55,9 @@
                 <div class="card-flat departure-card card-block ">
                     <label class="titulo"><i class="fa fa-home fa-lg" aria-hidden="true"></i> <span class="align-center-vert">Publicar aviso</span></label>
                     <br>
-                    <!--<form id="formDataProp" class="omb_loginForm"  role="form" novalidate action="/propiedades/publicar/">-->
-                    <form id="formDataProp" class="omb_loginForm"  role="form" novalidate method="post" action="/propiedades/publicar/" enctype="multipart/form-data">
-                    <input type="hidden" id="tokenhd" name="tokenhd">
+                    <form id="formDataProp" class="omb_loginForm" action="/propiedades/publicar/">
+                    <input id="token" name="token" type="hidden" value="">
+                    <!--<form id="formDataProp" class="omb_loginForm"  role="form" novalidate method="post" action="/propiedades/publicar/" enctype="multipart/form-data">-->
                     <div class = "form-row">
                          <div class="form-group col-md-12">
                             <div class="row">
@@ -244,7 +244,7 @@
                         <div class="form-group col-md-12">
                             <label class="titulo-campmultipleo-form">Subir fotografia(máx. 8 fotografias)</label>
                             <div class="container">
-                                <input id="files-prop" name="files-prop" type="file" accept="image/*" multiple>
+                                <input id="files-prop" name="files-prop[]" type="file" accept="image/*" multiple="true">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -267,12 +267,10 @@
 {% block content_script %}
 <script>
      $(document).ready(function(){
-        var url_ = ('{{path_info}}');
-        if(url_!='')
-            window.location.href = url_;
         initLocal();
         validator();
-        $('input[name="files-prop"]').imageuploadify();
+        //$('input[name="files-prop"]').imageuploadify();
+        $('input[type="file"]').imageuploadify();
         $("#cmbTipoCambio").change(function(){
             if ($(this).val()==2)
                 $("#txtPrecio").attr("placeholder","valor en UF");
@@ -287,11 +285,14 @@
 		    $('.close').click();
 		});
 
-		$("#btnGuardar").click(function() {
-		    if ($("#formDataProp").valid()){
-		        $("#tokenhd").val(localStorage.token);
+    	$("#btnGuardar").click(function() {
+    	    if ($("#formDataProp").valid()){
+    	        localStorage.setItem('action','/propiedades/resumen/');
+		        $("#token").val(localStorage.token);
+		        //alert('entre a guardar');
 		        //localStorage.setItem('action','/propiedades/resumen/');
-		        //alert(1);
+		        //localStorage.setItem('action','/propiedades/publicar/');
+
 		        //$("#formDataProp").submit();
 		    }
 		});
@@ -320,6 +321,11 @@
      }, "Sólo es permitido dos decimales . formato $ 999.999,00");
 
      function initLocal(){
+        if (localStorage.action !== undefined && localStorage.action !== null ){
+            let url_ = localStorage.action
+            localStorage.removeItem('action');
+            window.location.href = url_;
+        }
         var activ_msg = '{{activar_msg}}';
         if (activ_msg == '1'){
             var msg = '{{msg}}';
