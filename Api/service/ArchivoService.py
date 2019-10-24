@@ -7,17 +7,12 @@ class ArchivoService:
                       aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,region_name=settings.AWS_S3_REGION_NAME )
         return client
 
+    '''
     def upload(self):
-
         nombre_archivo = "giphy.gif"
         ruta_archivo = "C:\%s" % nombre_archivo
-
-
-        '''
-        s3 = self.config()
-        s3.upload_file(ruta_archivo,'citypro.properties',ruta_archivo)
-        '''
-
+        #s3 = self.config()
+        #s3.upload_file(ruta_archivo,'citypro.properties',ruta_archivo)
         s3 = self.config()
         with open(ruta_archivo, 'rb') as archivo:
             s3.put_object(
@@ -28,7 +23,11 @@ class ArchivoService:
             )
 
         print('sali')
+    '''
 
+    def upload(self,request):
+        #file_objects = request.data['file']
+        pass
 
     def download(self):
         pass

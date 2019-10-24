@@ -4877,7 +4877,7 @@ figure .thumb-caption .cap-social {
     background: white;
     -webkit-box-shadow: 0 0 0 4px white, 0 6px 4px black;
     -moz-box-shadow: 0 0 0 4px white, 0 6px 4px black;
-    box-shadow: 0 0 0 4px white, 0 4px 10px black;
+    box-shadow: 0 0 0 6px white, 0 4px 10px black;
 }
 
 .header-section-4 .logo {
@@ -18383,3 +18383,7 @@ input.error, textarea.error {
     color: red;
 }
 /*Fin Manejo errores*/
+
+.margin-none{
+    padding:0px;
+}

@@ -155,19 +155,20 @@ def property(request):
             gastos_comunes = request.POST.get('txtGastosComunes').replace(".","") if request.POST.get('txtGastosComunes') is not None else -1
             codigo = -1
             publicacion_instance = None
-            propiedad_instance = propiedad_service.save(-1,tipo_propiedad,direccion,
+            resp = propiedad_service.save(-1,tipo_propiedad,direccion,
                          ubicacion,dormitorio,banno,estacionamiento,mts_construidos,area_total,-1,quincho,-1,gimnasio,lavanderia,-1,-1,-1,-1,
                          -1,piscina,-1,-1,-1,bodega,None,None,registro_activo)
-            if propiedad_instance is not None:
+            if resp['error']!=1:
+                propiedad_instance = resp['data']
                 codigo_propiedad = (hex(int(ubicacion)) + '-' + str(propiedad_instance.nid_propiedad) + tipo_propiedad + operacion).replace('0x', '').upper()
                 propiedad_instance.scodigo_propiedad = codigo_propiedad
                 propiedad_instance.save()
                 publicacion_service = PublicacionService()
                 publicacion_instance = publicacion_service.save(propiedad_instance.nid_propiedad,token_data['plan_id'],token_data['id'],
                                          operacion,titulo,descripcion,None,None,'',tipo_cambio,gastos_comunes,precio,registro_activo)
-            if propiedad_instance is not None and publicacion_instance is not None:
+            #if propiedad_instance is not None and publicacion_instance is not None:
                 #subir archivos
-                pass
+            #    pass
         return Response(token_data, status=status.HTTP_200_OK)
     else:
         return Response(token_data, status=status.HTTP_401_UNAUTHORIZED)

@@ -16,7 +16,7 @@
     </div>
     <div class="container">
         <div class="row margin-button-form-2">
-            <div class="col-md-3">
+            <div class="margin-none col-md-3">
                <div>
                     <div>
                         <button type="button" class="top-badge"> Publicados <span class="badge">7</span></button>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="margin-none col-md-9">
                 <div class="card-flat departure-card card-block ">
                     <label class="titulo"><i class="fa fa-home fa-lg" aria-hidden="true"></i> <span class="align-center-vert">Publicar aviso</span></label>
                     <br>
@@ -244,8 +244,9 @@
                         <div class="form-group col-md-12">
                             <label class="titulo-campmultipleo-form">Subir fotografia(máx. 8 fotografias)</label>
                             <div class="container">
-                                <input id="files-prop" name="files-prop[]" type="file" accept="image/*" multiple="true">
+                                <input id="filesprop" name="filesprop" type="file" accept="image/*" multiple="true"  >
                             </div>
+                            <div class="col-md-12 file-errors" style="color: #D80000;font-size: 13px;">Debe de subir al menos una fotografía</div>
                         </div>
                         <div class="col-md-12">
                            <hr/>
@@ -287,13 +288,9 @@
 
     	$("#btnGuardar").click(function() {
     	    if ($("#formDataProp").valid()){
+    	        run_waitMe($(".omb_loginForm"), 2, 'facebook');
     	        localStorage.setItem('action','/propiedades/resumen/');
 		        $("#token").val(localStorage.token);
-		        //alert('entre a guardar');
-		        //localStorage.setItem('action','/propiedades/resumen/');
-		        //localStorage.setItem('action','/propiedades/publicar/');
-
-		        //$("#formDataProp").submit();
 		    }
 		});
 
@@ -321,6 +318,7 @@
      }, "Sólo es permitido dos decimales . formato $ 999.999,00");
 
      function initLocal(){
+        $('.file-errors').hide();
         if (localStorage.action !== undefined && localStorage.action !== null ){
             let url_ = localStorage.action
             localStorage.removeItem('action');
@@ -368,6 +366,9 @@
                 },
                 txtConstruido:{
                     maxlength:10,
+                },
+                filesprop: {
+                    required: true,
                 }
             }
             ,
@@ -397,6 +398,9 @@
                 },
                 txtConstruido:{
                     maxlength:"Largo excede el máximo",
+                },
+                filesprop: {
+                    required: "Ingrese al menos una fotografía"
                 }
 
             }

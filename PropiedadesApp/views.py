@@ -5,6 +5,7 @@ from PropiedadesApp.service import UsuarioService
 from PropiedadesApp.service import ComunaService
 from PropiedadesApp.service import PlanContratoService
 from PropiedadesApp.service import PropiedadService
+from PropiedadesApp.service import ImagenService
 from PropiedadesApp.service import TokenService
 from django.conf import settings
 import requests
@@ -77,13 +78,15 @@ def publicar(request):
             context = {'is_public': '1', 'activar_msg': '1', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
     elif request.method == 'POST':
         t = loader.get_template('propiedad/resumen_publicacion.html')
-        #token = request.META['HTTP_AUTHORIZATION']
         token = request.POST.get("token")
         service = PropiedadService()
         data = request.POST.dict()
         service.base = request.get_host()
         data.update({'token': token})
-        service.add_property(data)
+        resp = service.add_property(data)
+        if (resp['error']!=1):
+            imagen_service = ImagenService()
+            imagen_service.upload(request.FILES.getlist('filesprop'))
         id_publicacion = '1'
         context = {'error': '0', 'msg': 'Datos guardados correctamente','path_info' : '/propiedades/publicaciones/' + id_publicacion}
     return HttpResponse(t.render(context))

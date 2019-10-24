@@ -6,6 +6,7 @@ from Api.models import Operacion
 from django.db import transaction
 from django.db import IntegrityError
 from datetime import datetime
+from rest_framework import status
 
 class PublicacionService():
     def get_all(self):
@@ -15,6 +16,11 @@ class PublicacionService():
              tipo_cambio,gastos_comunes,precio,nestado):
         tipo_peso  = 1
         tipo_uf = 2
+        msg = ''
+        error = 0
+        status_err = ''
+        data = ''
+        resp = {}
         if int(tipo_cambio) == tipo_peso:
             precio_peso = precio
             precio_uf = -1
@@ -34,7 +40,16 @@ class PublicacionService():
                                             ffechainiciovigencia_publicacion=finicial,ffechafinvigencia_publicacion=ffinal_vigencia,
                                             sobservacion_publicacion=sobservacion,nestadoregistro_publicacion=nestado,
                                             nprecioneto_publicacion=precio_peso,npreciouf_publicacion=precio_uf)
-                return publicacion_instance
+                data = publicacion_instance
+                status_err = status.HTTP_200_OK
         except IntegrityError as e:
-            return None
+            status_err = status.HTTP_500_INTERNAL_SERVER_ERROR
+            error = 1
+            msg = 'Error registro publicación'
+        finally:
+            resp["msg"] = msg
+            resp["error"] = error
+            resp["data"] = data
+            resp["status"] = status_err
+            return resp
 

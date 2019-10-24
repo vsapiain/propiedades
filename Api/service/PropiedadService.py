@@ -5,6 +5,7 @@ from Api.models import TipoPropiedad
 from django.db import transaction
 from django.db import IntegrityError
 from datetime import datetime
+from rest_framework import status
 
 class PropiedadService():
     def get_all(self):
@@ -17,6 +18,11 @@ class PropiedadService():
         finicial = datetime.now() if ffecha_vigencia_inicial is None else str(ffecha_vigencia_inicial)
         comuna_instance = Comuna.objects.get(nid_comuna=ncomuna)
         tipo_propiedad_instance = TipoPropiedad.objects.get(nid_tipo_propiedad=ntipo_propiedad)
+        msg = ''
+        error = 0
+        status_err = ''
+        data = ''
+        resp = {}
         try:
             with transaction.atomic():
                 direccion_instance = Direccion.objects.create(nid_comuna=comuna_instance,sdireccion_direccion = sdireccion,nestadoregistro_direccion=1)
@@ -37,6 +43,20 @@ class PropiedadService():
                                                 fvigenciafinal_propiedad=ffecha_vigencia_final,
                                                 nestadoregistro_propiedad=nestado_registro)
 
-                return propiedad_instance
+                data =  propiedad_instance
+                status_err = status.HTTP_200_OK
         except IntegrityError:
-            return None
+            status_err = status.HTTP_500_INTERNAL_SERVER_ERROR
+            error = 1
+            msg = 'Error registro propiedad'
+        except Exception as err:
+            msg = str(err)
+            status_err = status.HTTP_500_INTERNAL_SERVER_ERROR
+            error = 1
+        finally:
+            resp["msg"] = msg
+            resp["error"] = error
+            resp["data"] = data
+            resp["error"] = error
+            resp["status"] = status_err
+            return resp

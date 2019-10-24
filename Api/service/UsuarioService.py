@@ -4,12 +4,14 @@ from Api.models import CuentaAcceso
 from Api.models import Usuario
 from Api.models import Particular
 from Api.models import Direccion
-
 from Api.models import  PlanContrato
 from Api.models import Servicio
 from Api.models import ServicioPedido
-
+from Api.serializers import UsuarioSerializer
+from Api.serializers import ParticularSerializer
 from Api.service.TokenService import TokenService
+from rest_framework import status
+from django.forms.models import model_to_dict
 
 class UsuarioService:
     def is_authenticated_particular(self, email, clave):
@@ -129,6 +131,9 @@ class UsuarioService:
     def update_user(self,id,data):
         user_data = {}
         tipo_particular = 1
+        msg = ""
+        error = 0
+        status_err = ''
         try:
             obj_cuenta = CuentaAcceso.objects.filter(nid_cuenta_acceso=int(id))
             obj_usuario = obj_cuenta.get()
@@ -137,25 +142,30 @@ class UsuarioService:
                 obj_usuario.semailcontacto_usuario = data["email_contacto"]
                 obj_usuario.save()
                 obj_particular = Particular.objects.filter(nid_usuario__nid_usuario = obj_usuario.nid_usuario).get()
-                obj_particular.snmobre_partiular = data["nombre"]
+                obj_particular.snombre_particular = data["nombre"]
                 obj_particular.sapellidop_particular = data["apellidoP"]
                 obj_particular.sapellidom_particular = data["apellidoM"]
                 obj_particular.save()
                 obj_direccion = obj_usuario.nid_direccion
                 obj_direccion.sdireccion_direccion = data["direccion"]
                 obj_direccion.save()
+                status_err = status.HTTP_200_OK
             error = "0"
             msg = ""
         except CuentaAcceso.DoesNotExist:
             error = '1'
             msg = "Usuario inexistentes"
+            status_err = status.HTTP_404_NOT_FOUND
             user_data["data"] = ""
         except Exception as err:
-            msg = err
+            msg = str(err)
+            status_err = status.HTTP_500_INTERNAL_SERVER_ERROR
             error = '1'
         finally:
+            user_data["data"] = ''
             user_data["msg"] = msg
             user_data["error"] = error
+            user_data["status"] = status_err
             return user_data
 
     def update_account(self, id, data):

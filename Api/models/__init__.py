@@ -37,3 +37,4 @@ from Api.models.tipo_propiedad import TipoPropiedad
 from Api.models.tipo_servicio import TipoServicio
 from Api.models.tipo_usuario import TipoUsuario
 from Api.models.usuario import Usuario
+from Api.models.fotografia import Fotografia
