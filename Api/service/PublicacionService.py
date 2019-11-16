@@ -3,6 +3,7 @@ from Api.models import CuentaAcceso
 from Api.models import Propiedad
 from Api.models import PlanContrato
 from Api.models import Operacion
+from Api.serializers import PublicacionSerializer
 from django.db import transaction
 from django.db import IntegrityError
 from datetime import datetime
@@ -10,7 +11,29 @@ from rest_framework import status
 
 class PublicacionService():
     def get_all(self):
-        return Publicacion.objects.all()
+        resp = {}
+        msg = ""
+        error = 0
+        status_err = ''
+        data = ''
+        try:
+            estado_activo = 1
+            resp_data = Publicacion.objects.filter(nestadoregistro_publicacion=estado_activo).all()
+            data = PublicacionSerializer(resp_data,many=True).data
+            status_err = status.HTTP_200_OK
+        except IntegrityError as e:
+            status_err = status.HTTP_500_INTERNAL_SERVER_ERROR
+            error = 1
+            msg = 'Error registro publicación'
+        finally:
+            resp["msg"] = msg
+            resp["error"] = error
+            resp["data"] = data
+            resp["status"] = status_err
+            return resp
+
+
+
 
     def save(self,npropiedad,nplan,ncuenta,noperacion,stitulo,sdescripcion,finicio_vigencia,ffinal_vigencia,sobservacion,
              tipo_cambio,gastos_comunes,precio,nestado):
@@ -52,4 +75,5 @@ class PublicacionService():
             resp["data"] = data
             resp["status"] = status_err
             return resp
+
 

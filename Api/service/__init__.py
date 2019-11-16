@@ -6,3 +6,4 @@ from Api.service.TokenService import TokenService
 from Api.service.PropiedadService import PropiedadService
 from Api.service.PublicacionService import PublicacionService
 from Api.service.ArchivoService import ArchivoService
+from Api.service.FotografiaService import FotografiaService

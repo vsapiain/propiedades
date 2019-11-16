@@ -3,6 +3,7 @@ from django.db import models
 
 class Usuario(models.Model):
     nid_usuario = models.AutoField(db_column='NId_usuario', primary_key=True)  # Field name made lowercase.
+    ncodigo_usuario = models.IntegerField(db_column='NCodigo_usuario', blank=True, null=True)  # Field name made lowercase.
     nid_tipo_usuario = models.ForeignKey('TipoUsuario', models.DO_NOTHING, db_column='NId_tipo_usuario', blank=True, null=True)  # Field name made lowercase.
     nid_direccion = models.ForeignKey('Direccion', models.DO_NOTHING, db_column='NId_Direccion', blank=True, null=True)  # Field name made lowercase.
     nrut_usuario = models.IntegerField(db_column='NRut_usuario', blank=True, null=True)  # Field name made lowercase.

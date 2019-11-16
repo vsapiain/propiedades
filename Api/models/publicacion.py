@@ -3,6 +3,7 @@ from django.db import models
 
 class Publicacion(models.Model):
     nid_publicacion = models.AutoField(db_column='NId_publicacion', primary_key=True)  # Field name made lowercase.
+    scodigo_publicacion = models.CharField(db_column='SCodigo_publicacion', max_length=50, blank=True,null=True)  # Field name made lowercase.
     nid_propiedad = models.ForeignKey('Propiedad', models.DO_NOTHING, db_column='NId_propiedad', blank=True, null=True)  # Field name made lowercase.
     nid_plan_contrato = models.ForeignKey('PlanContrato', models.DO_NOTHING, db_column='NId_plan_contrato', blank=True, null=True)  # Field name made lowercase.
     nid_usuario = models.ForeignKey('Usuario', models.DO_NOTHING, db_column='NId_usuario', blank=True, null=True)  # Field name made lowercase.

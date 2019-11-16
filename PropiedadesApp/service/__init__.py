@@ -2,5 +2,7 @@ from PropiedadesApp.service.UsuarioService import UsuarioService
 from PropiedadesApp.service.ComunaService import ComunaService
 from PropiedadesApp.service.PlanContratoService import PlanContratoService
 from PropiedadesApp.service.PropiedadService import PropiedadService
-from PropiedadesApp.service.ImagenService import ImagenService
+from PropiedadesApp.service.FotografiaService import FotografiaService
+from PropiedadesApp.service.PublicacionService import PublicacionService
+from PropiedadesApp.service.ArchivoService import ArchivoService
 from PropiedadesApp.service.TokenService import TokenService

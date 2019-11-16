@@ -5,10 +5,16 @@ from PropiedadesApp.service import UsuarioService
 from PropiedadesApp.service import ComunaService
 from PropiedadesApp.service import PlanContratoService
 from PropiedadesApp.service import PropiedadService
-from PropiedadesApp.service import ImagenService
+from PropiedadesApp.service import FotografiaService
+from PropiedadesApp.service import PublicacionService
+from PropiedadesApp.service import ArchivoService
 from PropiedadesApp.service import TokenService
 from django.conf import settings
 import requests
+import uuid
+import json
+from django.http import QueryDict
+from django.utils.datastructures import MultiValueDict
 
 def index(request):
     baseurl = request.get_host()
@@ -62,18 +68,21 @@ def detalle(request,propiedad_codigo=None):
 
 def publicar(request):
     t = loader.get_template('propiedad/publicar.html')
+    baseurl = request.get_host()
     if request.method == 'GET':
-        baseurl = request.get_host()
         service_comuna = ComunaService()
+        service_publicacion = PublicacionService()
         service_comuna.base = baseurl
+        service_publicacion.base = baseurl
         resp = service_comuna.get_all()
         if resp['error']==0:
+            codigo_publicacion = service_publicacion.get_code()
             options = {}
             for comuna in resp['data']:
                 id = comuna['nid_comuna']
                 nombre = comuna['snombre_comuna']
                 options[id] = nombre
-            context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options}
+            context = {'is_public': '1', 'activar_msg': '0', 'error': '0', 'msg': '', 'options': options, 'codigo' : codigo_publicacion}
         else:
             context = {'is_public': '1', 'activar_msg': '1', 'error': resp['error'], 'msg': resp['msg'], 'options': ''}
     elif request.method == 'POST':
@@ -85,10 +94,25 @@ def publicar(request):
         data.update({'token': token})
         resp = service.add_property(data)
         if (resp['error']!=1):
-            imagen_service = ImagenService()
-            imagen_service.upload(request.FILES.getlist('filesprop'))
+            fotografia_service = FotografiaService()
+            service_token = TokenService()
+            data_token = service_token.decode_token(token)
+            if data_token["error"] != "1":
+                id = str(data_token["id"])
+                codigo = uuid.uuid1().hex
+                #path = 'cuenta_' +  id +'/publicaciones/publicacion_' + request.POST.get('txtCodigoPublicacion') + '/' + codigo + '/'
+                path = 'cuenta_' +  id +'/publicaciones/' + codigo + '/'
+                if fotografia_service.upload(request.FILES.getlist('filesprop'),path,codigo):
+                    fotografia_service.base = baseurl
+                    list_files=[]
+                    for item in request.FILES.getlist('filesprop'):
+                        dic_item = {'size_' : item._size , 'name':item._name ,'path':path,'codigo_archivo':codigo}
+                        list_files.append(dic_item)
+                    result = {'archivos' : json.dumps(list_files), 'token' : token,'publicacion':request.POST.get('txtCodigoPublicacion')}
+                    fotografia_service.save(result)
         id_publicacion = '1'
-        context = {'error': '0', 'msg': 'Datos guardados correctamente','path_info' : '/propiedades/publicaciones/' + id_publicacion}
+        #context = {'error': '0', 'msg': 'Datos guardados correctamente','path_info' : '/propiedades/publicaciones/' + id_publicacion}
+        context = {'error': '0'}
     return HttpResponse(t.render(context))
 
 def login(request):
@@ -337,3 +361,6 @@ def verificar_usuario(request):
                     "plan":data_service["plan"],"plan_id": data_service["plan_id"],"planLink":data_service["planLink"],
                     "msg": data_service["msg"],"publico" : publico}
     return JsonResponse(data)
+
+
+

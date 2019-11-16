@@ -97,6 +97,10 @@
                         </div>
                         <div class="row col-md-12">
                             <div class="form-group col-md-3">
+                                <label for="txtPrecio" class="titulo-campo-form">Código Interno</label>
+                                <input class="col-md-12 form-control" name="txtCodigoPublicacion" id="txtCodigoPublicacion" readonly value="{{codigo}}"  placeholder="">
+                            </div>
+                            <div class="form-group col-md-3">
                                 <label for="cmbTipoCambio" class="titulo-campo-form">Moneda</label>
                                 <select id = "cmbTipoCambio" name="cmbTipoCambio" class="selectpicker" data-live-search="false" data-live-search-style="begins">
                                     <option value="1">$</option>
@@ -270,7 +274,6 @@
      $(document).ready(function(){
         initLocal();
         validator();
-        //$('input[name="files-prop"]').imageuploadify();
         $('input[type="file"]').imageuploadify();
         $("#cmbTipoCambio").change(function(){
             if ($(this).val()==2)

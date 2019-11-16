@@ -8,8 +8,10 @@ from Api.service import ProvinciaService
 from Api.service import  PlanService
 from Api.service import PropiedadService
 from Api.service import PublicacionService
-from Api.service import ArchivoService
+#from Api.service import ArchivoService
+from Api.service import FotografiaService
 from Api.service import  TokenService
+import json
 
 @api_view (['POST'])
 @permission_classes([AllowAny, ])
@@ -175,10 +177,29 @@ def property(request):
 
 @api_view (['GET'])
 @permission_classes([AllowAny, ])
-def subir_archivo(request):
-    service = ArchivoService()
-    resp = service.upload()
-    return Response(status=status.HTTP_200_OK)
+def publications(request):
+    try:
+        service = PublicacionService()
+        resp = service.get_all()
+        return Response(resp, status=status.HTTP_200_OK)
+    except Exception as err:
+        return Response(resp, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['POST'])
+@permission_classes([AllowAny, ])
+def photography(request,publicacion_id):
+    try:
+        service = FotografiaService()
+        token = request.META['HTTP_AUTHORIZATION']
+        service_token = TokenService()
+        token_data = service_token.decode_token(token)
+        if token_data["error"] == "0":
+            if request.method == 'POST':
+                files  = json.loads(request.POST['archivos'])
+                for item_file in files:
+                    resp = service.save(publicacion_id,item_file['codigo_archivo'],item_file['name'],item_file['path'],item_file['size_'])
+    except Exception as err:
+        return Response(resp, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view (['GET','POST'])
 @permission_classes([AllowAny, ])

@@ -4,3 +4,4 @@ from Api.serializers.UsuarioSerializer import UsuarioSerializer
 from Api.serializers.ComunaSerializer import ComunaSerializer
 from Api.serializers.ProvinciaSerializer import ProvinciaSerializer
 from Api.serializers.ParticularSerializer import ParticularSerializer
+from Api.serializers.PublicacionSerializer import PublicacionSerializer
